@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        JsapiAPi.jsapiInit("http://localhost:8080", client_id: "teamrock_web",secrect_key: "Caqq24dp68VCU")
+        JsapiAPi.jsapiInit("http://localhost:8080/jsapi", client_id: "teamrock_web",secrect_key: "Caqq24dp68VCU")
         // Override point for customization after application launch.
         return true
     }

@@ -8,7 +8,9 @@
 
 import Foundation
 class JsapiPost
-{//
+{
+    
+    //
     /**
     postRequet
     @param functionURL : function URL Example http://localhost:8080/jsapi/oauth/token
@@ -16,7 +18,7 @@ class JsapiPost
     @param isJson should sent true in case of json request
     @param callback block called once you got the response
     */
-    class func postRequet(functionURL:String,postParams:String,isJson:Bool,callback:(NSDictionary,Bool)->Void)
+    class func postrequest(functionURL:String,postParams:String,isJson:Bool,callback:(NSDictionary,Bool)->Void)
     {
         println(postParams)
         let request = NSMutableURLRequest(URL: NSURL(string: functionURL)!)
@@ -27,6 +29,7 @@ class JsapiPost
         {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
         }else{
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         }

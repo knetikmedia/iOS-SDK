@@ -11,7 +11,13 @@
 		F47822F41AA7967F004464E1 /* JsapiApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A1AAD71AA6172C00D17F43 /* JsapiApi.swift */; };
 		F47822F51AA7967F004464E1 /* JSAPIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48006631AA656F600B27561 /* JSAPIConstant.swift */; };
 		F47822F81AA7967F004464E1 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47822ED1AA7863D004464E1 /* SwiftyJSON.swift */; };
+		F47861931AB1BD7400A10B02 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47861921AB1BD7400A10B02 /* Utilities.swift */; };
+		F47861941AB1BD7400A10B02 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47861921AB1BD7400A10B02 /* Utilities.swift */; };
+		F47861961AB1E62B00A10B02 /* JsapiRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47861951AB1E62B00A10B02 /* JsapiRest.swift */; };
+		F47861971AB1E62B00A10B02 /* JsapiRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47861951AB1E62B00A10B02 /* JsapiRest.swift */; };
 		F48006641AA656F600B27561 /* JSAPIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48006631AA656F600B27561 /* JSAPIConstant.swift */; };
+		F48B9BC41AB0EBDC0069DBFA /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B9BC31AB0EBDC0069DBFA /* Cart.swift */; };
+		F48B9BC51AB0EBDC0069DBFA /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B9BC31AB0EBDC0069DBFA /* Cart.swift */; };
 		F4A1AAC11AA6147500D17F43 /* JsapiApi.h in Headers */ = {isa = PBXBuildFile; fileRef = F4A1AAC01AA6147500D17F43 /* JsapiApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4A1AAC71AA6147600D17F43 /* JsapiApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A1AABB1AA6147500D17F43 /* JsapiApi.framework */; };
 		F4A1AACE1AA6147600D17F43 /* JsapiApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A1AACD1AA6147600D17F43 /* JsapiApiTests.swift */; };
@@ -32,7 +38,10 @@
 
 /* Begin PBXFileReference section */
 		F47822ED1AA7863D004464E1 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		F47861921AB1BD7400A10B02 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		F47861951AB1E62B00A10B02 /* JsapiRest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsapiRest.swift; sourceTree = "<group>"; };
 		F48006631AA656F600B27561 /* JSAPIConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSAPIConstant.swift; sourceTree = "<group>"; };
+		F48B9BC31AB0EBDC0069DBFA /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		F4A1AABB1AA6147500D17F43 /* JsapiApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JsapiApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A1AABF1AA6147500D17F43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4A1AAC01AA6147500D17F43 /* JsapiApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsapiApi.h; sourceTree = "<group>"; };
@@ -87,8 +96,11 @@
 				F4A1AABE1AA6147500D17F43 /* Supporting Files */,
 				F4A1AAD71AA6172C00D17F43 /* JsapiApi.swift */,
 				F48006631AA656F600B27561 /* JSAPIConstant.swift */,
+				F48B9BC31AB0EBDC0069DBFA /* Cart.swift */,
 				F4ABE57E1AA8F5710099836A /* JsapiPost.swift */,
+				F47861951AB1E62B00A10B02 /* JsapiRest.swift */,
 				F47822ED1AA7863D004464E1 /* SwiftyJSON.swift */,
+				F47861921AB1BD7400A10B02 /* Utilities.swift */,
 			);
 			path = JsapiApi;
 			sourceTree = "<group>";
@@ -225,8 +237,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F47861931AB1BD7400A10B02 /* Utilities.swift in Sources */,
 				F4A1AAD81AA6172C00D17F43 /* JsapiApi.swift in Sources */,
 				F48006641AA656F600B27561 /* JSAPIConstant.swift in Sources */,
+				F48B9BC41AB0EBDC0069DBFA /* Cart.swift in Sources */,
+				F47861961AB1E62B00A10B02 /* JsapiRest.swift in Sources */,
 				F47822EE1AA7863D004464E1 /* SwiftyJSON.swift in Sources */,
 				F4ABE57F1AA8F5710099836A /* JsapiPost.swift in Sources */,
 			);
@@ -237,10 +252,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F47822F41AA7967F004464E1 /* JsapiApi.swift in Sources */,
+				F48B9BC51AB0EBDC0069DBFA /* Cart.swift in Sources */,
+				F47861941AB1BD7400A10B02 /* Utilities.swift in Sources */,
 				F47822F51AA7967F004464E1 /* JSAPIConstant.swift in Sources */,
 				F4A1AACE1AA6147600D17F43 /* JsapiApiTests.swift in Sources */,
 				F47822F81AA7967F004464E1 /* SwiftyJSON.swift in Sources */,
 				F4ABE5801AA8F5710099836A /* JsapiPost.swift in Sources */,
+				F47861971AB1E62B00A10B02 /* JsapiRest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

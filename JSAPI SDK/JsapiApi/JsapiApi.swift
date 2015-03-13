@@ -84,7 +84,7 @@ public class JsapiAPi :NSObject
         var commonParamtersDictionry=Dictionary<String,String>()
         let methodurl:String=jsapiurl+JSAPIConstant.REGISTER
         println(methodurl)
-        JsapiPost.postRequet(methodurl,postParams: jsonRequestFromDictionary(registerationDetails),isJson:true)
+        JsapiPost.postrequest(methodurl,postParams: jsonRequestFromDictionary(registerationDetails),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 if(!issuccess)
@@ -107,7 +107,7 @@ public class JsapiAPi :NSObject
     {
         let methodurl:String=jsapiurl+JSAPIConstant.OAUTH_TOKEN
         println(methodurl)
-        JsapiPost.postRequet(methodurl,postParams: authenticateRequestFromDictionary(loginDetails),isJson:false)
+        JsapiPost.postrequest(methodurl,postParams: authenticateRequestFromDictionary(loginDetails),isJson:false)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 if(!issuccess)
@@ -131,8 +131,6 @@ public class JsapiAPi :NSObject
         var commonParamtersDictionry=Dictionary<String,String>()
         commonParamtersDictionry["client_id"]=JsapiAPi.sharedInstance.client_id
         commonParamtersDictionry["grant_type"]="password"
-        commonParamtersDictionry["username"]=JsapiAPi.sharedInstance.username
-        commonParamtersDictionry["password"]=JsapiAPi.sharedInstance.password
         if(!JsapiAPi.sharedInstance.secrect_key.isEmpty){
         commonParamtersDictionry["client_secret"]=JsapiAPi.sharedInstance.secrect_key
         }
@@ -166,10 +164,14 @@ public class JsapiAPi :NSObject
     }
 
 
-    /**
-    
-    */
-    
-    
-    
+    public func getJsapiUrl()->String
+    {
+    return jsapiurl;
+    }
+
+    public func getJsapiToken()->String
+    {
+        return "Bearer"+token;
+    }
+
 }
