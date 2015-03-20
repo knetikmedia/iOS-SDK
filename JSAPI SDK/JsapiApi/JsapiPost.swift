@@ -29,7 +29,12 @@ class JsapiPost
         {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
+            println(JsapiAPi.sharedInstance.getJsapiToken())
+            println(JSAPIConstant.TOKENBREAR)
+        if(JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR)
+        {
+           request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
+        }
         }else{
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         }
@@ -37,7 +42,7 @@ class JsapiPost
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
             if error != nil {
-                callback(NSDictionary(),false)
+                callback(NSDictionary(),true)
                 return
             }
             let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)

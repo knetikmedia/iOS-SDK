@@ -8,9 +8,13 @@
 
 import UIKit
 import JsapiApi
-
 class ViewController: UIViewController {
 
+    var cartNumber="ce56166b-cbed-4314-b5a0-8f7a7a2070a1"
+    var cartID="ce56166b-cbed-4314-b5a0-8f7a7a2070a1"
+    var skus=""
+    var username = "admin"
+    var password = "123123"
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,10 +33,8 @@ class ViewController: UIViewController {
    @IBAction func testDoLogin()
     {
         var userDetails=Dictionary<String,String>()
-        userDetails["username"]="admin"
-        userDetails["password"]="123123"
-        userDetails["email"]="youssef@knetik.com"
-        userDetails["password"]="123123"
+        userDetails["username"] = username
+        userDetails["password"] = password
         JsapiAPi.sharedInstance.doUserLogin(userDetails)
         {
         (result:NSDictionary,issuccess:Bool) in
@@ -49,30 +51,6 @@ class ViewController: UIViewController {
      
     }
     
-    
-    /*
-    Test Singleton Shared Instance Object
-    */
-   @IBAction func testUserRegisteration()
-    {
-        var userDetails=Dictionary<String,String>()
-         userDetails["username"]="youssef"
-        userDetails["password"]="123123"
-        userDetails["email"]="youssef@knetik.com"
-        userDetails["gender"]="male"
-        JsapiAPi.sharedInstance.doUserRegistration(userDetails)
-            {
-                (result:NSDictionary,issuccess:Bool) in
-                if(!issuccess)
-                {
-                      println("testUserRegisteration Failed")
-                }else
-                {
-                      println("testUserRegisteration PASS")
-                     // Valid Response
-                }
-        }
-    }
     
     
     /*
@@ -91,6 +69,8 @@ class ViewController: UIViewController {
                     println("Create Card Failed")
                 }else
                 {
+                    self.cartNumber=result.valueForKey("result") as String
+                    self.cartID=self.cartNumber;
                      println("Create Card Pass")
                     // Valid Response
                 }
@@ -132,7 +112,7 @@ class ViewController: UIViewController {
     {
         var params=Dictionary<String,String>()
         var cartObject=Cart()
-        cartObject.getCart(params,guidID: "8b9093b0-d3af-4ea2-a719-2f9a7f65269e")
+        cartObject.getCart(params,guidID: cartNumber)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 if(!issuccess)
@@ -143,6 +123,7 @@ class ViewController: UIViewController {
                     println("testgetCart PASS")
                 }
                 print(result)
+                
                 
         }
     }
@@ -155,9 +136,9 @@ class ViewController: UIViewController {
     @IBAction func testCartCheckout()
     {
         var params=Dictionary<String,String>()
-        params["cartguid"]="d371475f-5b0a-4d69-95c6-9cdf05d69fef"
+      //  params["cartguid"]=cartNumber
         var cartObject=Cart()
-        cartObject.cartCheckout(params,itemID:"5143")
+        cartObject.cartCheckout(params,itemID:cartNumber)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 if(!issuccess)
@@ -178,9 +159,9 @@ class ViewController: UIViewController {
     @IBAction func testCartDiscount()
     {
         var params=Dictionary<String,String>()
-        params["sku"]="KIA1421095278-5430"
+        params["sku"]="10OFF"
         var cartObject=Cart()
-        cartObject.cartDiscount(params,itemID:"5143")
+        cartObject.cartDiscount(params,itemID:cartNumber)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 if(!issuccess)
@@ -203,7 +184,7 @@ class ViewController: UIViewController {
     {
         var params=Dictionary<String,String>()
         var cartObject=Cart()
-        cartObject.cartCountries(params,itemID:"5143")
+        cartObject.cartCountries(params,itemID:cartNumber)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 if(!issuccess)
@@ -225,11 +206,11 @@ class ViewController: UIViewController {
     @IBAction func testCartChangeItems()
     {
         var params=Dictionary<String,String>()
-           params["catalog_id"]="53"
-           params["catalog_sku_id"]="53"
+           params["catalog_id"]="54"
+           params["catalog_sku_id"]="786"
            params["quantity"]="10"
                var cartObject=Cart()
-        cartObject.changeItem(params,itemID:"5145")
+        cartObject.changeItem(params,itemID:cartID)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 if(!issuccess)
@@ -254,11 +235,11 @@ class ViewController: UIViewController {
     @IBAction func testCartAddItems()
     {
         var params=Dictionary<String,String>()
-        params["catalog_id"]="53"
-        params["catalog_sku_id"]="53"
+        params["catalog_id"]="54"
+        params["catalog_sku_id"]="786"
         params["quantity"]="10"
         var cartObject=Cart()
-        cartObject.addCartItems(params,itemID:"5154")
+        cartObject.addCartItems(params,itemID:cartNumber)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 if(!issuccess)
@@ -283,7 +264,7 @@ class ViewController: UIViewController {
     {
         var params=Dictionary<String,String>()
         var cartObject=Cart()
-        cartObject.checkShippable(params,itemID:"5154")
+        cartObject.checkShippable(params,itemID:self.cartNumber)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 if(!issuccess)
@@ -310,16 +291,16 @@ class ViewController: UIViewController {
         params["last_name"]="10"
         params["shipping_address_line1"]="10"
         params["shipping_address_line2"]="10"
-        params["city"]="10"
-        params["postal_state_id"]="10"
-        params["zip"]="10"
-        params["email"]="10"
-        params["country_id"]="10"
+        params["city"]="26268"
+        params["postal_state_id"]="163"
+        params["zip"]="32766"
+        params["email"]="youssef@gmail.com"
+        params["country_id"]="225"
         params["phone_number"]="10"
         params["order_notes"]="10"
 
         var cartObject=Cart()
-        cartObject.modifyShippingAddress(params,itemID:"5154")
+        cartObject.modifyShippingAddress(params,itemID:cartID)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 if(!issuccess)
@@ -331,6 +312,204 @@ class ViewController: UIViewController {
                 }
                 print(result)
                 
+        }
+    }
+
+    
+// ----------------------------------REGISTER--------------------------------------------------------//
+ 
+    @IBAction func testUserRegisteration()
+    {
+        var userDetails=Dictionary<String,String>()
+        userDetails["username"]="youssef123"
+        userDetails["password"]="123123"
+        userDetails["email"]="yousse22f@knetik.com"
+        userDetails["gender"]="male"
+        userDetails["fullname"]="youssefm2aher"
+        var regObject = Registration()
+        regObject.doUserRegistration(userDetails)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testUserRegisteration Failed")
+                }else
+                {
+                    println("testUserRegisteration PASS")
+                    // Valid Response
+                }
+        }
+    }
+
+    
+    @IBAction func testForgotPassword()
+    {
+        var userDetails=Dictionary<String,String>()
+        userDetails["username"]="admin"
+        userDetails["email"]="admin@knetik.com"
+        userDetails["newpassword"]="601f1889667efaebb33b8c12572835da3f027f78"
+     //   userDetails["secrethash"]="9d97a5892b0bf1b1af208b53e6c9f35986a0b123"
+        userDetails["plaintext"]="true"
+        var regObject = Registration()
+
+        regObject.forgotPassword(userDetails)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testUserRegisteration Failed")
+                }else
+                {
+                    println("testUserRegisteration PASS")
+                    // Valid Response
+                }
+        }
+    }
+
+    @IBAction func testUpdateGuest()
+    {
+        var userDetails=Dictionary<String,String>()
+        var regObject = Registration()
+        regObject.guests(userDetails)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testUserRegisteration Failed")
+                }else
+                {
+                    println("testUserRegisteration PASS")
+                    // Valid Response
+                }
+                var result2=result.valueForKey("result") as NSDictionary
+                self.username=result2.valueForKey("username") as String
+                self.password=result2.valueForKey("password") as String
+                
+                var userDetails=Dictionary<String,String>()
+                userDetails["username"] = self.username
+                userDetails["password"] = self.password
+                JsapiAPi.sharedInstance.doUserLogin(userDetails)
+                    {
+                        (result:NSDictionary,issuccess:Bool) in
+                        if(!issuccess)
+                        {
+                            println("testDoLogin Failed")
+                        }else
+                        {
+                            println("testDoLogin PASS")
+                            
+                        }
+                        var userDetails=Dictionary<String,String>()
+                        userDetails["username"]="meyouwwwsse22f"
+                        userDetails["password"]="123123"
+                        userDetails["email"]="meyoussqqqqef@knetik.com"
+                        userDetails["gender"]="male"
+                        userDetails["fullname"]="yossuqqqqssefm2aher"
+                        var regObject = Registration()
+                        
+                        regObject.guestUpgrade(userDetails)
+                            {
+                                (result:NSDictionary,issuccess:Bool) in
+                                if(!issuccess)
+                                {
+                                    println("testUserRegisteration Failed")
+                                }else
+                                {
+                                    println("testUserRegisteration PASS")
+                                    // Valid Response
+                                }
+                        }
+
+                        
+                }
+
+        }
+
+    }
+
+    @IBAction func testGuestUser()
+    {
+        var userDetails=Dictionary<String,String>()
+        var regObject = Registration()
+        regObject.guests(userDetails)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testUserRegisteration Failed")
+                }else
+                {
+                    println("testUserRegisteration PASS")
+                    // Valid Response
+                }
+                var result2=result.valueForKey("result") as NSDictionary
+                self.username=result2.valueForKey("username") as String
+                self.password=result2.valueForKey("password") as String
+        }
+    }
+
+// ----------------------------------REGISTER--------------------------------------------------------//
+    
+// ----------------------------------USER--------------------------------------------------------//
+    @IBAction func testGetUserInfo()
+    {
+        var userDetails=Dictionary<String,String>()
+        var userObject = User()
+        userObject.getUserInfo(userDetails)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testUserRegisteration Failed")
+                }else
+                {
+                    println("testUserRegisteration PASS")
+                    // Valid Response
+                }
+                println(result)
+        }
+    }
+    
+    @IBAction func testUpdateUser()
+    {
+        var userDetails=Dictionary<String,String>()
+        userDetails["userId"]="7700"
+        userDetails["configValue"]="lala"
+        userDetails["configName"]="display_name"
+
+        var userObject = User()
+        userObject.updateUserInfo(userDetails)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testUserRegisteration Failed")
+                }else
+                {
+                    println("testUserRegisteration PASS")
+                    // Valid Response
+                }
+                println(result)
+        }
+    }
+
+    @IBAction func testSetPassword()
+    {
+        var userDetails=Dictionary<String,String>()
+        userDetails["password"]="123123"
+        var userObject = User()
+        userObject.setPassword(userDetails,userID:"7700")
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testUserRegisteration Failed")
+                }else
+                {
+                    println("testUserRegisteration PASS")
+                    // Valid Response
+                }
+                println(result)
         }
     }
 

@@ -171,7 +171,7 @@ public class JsapiAPi :NSObject
 
     public func getJsapiToken()->String
     {
-        return "Bearer"+token;
+        return JSAPIConstant.TOKENBREAR+token;
     }
 
 }

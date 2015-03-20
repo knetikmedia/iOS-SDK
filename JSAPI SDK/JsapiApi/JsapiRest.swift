@@ -28,7 +28,9 @@ class JsapiRest:NSObject
         {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.setValue("application/json", forHTTPHeaderField: "Accept")
+            if(JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR){
             request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
+            }
 
         }else{
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -42,6 +44,12 @@ class JsapiRest:NSObject
             }
             let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
             println("responseString = \(responseString)")
+            if(responseString=="")
+            {
+                println("Empty Response")
+                 callback(NSDictionary(),true)
+                return;
+            }
             var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
             
             if(jsonResult["error"] != nil && isJson)
@@ -79,12 +87,14 @@ class JsapiRest:NSObject
         let postString = postParams
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
+        if(JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR){
+            request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
+        }
         println(JsapiAPi.sharedInstance.getJsapiToken())
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
             if error != nil {
-                callback(NSDictionary(),false)
+                callback(NSDictionary(),true)
                 return
             }
             let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
@@ -124,8 +134,9 @@ class JsapiRest:NSObject
         {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.setValue("application/json", forHTTPHeaderField: "Accept")
-            request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
-
+            if(JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR){
+                request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
+            }
         }else{
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         }
@@ -138,6 +149,12 @@ class JsapiRest:NSObject
             }
             let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
             println("responseString = \(responseString)")
+            if(responseString=="")
+            {
+                callback(NSDictionary(),true)
+
+                return;
+            }
             var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
             
             if(jsonResult["error"] != nil && isJson)
