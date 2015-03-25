@@ -13,8 +13,9 @@ class ViewController: UIViewController {
     var cartNumber="ce56166b-cbed-4314-b5a0-8f7a7a2070a1"
     var cartID="ce56166b-cbed-4314-b5a0-8f7a7a2070a1"
     var skus=""
-    var username = "admin"
+    var username = "meyoussef"
     var password = "123123"
+    var comment_id="33"
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -512,6 +513,102 @@ class ViewController: UIViewController {
                 println(result)
         }
     }
+//////////////////COMMENTS//////////////////////////////////////////////////
+    
+    @IBAction func testItemCommentsList()
+    {
+        var params=Dictionary<String,String>()
+        params["id"]="4"
+        var comment = Comment()
+        comment.commentsList(params)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testItemCommentsList Failed")
+                }else
+                {
+                    println("testItemCommentsList PASS")
+                    // Valid Response
+                }
+                 var commentsObject=result.valueForKey("result") as? NSArray
+                if(commentsObject != nil){
+                var comments=result.valueForKey("result") as NSArray
+                if(comments.count>0){
+                var comment=comments.objectAtIndex(0) as NSDictionary
+                self.comment_id=String(comment.valueForKey("comment_id") as Int)
+                }
+                }
+                println(result)
+        }
+    }
 
+    @IBAction func testAddCommentToItem()
+    {
+        var params=Dictionary<String,String>()
+        params["item_id"]="4"
+        params["comment"]="hello"
+
+        var comment = Comment()
+        comment.addComment(params)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testAddCommentToItem Failed")
+                }else
+                {
+                    println("testAddCommentToItem PASS")
+                    // Valid Response
+                }
+                println(result)
+        }
+    }
+
+    
+    @IBAction func testDeleteCommentToItem()
+    {
+        var params=Dictionary<String,String>()
+        params["id"]=self.comment_id
+        
+        var comment = Comment()
+        comment.deleteComment(params)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testAddCommentToItem Failed")
+                }else
+                {
+                    println("testAddCommentToItem PASS")
+                    // Valid Response
+                }
+                println(result)
+        }
+    }
+    @IBAction func testRemoveCommentToItem()
+    {
+        var params=Dictionary<String,String>()
+        params["id"]=self.comment_id
+        
+        var comment = Comment()
+        comment.deleteComment(params)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testAddCommentToItem Failed")
+                }else
+                {
+                    println("testAddCommentToItem PASS")
+                    // Valid Response
+                }
+                println(result)
+        }
+    }
+
+    
+//////////////////COMMENTS//////////////////////////////////////////////////
+    
 }
 

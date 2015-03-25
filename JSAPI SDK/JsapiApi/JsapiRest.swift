@@ -19,6 +19,7 @@ class JsapiRest:NSObject
     */
     class func postrequest(functionURL:String,postParams:String,isJson:Bool,callback:(NSDictionary,Bool)->Void)
     {
+        println(functionURL)
         println(postParams)
         let request = NSMutableURLRequest(URL: NSURL(string: functionURL)!)
         request.HTTPMethod = "POST"

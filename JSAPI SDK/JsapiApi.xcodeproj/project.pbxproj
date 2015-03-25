@@ -17,6 +17,8 @@
 		F47861971AB1E62B00A10B02 /* JsapiRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47861951AB1E62B00A10B02 /* JsapiRest.swift */; };
 		F47BB5A51ABC8457009AD1F6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47BB5A41ABC8457009AD1F6 /* User.swift */; };
 		F47BB5A61ABC8457009AD1F6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47BB5A41ABC8457009AD1F6 /* User.swift */; };
+		F47BF4E91AC2096200F2FB17 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47BF4E81AC2096200F2FB17 /* Comment.swift */; };
+		F47BF4EA1AC2096200F2FB17 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47BF4E81AC2096200F2FB17 /* Comment.swift */; };
 		F48006641AA656F600B27561 /* JSAPIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48006631AA656F600B27561 /* JSAPIConstant.swift */; };
 		F48B9BC41AB0EBDC0069DBFA /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B9BC31AB0EBDC0069DBFA /* Cart.swift */; };
 		F48B9BC51AB0EBDC0069DBFA /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B9BC31AB0EBDC0069DBFA /* Cart.swift */; };
@@ -45,6 +47,7 @@
 		F47861921AB1BD7400A10B02 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		F47861951AB1E62B00A10B02 /* JsapiRest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsapiRest.swift; sourceTree = "<group>"; };
 		F47BB5A41ABC8457009AD1F6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F47BF4E81AC2096200F2FB17 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		F48006631AA656F600B27561 /* JSAPIConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSAPIConstant.swift; sourceTree = "<group>"; };
 		F48B9BC31AB0EBDC0069DBFA /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		F48BBD221ABB135B00EAFE09 /* Registration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
@@ -104,6 +107,7 @@
 				F48006631AA656F600B27561 /* JSAPIConstant.swift */,
 				F47BB5A41ABC8457009AD1F6 /* User.swift */,
 				F48B9BC31AB0EBDC0069DBFA /* Cart.swift */,
+				F47BF4E81AC2096200F2FB17 /* Comment.swift */,
 				F48BBD221ABB135B00EAFE09 /* Registration.swift */,
 				F4ABE57E1AA8F5710099836A /* JsapiPost.swift */,
 				F47861951AB1E62B00A10B02 /* JsapiRest.swift */,
@@ -250,6 +254,7 @@
 				F4A1AAD81AA6172C00D17F43 /* JsapiApi.swift in Sources */,
 				F48006641AA656F600B27561 /* JSAPIConstant.swift in Sources */,
 				F48B9BC41AB0EBDC0069DBFA /* Cart.swift in Sources */,
+				F47BF4E91AC2096200F2FB17 /* Comment.swift in Sources */,
 				F47BB5A51ABC8457009AD1F6 /* User.swift in Sources */,
 				F47861961AB1E62B00A10B02 /* JsapiRest.swift in Sources */,
 				F47822EE1AA7863D004464E1 /* SwiftyJSON.swift in Sources */,
@@ -270,6 +275,7 @@
 				F47822F81AA7967F004464E1 /* SwiftyJSON.swift in Sources */,
 				F4ABE5801AA8F5710099836A /* JsapiPost.swift in Sources */,
 				F47BB5A61ABC8457009AD1F6 /* User.swift in Sources */,
+				F47BF4EA1AC2096200F2FB17 /* Comment.swift in Sources */,
 				F47861971AB1E62B00A10B02 /* JsapiRest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
