@@ -160,7 +160,7 @@ class ViewController: UIViewController {
     @IBAction func testCartDiscount()
     {
         var params=Dictionary<String,String>()
-        params["sku"]="10OFF"
+        params["sku"]="KIA1425401889-7403"
         var cartObject=Cart()
         cartObject.cartDiscount(params,itemID:cartNumber)
             {
@@ -207,9 +207,9 @@ class ViewController: UIViewController {
     @IBAction func testCartChangeItems()
     {
         var params=Dictionary<String,String>()
-           params["catalog_id"]="54"
-           params["catalog_sku_id"]="786"
-           params["quantity"]="10"
+           params["catalog_id"]="5"
+           params["catalog_sku_id"]="5"
+           params["quantity"]="1"
                var cartObject=Cart()
         cartObject.changeItem(params,itemID:cartID)
             {
@@ -236,9 +236,9 @@ class ViewController: UIViewController {
     @IBAction func testCartAddItems()
     {
         var params=Dictionary<String,String>()
-        params["catalog_id"]="54"
-        params["catalog_sku_id"]="786"
-        params["quantity"]="10"
+        params["catalog_id"]="5"
+        params["catalog_sku_id"]="5"
+        params["quantity"]="0"
         var cartObject=Cart()
         cartObject.addCartItems(params,itemID:cartNumber)
             {
@@ -322,9 +322,9 @@ class ViewController: UIViewController {
     @IBAction func testUserRegisteration()
     {
         var userDetails=Dictionary<String,String>()
-        userDetails["username"]="youssef123"
+        userDetails["username"]="yous56565sef123"
         userDetails["password"]="123123"
-        userDetails["email"]="yousse22f@knetik.com"
+        userDetails["email"]="youss55656e22f@knetik.com"
         userDetails["gender"]="male"
         userDetails["fullname"]="youssefm2aher"
         var regObject = Registration()
@@ -586,6 +586,7 @@ class ViewController: UIViewController {
                 println(result)
         }
     }
+  
     @IBAction func testRemoveCommentToItem()
     {
         var params=Dictionary<String,String>()
@@ -608,7 +609,101 @@ class ViewController: UIViewController {
     }
 
     
-//////////////////COMMENTS//////////////////////////////////////////////////
+//////////////////FRIENDSHIP//////////////////////////////////////////////////
+    @IBAction func testFriendShip()
+    {
+        var params=Dictionary<String,AnyObject>()
+        params["target_user_id"]=7224
+        params["user_id"]=7700
+        
+        var friendShip = Friendship()
+        
+        friendShip.addFriend(params)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testAdd Friend Failed")
+                }else
+                {
+                    println("testAdd Friend PASS")
+                    // Valid Response
+                }
+                println(result)
+        }
+    }
     
+    @IBAction func testGetFriend()
+    {
+        var params=Dictionary<String,AnyObject>()
+        params["page"]=1
+        params["limit"]=20
+        params["user_id"]=1
+
+        var friendShip = Friendship()
+        
+        friendShip.getFriends(params)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testGetFriend Failed")
+                }else
+                {
+                    println("testGetFriend PASS")
+                    // Valid Response
+                }
+                println(result)
+        }
+    }
+
+    @IBAction func testSearchFriend()
+    {
+        var params=Dictionary<String,AnyObject>()
+        params["search"]="tes"
+        params["page"]=1
+        params["limit"]=20
+        params["user_id"]=7700
+        
+        var friendShip = Friendship()
+        
+        friendShip.searchFriends(params)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testSearchFriend Failed")
+                }else
+                {
+                    println("testSearchFriend PASS")
+                    // Valid Response
+                }
+                println(result)
+        }
+    }
+    @IBAction func testRemoveFriend()
+    {
+        var params=Dictionary<String,AnyObject>()
+        params["target_user_id"]=7224
+        params["user_id"]=7700
+
+        
+        var friendShip = Friendship()
+        
+        friendShip.removeFriend(params)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testAddCommentToItem Failed")
+                }else
+                {
+                    println("testAddCommentToItem PASS")
+                    // Valid Response
+                }
+                println(result)
+        }
+    }
+
 }
 
