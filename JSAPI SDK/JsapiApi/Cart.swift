@@ -7,8 +7,10 @@
 //
 
 import Foundation
-public class Cart :NSObject
+public class Cart
 {
+    public init (){}
+
     /**"Creates a new cart from scratch
     *@params cartsparams it's emptyDictionry
     */

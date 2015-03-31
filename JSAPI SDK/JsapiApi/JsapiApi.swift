@@ -7,8 +7,9 @@
 //
 
 import Foundation
-public class JsapiAPi :NSObject
+public class JsapiAPi
 {
+    
     private var jsapiurl:String=""
     private var client_id:String=""
     private var username:String=""
@@ -40,8 +41,6 @@ public class JsapiAPi :NSObject
     Jsapi Init function should be called in App Delegate in function (didFinishLaunchingWithOptions).
     jsapiurl jsapi url it should be like http://www.knetik.com
     client_id first username in Client Table
-    username username used in Jsapi Authentication
-    password  password used in Jsapi Authentication
     secrect_key optional paramter
     */
     
@@ -107,7 +106,7 @@ public class JsapiAPi :NSObject
     {
         let methodurl:String=jsapiurl+JSAPIConstant.OAUTH_TOKEN
         println(methodurl)
-        JsapiPost.postrequest(methodurl,postParams: authenticateRequestFromDictionary(loginDetails),isJson:false)
+        JsapiRest.postrequest(methodurl,postParams: authenticateRequestFromDictionary(loginDetails),isJson:false)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 if(!issuccess)
@@ -116,7 +115,7 @@ public class JsapiAPi :NSObject
                     println(result["error_description"])
                 }else
                 {
-                    self.token=result.valueForKey("access_token") as String
+                    self.token=result.valueForKey("access_token") as String!
                     println("token is : "+self.token)
                 }
                 callback(result,issuccess)

@@ -5,7 +5,6 @@
 //  Created by youssef on 3/4/15.
 //  Copyright (c) 2015 Knetik. All rights reserved.
 //
-
 import Foundation
 class JsapiPost
 {
@@ -42,7 +41,7 @@ class JsapiPost
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
             if error != nil {
-                callback(NSDictionary(),true)
+                callback(NSDictionary(),false)
                 return
             }
             let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)

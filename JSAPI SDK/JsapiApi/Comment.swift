@@ -7,8 +7,9 @@
 //
 
 import Foundation
-public class Comment:NSObject
+public class Comment
 {
+    public init (){}
     /**Adds a new comment to an item. Requires user authentication.
     *@param params Dictionary{"comment": "","item_id": 0}
     *@param callback

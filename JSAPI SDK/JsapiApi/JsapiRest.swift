@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class JsapiRest:NSObject
+class JsapiRest
 {
     //
     /**

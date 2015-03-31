@@ -7,8 +7,10 @@
 //
 
 import Foundation
-public class Friendship :NSObject
+public class Friendship 
 {
+    public init (){}
+
     /** addFriend.
     *@param params Dictionary{"target_user_id": 0,"user_id": 0}
     *@param callback

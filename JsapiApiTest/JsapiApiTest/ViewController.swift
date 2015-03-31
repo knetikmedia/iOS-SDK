@@ -322,11 +322,11 @@ class ViewController: UIViewController {
     @IBAction func testUserRegisteration()
     {
         var userDetails=Dictionary<String,String>()
-        userDetails["username"]="yous56565sef123"
+        userDetails["username"]="sswqewqweq"
         userDetails["password"]="123123"
-        userDetails["email"]="youss55656e22f@knetik.com"
+        userDetails["email"]="yousss55656e22f@knetik.com"
         userDetails["gender"]="male"
-        userDetails["fullname"]="youssefm2aher"
+        userDetails["fullname"]="yosussefm2aher"
         var regObject = Registration()
         regObject.doUserRegistration(userDetails)
             {
@@ -377,6 +377,7 @@ class ViewController: UIViewController {
                 if(!issuccess)
                 {
                     println("testUserRegisteration Failed")
+                    return;
                 }else
                 {
                     println("testUserRegisteration PASS")
@@ -438,6 +439,7 @@ class ViewController: UIViewController {
                 if(!issuccess)
                 {
                     println("testUserRegisteration Failed")
+                    return;
                 }else
                 {
                     println("testUserRegisteration PASS")
@@ -704,6 +706,37 @@ class ViewController: UIViewController {
                 println(result)
         }
     }
+    
+    ////////////////////////////---------------Store ------------------////////////////////////////////
+    @IBAction func testStoreGetPage()
+    {
+        var params=Dictionary<String,AnyObject>()
+        
+        params["terms"]=["test Term_1426094958_462"];
+        //params["related"]=["usd"]
+        //params["vocabulary"]="test Vocabulary 2"
+        params["limit"]=10;
+        params["page"]=1;
+        params["useCatalog"]=true;
+        params["fullObject"]=true;
+        
+        var store = Store()
+        
+        store.getPage(params)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testStoreGetPage Failed")
+                }else
+                {
+                    println("testStoreGetPage PASS")
+                    // Valid Response
+                }
+                println(result)
+        }
+    }
+
 
 }
 

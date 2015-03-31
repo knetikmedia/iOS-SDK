@@ -24,8 +24,8 @@ class var SHIPPABLE:String {return "/services/latest/carts/%@/shippable" }  // %
 
 //registration
 class var REGISTER:String {return "/services/latest/registration" }  // Register Endpoint
-class var FORGOTPASSWORD:String {return "/services/latest/registration/forgotPassword"};
-class var GUESTUPGRADE:String {return "/services/latest/registration/guestUpgrade"};
+class var FORGOTPASSWORD:String {return "/services/latest/registration/forgotpassword"};
+class var GUESTUPGRADE:String {return "/services/latest/registration/guestupgrade"};
 class var GUESTS:String {return "/services/latest/registration/guests"};
 //EndRegister
     
@@ -50,8 +50,12 @@ class var REMOVECOMMENT:String {return "/services/latest/comment/remove"};
     class var REMOVEFRIEND:String {return "/services/latest/friendship/removefriend"};
     class var SEARCHFRIEND:String {return "/services/latest/friendship/searchfriends"};
 
-
 //End FriendShip
+    
+//Store
+    class var GETPAGE:String {return "/services/latest/store/getpage"};
+
+//End Store
 }
 
 

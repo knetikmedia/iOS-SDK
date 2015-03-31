@@ -26,6 +26,8 @@
 		F48B9BC51AB0EBDC0069DBFA /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B9BC31AB0EBDC0069DBFA /* Cart.swift */; };
 		F48BBD231ABB135B00EAFE09 /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48BBD221ABB135B00EAFE09 /* Registration.swift */; };
 		F48BBD241ABB135B00EAFE09 /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48BBD221ABB135B00EAFE09 /* Registration.swift */; };
+		F49EB5301ACAE8240030437F /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49EB52F1ACAE8240030437F /* Store.swift */; };
+		F49EB5311ACAE8240030437F /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49EB52F1ACAE8240030437F /* Store.swift */; };
 		F4A1AAC11AA6147500D17F43 /* JsapiApi.h in Headers */ = {isa = PBXBuildFile; fileRef = F4A1AAC01AA6147500D17F43 /* JsapiApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4A1AAC71AA6147600D17F43 /* JsapiApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A1AABB1AA6147500D17F43 /* JsapiApi.framework */; };
 		F4A1AACE1AA6147600D17F43 /* JsapiApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A1AACD1AA6147600D17F43 /* JsapiApiTests.swift */; };
@@ -54,6 +56,7 @@
 		F483B3E01AC5A48300A869C5 /* Friendship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friendship.swift; sourceTree = "<group>"; };
 		F48B9BC31AB0EBDC0069DBFA /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		F48BBD221ABB135B00EAFE09 /* Registration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
+		F49EB52F1ACAE8240030437F /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		F4A1AABB1AA6147500D17F43 /* JsapiApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JsapiApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A1AABF1AA6147500D17F43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4A1AAC01AA6147500D17F43 /* JsapiApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsapiApi.h; sourceTree = "<group>"; };
@@ -113,6 +116,7 @@
 				F47BF4E81AC2096200F2FB17 /* Comment.swift */,
 				F483B3E01AC5A48300A869C5 /* Friendship.swift */,
 				F48BBD221ABB135B00EAFE09 /* Registration.swift */,
+				F49EB52F1ACAE8240030437F /* Store.swift */,
 				F4ABE57E1AA8F5710099836A /* JsapiPost.swift */,
 				F47861951AB1E62B00A10B02 /* JsapiRest.swift */,
 				F47822ED1AA7863D004464E1 /* SwiftyJSON.swift */,
@@ -256,6 +260,7 @@
 				F48BBD231ABB135B00EAFE09 /* Registration.swift in Sources */,
 				F47861931AB1BD7400A10B02 /* Utilities.swift in Sources */,
 				F4A1AAD81AA6172C00D17F43 /* JsapiApi.swift in Sources */,
+				F49EB5301ACAE8240030437F /* Store.swift in Sources */,
 				F48006641AA656F600B27561 /* JSAPIConstant.swift in Sources */,
 				F48B9BC41AB0EBDC0069DBFA /* Cart.swift in Sources */,
 				F47BF4E91AC2096200F2FB17 /* Comment.swift in Sources */,
@@ -278,6 +283,7 @@
 				F48BBD241ABB135B00EAFE09 /* Registration.swift in Sources */,
 				F4A1AACE1AA6147600D17F43 /* JsapiApiTests.swift in Sources */,
 				F47822F81AA7967F004464E1 /* SwiftyJSON.swift in Sources */,
+				F49EB5311ACAE8240030437F /* Store.swift in Sources */,
 				F483B3E21AC5A48300A869C5 /* Friendship.swift in Sources */,
 				F4ABE5801AA8F5710099836A /* JsapiPost.swift in Sources */,
 				F47BB5A61ABC8457009AD1F6 /* User.swift in Sources */,

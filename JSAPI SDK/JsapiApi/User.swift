@@ -7,8 +7,10 @@
 //
 
 import Foundation
-public class User: NSObject {
+public class User {
  
+    public init (){}
+
  /**get User Info /services/latest/user/getinfo
  *@param params Dictionary Empty Dictionary {}
  *@param callback
