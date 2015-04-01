@@ -102,7 +102,7 @@ public class Registration
         var commonParamtersDictionry=Dictionary<String,String>()
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.REGISTER
         println(methodurl)
-        JsapiPost.postrequest(methodurl,postParams:  Utilities.jsonRequestFromDictionary(registerationDetails),isJson:true)
+        JsapiRest.postrequest(methodurl,postParams:  Utilities.jsonRequestFromDictionary(registerationDetails),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 if(!issuccess)

@@ -19,7 +19,7 @@ public class Cart
         var commonParamtersDictionry=Dictionary<String,String>()
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.SCARTS
         println(methodurl)
-        JsapiPost.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(cartsparams),isJson:true)
+        JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(cartsparams),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 if(!issuccess)
@@ -42,7 +42,7 @@ public class Cart
         var commonParamtersDictionry=Dictionary<String,String>()
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.CARTSSKU
         println(methodurl)
-        JsapiPost.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(skuparams),isJson:true)
+        JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(skuparams),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 if(!issuccess)
