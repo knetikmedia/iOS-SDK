@@ -736,6 +736,74 @@ class ViewController: UIViewController {
                 println(result)
         }
     }
+    
+    
+//////////////////GET FAVORITES//////////////////////////////////////////////////
+    
+    @IBAction func testAddFavorite()
+    {
+        var params=Dictionary<String,AnyObject>()
+        params["id"]=1
+        
+        var favorite = Favorite()
+        
+        favorite.addFavoriteItem(params)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("Test Add Favorite Failed")
+                }else
+                {
+                    println("Test Add Favorite PASS")
+                    // Valid Response
+                }
+                println(result)
+        }
+    }
+    
+    @IBAction func testGetFavorites()
+    {
+        var params=Dictionary<String,AnyObject>()
+        var favorite = Favorite()
+         favorite.getFavorites(params)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("test Get Favorites Failed")
+                }else
+                {
+                    println("test Get Favorites PASS")
+                    // Valid Response
+                }
+                println(result)
+        }
+    }
+    
+    @IBAction func testDeleteFavorites()
+    {
+        var params=Dictionary<String,AnyObject>()
+        params["id"]=1
+       
+        var favorite = Favorite()
+        
+        favorite.deleteFavorite(params)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("test Delete Favorites Failed")
+                }else
+                {
+                    println("test Delete Favorites PASS")
+                    // Valid Response
+                }
+                println(result)
+        }
+    }
+
+//////////////////End FAVORITES//////////////////////////////////////////////////
 
 
 }

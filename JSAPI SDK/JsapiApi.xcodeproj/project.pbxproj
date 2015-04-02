@@ -32,6 +32,8 @@
 		F4A1AAC71AA6147600D17F43 /* JsapiApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A1AABB1AA6147500D17F43 /* JsapiApi.framework */; };
 		F4A1AACE1AA6147600D17F43 /* JsapiApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A1AACD1AA6147600D17F43 /* JsapiApiTests.swift */; };
 		F4A1AAD81AA6172C00D17F43 /* JsapiApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A1AAD71AA6172C00D17F43 /* JsapiApi.swift */; };
+		F4D5867C1ACDC0AA001B47CA /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D5867B1ACDC0AA001B47CA /* Favorite.swift */; };
+		F4D5867D1ACDC0AA001B47CA /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D5867B1ACDC0AA001B47CA /* Favorite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,7 @@
 		F4A1AACC1AA6147600D17F43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4A1AACD1AA6147600D17F43 /* JsapiApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsapiApiTests.swift; sourceTree = "<group>"; };
 		F4A1AAD71AA6172C00D17F43 /* JsapiApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsapiApi.swift; sourceTree = "<group>"; };
+		F4D5867B1ACDC0AA001B47CA /* Favorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,7 @@
 				F48B9BC31AB0EBDC0069DBFA /* Cart.swift */,
 				F47BF4E81AC2096200F2FB17 /* Comment.swift */,
 				F483B3E01AC5A48300A869C5 /* Friendship.swift */,
+				F4D5867B1ACDC0AA001B47CA /* Favorite.swift */,
 				F48BBD221ABB135B00EAFE09 /* Registration.swift */,
 				F49EB52F1ACAE8240030437F /* Store.swift */,
 				F47861951AB1E62B00A10B02 /* JsapiRest.swift */,
@@ -262,6 +266,7 @@
 				F47BF4E91AC2096200F2FB17 /* Comment.swift in Sources */,
 				F47BB5A51ABC8457009AD1F6 /* User.swift in Sources */,
 				F47861961AB1E62B00A10B02 /* JsapiRest.swift in Sources */,
+				F4D5867C1ACDC0AA001B47CA /* Favorite.swift in Sources */,
 				F483B3E11AC5A48300A869C5 /* Friendship.swift in Sources */,
 				F47822EE1AA7863D004464E1 /* SwiftyJSON.swift in Sources */,
 			);
@@ -273,6 +278,7 @@
 			files = (
 				F47822F41AA7967F004464E1 /* JsapiApi.swift in Sources */,
 				F48B9BC51AB0EBDC0069DBFA /* Cart.swift in Sources */,
+				F4D5867D1ACDC0AA001B47CA /* Favorite.swift in Sources */,
 				F47861941AB1BD7400A10B02 /* Utilities.swift in Sources */,
 				F47822F51AA7967F004464E1 /* JSAPIConstant.swift in Sources */,
 				F48BBD241ABB135B00EAFE09 /* Registration.swift in Sources */,
@@ -393,7 +399,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = JsapiApi/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -417,7 +423,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = JsapiApi/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
