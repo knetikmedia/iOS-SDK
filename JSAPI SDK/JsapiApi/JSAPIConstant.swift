@@ -10,7 +10,7 @@ import Foundation
 class JSAPIConstant
 {
 class var OAUTH_TOKEN:String {return "/oauth/token" }  // Login EndPoint class
-    class var TOKENBREAR:String {return "Bearer" }
+class var TOKENBREAR:String {return "bearer" }
 //Cart EndPoints 
 class var SCARTS:String {return "/services/latest/carts" }  // SCARTS because there is carts class
 class var CARTSSKU:String {return "/services/latest/carts/skus" }  // SCARTS because there is carts class

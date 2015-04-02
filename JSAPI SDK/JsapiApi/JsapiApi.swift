@@ -16,7 +16,7 @@ public class JsapiAPi
     private var password:String=""
     private var secrect_key:String=""
     private var token=""
-    
+    private var token_type=""
     /**
     return a Singleton for JsapiApi class
     
@@ -116,6 +116,8 @@ public class JsapiAPi
                 }else
                 {
                     self.token=result.valueForKey("access_token") as String!
+                    self.token_type=result.valueForKey("token_type") as String!
+
                     println("token is : "+self.token)
                 }
                 callback(result,issuccess)
@@ -170,7 +172,7 @@ public class JsapiAPi
 
     public func getJsapiToken()->String
     {
-        return JSAPIConstant.TOKENBREAR+token;
+        return self.token_type+self.token;
     }
 
 }

@@ -10,7 +10,7 @@ import UIKit
 import JsapiApi
 class ViewController: UIViewController {
 
-    var cartNumber="ce56166b-cbed-4314-b5a0-8f7a7a2070a1"
+    var cartNumber="5893edf8-27ea-43e6-b419-7410fb301f85"
     var cartID="ce56166b-cbed-4314-b5a0-8f7a7a2070a1"
     var skus=""
     var username = "meyoussef"
@@ -113,7 +113,7 @@ class ViewController: UIViewController {
     {
         var params=Dictionary<String,String>()
         var cartObject=Cart()
-        cartObject.getCart(params,guidID: cartNumber)
+        cartObject.getCart(params,guidID: self.cartNumber)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 if(!issuccess)
