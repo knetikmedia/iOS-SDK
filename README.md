@@ -14,8 +14,7 @@ Connecting to JSAPI using IOS Swift
 
 6-Go to your appDelegate add this line in top of your class   import JsapiApi 
 
-7-Initialise Jsapi Object by adding this line in didFinishLaunchingWithOptions function it should be like this
-AppDelegate
+7-Initialise Jsapi Object by calling jsapiInit in didFinishLaunchingWithOptions method in AppDelegate
 
 func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) 
 -> Bool
@@ -74,4 +73,3 @@ userDetails["password"] = password
         }
      
     }
-
