@@ -26,6 +26,10 @@ func application(application: UIApplication, didFinishLaunchingWithOptions launc
 
  }
 
+### client_Id ###
+
+is the top client name in client table 
+
 ### Getting Started ###
 
 1-Go to SDK Folder and open JsapiApiWorkSpace.xcworkspace 
