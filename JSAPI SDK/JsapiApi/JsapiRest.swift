@@ -29,8 +29,10 @@ class JsapiRest
         {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.setValue("application/json", forHTTPHeaderField: "Accept")
-            if(JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR){
-            request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
+        if(!JsapiAPi.sharedInstance.getJsapiToken().isEmpty&&JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR)
+            {
+                println("token not empty :"+JsapiAPi.sharedInstance.getJsapiToken())
+    request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
             }
 
         }else{
@@ -88,7 +90,8 @@ class JsapiRest
         let postString = postParams
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        if(JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR){
+        if(!JsapiAPi.sharedInstance.getJsapiToken().isEmpty&&JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR){
+            println("token not empty :"+JsapiAPi.sharedInstance.getJsapiToken())
             request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
         }
         println(JsapiAPi.sharedInstance.getJsapiToken())
@@ -135,8 +138,9 @@ class JsapiRest
         {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.setValue("application/json", forHTTPHeaderField: "Accept")
-            if(JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR){
-                request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
+        if(!JsapiAPi.sharedInstance.getJsapiToken().isEmpty&&JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR){
+            println("token not empty :"+JsapiAPi.sharedInstance.getJsapiToken())
+            request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
             }
         }else{
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")

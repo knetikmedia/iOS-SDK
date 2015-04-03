@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     }
     
     /*
-    Test Singleton Shared Instance Object
+    Test User Login
     */
    @IBAction func testDoLogin()
     {
@@ -52,7 +52,14 @@ class ViewController: UIViewController {
      
     }
     
-    
+    /*
+    Test User Logout
+    */
+    @IBAction func testLogout()
+    {
+        JsapiAPi.sharedInstance.doUserLogout()
+    }
+
     
     /*
     Test Cart Function

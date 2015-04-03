@@ -124,6 +124,15 @@ public class JsapiAPi
         }
     }
 
+    /**
+    do User Logout
+    */
+    public func doUserLogout()
+    {
+    self.token_type="";
+    self.token="";
+    }
+
     /*
     generate auth request token from Dictionary
     */
