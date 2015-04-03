@@ -16,15 +16,17 @@ Connecting to JSAPI using IOS Swift
 
 7-Initialise Jsapi Object by calling jsapiInit in didFinishLaunchingWithOptions method in AppDelegate
 
+
+```
+#!swift
+
 func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
-
 {
-
  JsapiAPi.jsapiInit("http://localhost:8080/jsapi", client_id: "teamrock_web",secrect_key: "Caqq24dp68VCU")
-
   return true
-
  }
+```
+
 
 ### client_Id ###
 
@@ -46,6 +48,10 @@ userDetails["password"] = password
 
 ### Login Example ###
   
+
+```
+#!swift
+
 @IBAction func testDoLogin()
 
     {
@@ -77,3 +83,4 @@ userDetails["password"] = password
         }
      
     }
+```
