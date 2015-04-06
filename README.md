@@ -76,7 +76,7 @@ and you can access it by calling *JsapiAPi.sharedInstance.getJsapiToken()*
 })
 ```
 ### Login Failed ###
-in case of failed login you need to show to the user the error_description message 
+in case of failed login you will need to show the error_description message to the User 
 
 ```
 #!json
@@ -233,4 +233,3 @@ func testUpdateUser()
 3-lang and
 
 4-date_of_birth format yyyy-[m]m-[d]d hh:mm:ss
-
