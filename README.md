@@ -129,74 +129,6 @@ func testGetUserInfo()
         }
     }
 ```
-### User Info Response ### 
-
-```
-#!json
-{
-    cachable = 0;
-    cached = 0;
-    code = "<null>";
-    error =     {
-        code = 0;
-        success = 1;
-    };
-    message = "";
-    parameters =     (
-    );
-    requestId = "1428344143683-1453";
-    result =     {
-        age = 0;
-        "avatar_url" = lala;
-        country = "United States";
-        "date_of_birth" = "<null>";
-        email = "meyoussef@knetik.com";
-        "first_name" = "<null>";
-        fullname = yossussefm2aher;
-        gender = male;
-        id = 7700;
-        inventory = "<null>";
-        lang = "<null>";
-        "last_name" = "<null>";
-        "mobile_number" = "<null>";
-        "product_item" = "<null>";
-        token = "<null>";
-        username = meyoussef;
-        wallet =         (
-                        {
-                balance = 0;
-                code = GBP;
-                "currency_name" = "British Pound";
-                id = 6859;
-            },
-                        {
-                balance = 0;
-                code = GOL;
-                "currency_name" = Gold;
-                id = 6860;
-            },
-                        {
-                balance = 0;
-                code = SIL;
-                "currency_name" = Silver;
-                id = 6861;
-            },
-                        {
-                balance = 0;
-                code = SK;
-                "currency_name" = Skulls;
-                id = 6862;
-            },
-                        {
-                balance = 0;
-                code = SP;
-                "currency_name" = "Silver Picks";
-                id = 6863;
-            }
-        );
-    };
-}
-```
 ### Update User Info ###
 you can update some user Info by passing configName and configValue to updateUserInfo function as shown in below example 
 
@@ -225,7 +157,9 @@ func testUpdateUser()
         }
     }
 ```
-### List of Configuration Names for Update ### 
+**List of Configuration Names for Update 
+**
+
 1-avatar
 
 2-display_name
