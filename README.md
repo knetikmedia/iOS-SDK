@@ -376,10 +376,10 @@ func testModifyShippingAddress()
                 (result:NSDictionary,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testCartAddItems Failed")
+                    println("testModifyShippingAddress Failed")
                 }else
                 {
-                    println("testCartAddItems PASS")
+                    println("testModifyShippingAddress PASS")
                 }
                 print(result)
                 
@@ -403,10 +403,10 @@ func testCheckShippable()
                 (result:NSDictionary,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testCartAddItems Failed")
+                    println("testCheckShippable Failed")
                 }else
                 {
-                    println("testCartAddItems PASS")
+                    println("testCheckShippable PASS")
                 }
                 print(result)
                 
