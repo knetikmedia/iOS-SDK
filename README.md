@@ -413,3 +413,95 @@ func testCheckShippable()
         }
     }
 ```
+
+# Comment #
+
+### Add Comment ### 
+
+you can add Comment to an item by passing itemID and comment string to addComment function 
+
+
+```
+#!swift
+
+func testAddCommentToItem()
+    {
+        var params=Dictionary<String,String>()
+        params["item_id"]="item_id"
+        params["comment"]="Comment String "
+
+        var comment = Comment()
+        comment.addComment(params)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testAddCommentToItem Failed")
+                }else
+                {
+                    println("testAddCommentToItem PASS")
+                    // Valid Response
+                }
+                println(result)
+        }
+    }
+```
+
+### Delete Comment ###
+you can delete your own comment by passing Comment ID to deleteComment function 
+
+
+```
+#!swift
+
+func testDeleteComment()
+    {
+        var params=Dictionary<String,String>()
+        params["id"]=self.comment_id //string value
+        
+        var comment = Comment()
+        comment.deleteComment(params)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testDeleteComment Failed")
+                }else
+                {
+                    println("testDeleteComment PASS")
+                    // Valid Response
+                }
+                println(result)
+        }
+    }
+```
+### Comment List ### 
+you can fetch a a list of all comments currently attached to a given item by passing item ID to commentsList function 
+
+
+```
+#!swift
+
+ func testItemCommentsList()
+    {
+        var params=Dictionary<String,String>()
+        params["id"]="4" // Comment ID 
+        var comment = Comment()
+        comment.commentsList(params)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testItemCommentsList Failed")
+                }else
+                {
+                    println("testItemCommentsList PASS")
+                 var commentsObject=result.valueForKey("result") as? NSArray
+                }
+                 }
+                println(result)
+        }
+    }
+
+```
+
