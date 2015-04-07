@@ -196,6 +196,39 @@ func guestUpgrade ()
 }
 ```
 
+### Forgot Password ###
+to reset your user password first you need to pass username and email to *forgotPassword* function then you will receive an email with *secrethash* code then you need send username,email,newpassword,secrethash and plaintext to forgotPassword one more time as below example 
+
+
+```
+#!swift
+
+func testForgotPassword()
+    {
+        var userDetails=Dictionary<String,String>()
+        userDetails["username"]="username"  // mandatory for first and second call 
+        userDetails["email"]="email@knetik.com" // mandatory for first and secondcall  
+      //  userDetails["newpassword"]="password" // mandatory for second call to set the password    
+     //   userDetails["secrethash"]="9d97a5892b0bf1b1af208b53e6c9f35986a0b123" // the secret code sent to your email need to be sent in second call 
+     //   userDetails["plaintext"]="true" // second call 
+        var regObject = Registration()
+
+        regObject.forgotPassword(userDetails)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testForgotPassword Failed")
+                }else
+                {
+                    println("testForgotPassword PASS")
+                    // Valid Response
+                }
+        }
+    }
+```
+
+
 
 
 # User #
