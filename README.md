@@ -100,7 +100,105 @@ func testLogout()
 
 ```
 
-## User ##
+# Registration #
+### Register New User ### 
+you can register a new user by passing username,password ,email,gender and fullname parameters to *doUserRegistration* function 
+
+```
+#!swift
+
+func testUseRegistration()
+    {
+        var userDetails=Dictionary<String,String>()
+        userDetails["username"]="username"
+        userDetails["password"]="password" // plain text
+        userDetails["email"]="email@knetik.com"
+        userDetails["gender"]="male"
+        userDetails["fullname"]="full name "
+        var regObject = Registration()
+        regObject.doUserRegistration(userDetails)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testUseRegistration Failed")
+                }else
+                {
+                    println("testUseRegistration PASS")
+                    // Valid Response
+                }
+        }
+    }
+```
+
+
+
+### Create Guest User ### 
+you can Creates a guest user and returns a random password by calling *guests* function 
+
+
+```
+#!swift
+
+func testGuestUser()
+    {
+        var userDetails=Dictionary<String,String>()
+        var regObject = Registration()
+        regObject.guests(userDetails)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testGuestUser Failed")
+                    return;
+                }else
+                {
+               var result2=result.valueForKey("result") as NSDictionary
+                self.username=result2.valueForKey("username") as String   // new user name 
+                self.password=result2.valueForKey("password") as String    // user password 
+                    println("testGuestUser PASS")
+                }
+               
+        }
+    }
+```
+
+
+### Guest Upgrade ###
+to upgrade your Guest account to a regular account you need first to **Logged in** with your Guest account then call *guestUpgrade* function
+
+
+```
+#!swift
+
+func guestUpgrade ()
+{
+                     var userDetails=Dictionary<String,String>(){
+                        userDetails["username"]="new user name"
+                        userDetails["password"]="new password"
+                        userDetails["email"]="email@knetik.com"
+                        userDetails["gender"]="male"
+                        userDetails["fullname"]="full name"
+                        var regObject = Registration()
+                        
+                        regObject.guestUpgrade(userDetails)
+                            {
+                                (result:NSDictionary,issuccess:Bool) in
+                                if(!issuccess)
+                                {
+                                    println("testUserRegisteration Failed")
+                                }else
+                                {
+                                    println("testUserRegisteration PASS")
+                                    // Valid Response
+                                }
+                        }
+}
+```
+
+
+
+# User #
 User class used to Get and Update User Info
 
 ### Get User Info ###
