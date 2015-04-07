@@ -197,7 +197,11 @@ func guestUpgrade ()
 ```
 
 ### Forgot Password ###
-to reset your user password first you need to pass username and email to *forgotPassword* function then you will receive an email with *secrethash* code then you need send username,email,newpassword,secrethash and plaintext to forgotPassword one more time as below example 
+to reset your password you need to follow this steps 
+
+1-you need to pass username and email to *forgotPassword* function then you will receive an email with *secrethash* code 
+
+2-send username,email,newpassword,secrethash and plaintext to forgotPassword one more time as below example 
 
 
 ```
