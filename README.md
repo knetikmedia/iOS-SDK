@@ -39,7 +39,7 @@ once you add JsapiAPi.jsapiInit call in AppDelegate a singleton Object for Jsapi
 JsapiAPi class used to perform Login, logout functions and caching the Authentication token , jsapi URL and client_id
 
 ### Login ###
-Right now you have an Object of JsapiAPi so all you need to do is to call doUserLogin function and pass the username and password parameters as shown in below Example 
+Right now you have an Object of JsapiAPi so all you need to do is to call *doUserLogin* function and pass the username and password parameters as shown in below Example 
 
 
 ```
@@ -88,7 +88,7 @@ Optional({
 ```
 
 ### Logout ###
-you can clearing your cached token and token type by calling doUserLogout function as shown in this example 
+you can clearing your cached token and token type by calling *doUserLogout* function as shown in this example 
 
 ```
 #!swift
@@ -130,7 +130,7 @@ func testGetUserInfo()
     }
 ```
 ### Update User Info ###
-you can update some user Info by passing configName and configValue to updateUserInfo function as shown in below example 
+you can update some user Info by passing configName and configValue to *updateUserInfo* function as shown in below example 
 
 ```
 #!swift
@@ -188,7 +188,7 @@ Cart class used to perform below cart functions
 8- cart shippable 
 
 ### Create Cart ### 
-to create a cart you need to call createCart function and the new Cart number will be returned in result paramter
+to create a cart you need to call *createCart* function and the new Cart number will be returned in result paramter
 
 ```
 #!swift
@@ -213,7 +213,7 @@ func testCreateCard()
 ```
 
 ### Get cart Details ### 
-you can get full cart details by passing cartNumber to  getCart function 
+you can get full cart details by passing cartNumber to  *getCart* function 
 ```
 #!swift
 
@@ -236,7 +236,7 @@ func testGetCart()
     }
 ```
 ### Cart Checkout ###
-checkout function let you to closes a cart and generates an invoice
+*checkout* function let you to closes a cart and generates an invoice
 
 
 ```
@@ -289,7 +289,7 @@ func testCarCountries()
 ```
 
 ### Add item to a cart ###
-you can add an item to the cart by passing the catalog_id ,catalog_sku_id , quantity and cartNumber  parameters to addCartItems function like below example
+you can add an item to the cart by passing the catalog_id ,catalog_sku_id , quantity and cartNumber  parameters to *addCartItems* function like below example
 
 
 ```
@@ -318,7 +318,7 @@ func testCartAddItems()
 
    
 ### Change cart item ### 
-you can changes the quantity of an item already in the cart by passing catalog_id ,catalog_sku_id , quantity and cartNumber  parameters to addCartItems
+you can changes the quantity of an item already in the cart by passing catalog_id ,catalog_sku_id , quantity and cartNumber  parameters to *addCartItems*
 
 
 ```
@@ -349,7 +349,7 @@ func testCartChangeItems()
 ```
 
 ### Modify shipping Address ###
-the shipping address of a cart can be modified by calling modifyShippingAddress function like below
+the shipping address of a cart can be modified by calling *modifyShippingAddress* function like below
 
 ```
 #!swift
@@ -389,7 +389,7 @@ func testModifyShippingAddress()
 
 
 ### cart shippable Address ###
-you can check if the Cart is requires shipping or not by calling checkShippable function 
+you can check if the Cart is requires shipping or not by calling *checkShippable* function 
 
 ```
 #!swift
@@ -418,7 +418,7 @@ func testCheckShippable()
 
 ### Add Comment ### 
 
-you can add Comment to an item by passing itemID and comment string to addComment function 
+you can add Comment to an item by passing itemID and comment string to *addComment* function 
 
 
 ```
@@ -448,7 +448,7 @@ func testAddCommentToItem()
 ```
 
 ### Delete Comment ###
-you can delete your own comment by passing Comment ID to deleteComment function 
+you can delete your own comment by passing Comment ID to *deleteComment* function 
 
 
 ```
@@ -476,7 +476,7 @@ func testDeleteComment()
     }
 ```
 ### Comment List ### 
-you can fetch a a list of all comments currently attached to a given item by passing item ID to commentsList function 
+you can fetch a a list of all comments currently attached to a given item by passing item ID to *commentsList* function 
 
 
 ```
@@ -508,7 +508,7 @@ you can fetch a a list of all comments currently attached to a given item by pas
 # Friendship #
 
 ### Add Friend ###
-you can add A friend to your friends List by passing target_user_id and your user_id to addFriend function 
+you can add A friend to your friends List by passing target_user_id and your user_id to *addFriend* function 
 
 
 ```
@@ -539,7 +539,7 @@ func testFriendShip()
 ```
 
 ### Get Friends ### 
-you can get your friends list by passing page ,limit and your user_id to getFriends function 
+you can get your friends list by passing page ,limit and your user_id to *getFriends* function 
 
  
 ```
@@ -572,7 +572,7 @@ func testGetFriend()
 ```
 
 ### Search Friends ###
-you can search for a friend by passing search string  to searchFriends like below 
+you can search for a friend by passing search string  to *searchFriends* like below 
 
 
 ```
@@ -607,7 +607,7 @@ func testSearchFriend()
 ```
 
 ### Delete Friend ###
-you can delete your friend by passing target_user_id to removeFriend function 
+you can delete your friend by passing target_user_id to *removeFriend* function 
 
 ```
 #!swift
@@ -633,4 +633,91 @@ func testRemoveFriend()
         }
     }
 
+```
+# Favorite #
+
+### Add Favorite ###
+you can add an item to your Favorite List by passing itemID to *addFavoriteItem* function 
+
+
+```
+#!swift
+
+func testAddFavorite()
+    {
+        var params=Dictionary<String,AnyObject>()
+        params["id"]=1   // item ID should be int value 
+        var favorite = Favorite()
+        favorite.addFavoriteItem(params)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("Test Add Favorite Failed")
+                }else
+                {
+                    println("Test Add Favorite PASS")
+                    // Valid Response
+                }
+                println(result)
+        }
+    }
+
+```
+
+### Delete Favorite ###
+you can remove your item from Favorite List by passing itemID to *deleteFavorite* function 
+
+```
+#!swift
+
+func testDeleteFavorites()
+    {
+        var params=Dictionary<String,AnyObject>()
+        params["id"]=1  // item ID to be Deleted 
+       
+        var favorite = Favorite()
+        
+        favorite.deleteFavorite(params)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("test Delete Favorites Failed")
+                }else
+                {
+                    println("test Delete Favorites PASS")
+                    // Valid Response
+                }
+                println(result)
+        }
+    }
+
+``` 
+### Favorite List ### 
+you can get you Favorite List by calling getFavorites 
+
+ 
+```
+#!swift
+
+func testGetFavorites()
+    {
+        var params=Dictionary<String,AnyObject>()
+        var favorite = Favorite()
+         favorite.getFavorites(params)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("test Get Favorites Failed")
+                }else
+                {
+                    var favist=result.valueForKey("result") as? NSArray
+                    println("test Get Favorites PASS")
+                    // Valid Response
+                }
+                println(result)
+        }
+    }
 ```
