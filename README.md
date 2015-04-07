@@ -505,3 +505,132 @@ you can fetch a a list of all comments currently attached to a given item by pas
 
 ```
 
+# Friendship #
+
+### Add Friend ###
+you can add A friend to your friends List by passing target_user_id and your user_id to addFriend function 
+
+
+```
+#!swift
+
+func testFriendShip()
+    {
+        var params=Dictionary<String,AnyObject>()
+        params["target_user_id"]=7224 // your friend ID 
+        params["user_id"]=7700  // your user ID you can Get it by calling GetUserID
+        
+        var friendShip = Friendship()
+        
+        friendShip.addFriend(params)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testAdd Friend Failed")
+                }else
+                {
+                    println("testAdd Friend PASS")
+                    // Valid Response
+                }
+                println(result)
+        }
+    }
+```
+
+### Get Friends ### 
+you can get your friends list by passing page ,limit and your user_id to getFriends function 
+
+ 
+```
+#!swift
+
+func testGetFriend()
+    {
+        var params=Dictionary<String,AnyObject>()
+        params["page"]=1
+        params["limit"]=20
+        params["user_id"]=1
+
+        var friendShip = Friendship()
+        
+        friendShip.getFriends(params)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testGetFriend Failed")
+                }else
+                {
+                    var resultDictionary=result.valueForKey("result") as? NSDictionary
+                    var friendsList=resultDictionary?.objectForKey("friends") as NSArray
+                    println("testGetFriend PASS")
+                }
+        }
+    }
+
+```
+
+### Search Friends ###
+you can search for a friend by passing search string  to searchFriends like below 
+
+
+```
+#!swift
+
+func testSearchFriend()
+    {
+        var params=Dictionary<String,AnyObject>()
+        params["search"]="search string"
+        params["page"]=1
+        params["limit"]=20
+        params["user_id"]=7700
+        
+        var friendShip = Friendship()
+        
+        friendShip.searchFriends(params)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testSearchFriend Failed")
+                }else
+                {
+                    var resultDictionary=result.valueForKey("result") as? NSDictionary
+                    var friendsList=resultDictionary?.objectForKey("friends") as NSArray
+                    println("testSearchFriend PASS")
+                    // Valid Response
+                }
+                println(result)
+        }
+    }
+```
+
+### Delete Friend ###
+you can delete your friend by passing target_user_id to removeFriend function 
+
+```
+#!swift
+
+func testRemoveFriend()
+    {
+        var params=Dictionary<String,AnyObject>()
+        params["target_user_id"]=7224 // Target user ID to be deleted 
+        params["user_id"]=7700 // your user ID
+        var friendShip = Friendship() 
+        friendShip.removeFriend(params)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testRemoveFriend Failed")
+                }else
+                {
+                    println("testRemoveFriend PASS")
+                    // Valid Response
+                }
+                println(result)
+        }
+    }
+
+```
