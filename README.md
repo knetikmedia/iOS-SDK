@@ -721,3 +721,42 @@ func testGetFavorites()
         }
     }
 ```
+
+# Store #
+you get your store page by passing {terms or related},limit,page to *getPage* function like below 
+
+
+```
+#!swift
+
+func testStoreGetPage()
+    {
+        var params=Dictionary<String,AnyObject>()
+        
+        params["terms"]=["test Term_1426094958_462"];  //optional if related provided
+        //params["related"]=["b,"a"]  // optional if terms provided 
+        params["limit"]=10;
+        params["page"]=1; 
+        params["useCatalog"]=true; //optional 
+        params["fullObject"]=true;  // optional 
+        
+        var store = Store()
+        
+        store.getPage(params)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testStoreGetPage Failed")
+                }else
+                {
+                    var storeArray=result.valueForKey("result") as? NSArray
+
+                    println("testStoreGetPage PASS")
+                    // Valid Response
+                }
+                println(result)
+        }
+    }
+
+```
