@@ -723,7 +723,7 @@ func testGetFavorites()
 ```
 
 # Store #
-you get your store page by passing {terms or related},limit,page to *getPage* function like below 
+you get your store page by passing {terms or related},limit and page parameters to *getPage* function like below 
 
 
 ```
