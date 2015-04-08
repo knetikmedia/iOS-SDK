@@ -453,7 +453,7 @@ func testCartAddItems()
 
    
 ### Change cart item ### 
-you can changes the quantity of an item already in the cart by passing catalog_id ,catalog_sku_id , quantity and cartNumber  parameters to *addCartItems*
+you can changes the quantity of an item already in the cart by passing catalog_id ,catalog_sku_id , quantity and cartNumber  parameters to *changeItem*
 
 
 ```
