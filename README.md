@@ -134,7 +134,7 @@ func testUseRegistration()
 
 
 ### Create Guest User ### 
-you can Creates a guest user and returns a random password by calling *guests* function 
+you can Create a guest user and returns a random password by calling *guests* function 
 
 
 ```
