@@ -7,28 +7,31 @@
 //
 
 import Foundation
-public class Comment
+public class CommentService
 {
     public init (){}
     /**Adds a new comment to an item. Requires user authentication.
     *@param params Dictionary{"comment": "","item_id": 0}
     *@param callback
     */
-    public func addComment(params:Dictionary<String,String>,callback:(NSDictionary,Bool)->Void)
+    public func addComment(params:Dictionary<String,String>,callback:(AnyObject,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDCOMMENT;
         JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
+                var baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    println(result["error"])
-                    println(result["error_description"])
+                    callback(baseResponse,baseResponse.errormessage,issuccess)
+
                 }else
                 {
                     println(result)
+                    callback(baseResponse,"",issuccess)
+
                 }
-                callback(result,issuccess)
+                
         }
     }
 
@@ -36,21 +39,21 @@ public class Comment
     *@param params Dictionary{"item_id": 0}
     *@param callback
     */
-    public func commentsList(params:Dictionary<String,String>,callback:(NSDictionary,Bool)->Void)
+    public func commentsList(params:Dictionary<String,String>,callback:(Array<Comment>,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.COMMENTLIST;
         JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
+                var commentResponse=CommentResponse(fromDictionary: result);
                 if(!issuccess)
                 {
-                    println(result["error"])
-                    println(result["error_description"])
+                    callback(commentResponse.comments,commentResponse.errormessage,issuccess)
+
                 }else
                 {
-                    println(result)
+                    callback(commentResponse.comments,"",issuccess)
                 }
-                callback(result,issuccess)
         }
     }
 
@@ -59,21 +62,21 @@ public class Comment
     *@param params Dictionary{"id": 0}
     *@param callback
     */
-    public func deleteComment(params:Dictionary<String,String>,callback:(NSDictionary,Bool)->Void)
+    public func deleteComment(params:Dictionary<String,String>,callback:(AnyObject,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.DELETECOMMENT;
         JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
+                var baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    println(result["error"])
-                    println(result["error_description"])
+                    callback(baseResponse,baseResponse.errormessage,issuccess)
+
                 }else
                 {
-                    println(result)
+                    callback(baseResponse,"",issuccess)
                 }
-                callback(result,issuccess)
         }
     }
 

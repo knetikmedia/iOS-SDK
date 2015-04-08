@@ -46,7 +46,8 @@ class JsapiRest
                 return
             }
             let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
-            println("responseString = \(responseString)")
+            println(responseString)
+
             if(responseString=="")
             {
                 println("Empty Response")

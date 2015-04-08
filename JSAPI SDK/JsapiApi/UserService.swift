@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public class User {
+public class UserService {
  
     public init (){}
 
@@ -15,22 +15,28 @@ public class User {
  *@param params Dictionary Empty Dictionary {}
  *@param callback
  */
- public func getUserInfo(params:Dictionary<String,String>,callback:(NSDictionary,Bool)->Void)
+ public func getUserInfo(params:Dictionary<String,String>,callback:(User,String,Bool)->Void)
  {
         
    let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETUSERINFO;
    JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
     {
             (result:NSDictionary,issuccess:Bool) in
+            var userResponse = UserResponse(fromDictionary: result)
             if(!issuccess)
             {
                 println(result["error"])
                 println(result["error_description"])
+                println(userResponse.errormessage)
+                
+                callback(User(),userResponse.errormessage,issuccess)
+
             }else
             {
                 println(result)
+                callback(userResponse.user,"",issuccess)
+
             }
-            callback(result,issuccess)
     }
  }
     
@@ -39,21 +45,25 @@ public class User {
   *@param params Dictionary{"userId": 0,"configName": "","configValue": ""}
   *@param callback
  */
-  public func updateUserInfo(params:Dictionary<String,String>,callback:(NSDictionary,Bool)->Void)
+  public func updateUserInfo(params:Dictionary<String,String>,callback:(AnyObject,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.UPDATEUSERINFO;
         JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
+                var baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     println(result["error"])
                     println(result["error_description"])
+                    callback(baseResponse,baseResponse.errormessage,issuccess)
+
                 }else
                 {
                     println(result)
+                    callback(baseResponse,"",issuccess)
+
                 }
-                callback(result,issuccess)
         }
     }
    
@@ -61,7 +71,7 @@ public class User {
     *@param params Dictionary {password: newPasswordString}
     *@param callback
     */
-    public func setPassword(params:Dictionary<String,String>,userID:String,callback:(NSDictionary,Bool)->Void)
+    public func setPassword(params:Dictionary<String,String>,userID:String,callback:(AnyObject,String,Bool)->Void)
     {
         var endpoint=NSString(format: JSAPIConstant.SETUSERPASSWORD,userID)
 
@@ -69,15 +79,19 @@ public class User {
         JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
+                var baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     println(result["error"])
                     println(result["error_description"])
+                    callback(baseResponse,baseResponse.errormessage,issuccess)
+
                 }else
                 {
                     println(result)
+                    callback(baseResponse,"",issuccess)
+
                 }
-                callback(result,issuccess)
         }
     }
     

@@ -464,42 +464,46 @@ class ViewController: UIViewController {
     @IBAction func testGetUserInfo()
     {
         var userDetails=Dictionary<String,String>()
-        var userObject = User()
+        var userObject = UserService()
         userObject.getUserInfo(userDetails)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (user:User,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("testUserRegisteration Failed")
+                    println(errormessage)
+
                 }else
                 {
                     println("testUserRegisteration PASS")
+                    println(user.getFullname())
+
                     // Valid Response
                 }
-                println(result)
+
         }
     }
     
     @IBAction func testUpdateUser()
     {
         var userDetails=Dictionary<String,String>()
-        userDetails["userId"]="7700"
-        userDetails["configValue"]="lala"
+        userDetails["configValue"]="lalaaaaa"
         userDetails["configName"]="display_name"
 
-        var userObject = User()
+        var userObject = UserService()
         userObject.updateUserInfo(userDetails)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testUserRegisteration Failed")
+                    println("testUpdateUser Failed")
+                    println(errormessage)
+
                 }else
                 {
-                    println("testUserRegisteration PASS")
+                    println("testUpdateUser PASS")
                     // Valid Response
                 }
-                println(result)
         }
     }
 
@@ -507,16 +511,18 @@ class ViewController: UIViewController {
     {
         var userDetails=Dictionary<String,String>()
         userDetails["password"]="123123"
-        var userObject = User()
+        var userObject = UserService()
         userObject.setPassword(userDetails,userID:"7700")
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testUserRegisteration Failed")
+                    println("testSetPassword Failed")
+                    println(errormessage)
+
                 }else
                 {
-                    println("testUserRegisteration PASS")
+                    println("testSetPassword PASS")
                     // Valid Response
                 }
                 println(result)
@@ -528,27 +534,24 @@ class ViewController: UIViewController {
     {
         var params=Dictionary<String,String>()
         params["id"]="4"
-        var comment = Comment()
+        var comment = CommentService()
         comment.commentsList(params)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (comments:Array<Comment>,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("testItemCommentsList Failed")
+                    println(errormessage)
                 }else
                 {
-                    println("testItemCommentsList PASS")
+                        if(comments.count>0){
+                            var comment=comments[comments.count-1] as Comment
+                            self.comment_id=String(comment.getCommentId())
+                            println("comment id is "+self.comment_id)
+                    }
                     // Valid Response
                 }
-                 var commentsObject=result.valueForKey("result") as? NSArray
-                if(commentsObject != nil){
-                var comments=result.valueForKey("result") as NSArray
-                if(comments.count>0){
-                var comment=comments.objectAtIndex(0) as NSDictionary
-                self.comment_id=String(comment.valueForKey("comment_id") as Int)
-                }
-                }
-                println(result)
+              
         }
     }
 
@@ -558,13 +561,14 @@ class ViewController: UIViewController {
         params["item_id"]="4"
         params["comment"]="hello"
 
-        var comment = Comment()
+        var comment = CommentService()
         comment.addComment(params)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("testAddCommentToItem Failed")
+                    println(errormessage)
                 }else
                 {
                     println("testAddCommentToItem PASS")
@@ -580,10 +584,10 @@ class ViewController: UIViewController {
         var params=Dictionary<String,String>()
         params["id"]=self.comment_id
         
-        var comment = Comment()
+        var comment = CommentService()
         comment.deleteComment(params)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("testAddCommentToItem Failed")
@@ -601,16 +605,16 @@ class ViewController: UIViewController {
         var params=Dictionary<String,String>()
         params["id"]=self.comment_id
         
-        var comment = Comment()
+        var comment = CommentService()
         comment.deleteComment(params)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testAddCommentToItem Failed")
+                    println("testRemoveCommentToItem Failed")
                 }else
                 {
-                    println("testAddCommentToItem PASS")
+                    println("testRemoveCommentToItem PASS")
                     // Valid Response
                 }
                 println(result)
@@ -659,6 +663,8 @@ class ViewController: UIViewController {
                     println("testGetFriend Failed")
                 }else
                 {
+                    var resultDictionary=result.valueForKey("result") as? NSDictionary
+                    var friendsList=resultDictionary?.objectForKey("friends") as NSArray
                     println("testGetFriend PASS")
                     // Valid Response
                 }
@@ -684,6 +690,8 @@ class ViewController: UIViewController {
                     println("testSearchFriend Failed")
                 }else
                 {
+                    var resultDictionary=result.valueForKey("result") as? NSDictionary
+                    var friendsList=resultDictionary?.objectForKey("friends") as NSArray
                     println("testSearchFriend PASS")
                     // Valid Response
                 }
@@ -737,6 +745,8 @@ class ViewController: UIViewController {
                     println("testStoreGetPage Failed")
                 }else
                 {
+                    var storeArray=result.valueForKey("result") as? NSArray
+
                     println("testStoreGetPage PASS")
                     // Valid Response
                 }
@@ -752,11 +762,11 @@ class ViewController: UIViewController {
         var params=Dictionary<String,AnyObject>()
         params["id"]=1
         
-        var favorite = Favorite()
+        var favorite = FavoriteService()
         
         favorite.addFavoriteItem(params)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("Test Add Favorite Failed")
@@ -765,26 +775,28 @@ class ViewController: UIViewController {
                     println("Test Add Favorite PASS")
                     // Valid Response
                 }
-                println(result)
+                println(errormessage)
         }
     }
     
     @IBAction func testGetFavorites()
     {
         var params=Dictionary<String,AnyObject>()
-        var favorite = Favorite()
+        var favorite = FavoriteService()
          favorite.getFavorites(params)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (favorites:Array<Favorite>,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("test Get Favorites Failed")
                 }else
                 {
+                    var favist=favorites
+                    
                     println("test Get Favorites PASS")
                     // Valid Response
                 }
-                println(result)
+                println(errormessage)
         }
     }
     
@@ -793,11 +805,11 @@ class ViewController: UIViewController {
         var params=Dictionary<String,AnyObject>()
         params["id"]=1
        
-        var favorite = Favorite()
+        var favorite = FavoriteService()
         
         favorite.deleteFavorite(params)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("test Delete Favorites Failed")
@@ -806,7 +818,7 @@ class ViewController: UIViewController {
                     println("test Delete Favorites PASS")
                     // Valid Response
                 }
-                println(result)
+                println(errormessage)
         }
     }
 
