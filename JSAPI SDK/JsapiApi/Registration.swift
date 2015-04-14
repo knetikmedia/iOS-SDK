@@ -97,7 +97,7 @@ public class Registration
     * /services/latest/registration
     @param params{"username": "","email": "","newpassword": "","secrethash": "","plaintext": false}
     */
-    public func doUserRegistration(registerationDetails:Dictionary<String,String>,callback:(NSDictionary,Bool)->Void)
+    public func doUserRegistration(registerationDetails:Dictionary<String,String>,callback:(RegisteredUser,String,Bool)->Void)
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.REGISTER
@@ -105,15 +105,14 @@ public class Registration
         JsapiRest.postrequest(methodurl,postParams:  Utilities.jsonRequestFromDictionary(registerationDetails),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
+                var registeredResponse=RegisteredUserResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    println(result["error"])
-                    println(result["error_description"])
+                    callback(RegisteredUser(),registeredResponse.errormessage,issuccess)
                 }else
                 {
-                    println(result)
+                    callback(registeredResponse.registeredUser,"",issuccess)
                 }
-                callback(result,issuccess)
         }
     }
     

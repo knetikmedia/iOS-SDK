@@ -75,6 +75,10 @@
 		F43EEDC21ADDA60A001EFC8B /* Checkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43EEDBD1ADDA60A001EFC8B /* Checkout.swift */; };
 		F43EEDC31ADDA60A001EFC8B /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43EEDBE1ADDA60A001EFC8B /* Invoice.swift */; };
 		F43EEDC41ADDA60A001EFC8B /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43EEDBE1ADDA60A001EFC8B /* Invoice.swift */; };
+		F43EEDC71ADDB00B001EFC8B /* RegisteredUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43EEDC51ADDB00B001EFC8B /* RegisteredUser.swift */; };
+		F43EEDC81ADDB00B001EFC8B /* RegisteredUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43EEDC51ADDB00B001EFC8B /* RegisteredUser.swift */; };
+		F43EEDC91ADDB00B001EFC8B /* RegisteredUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43EEDC61ADDB00B001EFC8B /* RegisteredUserResponse.swift */; };
+		F43EEDCA1ADDB00B001EFC8B /* RegisteredUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43EEDC61ADDB00B001EFC8B /* RegisteredUserResponse.swift */; };
 		F47822EE1AA7863D004464E1 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47822ED1AA7863D004464E1 /* SwiftyJSON.swift */; };
 		F47822F41AA7967F004464E1 /* JsapiApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A1AAD71AA6172C00D17F43 /* JsapiApi.swift */; };
 		F47822F51AA7967F004464E1 /* JSAPIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48006631AA656F600B27561 /* JSAPIConstant.swift */; };
@@ -149,6 +153,8 @@
 		F43EEDBC1ADDA60A001EFC8B /* CheckoutResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutResponse.swift; sourceTree = "<group>"; };
 		F43EEDBD1ADDA60A001EFC8B /* Checkout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkout.swift; sourceTree = "<group>"; };
 		F43EEDBE1ADDA60A001EFC8B /* Invoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
+		F43EEDC51ADDB00B001EFC8B /* RegisteredUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisteredUser.swift; sourceTree = "<group>"; };
+		F43EEDC61ADDB00B001EFC8B /* RegisteredUserResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisteredUserResponse.swift; sourceTree = "<group>"; };
 		F47822ED1AA7863D004464E1 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		F47861921AB1BD7400A10B02 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		F47861951AB1E62B00A10B02 /* JsapiRest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsapiRest.swift; sourceTree = "<group>"; };
@@ -255,6 +261,8 @@
 		F4167B081AD5B03100345DCB /* Registration */ = {
 			isa = PBXGroup;
 			children = (
+				F43EEDC51ADDB00B001EFC8B /* RegisteredUser.swift */,
+				F43EEDC61ADDB00B001EFC8B /* RegisteredUserResponse.swift */,
 				F43EED921ADD6EE3001EFC8B /* GuestUser.swift */,
 				F43EED931ADD6EE3001EFC8B /* GuestUserResponse.swift */,
 			);
@@ -468,6 +476,7 @@
 				F4167B1C1AD5B1A900345DCB /* BaseResponse.swift in Sources */,
 				F4167B161AD5B17300345DCB /* Error.swift in Sources */,
 				F48BBD231ABB135B00EAFE09 /* Registration.swift in Sources */,
+				F43EEDC71ADDB00B001EFC8B /* RegisteredUser.swift in Sources */,
 				F43EEDB61ADDA34C001EFC8B /* Countries.swift in Sources */,
 				F47861931AB1BD7400A10B02 /* Utilities.swift in Sources */,
 				F43EED901ADD5E65001EFC8B /* Related.swift in Sources */,
@@ -483,6 +492,7 @@
 				F43EED941ADD6EE3001EFC8B /* GuestUser.swift in Sources */,
 				F4167B2E1AD5DC7100345DCB /* FavoriteResponse.swift in Sources */,
 				F43EED961ADD6EE3001EFC8B /* GuestUserResponse.swift in Sources */,
+				F43EEDC91ADDB00B001EFC8B /* RegisteredUserResponse.swift in Sources */,
 				F43EEDAB1ADD949F001EFC8B /* Item.swift in Sources */,
 				F43EED9D1ADD8B50001EFC8B /* Cartsku.swift in Sources */,
 				F43EED8D1ADD5E3E001EFC8B /* StoreResponse.swift in Sources */,
@@ -530,7 +540,9 @@
 				F43EEDAC1ADD949F001EFC8B /* Item.swift in Sources */,
 				F43EEDB21ADDA005001EFC8B /* ShippableResponse.swift in Sources */,
 				F47822F51AA7967F004464E1 /* JSAPIConstant.swift in Sources */,
+				F43EEDC81ADDB00B001EFC8B /* RegisteredUser.swift in Sources */,
 				F48BBD241ABB135B00EAFE09 /* Registration.swift in Sources */,
+				F43EEDCA1ADDB00B001EFC8B /* RegisteredUserResponse.swift in Sources */,
 				F4167B2F1AD5DC7100345DCB /* FavoriteResponse.swift in Sources */,
 				F43EED971ADD6EE3001EFC8B /* GuestUserResponse.swift in Sources */,
 				F43EEDB91ADDA34C001EFC8B /* CountriesResponse.swift in Sources */,

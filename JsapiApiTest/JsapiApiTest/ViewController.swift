@@ -323,21 +323,21 @@ class ViewController: UIViewController {
     @IBAction func testUserRegisteration()
     {
         var userDetails=Dictionary<String,String>()
-        userDetails["username"]="sswqewqweq"
+        userDetails["username"]="sswq1231231ss23ewqssweq"
         userDetails["password"]="123123"
-        userDetails["email"]="yousss55656e22f@knetik.com"
+        userDetails["email"]="sssw23ss12123@knetik.com"
         userDetails["gender"]="male"
-        userDetails["fullname"]="yosussefm2aher"
+        userDetails["fullname"]="yssos123ussssefm2aher"
         var regObject = Registration()
         regObject.doUserRegistration(userDetails)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (registeredUser:RegisteredUser,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testUserRegisteration Failed")
+                    println(errormessage)
                 }else
                 {
-                    println("testUserRegisteration PASS")
+                    println(registeredUser.getFullname())
                     // Valid Response
                 }
         }
