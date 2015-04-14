@@ -16,21 +16,21 @@ public class Store
     *@param params Dictionary {"terms": [""],"related": [""],"vocabulary": "","limit": 0,"page": 0,"useCatalog": false,"fullObject": false}
     *@param callback
     */
-    public func getPage(params:Dictionary<String,AnyObject>,callback:(NSDictionary,Bool)->Void)
+    public func getPage(params:Dictionary<String,AnyObject>,callback:(Array<Page>,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETPAGE;
         JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
+                var pageResponse=StoreResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    println(result["error"])
-                    println(result["error_description"])
+                    callback(pageResponse.pages,pageResponse.errormessage,issuccess)
+
                 }else
                 {
-                    println(result)
+                    callback(pageResponse.pages,"",issuccess)
                 }
-                callback(result,issuccess)
         }
     }
 

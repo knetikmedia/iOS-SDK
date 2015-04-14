@@ -7,14 +7,14 @@
 //
 
 import Foundation
-public class Cart
+public class CartService
 {
     public init (){}
 
     /**"Creates a new cart from scratch
     *@params cartsparams it's emptyDictionry
     */
-    public func createCart(cartsparams:Dictionary<String,String>,callback:(NSDictionary,Bool)->Void)
+    public func createCart(cartsparams:Dictionary<String,String>,callback:(String,String,Bool)->Void)
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.SCARTS
@@ -22,22 +22,22 @@ public class Cart
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(cartsparams),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
+                var cartNumberResponse=CartResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    println(result["error"])
-                    println(result["error_description"])
+                    callback(cartNumberResponse.cartnumber,cartNumberResponse.errormessage,issuccess)
+
                 }else
                 {
-                    println(result)
+                    callback(cartNumberResponse.cartnumber,"",issuccess)
                 }
-                callback(result,issuccess)
         }
     }
 
     /**Generates and save a new SKU based on the given prefix
     *@params skuparams {"quantity": 5,"prefix": "WHAT"}
     */
-    public func createCartSku(skuparams:Dictionary<String,String>,callback:(NSDictionary,Bool)->Void)
+    public func createCartSku(skuparams:Dictionary<String,String>,callback:(Array<String>,String,Bool)->Void)
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.CARTSSKU
@@ -45,15 +45,14 @@ public class Cart
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(skuparams),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
+                var skuResponse=CartSKUResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    println(result["error"])
-                    println(result["error_description"])
+                    callback(skuResponse.cartsku.skus,skuResponse.errormessage,issuccess)
                 }else
                 {
-                    println(result)
+                    callback(skuResponse.cartsku.skus,"",issuccess)
                 }
-                callback(result,issuccess)
         }
     }
     
@@ -62,7 +61,7 @@ public class Cart
     *guidID String
     *@params cart {"cartguid": "cart GUID"}
     */
-    public func getCart(cart:Dictionary<String,String>,guidID:String,callback:(NSDictionary,Bool)->Void)
+    public func getCart(cart:Dictionary<String,String>,guidID:String,callback:(CartDetails,String,Bool)->Void)
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.SCARTS+"/"+guidID
@@ -70,15 +69,15 @@ public class Cart
         JsapiRest.getRequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(cart))
             {
                 (result:NSDictionary,issuccess:Bool) in
+               var getCartResponse = GetCartResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    println(result["error"])
-                    println(result["error_description"])
+                    callback(CartDetails(),getCartResponse.errormessage,issuccess)
+
                 }else
                 {
-                    println(result)
+                    callback(getCartResponse.cartdetails,"",issuccess)
                 }
-                callback(result,issuccess)
         }
     }
 
@@ -87,7 +86,7 @@ public class Cart
     *itemID String example /services/latest/carts/itemID/checkout
     *@params cart {"cartguid": "cart GUID"}
     */
-    public func cartCheckout(cart:Dictionary<String,String>,itemID:String,callback:(NSDictionary,Bool)->Void)
+    public func cartCheckout(cart:Dictionary<String,String>,itemID:String,callback:(Checkout,String,Bool)->Void)
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         var endpoint=NSString(format: JSAPIConstant.CARTCHECKOUT,itemID)
@@ -96,15 +95,14 @@ public class Cart
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(cart),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
+               var checkoutResponse = CheckoutResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    println(result["error"])
-                    println(result["error_description"])
+                    callback(Checkout(),checkoutResponse.errormessage,issuccess)
                 }else
                 {
-                    println(result)
+                    callback(checkoutResponse.checkout,"",issuccess)
                 }
-                callback(result,issuccess)
         }
     }
 
@@ -139,7 +137,7 @@ public class Cart
     *itemID String example /services/latest/carts/itemID/countries
     *@params cart {"cartguid": "cart GUID"}
     */
-    public func cartCountries(cart:Dictionary<String,String>,itemID:String,callback:(NSDictionary,Bool)->Void)
+    public func cartCountries(cart:Dictionary<String,String>,itemID:String,callback:(Array<Country>,String,Bool)->Void)
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         var endpoint=NSString(format: JSAPIConstant.CARTCOUNTRIES,itemID)
@@ -148,15 +146,16 @@ public class Cart
         JsapiRest.getRequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(cart))
             {
                 (result:NSDictionary,issuccess:Bool) in
+                var countriesResponse = CountriesResponse(fromDictionary: result)
+                
                 if(!issuccess)
                 {
-                    println(result["error"])
-                    println(result["error_description"])
+                    callback(Array<Country>(),countriesResponse.errormessage,issuccess)
+
                 }else
                 {
-                    println(result)
+                    callback(countriesResponse.countries.country,"",issuccess)
                 }
-                callback(result,issuccess)
         }
     }
     
@@ -171,7 +170,7 @@ public class Cart
     "affiliate_key": ""
     }}
     */
-    public func changeItem(params:Dictionary<String,String>,itemID:String,callback:(NSDictionary,Bool)->Void)
+    public func changeItem(params:Dictionary<String,String>,itemID:String,callback:(AnyObject,String,Bool)->Void)
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         var endpoint=NSString(format: JSAPIConstant.CARTITEMS,itemID)
@@ -180,15 +179,14 @@ public class Cart
         JsapiRest.putRequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
+                var baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    println(result["error"])
-                    println(result["error_description"])
+                    callback(baseResponse,baseResponse.errormessage,issuccess)
                 }else
                 {
-                    println(result)
+                    callback(baseResponse,"",issuccess)
                 }
-                callback(result,issuccess)
         }
     }
 
@@ -205,7 +203,7 @@ public class Cart
     "affiliate_key": ""
     }}
     */
-    public func addCartItems(params:Dictionary<String,String>,itemID:String,callback:(NSDictionary,Bool)->Void)
+    public func addCartItems(params:Dictionary<String,String>,itemID:String,callback:(AnyObject,String,Bool)->Void)
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         var endpoint=NSString(format: JSAPIConstant.CARTITEMS,itemID)
@@ -214,15 +212,15 @@ public class Cart
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
+                var baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    println(result["error"])
-                    println(result["error_description"])
+                    callback(baseResponse,baseResponse.errormessage,issuccess)
+
                 }else
                 {
-                    println(result)
+                    callback(baseResponse,"",issuccess)
                 }
-                callback(result,issuccess)
         }
     }
     
@@ -244,7 +242,7 @@ public class Cart
     "phone_number": "",
     "order_notes": ""
     }    */
-    public func modifyShippingAddress(params:Dictionary<String,String>,itemID:String,callback:(NSDictionary,Bool)->Void)
+    public func modifyShippingAddress(params:Dictionary<String,String>,itemID:String,callback:(AnyObject,String,Bool)->Void)
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         var endpoint=NSString(format: JSAPIConstant.SHIPPINGADDRESS,itemID)
@@ -253,15 +251,14 @@ public class Cart
         JsapiRest.putRequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
+                var shippingResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    println(result["error"])
-                    println(result["error_description"])
+                    callback(shippingResponse,shippingResponse.errormessage,issuccess)
                 }else
                 {
-                    println(result)
+                    callback(shippingResponse,"",issuccess)
                 }
-                callback(result,issuccess)
         }
     }
     
@@ -269,7 +266,7 @@ public class Cart
     *itemID String example services/latest/carts/5145/shippable
     *@params {
        }    */
-    public func checkShippable(params:Dictionary<String,String>,itemID:String,callback:(NSDictionary,Bool)->Void)
+    public func checkShippable(params:Dictionary<String,String>,itemID:String,callback:(Shippable,String,Bool)->Void)
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         var endpoint=NSString(format: JSAPIConstant.SHIPPABLE,itemID)
@@ -278,15 +275,14 @@ public class Cart
         JsapiRest.getRequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
+                var shippable = ShippableResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    println(result["error"])
-                    println(result["error_description"])
+                    callback(Shippable(),shippable.errormessage,issuccess)
                 }else
                 {
-                    println(result)
+                    callback(shippable.shippable,"",issuccess)
                 }
-                callback(result,issuccess)
         }
     }
     

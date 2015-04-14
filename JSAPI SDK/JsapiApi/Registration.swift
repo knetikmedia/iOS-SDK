@@ -16,7 +16,7 @@ public class Registration
     @param params{"username": "","email": "","newpassword": "","secrethash": "","plaintext": false}
     @param callback Interface
     */
-    public func forgotPassword(params:Dictionary<String,String>,callback:(NSDictionary,Bool)->Void)
+    public func forgotPassword(params:Dictionary<String,String>,callback:(AnyObject,String,Bool)->Void)
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         var endpoint=JSAPIConstant.FORGOTPASSWORD
@@ -25,15 +25,16 @@ public class Registration
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
+               var baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    println(result["error"])
-                    println(result["error_description"])
+                    callback(baseResponse,baseResponse.errormessage,issuccess)
+
                 }else
                 {
-                    println(result)
+                    callback(baseResponse,"",issuccess)
+
                 }
-                callback(result,issuccess)
         }
 
     
@@ -44,7 +45,7 @@ public class Registration
     @param Empty Params
     @param callback Interface
     */
-    public func guests(params:Dictionary<String,String>,callback:(NSDictionary,Bool)->Void)
+    public func guests(params:Dictionary<String,String>,callback:(GuestUser,String,Bool)->Void)
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         var endpoint=JSAPIConstant.GUESTS
@@ -53,15 +54,15 @@ public class Registration
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
+                var guestResponse=GuestUserResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    println(result["error"])
-                    println(result["error_description"])
+                    callback(GuestUser(),guestResponse.errormessage,issuccess)
+
                 }else
                 {
-                    println(result)
+                    callback(guestResponse.guestUser,"",issuccess)
                 }
-                callback(result,issuccess)
         }
         
         
@@ -71,7 +72,7 @@ public class Registration
     @param params{"username": "","email": "","newpassword": "","secrethash": "","plaintext": false}
     @param callback Interface
     */
-    public func guestUpgrade(params:Dictionary<String,String>,callback:(NSDictionary,Bool)->Void)
+    public func guestUpgrade(params:Dictionary<String,String>,callback:(AnyObject,String,Bool)->Void)
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         var endpoint=JSAPIConstant.GUESTUPGRADE
@@ -80,15 +81,14 @@ public class Registration
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
+                var baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    println(result["error"])
-                    println(result["error_description"])
+                    callback(baseResponse,baseResponse.errormessage,issuccess)
                 }else
                 {
-                    println(result)
+                    callback(baseResponse,"",issuccess)
                 }
-                callback(result,issuccess)
         }
         
         

@@ -67,22 +67,20 @@ class ViewController: UIViewController {
     @IBAction func testCreateCard()
     {
         var cardDetails=Dictionary<String,String>()
-        var cartObject=Cart()
+        var cartObject=CartService()
         cartObject.createCart(cardDetails)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (cartNumber:String,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    // Invalid Response
-                    println("Create Card Failed")
+                    println("Create Card SKU Failed")
                 }else
                 {
-                    self.cartNumber=result.valueForKey("result") as String
-                    self.cartID=self.cartNumber;
-                     println("Create Card Pass")
-                    // Valid Response
+                    self.cartID=cartNumber
+                    self.cartNumber=cartNumber
+                    print(cartNumber)
                 }
-                print(result)
+
                 
         }
     }
@@ -95,18 +93,17 @@ class ViewController: UIViewController {
         var skuDetails=Dictionary<String,String>()
         skuDetails["quantity"]="5"
         skuDetails["prefix"]="WHAT"
-        var cartObject=Cart()
+        var cartObject=CartService()
         cartObject.createCartSku(skuDetails)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (skus:Array<String>,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("Create Card SKU Failed")
                 }else
                 {
-                    println("Create Card SKU PASS")
+                    print(skus)
                 }
-                print(result)
 
         }
     }
@@ -119,18 +116,19 @@ class ViewController: UIViewController {
     @IBAction func testgetCart()
     {
         var params=Dictionary<String,String>()
-        var cartObject=Cart()
+        var cartObject=CartService()
         cartObject.getCart(params,guidID: self.cartNumber)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (cartDetails:CartDetails,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("testgetCart Failed")
                 }else
                 {
                     println("testgetCart PASS")
+                    print(cartDetails.getCart().getCity())
+
                 }
-                print(result)
                 
                 
         }
@@ -145,18 +143,17 @@ class ViewController: UIViewController {
     {
         var params=Dictionary<String,String>()
       //  params["cartguid"]=cartNumber
-        var cartObject=Cart()
+        var cartObject=CartService()
         cartObject.cartCheckout(params,itemID:cartNumber)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (checkout:Checkout,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testCartCheckout Failed")
+                    print(errormessage)
                 }else
                 {
-                    println("testCartCheckout PASS")
+                    print(checkout.getInvoices()[0].getBillingAddress1())
                 }
-                print(result)
                 
         }
     }
@@ -167,8 +164,8 @@ class ViewController: UIViewController {
     @IBAction func testCartDiscount()
     {
         var params=Dictionary<String,String>()
-        params["sku"]="KIA1425401889-7403"
-        var cartObject=Cart()
+        params["sku"]="KIA1425410545-1808"
+        var cartObject=CartService()
         cartObject.cartDiscount(params,itemID:cartNumber)
             {
                 (result:NSDictionary,issuccess:Bool) in
@@ -191,18 +188,17 @@ class ViewController: UIViewController {
     @IBAction func testCarCountries()
     {
         var params=Dictionary<String,String>()
-        var cartObject=Cart()
+        var cartObject=CartService()
         cartObject.cartCountries(params,itemID:cartNumber)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (countries:Array<Country>,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testCarCountries Failed")
+                    println(errormessage)
                 }else
                 {
-                    println("testCarCountries PASS")
+                    print(countries)
                 }
-                print(result)
                 
         }
     }
@@ -214,13 +210,13 @@ class ViewController: UIViewController {
     @IBAction func testCartChangeItems()
     {
         var params=Dictionary<String,String>()
-           params["catalog_id"]="5"
-           params["catalog_sku_id"]="5"
-           params["quantity"]="1"
-               var cartObject=Cart()
+           params["catalog_id"]="72"
+           params["catalog_sku_id"]="72"
+           params["quantity"]="10"
+               var cartObject=CartService()
         cartObject.changeItem(params,itemID:cartID)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("testCartChangeItems Failed")
@@ -246,10 +242,10 @@ class ViewController: UIViewController {
         params["catalog_id"]="5"
         params["catalog_sku_id"]="5"
         params["quantity"]="0"
-        var cartObject=Cart()
+        var cartObject=CartService()
         cartObject.addCartItems(params,itemID:cartNumber)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("testCartAddItems Failed")
@@ -271,18 +267,17 @@ class ViewController: UIViewController {
     @IBAction func testCheckShippable()
     {
         var params=Dictionary<String,String>()
-        var cartObject=Cart()
+        var cartObject=CartService()
         cartObject.checkShippable(params,itemID:self.cartNumber)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (shippable:Shippable,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testCartAddItems Failed")
+                    println(errormessage)
                 }else
                 {
-                    println("testCartAddItems PASS")
+                    print(shippable.getCartId())
                 }
-                print(result)
                 
         }
     }
@@ -307,18 +302,17 @@ class ViewController: UIViewController {
         params["phone_number"]="10"
         params["order_notes"]="10"
 
-        var cartObject=Cart()
+        var cartObject=CartService()
         cartObject.modifyShippingAddress(params,itemID:cartID)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testCartAddItems Failed")
+                    print(errormessage)
                 }else
                 {
-                    println("testCartAddItems PASS")
+                    print(result)
                 }
-                print(result)
                 
         }
     }
@@ -362,7 +356,7 @@ class ViewController: UIViewController {
 
         regObject.forgotPassword(userDetails)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("testUserRegisteration Failed")
@@ -380,19 +374,18 @@ class ViewController: UIViewController {
         var regObject = Registration()
         regObject.guests(userDetails)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (guest:GuestUser,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testUserRegisteration Failed")
+                    println(errormessage)
                     return;
                 }else
                 {
                     println("testUserRegisteration PASS")
                     // Valid Response
-                }
-                var result2=result.valueForKey("result") as NSDictionary
-                self.username=result2.valueForKey("username") as String
-                self.password=result2.valueForKey("password") as String
+                
+                self.username=guest.getUsername()
+                self.password=guest.getPassword()
                 
                 var userDetails=Dictionary<String,String>()
                 userDetails["username"] = self.username
@@ -409,16 +402,16 @@ class ViewController: UIViewController {
                             
                         }
                         var userDetails=Dictionary<String,String>()
-                        userDetails["username"]="meyouwwwsse22f"
+                        userDetails["username"]="eeecrrr"
                         userDetails["password"]="123123"
-                        userDetails["email"]="meyoussqqqqef@knetik.com"
+                        userDetails["email"]="ddddddd@knetik.com"
                         userDetails["gender"]="male"
-                        userDetails["fullname"]="yossuqqqqssefm2aher"
+                        userDetails["fullname"]="wewecerer"
                         var regObject = Registration()
                         
                         regObject.guestUpgrade(userDetails)
                             {
-                                (result:NSDictionary,issuccess:Bool) in
+                                (result:AnyObject,errormessage:String,issuccess:Bool) in
                                 if(!issuccess)
                                 {
                                     println("testUserRegisteration Failed")
@@ -431,7 +424,7 @@ class ViewController: UIViewController {
 
                         
                 }
-
+                }
         }
 
     }
@@ -442,20 +435,18 @@ class ViewController: UIViewController {
         var regObject = Registration()
         regObject.guests(userDetails)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (guestUser:GuestUser,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("testUserRegisteration Failed")
                     return;
                 }else
                 {
-                    println("testUserRegisteration PASS")
+                    self.username=guestUser.getUsername()
+                    self.password=guestUser.getPassword()
                     // Valid Response
                 }
-                var result2=result.valueForKey("result") as NSDictionary
-                self.username=result2.valueForKey("username") as String
-                self.password=result2.valueForKey("password") as String
-        }
+                       }
     }
 
 // ----------------------------------REGISTER--------------------------------------------------------//
@@ -629,11 +620,11 @@ class ViewController: UIViewController {
         params["target_user_id"]=7224
         params["user_id"]=7700
         
-        var friendShip = Friendship()
+        var friendShip = FriendshipService()
         
         friendShip.addFriend(params)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("testAdd Friend Failed")
@@ -653,22 +644,22 @@ class ViewController: UIViewController {
         params["limit"]=20
         params["user_id"]=1
 
-        var friendShip = Friendship()
+        var friendShip = FriendshipService()
         
         friendShip.getFriends(params)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (friends:Friend,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("testGetFriend Failed")
                 }else
                 {
-                    var resultDictionary=result.valueForKey("result") as? NSDictionary
-                    var friendsList=resultDictionary?.objectForKey("friends") as NSArray
                     println("testGetFriend PASS")
+                    var friendsList=friends.getFriends()
+                    var invitedList=friends.getInvites()
+
                     // Valid Response
                 }
-                println(result)
         }
     }
 
@@ -680,22 +671,22 @@ class ViewController: UIViewController {
         params["limit"]=20
         params["user_id"]=7700
         
-        var friendShip = Friendship()
+        var friendShip = FriendshipService()
         
         friendShip.searchFriends(params)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (friends:Friend,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testSearchFriend Failed")
+                    println("testGetFriend Failed")
                 }else
                 {
-                    var resultDictionary=result.valueForKey("result") as? NSDictionary
-                    var friendsList=resultDictionary?.objectForKey("friends") as NSArray
-                    println("testSearchFriend PASS")
+                    println("testGetFriend PASS")
+                    var friendsList=friends.getFriends()
+                    var invitedList=friends.getInvites()
+                    
                     // Valid Response
                 }
-                println(result)
         }
     }
     @IBAction func testRemoveFriend()
@@ -705,11 +696,11 @@ class ViewController: UIViewController {
         params["user_id"]=7700
 
         
-        var friendShip = Friendship()
+        var friendShip = FriendshipService()
         
         friendShip.removeFriend(params)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("testAddCommentToItem Failed")
@@ -739,18 +730,18 @@ class ViewController: UIViewController {
         
         store.getPage(params)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (pages:Array<Page>,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("testStoreGetPage Failed")
                 }else
                 {
-                    var storeArray=result.valueForKey("result") as? NSArray
+                    var storeArray=pages
+                    println(pages)
 
                     println("testStoreGetPage PASS")
                     // Valid Response
                 }
-                println(result)
         }
     }
     

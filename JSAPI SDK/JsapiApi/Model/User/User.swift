@@ -25,22 +25,10 @@ public class User{
 	var username : String!
 	var wallet : [Wallet]!
     
-    public func getAge()->Int
-    {
-        return age;
-    }
-    public func getAvatarUrl()->String
-    {
-        return avatarUrl;
-    }
-    public func getCountry()->String
-    {
-        return country;
-    }
-    public func getDateOfBirth()->AnyObject
-    {
-        return dateOfBirth;
-    }
+    public func getAge()->Int{return age;}
+    public func getAvatarUrl()->String{return avatarUrl;}
+    public func getCountry()->String{return country;}
+    public func getDateOfBirth()->AnyObject{return dateOfBirth;}
     public func getEmail()->String{return email}
     public func getFirstName()->AnyObject{return firstName}
     public func getFullname()->String{return fullname}
@@ -55,7 +43,8 @@ public class User{
     public func getUsername()->String{return username}
     public func getWallet()->Array<Wallet>{return wallet}
 
-    public init(){}
+        
+    init(){}
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
