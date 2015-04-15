@@ -75,7 +75,7 @@ public class UserService {
     {
         var endpoint=NSString(format: JSAPIConstant.SETUSERPASSWORD,userID)
 
-        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+endpoint;
+        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String);
         JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in

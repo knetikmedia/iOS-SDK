@@ -16,7 +16,7 @@ class Utilities {
     {
         var err: NSError?
         let body = NSJSONSerialization.dataWithJSONObject(requestparamters, options: nil, error: &err)!
-        var datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)!
+        var datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
         println(datastring)
         return datastring
     }
@@ -29,7 +29,7 @@ class Utilities {
     {
         var err: NSError?
         let body = NSJSONSerialization.dataWithJSONObject(requestparamters, options: nil, error: &err)!
-        var datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)!
+        var datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
         println(datastring)
         return datastring
     }
@@ -41,7 +41,7 @@ class Utilities {
     {
         var err: NSError?
         let body = NSJSONSerialization.dataWithJSONObject(requestparamters, options: nil, error: &err)!
-        var datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)!
+        var datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
         println(datastring)
         return datastring
     }

@@ -25,7 +25,7 @@ public class CartService
                 var cartNumberResponse=CartResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    callback(cartNumberResponse.cartnumber,cartNumberResponse.errormessage,issuccess)
+                    callback("",cartNumberResponse.errormessage,issuccess)
 
                 }else
                 {
@@ -90,7 +90,7 @@ public class CartService
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         var endpoint=NSString(format: JSAPIConstant.CARTCHECKOUT,itemID)
-        let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+endpoint
+        let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String)
         println(methodurl)
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(cart),isJson:true)
             {
@@ -115,7 +115,7 @@ public class CartService
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         var endpoint=NSString(format: JSAPIConstant.CARTDISCOUNT,itemID)
-        let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+endpoint
+        let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String)
         println(methodurl)
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(cart),isJson:true)
             {
@@ -141,7 +141,7 @@ public class CartService
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         var endpoint=NSString(format: JSAPIConstant.CARTCOUNTRIES,itemID)
-        let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+endpoint
+        let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String)
         println(methodurl)
         JsapiRest.getRequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(cart))
             {
@@ -174,7 +174,7 @@ public class CartService
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         var endpoint=NSString(format: JSAPIConstant.CARTITEMS,itemID)
-        let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+endpoint
+        let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String)
         println(methodurl)
         JsapiRest.putRequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
@@ -207,7 +207,7 @@ public class CartService
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         var endpoint=NSString(format: JSAPIConstant.CARTITEMS,itemID)
-        let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+endpoint
+        let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String)
         println(methodurl)
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
@@ -246,7 +246,7 @@ public class CartService
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         var endpoint=NSString(format: JSAPIConstant.SHIPPINGADDRESS,itemID)
-        let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+endpoint
+        let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String)
         println(methodurl)
         JsapiRest.putRequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
@@ -270,7 +270,7 @@ public class CartService
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         var endpoint=NSString(format: JSAPIConstant.SHIPPABLE,itemID)
-        let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+endpoint
+        let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String)
         println(methodurl)
         JsapiRest.getRequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params))
             {

@@ -54,11 +54,11 @@ class JsapiRest
                  callback(NSDictionary(),true)
                 return;
             }
-            var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+            var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
             
             if(jsonResult["error"] != nil && isJson)
             {
-                let errorObject = jsonResult["error"]  as Dictionary<String,Bool>
+                let errorObject = jsonResult["error"] as! Dictionary<String,Bool>
                 
                 var isSuccess=errorObject["success"]?.boolValue
                 callback(jsonResult,isSuccess!)
@@ -104,11 +104,11 @@ class JsapiRest
             }
             let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
             println("responseString = \(responseString)")
-            var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+            var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
             
             if(jsonResult["error"] != nil )
             {
-                let errorObject = jsonResult["error"]  as Dictionary<String,Bool>
+                let errorObject = jsonResult["error"]  as! Dictionary<String,Bool>
                 
                 var isSuccess=errorObject["success"]?.boolValue
                 callback(jsonResult,isSuccess!)
@@ -161,11 +161,11 @@ class JsapiRest
 
                 return;
             }
-            var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+            var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
             
             if(jsonResult["error"] != nil && isJson)
             {
-                let errorObject = jsonResult["error"]  as Dictionary<String,Bool>
+                let errorObject = jsonResult["error"]  as! Dictionary<String,Bool>
                 
                 var isSuccess=errorObject["success"]?.boolValue
                 callback(jsonResult,isSuccess!)

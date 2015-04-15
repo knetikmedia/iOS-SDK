@@ -115,8 +115,8 @@ public class JsapiAPi
                     println(result["error_description"])
                 }else
                 {
-                    self.token=result.valueForKey("access_token") as String!
-                    self.token_type=result.valueForKey("token_type") as String!
+                    self.token=result.valueForKey("access_token") as! String!
+                    self.token_type=result.valueForKey("token_type") as! String!
 
                     println("token is : "+self.token)
                 }
@@ -152,10 +152,11 @@ public class JsapiAPi
         for key in commonParamtersDictionry.keys
         {
            postString+=key+"="+commonParamtersDictionry[key]!
-           if(commonParamtersDictionry.keys.last != key)
-           {
             postString+="&"
-           }
+//           if(commonParamtersDictionry.keys.last != key)
+//           {
+//            postString+="&"
+//           }
         }
         println(postString)
         return postString
@@ -168,7 +169,7 @@ public class JsapiAPi
     {
         var err: NSError?
         let body = NSJSONSerialization.dataWithJSONObject(requestparamters, options: nil, error: &err)!
-        var datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)!
+        var datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
         println(datastring)
         return datastring
     }

@@ -323,11 +323,11 @@ class ViewController: UIViewController {
     @IBAction func testUserRegisteration()
     {
         var userDetails=Dictionary<String,String>()
-        userDetails["username"]="sswq1231231ss23ewqssweq"
+        userDetails["username"]="sswq12312ww31ss23ewqssweq"
         userDetails["password"]="123123"
-        userDetails["email"]="sssw23ss12123@knetik.com"
+        userDetails["email"]="sssw23ss12123sww@knetik.com"
         userDetails["gender"]="male"
-        userDetails["fullname"]="yssos123ussssefm2aher"
+        userDetails["fullname"]="yssosww123ussssefm2aher"
         var regObject = Registration()
         regObject.doUserRegistration(userDetails)
             {
