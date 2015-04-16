@@ -107,24 +107,24 @@ you can register a new user by passing username,password ,email,gender and fulln
 ```
 #!swift
 
-func testUseRegistration()
+func testUserRegistration()
     {
         var userDetails=Dictionary<String,String>()
         userDetails["username"]="username"
         userDetails["password"]="password" // plain text
-        userDetails["email"]="email@knetik.com"
+        userDetails["email"]="knetik@knetik.com"
         userDetails["gender"]="male"
-        userDetails["fullname"]="full name "
+        userDetails["fullname"]="knetik"
         var regObject = Registration()
         regObject.doUserRegistration(userDetails)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (registeredUser:RegisteredUser,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testUseRegistration Failed")
+                    println(errormessage)
                 }else
                 {
-                    println("testUseRegistration PASS")
+                    println(registeredUser.getFullname())
                     // Valid Response
                 }
         }
@@ -146,20 +146,18 @@ func testGuestUser()
         var regObject = Registration()
         regObject.guests(userDetails)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (guestUser:GuestUser,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testGuestUser Failed")
+                    println("testUserRegisteration Failed")
                     return;
                 }else
                 {
-               var result2=result.valueForKey("result") as NSDictionary
-                self.username=result2.valueForKey("username") as String   // new user name 
-                self.password=result2.valueForKey("password") as String    // user password 
-                    println("testGuestUser PASS")
+                    self.username=guestUser.getUsername() // new user name
+                    self.password=guestUser.getPassword() // user password 
+                    // Valid Response
                 }
-               
-        }
+                       }
     }
 ```
 
@@ -171,29 +169,30 @@ to upgrade your Guest account to a regular account you need first to **Logged in
 ```
 #!swift
 
-func guestUpgrade ()
-{
-                     var userDetails=Dictionary<String,String>(){
-                        userDetails["username"]="new user name"
-                        userDetails["password"]="new password"
-                        userDetails["email"]="email@knetik.com"
+func testUpdateGuest()
+    {
+                        var userDetails=Dictionary<String,String>()
+                        userDetails["username"]="username"
+                        userDetails["password"]="password"
+                        userDetails["email"]="knetik@knetik.com"
                         userDetails["gender"]="male"
-                        userDetails["fullname"]="full name"
+                        userDetails["fullname"]="fullname"
                         var regObject = Registration()
                         
                         regObject.guestUpgrade(userDetails)
                             {
-                                (result:NSDictionary,issuccess:Bool) in
+                                (result:AnyObject,errormessage:String,issuccess:Bool) in
                                 if(!issuccess)
                                 {
-                                    println("testUserRegisteration Failed")
+                                    println(errormessage)
                                 }else
                                 {
                                     println("testUserRegisteration PASS")
                                     // Valid Response
                                 }
                         }
-}
+
+              }
 ```
 
 ### Forgot Password ###
@@ -219,16 +218,17 @@ func testForgotPassword()
 
         regObject.forgotPassword(userDetails)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testForgotPassword Failed")
+                    println("testUserRegisteration Failed")
                 }else
                 {
-                    println("testForgotPassword PASS")
+                    println("testUserRegisteration PASS")
                     // Valid Response
                 }
         }
+
     }
 ```
 
@@ -248,20 +248,23 @@ you can get User Info be calling getUserInfo function from User Object
 func testGetUserInfo()
     {
         var emptyParams=Dictionary<String,String>()
-        var userObject = User()
+        var userObject = UserService()
         userObject.getUserInfo(emptyParams)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (user:User,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testGetUserInfo Failed")
+                    println("testUserRegisteration Failed")
+                    println(errormessage)
+
                 }else
                 {
-                    println("testGetUserInfo PASS")
+                    println("testUserRegisteration PASS")
+                    println(user.getFullname())
+
                     // Valid Response
                 }
-                println(result)
-        }
+
     }
 ```
 ### Update User Info ###
@@ -330,19 +333,24 @@ to create a cart you need to call *createCart* function and the new Cart number 
 
 func testCreateCard()
     {
-        var emptyDictionary=Dictionary<String,String>()
-        var cartObject=Cart()
-        cartObject.createCart(emptyDictionary)
+        var cardDetails=Dictionary<String,String>()
+        var cartObject=CartService()
+        cartObject.createCart(cardDetails)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (cartNumber:String,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("Create Card Failed")
+                    println("Create Card SKU Failed")
                 }else
                 {
-                    self.cartNumber=result.valueForKey("result") as String
+                    self.cartID=cartNumber
+                    self.cartNumber=cartNumber
+                    print(cartNumber)
                 }
+
+                
         }
+
     }
 
 ```
@@ -354,20 +362,24 @@ you can get full cart details by passing cartNumber to  *getCart* function
 
 func testGetCart()
     {
-        var params=Dictionary<String,String>()
-        var cartObject=Cart()
+     var params=Dictionary<String,String>()
+        var cartObject=CartService()
         cartObject.getCart(params,guidID: self.cartNumber)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (cartDetails:CartDetails,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("testgetCart Failed")
                 }else
                 {
                     println("testgetCart PASS")
+                    print(cartDetails.getCart().getCity())
+
                 }
-                print(result)
+                
+                
         }
+
     }
 ```
 ### Cart Checkout ###
@@ -379,18 +391,20 @@ func testGetCart()
 
 func testCartCheckout()
     {
-        var params=Dictionary<String,String>()
-        var cartObject=Cart()
+      var params=Dictionary<String,String>()
+      //  params["cartguid"]=cartNumber
+        var cartObject=CartService()
         cartObject.cartCheckout(params,itemID:cartNumber)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (checkout:Checkout,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testCartCheckout Failed")
+                    print(errormessage)
                 }else
                 {
-                    println("testCartCheckout PASS")
-                }               
+                    print(checkout.getInvoices()[0].getBillingAddress1())
+                }
+                
         }
     }
 ```
@@ -405,19 +419,18 @@ Get the list of available shipping countries per vendor
 
 func testCarCountries()
     {
-        var params=Dictionary<String,String>()
-        var cartObject=Cart()
+      var params=Dictionary<String,String>()
+        var cartObject=CartService()
         cartObject.cartCountries(params,itemID:cartNumber)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (countries:Array<Country>,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testCarCountries Failed")
+                    println(errormessage)
                 }else
                 {
-                    println("testCarCountries PASS")
+                    print(countries)
                 }
-                print(result)
                 
         }
     }
@@ -435,11 +448,11 @@ func testCartAddItems()
         var params=Dictionary<String,String>()
         params["catalog_id"]="5"
         params["catalog_sku_id"]="5"
-        params["quantity"]="1"
-        var cartObject=Cart()
+        params["quantity"]="0"
+        var cartObject=CartService()
         cartObject.addCartItems(params,itemID:cartNumber)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("testCartAddItems Failed")
@@ -448,6 +461,9 @@ func testCartAddItems()
                     println("testCartAddItems PASS")
                 }
                 print(result)
+                
+        }
+
         
 ```
 
@@ -461,14 +477,14 @@ you can changes the quantity of an item already in the cart by passing catalog_i
 
 func testCartChangeItems()
     {
-        var params=Dictionary<String,String>()
-           params["catalog_id"]="5"
-           params["catalog_sku_id"]="5"
-           params["quantity"]="1"
-               var cartObject=Cart()
+    var params=Dictionary<String,String>()
+           params["catalog_id"]="72"
+           params["catalog_sku_id"]="72"
+           params["quantity"]="10"
+               var cartObject=CartService()
         cartObject.changeItem(params,itemID:cartID)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("testCartChangeItems Failed")
@@ -479,6 +495,7 @@ func testCartChangeItems()
                 print(result)
                 
         }
+
     }
 
 ```
@@ -505,20 +522,20 @@ func testModifyShippingAddress()
         params["phone_number"]="+11111111"
         params["order_notes"]="notes"
 
-        var cartObject=Cart()
+       var cartObject=CartService()
         cartObject.modifyShippingAddress(params,itemID:cartID)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testModifyShippingAddress Failed")
+                    print(errormessage)
                 }else
                 {
-                    println("testModifyShippingAddress PASS")
+                    print(result)
                 }
-                print(result)
                 
         }
+
     }
 ```
 
@@ -531,21 +548,21 @@ you can check if the Cart is requires shipping or not by calling *checkShippable
 
 func testCheckShippable()
     {
-        var params=Dictionary<String,String>()
-        var cartObject=Cart()
+  var params=Dictionary<String,String>()
+        var cartObject=CartService()
         cartObject.checkShippable(params,itemID:self.cartNumber)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (shippable:Shippable,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testCheckShippable Failed")
+                    println(errormessage)
                 }else
                 {
-                    println("testCheckShippable PASS")
+                    print(shippable.getCartId())
                 }
-                print(result)
                 
         }
+
     }
 ```
 
@@ -561,17 +578,18 @@ you can add Comment to an item by passing itemID and comment string to *addComme
 
 func testAddCommentToItem()
     {
-        var params=Dictionary<String,String>()
-        params["item_id"]="item_id"
-        params["comment"]="Comment String "
+       var params=Dictionary<String,String>()
+        params["item_id"]="4"
+        params["comment"]="hello"
 
-        var comment = Comment()
+        var comment = CommentService()
         comment.addComment(params)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("testAddCommentToItem Failed")
+                    println(errormessage)
                 }else
                 {
                     println("testAddCommentToItem PASS")
@@ -579,6 +597,8 @@ func testAddCommentToItem()
                 }
                 println(result)
         }
+
+
     }
 ```
 
@@ -592,22 +612,23 @@ you can delete your own comment by passing Comment ID to *deleteComment* functio
 func testDeleteComment()
     {
         var params=Dictionary<String,String>()
-        params["id"]=self.comment_id //string value
+        params["id"]=self.comment_id
         
-        var comment = Comment()
+        var comment = CommentService()
         comment.deleteComment(params)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testDeleteComment Failed")
+                    println("testAddCommentToItem Failed")
                 }else
                 {
-                    println("testDeleteComment PASS")
+                    println("testAddCommentToItem PASS")
                     // Valid Response
                 }
                 println(result)
         }
+
     }
 ```
 ### Comment List ### 
@@ -620,22 +641,27 @@ you can fetch a a list of all comments currently attached to a given item by pas
  func testItemCommentsList()
     {
         var params=Dictionary<String,String>()
-        params["id"]="4" // Comment ID 
-        var comment = Comment()
+        params["id"]="4"
+        var comment = CommentService()
         comment.commentsList(params)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (comments:Array<Comment>,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("testItemCommentsList Failed")
+                    println(errormessage)
                 }else
                 {
-                    println("testItemCommentsList PASS")
-                 var commentsObject=result.valueForKey("result") as? NSArray
+                        if(comments.count>0){
+                            var comment=comments[comments.count-1] as Comment
+                            self.comment_id=String(comment.getCommentId())
+                            println("comment id is "+self.comment_id)
+                    }
+                    // Valid Response
                 }
-                 }
-                println(result)
+              
         }
+
     }
 
 ```
@@ -649,17 +675,17 @@ you can add A friend to your friends List by passing target_user_id and your use
 ```
 #!swift
 
-func testFriendShip()
+func testAddFriend()
     {
         var params=Dictionary<String,AnyObject>()
         params["target_user_id"]=7224 // your friend ID 
         params["user_id"]=7700  // your user ID you can Get it by calling GetUserID
         
-        var friendShip = Friendship()
+         var friendShip = FriendshipService()
         
         friendShip.addFriend(params)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("testAdd Friend Failed")
@@ -670,6 +696,7 @@ func testFriendShip()
                 }
                 println(result)
         }
+
     }
 ```
 
@@ -687,21 +714,24 @@ func testGetFriend()
         params["limit"]=20
         params["user_id"]=1
 
-        var friendShip = Friendship()
+       var friendShip = FriendshipService()
         
         friendShip.getFriends(params)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (friends:Friend,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("testGetFriend Failed")
                 }else
                 {
-                    var resultDictionary=result.valueForKey("result") as? NSDictionary
-                    var friendsList=resultDictionary?.objectForKey("friends") as NSArray
                     println("testGetFriend PASS")
+                    var friendsList=friends.getFriends()
+                    var invitedList=friends.getInvites()
+
+                    // Valid Response
                 }
         }
+
     }
 
 ```
@@ -721,23 +751,24 @@ func testSearchFriend()
         params["limit"]=20
         params["user_id"]=7700
         
-        var friendShip = Friendship()
+        var friendShip = FriendshipService()
         
         friendShip.searchFriends(params)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (friends:Friend,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testSearchFriend Failed")
+                    println("testGetFriend Failed")
                 }else
                 {
-                    var resultDictionary=result.valueForKey("result") as? NSDictionary
-                    var friendsList=resultDictionary?.objectForKey("friends") as NSArray
-                    println("testSearchFriend PASS")
+                    println("testGetFriend PASS")
+                    var friendsList=friends.getFriends()
+                    var invitedList=friends.getInvites()
+                    
                     // Valid Response
                 }
-                println(result)
         }
+
     }
 ```
 
@@ -752,20 +783,21 @@ func testRemoveFriend()
         var params=Dictionary<String,AnyObject>()
         params["target_user_id"]=7224 // Target user ID to be deleted 
         params["user_id"]=7700 // your user ID
-        var friendShip = Friendship() 
-        friendShip.removeFriend(params)
+        var friendShip = FriendshipService()
+         friendShip.removeFriend(params)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testRemoveFriend Failed")
+                    println("testAddCommentToItem Failed")
                 }else
                 {
-                    println("testRemoveFriend PASS")
+                    println("testAddCommentToItem PASS")
                     // Valid Response
                 }
                 println(result)
         }
+
     }
 
 ```
@@ -782,10 +814,11 @@ func testAddFavorite()
     {
         var params=Dictionary<String,AnyObject>()
         params["id"]=1   // item ID should be int value 
-        var favorite = Favorite()
+        var favorite = FavoriteService()
+        
         favorite.addFavoriteItem(params)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("Test Add Favorite Failed")
@@ -794,8 +827,9 @@ func testAddFavorite()
                     println("Test Add Favorite PASS")
                     // Valid Response
                 }
-                println(result)
+                println(errormessage)
         }
+
     }
 
 ```
@@ -811,11 +845,11 @@ func testDeleteFavorites()
         var params=Dictionary<String,AnyObject>()
         params["id"]=1  // item ID to be Deleted 
        
-        var favorite = Favorite()
+         var favorite = FavoriteService()
         
         favorite.deleteFavorite(params)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("test Delete Favorites Failed")
@@ -824,8 +858,9 @@ func testDeleteFavorites()
                     println("test Delete Favorites PASS")
                     // Valid Response
                 }
-                println(result)
+                println(errormessage)
         }
+
     }
 
 ``` 
@@ -839,21 +874,23 @@ you can get you Favorite List by calling getFavorites
 func testGetFavorites()
     {
         var params=Dictionary<String,AnyObject>()
-        var favorite = Favorite()
+         var favorite = FavoriteService()
          favorite.getFavorites(params)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (favorites:Array<Favorite>,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("test Get Favorites Failed")
                 }else
                 {
-                    var favist=result.valueForKey("result") as? NSArray
+                    var favist=favorites
+                    
                     println("test Get Favorites PASS")
                     // Valid Response
                 }
-                println(result)
+                println(errormessage)
         }
+
     }
 ```
 
@@ -875,23 +912,24 @@ func testStoreGetPage()
         params["useCatalog"]=true; //optional 
         params["fullObject"]=true;  // optional 
         
-        var store = Store()
+       var store = Store()
         
         store.getPage(params)
             {
-                (result:NSDictionary,issuccess:Bool) in
+                (pages:Array<Page>,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     println("testStoreGetPage Failed")
                 }else
                 {
-                    var storeArray=result.valueForKey("result") as? NSArray
+                    var storeArray=pages
+                    println(pages)
 
                     println("testStoreGetPage PASS")
                     // Valid Response
                 }
-                println(result)
         }
+
     }
 
 ```
