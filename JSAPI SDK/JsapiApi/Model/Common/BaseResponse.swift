@@ -23,6 +23,10 @@ class BaseResponse{
 		}
 		errormessage = dictionary["message"] as? String
 		requestId = dictionary["requestId"] as? String
+        if(errormessage == nil)
+        {
+            errormessage=""
+        }
 	}
 
 }

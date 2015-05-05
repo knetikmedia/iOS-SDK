@@ -48,7 +48,7 @@ public class CartService
                 var skuResponse=CartSKUResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    callback(skuResponse.cartsku.skus,skuResponse.errormessage,issuccess)
+                    callback(Array<String>(),skuResponse.errormessage,issuccess)
                 }else
                 {
                     callback(skuResponse.cartsku.skus,"",issuccess)

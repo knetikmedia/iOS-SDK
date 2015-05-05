@@ -54,8 +54,13 @@ class JsapiRest
                  callback(NSDictionary(),true)
                 return;
             }
-            var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
-            
+            var eerror : AutoreleasingUnsafeMutablePointer<NSError?> = nil
+            var jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: eerror) as? NSDictionary
+            if(jsonResult == nil)
+            {
+                callback(NSDictionary(),false)
+                return;
+            }
             if(jsonResult["error"] != nil && isJson)
             {
                 let errorObject = jsonResult["error"] as! Dictionary<String,Bool>
@@ -104,7 +109,13 @@ class JsapiRest
             }
             let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
             println("responseString = \(responseString)")
-            var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
+            var eerror : AutoreleasingUnsafeMutablePointer<NSError?> = nil
+            var jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: eerror) as? NSDictionary
+            if(jsonResult == nil)
+            {
+                callback(NSDictionary(),false)
+                return;
+            }
             
             if(jsonResult["error"] != nil )
             {
@@ -161,7 +172,13 @@ class JsapiRest
 
                 return;
             }
-            var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
+            var eerror : AutoreleasingUnsafeMutablePointer<NSError?> = nil
+            var jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: eerror) as? NSDictionary
+            if(jsonResult == nil)
+            {
+                callback(NSDictionary(),false)
+                return;
+            }
             
             if(jsonResult["error"] != nil && isJson)
             {
