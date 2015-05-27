@@ -22,7 +22,7 @@ Connecting to JSAPI using IOS Swift
 
 func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
 {
- JsapiAPi.jsapiInit("http://localhost:8080/jsapi")
+ JsapiAPi.jsapiInit("http://localhost:8080/jsapi","","")
   return true
  }
 ```
@@ -31,7 +31,7 @@ func application(application: UIApplication, didFinishLaunchingWithOptions launc
 once you add JsapiAPi.jsapiInit call in AppDelegate a singleton Object for JsapiAPi class created 
 
 ## JsapiAPi##
-JsapiAPi class used to perform Login, logout functions and caching the Authentication token , jsapi URL and client_id
+JsapiAPi class used to perform Login, logout functions and caching the Authentication token and jsapi URL
 
 ### Login ###
 Right now you have an Object of JsapiAPi so all you need to do is to call *doUserLogin* function and pass the username and password parameters as shown in below Example 
