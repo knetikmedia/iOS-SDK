@@ -22,15 +22,10 @@ Connecting to JSAPI using IOS Swift
 
 func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
 {
- JsapiAPi.jsapiInit("http://localhost:8080/jsapi", client_id: "teamrock_web",secrect_key: "Caqq24dp68VCU")
+ JsapiAPi.jsapiInit("http://localhost:8080/jsapi")
   return true
  }
 ```
-
-
-### client_Id ###
-
-is the top client name in client table 
 
 # Getting Started #
 once you add JsapiAPi.jsapiInit call in AppDelegate a singleton Object for JsapiAPi class created 
