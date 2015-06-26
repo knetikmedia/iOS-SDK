@@ -7,15 +7,16 @@
 //
 
 import Foundation
-public class JsapiAPi :NSObject
+public class JsapiAPi
 {
+    
     private var jsapiurl:String=""
     private var client_id:String=""
     private var username:String=""
     private var password:String=""
     private var secrect_key:String=""
     private var token=""
-    
+    private var token_type=""
     /**
     return a Singleton for JsapiApi class
     
@@ -40,8 +41,6 @@ public class JsapiAPi :NSObject
     Jsapi Init function should be called in App Delegate in function (didFinishLaunchingWithOptions).
     jsapiurl jsapi url it should be like http://www.knetik.com
     client_id first username in Client Table
-    username username used in Jsapi Authentication
-    password  password used in Jsapi Authentication
     secrect_key optional paramter
     */
     
@@ -84,7 +83,7 @@ public class JsapiAPi :NSObject
         var commonParamtersDictionry=Dictionary<String,String>()
         let methodurl:String=jsapiurl+JSAPIConstant.REGISTER
         println(methodurl)
-        JsapiPost.postRequet(methodurl,postParams: jsonRequestFromDictionary(registerationDetails),isJson:true)
+        JsapiRest.postrequest(methodurl,postParams: jsonRequestFromDictionary(registerationDetails),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 if(!issuccess)
@@ -107,7 +106,7 @@ public class JsapiAPi :NSObject
     {
         let methodurl:String=jsapiurl+JSAPIConstant.OAUTH_TOKEN
         println(methodurl)
-        JsapiPost.postRequet(methodurl,postParams: authenticateRequestFromDictionary(loginDetails),isJson:false)
+        JsapiRest.postrequest(methodurl,postParams: authenticateRequestFromDictionary(loginDetails),isJson:false)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 if(!issuccess)
@@ -116,11 +115,22 @@ public class JsapiAPi :NSObject
                     println(result["error_description"])
                 }else
                 {
-                    self.token=result.valueForKey("access_token") as String
+                    self.token=result.valueForKey("access_token") as! String!
+                    self.token_type=result.valueForKey("token_type") as! String!
+
                     println("token is : "+self.token)
                 }
                 callback(result,issuccess)
         }
+    }
+
+    /**
+    do User Logout
+    */
+    public func doUserLogout()
+    {
+    self.token_type="";
+    self.token="";
     }
 
     /*
@@ -131,8 +141,6 @@ public class JsapiAPi :NSObject
         var commonParamtersDictionry=Dictionary<String,String>()
         commonParamtersDictionry["client_id"]=JsapiAPi.sharedInstance.client_id
         commonParamtersDictionry["grant_type"]="password"
-        commonParamtersDictionry["username"]=JsapiAPi.sharedInstance.username
-        commonParamtersDictionry["password"]=JsapiAPi.sharedInstance.password
         if(!JsapiAPi.sharedInstance.secrect_key.isEmpty){
         commonParamtersDictionry["client_secret"]=JsapiAPi.sharedInstance.secrect_key
         }
@@ -144,10 +152,11 @@ public class JsapiAPi :NSObject
         for key in commonParamtersDictionry.keys
         {
            postString+=key+"="+commonParamtersDictionry[key]!
-           if(commonParamtersDictionry.keys.last != key)
-           {
             postString+="&"
-           }
+//           if(commonParamtersDictionry.keys.last != key)
+//           {
+//            postString+="&"
+//           }
         }
         println(postString)
         return postString
@@ -160,16 +169,20 @@ public class JsapiAPi :NSObject
     {
         var err: NSError?
         let body = NSJSONSerialization.dataWithJSONObject(requestparamters, options: nil, error: &err)!
-        var datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)!
+        var datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
         println(datastring)
         return datastring
     }
 
 
-    /**
-    
-    */
-    
-    
-    
+    public func getJsapiUrl()->String
+    {
+    return jsapiurl;
+    }
+
+    public func getJsapiToken()->String
+    {
+        return self.token_type+self.token;
+    }
+
 }

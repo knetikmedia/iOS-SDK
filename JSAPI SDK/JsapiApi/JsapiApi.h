@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
 //! Project version number for JsapiApi.
 FOUNDATION_EXPORT double JsapiApiVersionNumber;
 
