@@ -15,9 +15,9 @@ public class FriendshipService
     *@param params Dictionary{"target_user_id": 0,"user_id": 0}
     *@param callback
     */
-    public func addFriend(params:Dictionary<String,AnyObject>,callback:(AnyObject,String,Bool)->Void)
+    public func addFriend(myUserId:String ,params:Dictionary<String,AnyObject>,callback:(AnyObject,String,Bool)->Void)
     {
-        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDFRIEND;
+        let methodUrl:String=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDFRIEND,myUserId) as String
         JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
@@ -39,10 +39,11 @@ public class FriendshipService
     *@param params Dictionary {"page": 0,"limit": 0,"user_id": 0}
     *@param callback
     */
-    public func getFriends(params:Dictionary<String,AnyObject>,callback:(Friend,String,Bool)->Void)
+    public func getFriends(myUserId:String ,params:Dictionary<String,AnyObject>,callback:(Friend,String,Bool)->Void)
     {
-        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETFRIENDS;
-        JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        let methodUrl:String=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETFRIENDS,myUserId) as String
+
+        JsapiRest.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
                 var friendsResponse=FriendsResponse(fromDictionary: result)
@@ -62,10 +63,11 @@ public class FriendshipService
     *@param params Dictionary {"target_user_id": 0,"user_id": 0}
     *@param callback
     */
-    public func removeFriend(params:Dictionary<String,AnyObject>,callback:(AnyObject,String,Bool)->Void)
+    public func removeFriend(myUserId:String,targetUserId:String,params:Dictionary<String,AnyObject>,callback:(AnyObject,String,Bool)->Void)
     {
-        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.REMOVEFRIEND;
-        JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        let methodUrl:String=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.REMOVEFRIEND,myUserId,targetUserId) as String
+
+        JsapiRest.deleteRequest(methodUrl, deleteParams: Utilities.jsonRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
                 var friendsResponse=FriendsResponse(fromDictionary: result)
@@ -84,10 +86,11 @@ public class FriendshipService
     *@param params Dictionary {"page": 0,"limit": 0,"user_id": 0,"search": ""}
     *@param callback
     */
-    public func searchFriends(params:Dictionary<String,AnyObject>,callback:(Friend,String,Bool)->Void)
+    public func searchFriends(myUserId:String,params:Dictionary<String,AnyObject>,callback:(Friend,String,Bool)->Void)
     {
-        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.SEARCHFRIEND;
-        JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        let methodUrl:String=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETFRIENDS,myUserId) as String
+        
+        JsapiRest.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
                 var friendsResponse=FriendsResponse(fromDictionary: result)

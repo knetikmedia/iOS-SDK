@@ -91,11 +91,13 @@ class JsapiRest
     class func getRequest(functionURL:String,postParams:String,callback:(NSDictionary,Bool)->Void)
     {
         println(postParams)
-        let request = NSMutableURLRequest(URL: NSURL(string: functionURL)!)
+        let request = NSMutableURLRequest(URL: NSURL(string: functionURL+postParams)!)
         request.HTTPMethod = "GET"
         let postString = postParams
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
+        
+        
         if(!JsapiAPi.sharedInstance.getJsapiToken().isEmpty&&JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR){
             println("token not empty :"+JsapiAPi.sharedInstance.getJsapiToken())
             request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
@@ -126,6 +128,57 @@ class JsapiRest
             }else
              {
                     callback(jsonResult,true)
+            }
+        }
+        task.resume()
+    }
+
+    
+    //
+    /**
+    DELETERequet
+    @param functionURL : function URL Example
+    @param callback block called once you got the response
+    */
+    class func deleteRequest(functionURL:String,deleteParams:String,callback:(NSDictionary,Bool)->Void)
+    {
+        println(deleteParams)
+        let request = NSMutableURLRequest(URL: NSURL(string: functionURL)!)
+        request.HTTPMethod = "DELETE"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        
+        
+        if(!JsapiAPi.sharedInstance.getJsapiToken().isEmpty&&JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR){
+            println("token not empty :"+JsapiAPi.sharedInstance.getJsapiToken())
+            request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
+        }
+        println(JsapiAPi.sharedInstance.getJsapiToken())
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            if error != nil {
+                callback(NSDictionary(),true)
+                return
+            }
+            let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
+            println("responseString = \(responseString)")
+            var eerror : AutoreleasingUnsafeMutablePointer<NSError?> = nil
+            var jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: eerror) as? NSDictionary
+            if(jsonResult == nil)
+            {
+                callback(NSDictionary(),false)
+                return;
+            }
+            
+            if(jsonResult["error"] != nil )
+            {
+                let errorObject = jsonResult["error"]  as! Dictionary<String,Bool>
+                
+                var isSuccess=errorObject["success"]?.boolValue
+                callback(jsonResult,isSuccess!)
+            }else
+            {
+                callback(jsonResult,true)
             }
         }
         task.resume()

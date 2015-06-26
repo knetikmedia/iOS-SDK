@@ -46,4 +46,23 @@ class Utilities {
         return datastring
     }
 
+    
+    /*
+    generate Json Request from Dictionary
+    */
+    class func getGETRequestFromDictionary(requestparamters:Dictionary<String,AnyObject>)->String
+    {
+        var datastring="?";
+        for (myKey,myValue) in requestparamters {
+            if let str = myValue as? String {
+                datastring+=myKey+"="+(myValue as! String)+"&"
+            }
+            else {
+                datastring+=myKey+"="+myValue.stringValue+"&"
+            }
+           }
+        return datastring
+    }
+
+    
 }

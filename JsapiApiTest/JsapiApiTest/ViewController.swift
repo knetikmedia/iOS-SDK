@@ -617,12 +617,11 @@ class ViewController: UIViewController {
     @IBAction func testFriendShip()
     {
         var params=Dictionary<String,AnyObject>()
-        params["target_user_id"]=7224
-        params["user_id"]=7700
+        params["target_user_id"]=4330
         
         var friendShip = FriendshipService()
         
-        friendShip.addFriend(params)
+        friendShip.addFriend("1",params:params)
             {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
@@ -641,12 +640,11 @@ class ViewController: UIViewController {
     {
         var params=Dictionary<String,AnyObject>()
         params["page"]=1
-        params["limit"]=20
-        params["user_id"]=1
-
+        params["size"]=20
+      
         var friendShip = FriendshipService()
         
-        friendShip.getFriends(params)
+        friendShip.getFriends("1",params:params)
             {
                 (friends:Friend,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
@@ -666,14 +664,13 @@ class ViewController: UIViewController {
     @IBAction func testSearchFriend()
     {
         var params=Dictionary<String,AnyObject>()
-        params["search"]="tes"
+        params["friend"]="tes"
         params["page"]=1
         params["limit"]=20
-        params["user_id"]=7700
         
         var friendShip = FriendshipService()
         
-        friendShip.searchFriends(params)
+        friendShip.searchFriends("1",params:params)
             {
                 (friends:Friend,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
@@ -692,13 +689,10 @@ class ViewController: UIViewController {
     @IBAction func testRemoveFriend()
     {
         var params=Dictionary<String,AnyObject>()
-        params["target_user_id"]=7224
-        params["user_id"]=7700
-
         
         var friendShip = FriendshipService()
         
-        friendShip.removeFriend(params)
+        friendShip.removeFriend("1",targetUserId:"7224",params:params)
             {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)

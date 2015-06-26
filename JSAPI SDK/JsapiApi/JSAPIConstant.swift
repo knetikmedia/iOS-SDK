@@ -45,10 +45,10 @@ class var REMOVECOMMENT:String {return "/services/latest/comment/remove"};
 //End Comment
     
 //FriendShip
-    class var ADDFRIEND:String {return "/services/latest/friendship/addfriend"};
-    class var GETFRIENDS:String {return "/services/latest/friendship/getfriends"};
-    class var REMOVEFRIEND:String {return "/services/latest/friendship/removefriend"};
-    class var SEARCHFRIEND:String {return "/services/latest/friendship/searchfriends"};
+    class var ADDFRIEND:String {return "/services/latest/users/%@/friends"};
+    class var GETFRIENDS:String {return "/services/latest/users/%@/friends"};
+    class var REMOVEFRIEND:String {return "/services/latest/users/%@/friends/%@"};
+    class var SEARCHFRIEND:String {return "/services/latest/users/%@/friends"};
 
 //End FriendShip
     
