@@ -524,9 +524,8 @@ class ViewController: UIViewController {
     @IBAction func testItemCommentsList()
     {
         var params=Dictionary<String,String>()
-        params["id"]="4"
         var comment = CommentService()
-        comment.commentsList(params)
+        comment.commentsList("4",params:params)
             {
                 (comments:Array<Comment>,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
@@ -549,11 +548,10 @@ class ViewController: UIViewController {
     @IBAction func testAddCommentToItem()
     {
         var params=Dictionary<String,String>()
-        params["item_id"]="4"
         params["comment"]="hello"
 
         var comment = CommentService()
-        comment.addComment(params)
+        comment.addComment("4",params:params)
             {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
@@ -573,10 +571,9 @@ class ViewController: UIViewController {
     @IBAction func testDeleteCommentToItem()
     {
         var params=Dictionary<String,String>()
-        params["id"]=self.comment_id
         
         var comment = CommentService()
-        comment.deleteComment(params)
+        comment.deleteComment("4",commentId:"65",params:params)
             {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
@@ -591,27 +588,6 @@ class ViewController: UIViewController {
         }
     }
   
-    @IBAction func testRemoveCommentToItem()
-    {
-        var params=Dictionary<String,String>()
-        params["id"]=self.comment_id
-        
-        var comment = CommentService()
-        comment.deleteComment(params)
-            {
-                (result:AnyObject,errormessage:String,issuccess:Bool) in
-                if(!issuccess)
-                {
-                    println("testRemoveCommentToItem Failed")
-                }else
-                {
-                    println("testRemoveCommentToItem PASS")
-                    // Valid Response
-                }
-                println(result)
-        }
-    }
-
     
 //////////////////FRIENDSHIP//////////////////////////////////////////////////
     @IBAction func testFriendShip()

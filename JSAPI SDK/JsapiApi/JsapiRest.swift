@@ -166,7 +166,7 @@ class JsapiRest
             var jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: eerror) as? NSDictionary
             if(jsonResult == nil)
             {
-                callback(NSDictionary(),false)
+                callback(NSDictionary(),true)
                 return;
             }
             

@@ -10,43 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JsapiApiTest/JsapiApiTest/ViewController.swift"
-            timestampString = "450735118.992631"
+            timestampString = "457051472.747712"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "562"
-            endingLineNumber = "562"
-            landmarkName = "testAddCommentToItem()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "JsapiApiTest/JsapiApiTest/ViewController.swift"
-            timestampString = "450735118.992631"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "559"
-            endingLineNumber = "559"
-            landmarkName = "testAddCommentToItem()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "JsapiApiTest/JsapiApiTest/ViewController.swift"
-            timestampString = "457025643.860893"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "781"
-            endingLineNumber = "781"
+            startingLineNumber = "757"
+            endingLineNumber = "757"
             landmarkName = "testGetFavorites()"
             landmarkType = "5">
          </BreakpointContent>
@@ -138,7 +106,7 @@
                   moduleName = "JsapiApiTest"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JsapiApiTest/JsapiApiTest/ViewController.swift"
-                  timestampString = "457025683.854753"
+                  timestampString = "457051887.506452"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "134"
@@ -153,7 +121,7 @@
                   moduleName = "JsapiApiTest"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JsapiApiTest/JsapiApiTest/ViewController.swift"
-                  timestampString = "457025683.854911"
+                  timestampString = "457051887.506672"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "134"
@@ -378,11 +346,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JsapiApiTest/JsapiApiTest/ViewController.swift"
-            timestampString = "457022653.149448"
+            timestampString = "457051472.747712"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "666"
-            endingLineNumber = "666"
+            startingLineNumber = "642"
+            endingLineNumber = "642"
             landmarkName = "testSearchFriend()"
             landmarkType = "5">
          </BreakpointContent>
@@ -393,13 +361,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "JSAPI SDK/JsapiApi/JsapiRest.swift"
-            timestampString = "457025685.741643"
+            filePath = "JSAPI SDK/JsapiApi/Model/Comment/CommentResponse.swift"
+            timestampString = "457048693.101277"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "deleteRequest(_:deleteParams:callback:)"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "init(fromDictionary:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -409,13 +377,109 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "JSAPI SDK/JsapiApi/JsapiRest.swift"
-            timestampString = "457025703.074619"
+            filePath = "JsapiApiTest/JsapiApiTest/ViewController.swift"
+            timestampString = "457048985.638001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
-            landmarkName = "deleteRequest(_:deleteParams:callback:)"
+            startingLineNumber = "537"
+            endingLineNumber = "537"
+            landmarkName = "testItemCommentsList()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JsapiApiTest/JsapiApiTest/ViewController.swift"
+            timestampString = "457048986.495826"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "533"
+            endingLineNumber = "533"
+            landmarkName = "testItemCommentsList()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JsapiApiTest/JsapiApiTest/ViewController.swift"
+            timestampString = "457051485.19121"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "578"
+            endingLineNumber = "578"
+            landmarkName = "testDeleteCommentToItem()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JsapiApiTest/JsapiApiTest/ViewController.swift"
+            timestampString = "457051486.255952"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "575"
+            endingLineNumber = "575"
+            landmarkName = "testDeleteCommentToItem()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JsapiApiTest/JsapiApiTest/ViewController.swift"
+            timestampString = "457051493.739882"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "581"
+            endingLineNumber = "581"
+            landmarkName = "testDeleteCommentToItem()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JsapiApiTest/JsapiApiTest/ViewController.swift"
+            timestampString = "457051494.653952"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "584"
+            endingLineNumber = "584"
+            landmarkName = "testDeleteCommentToItem()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JsapiApiTest/JsapiApiTest/ViewController.swift"
+            timestampString = "457051670.943125"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "530"
+            endingLineNumber = "530"
+            landmarkName = "testItemCommentsList()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

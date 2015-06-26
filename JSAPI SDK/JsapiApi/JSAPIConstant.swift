@@ -37,10 +37,9 @@ class var SETUSERPASSWORD:String {return "/services/latest/user/%@/password"};
 
     
 //Comment
-class var ADDCOMMENT:String {return "/services/latest/comment/add" }  // GET USER INFO
-class var DELETECOMMENT:String {return "/services/latest/comment/delete"}; //UPDATE USER INFO
-class var COMMENTLIST:String {return "/services/latest/comment/list"};
-class var REMOVECOMMENT:String {return "/services/latest/comment/remove"};
+class var ADDCOMMENT:String {return "/services/latest/items/%@/comments" }  // GET USER INFO
+class var DELETECOMMENT:String {return "/services/latest/items/%@/comments/%@"}; //UPDATE USER INFO
+class var COMMENTLIST:String {return "/services/latest/items/%@/comments"};
     
 //End Comment
     
