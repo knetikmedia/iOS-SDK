@@ -53,7 +53,7 @@ class var REMOVECOMMENT:String {return "/services/latest/comment/remove"};
 //End FriendShip
     
 //Store
-    class var GETPAGE:String {return "/services/latest/store/getpage"};
+    class var GETPAGE:String {return "/services/latest/stores"};
 
 //End Store
     

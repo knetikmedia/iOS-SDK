@@ -18,8 +18,9 @@ public class Store
     */
     public func getPage(params:Dictionary<String,AnyObject>,callback:(Array<Page>,String,Bool)->Void)
     {
-        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETPAGE;
-        JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETPAGE
+        let requestParamters=Utilities.getGETRequestFromDictionary(params)
+        JsapiRest.getRequest(methodUrl, postParams:requestParamters )
             {
                 (result:NSDictionary,issuccess:Bool) in
                 var pageResponse=StoreResponse(fromDictionary: result)

@@ -712,13 +712,13 @@ class ViewController: UIViewController {
     {
         var params=Dictionary<String,AnyObject>()
         
-        params["terms"]=["test Term_1426094958_462"];
+        params["terms"]="test Term_1426094958_462"
         //params["related"]=["usd"]
         //params["vocabulary"]="test Vocabulary 2"
-        params["limit"]=10;
-        params["page"]=1;
-        params["useCatalog"]=true;
-        params["fullObject"]=true;
+        params["size"]=10
+        params["page"]=1
+        params["useCatalog"]=true
+        params["fullObject"]=true
         
         var store = Store()
         

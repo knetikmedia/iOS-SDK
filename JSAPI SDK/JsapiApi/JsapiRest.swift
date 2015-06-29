@@ -91,7 +91,9 @@ class JsapiRest
     class func getRequest(functionURL:String,postParams:String,callback:(NSDictionary,Bool)->Void)
     {
         println(postParams)
-        let request = NSMutableURLRequest(URL: NSURL(string: functionURL+postParams)!)
+        let methodURL=functionURL + postParams as String
+        let formattedURL = methodURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+        let request = NSMutableURLRequest(URL: NSURL(string: formattedURL!)!)
         request.HTTPMethod = "GET"
         let postString = postParams
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
