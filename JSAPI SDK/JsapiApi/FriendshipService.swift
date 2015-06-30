@@ -46,9 +46,8 @@ public class FriendshipService
         JsapiRest.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var friendsResponse=FriendsResponse(fromDictionary: result["result"] as! NSDictionary)
+                var friendsResponse=FriendsResponse(fromDictionary: result)
                 var friendObject=friendsResponse.friends
-                friendObject.invites=friendsResponse.invitedFriends.friends
                 if(!issuccess)
                 {
                     callback(Friend(),friendsResponse.errormessage,issuccess)

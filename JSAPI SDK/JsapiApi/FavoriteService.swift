@@ -15,11 +15,10 @@ public class FavoriteService
     *@param params Dictionary{"id": 0} // ItemID
     *@param callback
     */
-    public func addFavoriteItem(userId:String, params:Dictionary<String,AnyObject>,callback:(AnyObject,String,Bool)->Void)
+    public func addFavoriteItem(params:Dictionary<String,AnyObject>,callback:(AnyObject,String,Bool)->Void)
     {
-        let methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDFAVORITE,userId)
-
-        JsapiRest.postrequest(methodUrl as String, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDFAVORITE;
+        JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 var baseResponse=BaseResponse(fromDictionary: result)
@@ -39,14 +38,13 @@ public class FavoriteService
     *@param params Dictionary {} Empty
     *@param callback
     */
-    public func getFavorites(userId:String,params:Dictionary<String,AnyObject>,callback:(Array<Favorite>,String,Bool)->Void)
+    public func getFavorites(params:Dictionary<String,AnyObject>,callback:(Array<Favorite>,String,Bool)->Void)
     {
-        let methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETFAVORITES,userId)
-
-        JsapiRest.getRequest(methodUrl as String, postParams: Utilities.getGETRequestFromDictionary(params))
+        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETFAVORITES;
+        JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var favResponse=FavoriteResponse(fromDictionary: result["result"] as! NSDictionary)
+                var favResponse=FavoriteResponse(fromDictionary: result)
                 callback(favResponse.favorites,favResponse.errormessage,issuccess)
         }
     }
@@ -56,11 +54,10 @@ public class FavoriteService
     *@param params Dictionary {"id": 0} fav item ID
     *@param callback
     */
-    public func deleteFavorite(userId:String,favoriteId:String,params:Dictionary<String,AnyObject>,callback:(AnyObject,String,Bool)->Void)
+    public func deleteFavorite(params:Dictionary<String,AnyObject>,callback:(AnyObject,String,Bool)->Void)
     {
-        let methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.DELETEFAVORITE,userId,favoriteId)
-
-        JsapiRest.deleteRequest(methodUrl as String, deleteParams: Utilities.jsonRequestFromDictionary(params))
+        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.DELETEFAVORITE;
+        JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 var baseResponse=BaseResponse(fromDictionary: result)

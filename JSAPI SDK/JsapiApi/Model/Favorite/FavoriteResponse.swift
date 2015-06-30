@@ -16,7 +16,7 @@ class FavoriteResponse:BaseResponse{
 	override init(fromDictionary dictionary: NSDictionary){
         super.init(fromDictionary: dictionary)
 		favorites = [Favorite]()
-		if let favoritesArray = dictionary["content"] as? [NSDictionary]{
+		if let favoritesArray = dictionary["result"] as? [NSDictionary]{
 			for dic in favoritesArray{
 				let value = Favorite(fromDictionary: dic)
 				favorites.append(value)

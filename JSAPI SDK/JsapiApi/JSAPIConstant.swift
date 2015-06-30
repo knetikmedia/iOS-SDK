@@ -58,9 +58,9 @@ class var REMOVECOMMENT:String {return "/services/latest/comment/remove"};
 //End Store
     
 //FAVORITE
-    class var ADDFAVORITE:String {return "/services/latest/users/%@/favorites"};
-    class var GETFAVORITES:String {return "/services/latest/users/%@/favorites"};
-    class var DELETEFAVORITE:String {return "/services/latest/users/%@/favorites/%@"};
+    class var ADDFAVORITE:String {return "/services/latest/favorite/add"};
+    class var GETFAVORITES:String {return "/services/latest/favorite/list"};
+    class var DELETEFAVORITE:String {return "/services/latest/favorite/delete"};
     
     //End FAVORITE
 }

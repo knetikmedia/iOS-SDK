@@ -29,12 +29,12 @@ class JsapiRest
         {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.setValue("application/json", forHTTPHeaderField: "Accept")
-            if(!JsapiAPi.sharedInstance.getJsapiToken().isEmpty&&JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR)
+        if(!JsapiAPi.sharedInstance.getJsapiToken().isEmpty&&JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR)
             {
                 println("token not empty :"+JsapiAPi.sharedInstance.getJsapiToken())
-                request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
+    request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
             }
-            
+
         }else{
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         }
@@ -47,11 +47,11 @@ class JsapiRest
             }
             let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
             println(responseString)
-            
+
             if(responseString=="")
             {
                 println("Empty Response")
-                callback(NSDictionary(),true)
+                 callback(NSDictionary(),true)
                 return;
             }
             var eerror : AutoreleasingUnsafeMutablePointer<NSError?> = nil
@@ -79,7 +79,7 @@ class JsapiRest
         }
         task.resume()
     }
-    
+
     
     
     //
@@ -126,13 +126,13 @@ class JsapiRest
                 var isSuccess=errorObject["success"]?.boolValue
                 callback(jsonResult,isSuccess!)
             }else
-            {
-                callback(jsonResult,true)
+             {
+                    callback(jsonResult,true)
             }
         }
         task.resume()
     }
-    
+
     
     //
     /**
@@ -166,7 +166,7 @@ class JsapiRest
             var jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: eerror) as? NSDictionary
             if(jsonResult == nil)
             {
-                callback(NSDictionary(),true)
+                callback(NSDictionary(),false)
                 return;
             }
             
@@ -183,7 +183,7 @@ class JsapiRest
         }
         task.resume()
     }
-    
+
     //
     /**
     putRequest
@@ -203,9 +203,9 @@ class JsapiRest
         {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.setValue("application/json", forHTTPHeaderField: "Accept")
-            if(!JsapiAPi.sharedInstance.getJsapiToken().isEmpty&&JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR){
-                println("token not empty :"+JsapiAPi.sharedInstance.getJsapiToken())
-                request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
+        if(!JsapiAPi.sharedInstance.getJsapiToken().isEmpty&&JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR){
+            println("token not empty :"+JsapiAPi.sharedInstance.getJsapiToken())
+            request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
             }
         }else{
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -222,7 +222,7 @@ class JsapiRest
             if(responseString=="")
             {
                 callback(NSDictionary(),true)
-                
+
                 return;
             }
             var eerror : AutoreleasingUnsafeMutablePointer<NSError?> = nil
@@ -251,7 +251,7 @@ class JsapiRest
         }
         task.resume()
     }
-    
-    
-    
+
+
+
 }
