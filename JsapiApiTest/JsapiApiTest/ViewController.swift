@@ -9,7 +9,7 @@
 import UIKit
 import JsapiApi
 class ViewController: UIViewController {
-
+    
     var cartNumber="5893edf8-27ea-43e6-b419-7410fb301f85"
     var cartID="ce56166b-cbed-4314-b5a0-8f7a7a2070a1"
     var skus=""
@@ -19,10 +19,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -31,25 +31,25 @@ class ViewController: UIViewController {
     /*
     Test User Login
     */
-   @IBAction func testDoLogin()
+    @IBAction func testDoLogin()
     {
         var userDetails=Dictionary<String,String>()
         userDetails["username"] = username
         userDetails["password"] = password
         JsapiAPi.sharedInstance.doUserLogin(userDetails)
-        {
-        (result:NSDictionary,issuccess:Bool) in
-            if(!issuccess)
             {
-                println("testDoLogin Failed")
-            }else
-            {
-                println("testDoLogin PASS")
-
-            }
-
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("testDoLogin Failed")
+                }else
+                {
+                    println("testDoLogin PASS")
+                    
+                }
+                
         }
-     
+        
     }
     
     /*
@@ -59,7 +59,7 @@ class ViewController: UIViewController {
     {
         JsapiAPi.sharedInstance.doUserLogout()
     }
-
+    
     
     /*
     Test Cart Function
@@ -80,11 +80,11 @@ class ViewController: UIViewController {
                     self.cartNumber=cartNumber
                     print(cartNumber)
                 }
-
+                
                 
         }
     }
-
+    
     /*
     Test Cart SKU Function
     */
@@ -104,10 +104,10 @@ class ViewController: UIViewController {
                 {
                     print(skus)
                 }
-
+                
         }
     }
-
+    
     
     
     /*
@@ -127,13 +127,13 @@ class ViewController: UIViewController {
                 {
                     println("testgetCart PASS")
                     print(cartDetails.getCart().getCity())
-
+                    
                 }
                 
                 
         }
     }
-
+    
     
     
     /*
@@ -142,7 +142,7 @@ class ViewController: UIViewController {
     @IBAction func testCartCheckout()
     {
         var params=Dictionary<String,String>()
-      //  params["cartguid"]=cartNumber
+        //  params["cartguid"]=cartNumber
         var cartObject=CartService()
         cartObject.cartCheckout(params,itemID:cartNumber)
             {
@@ -157,7 +157,7 @@ class ViewController: UIViewController {
                 
         }
     }
-
+    
     /*
     Test Cart Checkout
     */
@@ -202,7 +202,7 @@ class ViewController: UIViewController {
                 
         }
     }
-
+    
     /*
     Test Cart testitems
     PUT /services/latest/carts/{cartGUID}/items
@@ -210,10 +210,10 @@ class ViewController: UIViewController {
     @IBAction func testCartChangeItems()
     {
         var params=Dictionary<String,String>()
-           params["catalog_id"]="72"
-           params["catalog_sku_id"]="72"
-           params["quantity"]="10"
-               var cartObject=CartService()
+        params["catalog_id"]="72"
+        params["catalog_sku_id"]="72"
+        params["quantity"]="10"
+        var cartObject=CartService()
         cartObject.changeItem(params,itemID:cartID)
             {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
@@ -257,7 +257,7 @@ class ViewController: UIViewController {
                 
         }
     }
-
+    
     
     
     /*
@@ -281,7 +281,7 @@ class ViewController: UIViewController {
                 
         }
     }
-
+    
     /*
     Test Adds an item to the cart identified by GUID
     PUT /services/latest/carts/{cartGUID}/items
@@ -301,7 +301,7 @@ class ViewController: UIViewController {
         params["country_id"]="225"
         params["phone_number"]="10"
         params["order_notes"]="10"
-
+        
         var cartObject=CartService()
         cartObject.modifyShippingAddress(params,itemID:cartID)
             {
@@ -316,10 +316,10 @@ class ViewController: UIViewController {
                 
         }
     }
-
     
-// ----------------------------------REGISTER--------------------------------------------------------//
- 
+    
+    // ----------------------------------REGISTER--------------------------------------------------------//
+    
     @IBAction func testUserRegisteration()
     {
         var userDetails=Dictionary<String,String>()
@@ -342,7 +342,7 @@ class ViewController: UIViewController {
                 }
         }
     }
-
+    
     
     @IBAction func testForgotPassword()
     {
@@ -350,10 +350,10 @@ class ViewController: UIViewController {
         userDetails["username"]="admin"
         userDetails["email"]="admin@knetik.com"
         userDetails["newpassword"]="601f1889667efaebb33b8c12572835da3f027f78"
-     //   userDetails["secrethash"]="9d97a5892b0bf1b1af208b53e6c9f35986a0b123"
+        //   userDetails["secrethash"]="9d97a5892b0bf1b1af208b53e6c9f35986a0b123"
         userDetails["plaintext"]="true"
         var regObject = Registration()
-
+        
         regObject.forgotPassword(userDetails)
             {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
@@ -367,7 +367,7 @@ class ViewController: UIViewController {
                 }
         }
     }
-
+    
     @IBAction func testUpdateGuest()
     {
         var userDetails=Dictionary<String,String>()
@@ -383,52 +383,52 @@ class ViewController: UIViewController {
                 {
                     println("testUserRegisteration PASS")
                     // Valid Response
-                
-                self.username=guest.getUsername()
-                self.password=guest.getPassword()
-                
-                var userDetails=Dictionary<String,String>()
-                userDetails["username"] = self.username
-                userDetails["password"] = self.password
-                JsapiAPi.sharedInstance.doUserLogin(userDetails)
-                    {
-                        (result:NSDictionary,issuccess:Bool) in
-                        if(!issuccess)
+                    
+                    self.username=guest.getUsername()
+                    self.password=guest.getPassword()
+                    
+                    var userDetails=Dictionary<String,String>()
+                    userDetails["username"] = self.username
+                    userDetails["password"] = self.password
+                    JsapiAPi.sharedInstance.doUserLogin(userDetails)
                         {
-                            println("testDoLogin Failed")
-                        }else
-                        {
-                            println("testDoLogin PASS")
-                            
-                        }
-                        var userDetails=Dictionary<String,String>()
-                        userDetails["username"]="eeecrrr"
-                        userDetails["password"]="123123"
-                        userDetails["email"]="ddddddd@knetik.com"
-                        userDetails["gender"]="male"
-                        userDetails["fullname"]="wewecerer"
-                        var regObject = Registration()
-                        
-                        regObject.guestUpgrade(userDetails)
+                            (result:NSDictionary,issuccess:Bool) in
+                            if(!issuccess)
                             {
-                                (result:AnyObject,errormessage:String,issuccess:Bool) in
-                                if(!issuccess)
+                                println("testDoLogin Failed")
+                            }else
+                            {
+                                println("testDoLogin PASS")
+                                
+                            }
+                            var userDetails=Dictionary<String,String>()
+                            userDetails["username"]="eeecrrr"
+                            userDetails["password"]="123123"
+                            userDetails["email"]="ddddddd@knetik.com"
+                            userDetails["gender"]="male"
+                            userDetails["fullname"]="wewecerer"
+                            var regObject = Registration()
+                            
+                            regObject.guestUpgrade(userDetails)
                                 {
-                                    println("testUserRegisteration Failed")
-                                }else
-                                {
-                                    println("testUserRegisteration PASS")
-                                    // Valid Response
-                                }
-                        }
-
-                        
-                }
+                                    (result:AnyObject,errormessage:String,issuccess:Bool) in
+                                    if(!issuccess)
+                                    {
+                                        println("testUserRegisteration Failed")
+                                    }else
+                                    {
+                                        println("testUserRegisteration PASS")
+                                        // Valid Response
+                                    }
+                            }
+                            
+                            
+                    }
                 }
         }
-
+        
     }
-
+    
     @IBAction func testGuestUser()
     {
         var userDetails=Dictionary<String,String>()
@@ -446,12 +446,12 @@ class ViewController: UIViewController {
                     self.password=guestUser.getPassword()
                     // Valid Response
                 }
-                       }
+        }
     }
-
-// ----------------------------------REGISTER--------------------------------------------------------//
     
-// ----------------------------------USER--------------------------------------------------------//
+    // ----------------------------------REGISTER--------------------------------------------------------//
+    
+    // ----------------------------------USER--------------------------------------------------------//
     @IBAction func testGetUserInfo()
     {
         var userDetails=Dictionary<String,String>()
@@ -463,15 +463,15 @@ class ViewController: UIViewController {
                 {
                     println("testUserRegisteration Failed")
                     println(errormessage)
-
+                    
                 }else
                 {
                     println("testUserRegisteration PASS")
                     println(user.getFullname())
-
+                    
                     // Valid Response
                 }
-
+                
         }
     }
     
@@ -480,7 +480,7 @@ class ViewController: UIViewController {
         var userDetails=Dictionary<String,String>()
         userDetails["configValue"]="lalaaaaa"
         userDetails["configName"]="display_name"
-
+        
         var userObject = UserService()
         userObject.updateUserInfo(userDetails)
             {
@@ -489,7 +489,7 @@ class ViewController: UIViewController {
                 {
                     println("testUpdateUser Failed")
                     println(errormessage)
-
+                    
                 }else
                 {
                     println("testUpdateUser PASS")
@@ -497,7 +497,7 @@ class ViewController: UIViewController {
                 }
         }
     }
-
+    
     @IBAction func testSetPassword()
     {
         var userDetails=Dictionary<String,String>()
@@ -510,7 +510,7 @@ class ViewController: UIViewController {
                 {
                     println("testSetPassword Failed")
                     println(errormessage)
-
+                    
                 }else
                 {
                     println("testSetPassword PASS")
@@ -519,7 +519,7 @@ class ViewController: UIViewController {
                 println(result)
         }
     }
-//////////////////COMMENTS//////////////////////////////////////////////////
+    //////////////////COMMENTS//////////////////////////////////////////////////
     
     @IBAction func testItemCommentsList()
     {
@@ -535,23 +535,23 @@ class ViewController: UIViewController {
                     println(errormessage)
                 }else
                 {
-                        if(comments.count>0){
-                            var comment=comments[comments.count-1] as Comment
-                            self.comment_id=String(comment.getCommentId())
-                            println("comment id is "+self.comment_id)
+                    if(comments.count>0){
+                        var comment=comments[comments.count-1] as Comment
+                        self.comment_id=String(comment.getCommentId())
+                        println("comment id is "+self.comment_id)
                     }
                     // Valid Response
                 }
-              
+                
         }
     }
-
+    
     @IBAction func testAddCommentToItem()
     {
         var params=Dictionary<String,String>()
         params["item_id"]="4"
         params["comment"]="hello"
-
+        
         var comment = CommentService()
         comment.addComment(params)
             {
@@ -568,7 +568,7 @@ class ViewController: UIViewController {
                 println(result)
         }
     }
-
+    
     
     @IBAction func testDeleteCommentToItem()
     {
@@ -590,7 +590,7 @@ class ViewController: UIViewController {
                 println(result)
         }
     }
-  
+    
     @IBAction func testRemoveCommentToItem()
     {
         var params=Dictionary<String,String>()
@@ -611,9 +611,9 @@ class ViewController: UIViewController {
                 println(result)
         }
     }
-
     
-//////////////////FRIENDSHIP//////////////////////////////////////////////////
+    
+    //////////////////FRIENDSHIP//////////////////////////////////////////////////
     @IBAction func testFriendShip()
     {
         var params=Dictionary<String,AnyObject>()
@@ -641,7 +641,7 @@ class ViewController: UIViewController {
         var params=Dictionary<String,AnyObject>()
         params["page"]=1
         params["size"]=20
-      
+        
         var friendShip = FriendshipService()
         
         friendShip.getFriends("1",params:params)
@@ -655,12 +655,12 @@ class ViewController: UIViewController {
                     println("testGetFriend PASS")
                     var friendsList=friends.getFriends()
                     var invitedList=friends.getInvites()
-
+                    
                     // Valid Response
                 }
         }
     }
-
+    
     @IBAction func testSearchFriend()
     {
         var params=Dictionary<String,AnyObject>()
@@ -732,7 +732,7 @@ class ViewController: UIViewController {
                 {
                     var storeArray=pages
                     println(pages)
-
+                    
                     println("testStoreGetPage PASS")
                     // Valid Response
                 }
@@ -740,16 +740,16 @@ class ViewController: UIViewController {
     }
     
     
-//////////////////GET FAVORITES//////////////////////////////////////////////////
+    //////////////////GET FAVORITES//////////////////////////////////////////////////
     
     @IBAction func testAddFavorite()
     {
         var params=Dictionary<String,AnyObject>()
-        params["id"]=1
+        params["id"]=155
         
         var favorite = FavoriteService()
         
-        favorite.addFavoriteItem(params)
+        favorite.addFavoriteItem("1",params:params)
             {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
@@ -768,7 +768,7 @@ class ViewController: UIViewController {
     {
         var params=Dictionary<String,AnyObject>()
         var favorite = FavoriteService()
-         favorite.getFavorites(params)
+        favorite.getFavorites("1",params:params)
             {
                 (favorites:Array<Favorite>,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
@@ -788,11 +788,10 @@ class ViewController: UIViewController {
     @IBAction func testDeleteFavorites()
     {
         var params=Dictionary<String,AnyObject>()
-        params["id"]=1
-       
+        
         var favorite = FavoriteService()
         
-        favorite.deleteFavorite(params)
+        favorite.deleteFavorite("1",favoriteId:"155",params:params)
             {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
@@ -806,9 +805,8 @@ class ViewController: UIViewController {
                 println(errormessage)
         }
     }
-
-//////////////////End FAVORITES//////////////////////////////////////////////////
-
-
+    
+    //////////////////End FAVORITES//////////////////////////////////////////////////
+    
+    
 }
-

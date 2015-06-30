@@ -6,22 +6,22 @@
 import Foundation
 
 class FavoriteResponse:BaseResponse{
-
-	var favorites : [Favorite]!
-	
-
-	/**
-	 * Instantiate the instance using the passed dictionary values to set the properties values
-	 */
-	override init(fromDictionary dictionary: NSDictionary){
+    
+    var favorites : [Favorite]!
+    
+    
+    /**
+    * Instantiate the instance using the passed dictionary values to set the properties values
+    */
+    override init(fromDictionary dictionary: NSDictionary){
         super.init(fromDictionary: dictionary)
-		favorites = [Favorite]()
-		if let favoritesArray = dictionary["result"] as? [NSDictionary]{
-			for dic in favoritesArray{
-				let value = Favorite(fromDictionary: dic)
-				favorites.append(value)
-			}
-		}
-			}
-
+        favorites = [Favorite]()
+        if let favoritesArray = dictionary["content"] as? [NSDictionary]{
+            for dic in favoritesArray{
+                let value = Favorite(fromDictionary: dic)
+                favorites.append(value)
+            }
+        }
+    }
+    
 }
