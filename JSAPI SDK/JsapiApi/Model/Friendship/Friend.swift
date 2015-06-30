@@ -44,19 +44,21 @@ public class Friend{
         userId = dictionary["user_id"] as? Int
         userStatus = dictionary["user_status"] as? String
         friends = [Friend]()
-        if let friendsArray = dictionary["friends"] as? [NSDictionary]{
+        if let friendsArray = dictionary["content"] as? [NSDictionary]{
             for dic in friendsArray{
                 let value = Friend(fromDictionary: dic)
                 friends.append(value)
             }
         }
-        invites = [Friend]()
-        if let friendsArray = dictionary["invites"] as? [NSDictionary]{
-            for dic in friendsArray{
-                let value = Friend(fromDictionary: dic)
-                invites.append(value)
-            }
-        }
+//        invites = [Friend]()
+//        if let friendsArray = dictionary["invites"] as? [NSDictionary]{
+//            for dic in friendsArray{
+//                let value = Friend(fromDictionary: dic)
+//                invites.append(value)
+//            }
+//        }
     }
+    
+    
     
 }

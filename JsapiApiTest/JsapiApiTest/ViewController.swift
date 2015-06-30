@@ -745,11 +745,11 @@ class ViewController: UIViewController {
     @IBAction func testAddFavorite()
     {
         var params=Dictionary<String,AnyObject>()
-        params["id"]=1
+        params["id"]=155
         
         var favorite = FavoriteService()
         
-        favorite.addFavoriteItem(params)
+        favorite.addFavoriteItem("1",params:params)
             {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
@@ -768,7 +768,7 @@ class ViewController: UIViewController {
     {
         var params=Dictionary<String,AnyObject>()
         var favorite = FavoriteService()
-         favorite.getFavorites(params)
+        favorite.getFavorites("1",params:params)
             {
                 (favorites:Array<Favorite>,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
@@ -788,11 +788,10 @@ class ViewController: UIViewController {
     @IBAction func testDeleteFavorites()
     {
         var params=Dictionary<String,AnyObject>()
-        params["id"]=1
        
         var favorite = FavoriteService()
         
-        favorite.deleteFavorite(params)
+        favorite.deleteFavorite("1",favoriteId:"155",params:params)
             {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
