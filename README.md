@@ -2,6 +2,42 @@
 Connecting to JSAPI using IOS Swift
 ### How do I get set up? ###
 
+*There are two ways to import the AWS Mobile SDK for iOS into your project:*
+
+        CocoaPods
+ 
+        Frameworks
+
+######CocoaPods######
+The Knetik Jsapi SDK for iOS is available through CocoaPods. If you have not installed CocoaPods, install it by running the command:
+
+$ sudo gem install cocoapods
+
+In your project directory (the directory where your *.xcodeproj file is), create a plain text file named Podfile (without any file extension) and add the lines below:
+
+#!swift
+platform :ios, "8.0"
+use_frameworks!
+
+target 'JsapiApiTest' do
+pod 'knetik_jsapi','1.0.0'
+end
+
+target 'JsapiApiTestTests' do
+
+end
+```
+
+Then run the following command:
+
+$ pod install
+Open up *.xcworkspace with Xcode and start using the SDK.
+
+Note
+Do NOT use *.xcodeproj. If you open up a project file instead of a workspace, you receive an error.
+
+######Frameworks######
+
 1-Checkout JSAPI IOS SDK 
 
 2-Go to JSAPI SDK Folder
