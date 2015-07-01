@@ -15,6 +15,7 @@ $ sudo gem install cocoapods
 
 In your project directory (the directory where your *.xcodeproj file is), create a plain text file named Podfile (without any file extension) and add the lines below:
 
+```
 #!swift
 platform :ios, "8.0"
 use_frameworks!
