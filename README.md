@@ -2,7 +2,7 @@
 Connecting to JSAPI using IOS Swift
 ### How do I get set up? ###
 
-*There are two ways to import the AWS Mobile SDK for iOS into your project:*
+*There are two ways to import the Knetil JSAPI SDK for iOS into your project:*
 
         CocoaPods
  
