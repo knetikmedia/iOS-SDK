@@ -13,6 +13,8 @@ The Knetik Jsapi SDK for iOS is available through CocoaPods. If you have not ins
 
 $ sudo gem install cocoapods
 
+$pod init
+
 In your project directory (the directory where your *.xcodeproj file is), create a plain text file named Podfile (without any file extension) and add the lines below:
 
 ```
@@ -32,10 +34,13 @@ end
 Then run the following command:
 
 $ pod install
+
 Open up *.xcworkspace with Xcode and start using the SDK.
+
 
 Note
 Do NOT use *.xcodeproj. If you open up a project file instead of a workspace, you receive an error.
+
 
 ######Frameworks######
 
