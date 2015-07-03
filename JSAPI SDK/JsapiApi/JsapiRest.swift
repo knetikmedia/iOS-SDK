@@ -48,7 +48,7 @@ class JsapiRest
             let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
             println(responseString)
 
-            if(responseString=="")
+            if(responseString == "")
             {
                 println("Empty Response")
                  callback(NSDictionary(),true)
