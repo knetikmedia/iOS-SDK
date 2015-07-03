@@ -64,5 +64,9 @@ class Utilities {
         return datastring
     }
 
+    class func currentTimeMillis() -> Int64{
+        var nowDouble = NSDate().timeIntervalSince1970
+        return Int64(nowDouble*1000)
+    }
     
 }

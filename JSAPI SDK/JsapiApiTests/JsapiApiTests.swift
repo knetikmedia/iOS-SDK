@@ -13,7 +13,7 @@ class JsapiApiTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        var jsapiObject = JsapiAPi.sharedInstance
+        JsapiAPi.jsapiInit("http://localhost:8080/jsapi", client_id: "knetik",secrect_key: "superSUPERsuperSECRET")
      
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }

@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F438C33C1B4468B8006B4726 /* JsapiApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F438C33B1B4468B8006B4726 /* JsapiApi.framework */; };
 		F48006061AA639A100B27561 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48006051AA639A100B27561 /* AppDelegate.swift */; };
 		F48006081AA639A100B27561 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48006071AA639A100B27561 /* ViewController.swift */; };
 		F480060B1AA639A100B27561 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F48006091AA639A100B27561 /* Main.storyboard */; };
 		F480060D1AA639A100B27561 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F480060C1AA639A100B27561 /* Images.xcassets */; };
 		F48006101AA639A100B27561 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F480060E1AA639A100B27561 /* LaunchScreen.xib */; };
 		F480061C1AA639A200B27561 /* JsapiApiTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F480061B1AA639A200B27561 /* JsapiApiTestTests.swift */; };
-		F4ABE5881AA8F6660099836A /* JsapiApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4ABE5871AA8F6660099836A /* JsapiApi.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +39,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F438C33B1B4468B8006B4726 /* JsapiApi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JsapiApi.framework; path = "../JSAPI SDK/build/Debug-iphoneos/JsapiApi.framework"; sourceTree = "<group>"; };
 		F48006001AA639A100B27561 /* JsapiApiTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JsapiApiTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F48006041AA639A100B27561 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F48006051AA639A100B27561 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4ABE5881AA8F6660099836A /* JsapiApi.framework in Frameworks */,
+				F438C33C1B4468B8006B4726 /* JsapiApi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +75,7 @@
 		F48005F71AA639A100B27561 = {
 			isa = PBXGroup;
 			children = (
+				F438C33B1B4468B8006B4726 /* JsapiApi.framework */,
 				F4ABE5871AA8F6660099836A /* JsapiApi.framework */,
 				F48006021AA639A100B27561 /* JsapiApiTest */,
 				F48006181AA639A200B27561 /* JsapiApiTestTests */,
@@ -360,6 +362,8 @@
 					/KnetikProjects/JsapiApi/JSAPI,
 					"SDK/build/Debug-iphoneos",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/JsapiApiWorkSpace-gwhlbghlhlkammceclngqlctcdba/Build/Products/Debug-iphoneos",
+					"/KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI",
+					"SDK/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = JsapiApiTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -380,6 +384,8 @@
 					/KnetikProjects/JsapiApi/JSAPI,
 					"SDK/build/Debug-iphoneos",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/JsapiApiWorkSpace-gwhlbghlhlkammceclngqlctcdba/Build/Products/Debug-iphoneos",
+					"/KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI",
+					"SDK/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = JsapiApiTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;

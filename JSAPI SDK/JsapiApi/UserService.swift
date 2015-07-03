@@ -19,7 +19,7 @@ public class UserService {
  {
         
    let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETUSERINFO;
-   JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+   JsapiRest.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
     {
             (result:NSDictionary,issuccess:Bool) in
             var userResponse = UserResponse(fromDictionary: result)
@@ -48,7 +48,7 @@ public class UserService {
   public func updateUserInfo(params:Dictionary<String,String>,callback:(AnyObject,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.UPDATEUSERINFO;
-        JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        JsapiRest.putRequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 var baseResponse=BaseResponse(fromDictionary: result)
