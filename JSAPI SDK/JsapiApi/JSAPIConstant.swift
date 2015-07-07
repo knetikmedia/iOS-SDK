@@ -45,12 +45,28 @@ class var REMOVECOMMENT:String {return "/services/latest/comment/remove"};
 //End Comment
     
 //FriendShip
-    class var ADDFRIEND:String {return "/services/latest/users/%@/friends"};
-    class var GETFRIENDS:String {return "/services/latest/users/%@/friends"};
-    class var REMOVEFRIEND:String {return "/services/latest/users/%@/friends/%@"};
-    class var SEARCHFRIEND:String {return "/services/latest/users/%@/friends"};
+    class var ADDFRIEND:String {return "/services/latest/users/%@/friends"}
+    class var GETFRIENDS:String {return "/services/latest/users/%@/friends"}
+    class var REMOVEFRIEND:String {return "/services/latest/users/%@/friends/%@"}
+    class var SEARCHFRIEND:String {return "/services/latest/users/%@/friends"}
 
 //End FriendShip
+    
+//FriendShip
+
+    class var GETVIDEOS:String {return "/services/latest/videos"}
+    class var GETUSERVIDEOS:String {return "/services/latest/users/%@/videos"} // %@  userID
+    class var GETMYFAVORITESVIDEOS:String {return "/services/latest/users/%@/videos/favorited"} //%@ userID
+    class var GETFRIENDSVIDEO:String {return "/services/latest/friends/videos"}
+    class var ADDVIDEO:String {return "/services/latest/videos"}
+    class var UPDATEVIDEODETAILS:String {return "/services/latest/videos/%@/details"} //videoID
+    class var ADDUSERUPLOADEDMEDIAITEMASSESTS:String {return "/services/latest/videos/assets"}
+
+
+    
+//End FriendShip
+    
+    
     
 //Store
     class var GETPAGE:String {return "/services/latest/store/getpage"};
@@ -62,7 +78,7 @@ class var REMOVECOMMENT:String {return "/services/latest/comment/remove"};
     class var GETFAVORITES:String {return "/services/latest/favorite/list"};
     class var DELETEFAVORITE:String {return "/services/latest/favorite/delete"};
     
-    //End FAVORITE
+//End FAVORITE
 }
 
 

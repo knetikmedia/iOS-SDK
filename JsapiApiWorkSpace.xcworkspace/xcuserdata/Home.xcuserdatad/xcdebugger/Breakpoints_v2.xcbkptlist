@@ -121,102 +121,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "JSAPI SDK/JsapiApi/CartService.swift"
-            timestampString = "450801607.989382"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "cartDiscount(_:itemID:callback:)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "JsapiApiTests.CartService.cartDiscount (JsapiApiTests.CartService)(Swift.Dictionary&lt;Swift.String, Swift.String&gt;, itemID : Swift.String, callback : (ObjectiveC.NSDictionary, Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "JsapiApiTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/CartService.swift"
-                  timestampString = "457634661.568932"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "118"
-                  endingLineNumber = "118"
-                  offsetFromSymbolStart = "337">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "JsapiApi.CartService.cartDiscount (JsapiApi.CartService)(Swift.Dictionary&lt;Swift.String, Swift.String&gt;, itemID : Swift.String, callback : (ObjectiveC.NSDictionary, Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "JsapiApi"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/CartService.swift"
-                  timestampString = "457634661.573965"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "118"
-                  endingLineNumber = "118"
-                  offsetFromSymbolStart = "337">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "JSAPI SDK/JsapiApi/JsapiRest.swift"
-            timestampString = "457025402.616916"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236"
-            landmarkName = "putRequest(_:postParams:isJson:callback:)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static JsapiApiTests.JsapiRest.(putRequest (JsapiApiTests.JsapiRest.Type) -&gt; (Swift.String, postParams : Swift.String, isJson : Swift.Bool, callback : (ObjectiveC.NSDictionary, Swift.Bool) -&gt; ()) -&gt; ()).(closure #1)"
-                  moduleName = "JsapiApiTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/JsapiRest.swift"
-                  timestampString = "457634661.569319"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "236"
-                  endingLineNumber = "236"
-                  offsetFromSymbolStart = "1800">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static JsapiApi.JsapiRest.(putRequest (JsapiApi.JsapiRest.Type) -&gt; (Swift.String, postParams : Swift.String, isJson : Swift.Bool, callback : (ObjectiveC.NSDictionary, Swift.Bool) -&gt; ()) -&gt; ()).(closure #1)"
-                  moduleName = "JsapiApi"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/JsapiRest.swift"
-                  timestampString = "457634661.574219"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "236"
-                  endingLineNumber = "236"
-                  offsetFromSymbolStart = "1800">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "JsapiApiTest/JsapiApiTest/ViewController.swift"
             timestampString = "457022653.149448"
             startingColumnNumber = "9223372036854775807"
@@ -230,319 +134,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "JSAPI SDK/JsapiApiTests/CartTest.swift"
-            timestampString = "457633443.751587"
+            filePath = "JSAPI SDK/JsapiApi/VideoService.swift"
+            timestampString = "457903975.78922"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "testCreateCard()"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "getFriendsVideos(_:callback:)"
             landmarkType = "5">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "JsapiApiTests.CartTest.(testCreateCard (JsapiApiTests.CartTest) -&gt; () -&gt; ()).(closure #1)"
+                  symbolName = "JsapiApiTests.VideoService.(getFriendsVideos (JsapiApiTests.VideoService) -&gt; (Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, callback : (Swift.Array&lt;JsapiApiTests.Video&gt;, Swift.String, Swift.Bool) -&gt; ()) -&gt; ()).(closure #1)"
                   moduleName = "JsapiApiTests"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApiTests/CartTest.swift"
-                  timestampString = "457634661.570054"
+                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/VideoService.swift"
+                  timestampString = "457903984.430217"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "117"
-                  endingLineNumber = "117"
-                  offsetFromSymbolStart = "142">
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "33">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "JsapiApiTests.CartTest.(testCreateCard (JsapiApiTests.CartTest) -&gt; () -&gt; ()).(closure #1).(implicit closure #1)"
-                  moduleName = "JsapiApiTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApiTests/CartTest.swift"
-                  timestampString = "457634661.570478"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "117"
-                  endingLineNumber = "117"
-                  offsetFromSymbolStart = "42">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "JSAPI SDK/JsapiApiTests/CartTest.swift"
-            timestampString = "457633445.511617"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "testCreateCard()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "JSAPI SDK/JsapiApiTests/CartTest.swift"
-            timestampString = "457633499.189461"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
-            landmarkName = "testgetCart()"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "JsapiApiTests.CartTest.(testgetCart (JsapiApiTests.CartTest) -&gt; () -&gt; ()).(closure #1)"
-                  moduleName = "JsapiApiTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApiTests/CartTest.swift"
-                  timestampString = "457634661.571327"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "143"
-                  endingLineNumber = "143"
-                  offsetFromSymbolStart = "105">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "JsapiApiTests.CartTest.(testgetCart (JsapiApiTests.CartTest) -&gt; () -&gt; ()).(closure #1).(implicit closure #1)"
-                  moduleName = "JsapiApiTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApiTests/CartTest.swift"
-                  timestampString = "457634661.571558"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "143"
-                  endingLineNumber = "143"
-                  offsetFromSymbolStart = "42">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "JSAPI SDK/JsapiApiTests/CartTest.swift"
-            timestampString = "457633501.845234"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
-            landmarkName = "testgetCart()"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "JsapiApiTests.CartTest.(testgetCart (JsapiApiTests.CartTest) -&gt; () -&gt; ()).(closure #1)"
-                  moduleName = "JsapiApiTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApiTests/CartTest.swift"
-                  timestampString = "457634661.571906"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "146"
-                  endingLineNumber = "146"
-                  offsetFromSymbolStart = "337">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "JsapiApiTests.CartTest.(testgetCart (JsapiApiTests.CartTest) -&gt; () -&gt; ()).(closure #1).(implicit closure #2)"
-                  moduleName = "JsapiApiTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApiTests/CartTest.swift"
-                  timestampString = "457634661.572063"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "146"
-                  endingLineNumber = "146"
-                  offsetFromSymbolStart = "42">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "JSAPI SDK/JsapiApiTests/CartTest.swift"
-            timestampString = "457634822.79041"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
-            landmarkName = "testCartCheckout()"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "JsapiApiTests.CartTest.(testCartCheckout (JsapiApiTests.CartTest) -&gt; () -&gt; ()).(closure #1)"
-                  moduleName = "JsapiApiTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApiTests/CartTest.swift"
-                  timestampString = "457634661.572333"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "175"
-                  endingLineNumber = "175"
-                  offsetFromSymbolStart = "106">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "JsapiApiTests.CartTest.(testCartCheckout (JsapiApiTests.CartTest) -&gt; () -&gt; ()).(closure #1).(implicit closure #1)"
-                  moduleName = "JsapiApiTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApiTests/CartTest.swift"
-                  timestampString = "457634661.572512"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "175"
-                  endingLineNumber = "175"
-                  offsetFromSymbolStart = "42">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "JSAPI SDK/JsapiApiTests/CartTest.swift"
-            timestampString = "457634822.79041"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
-            landmarkName = "testCartCheckout()"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "JsapiApiTests.CartTest.(testCartCheckout (JsapiApiTests.CartTest) -&gt; () -&gt; ()).(closure #1)"
-                  moduleName = "JsapiApiTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApiTests/CartTest.swift"
-                  timestampString = "457634661.572743"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "178"
-                  endingLineNumber = "178"
-                  offsetFromSymbolStart = "350">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "JsapiApiTests.CartTest.(testCartCheckout (JsapiApiTests.CartTest) -&gt; () -&gt; ()).(closure #1).(implicit closure #2)"
-                  moduleName = "JsapiApiTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApiTests/CartTest.swift"
-                  timestampString = "457634661.572936"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "178"
-                  endingLineNumber = "178"
-                  offsetFromSymbolStart = "42">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "JSAPI SDK/JsapiApiTests/CartTest.swift"
-            timestampString = "457634822.79041"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "230"
-            endingLineNumber = "230"
-            landmarkName = "testCarCountries()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "JSAPI SDK/JsapiApi/CartService.swift"
-            timestampString = "457634211.247547"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "cartDiscount(_:itemID:callback:)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "JsapiApiTests.CartService.(cartDiscount (JsapiApiTests.CartService) -&gt; (Swift.Dictionary&lt;Swift.String, Swift.String&gt;, itemID : Swift.String, callback : (ObjectiveC.NSDictionary, Swift.Bool) -&gt; ()) -&gt; ()).(closure #1)"
-                  moduleName = "JsapiApiTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/CartService.swift"
-                  timestampString = "457634661.573384"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "125"
-                  endingLineNumber = "125"
-                  offsetFromSymbolStart = "85">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "JsapiApi.CartService.(cartDiscount (JsapiApi.CartService) -&gt; (Swift.Dictionary&lt;Swift.String, Swift.String&gt;, itemID : Swift.String, callback : (ObjectiveC.NSDictionary, Swift.Bool) -&gt; ()) -&gt; ()).(closure #1)"
+                  symbolName = "JsapiApi.VideoService.(getFriendsVideos (JsapiApi.VideoService) -&gt; (Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, callback : (Swift.Array&lt;JsapiApi.Video&gt;, Swift.String, Swift.Bool) -&gt; ()) -&gt; ()).(closure #1)"
                   moduleName = "JsapiApi"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/CartService.swift"
-                  timestampString = "457634661.574457"
+                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/VideoService.swift"
+                  timestampString = "457903984.446003"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "125"
-                  endingLineNumber = "125"
-                  offsetFromSymbolStart = "85">
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "33">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -553,44 +185,92 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "JSAPI SDK/JsapiApi/CartService.swift"
-            timestampString = "457634213.33187"
+            filePath = "JSAPI SDK/JsapiApiTests/VideoTest.swift"
+            timestampString = "457920221.131828"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "cartDiscount(_:itemID:callback:)"
+            startingLineNumber = "292"
+            endingLineNumber = "292"
+            landmarkName = "testAddUserUploadedMediaItemAssests()"
             landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "JsapiApiTests.CartService.(cartDiscount (JsapiApiTests.CartService) -&gt; (Swift.Dictionary&lt;Swift.String, Swift.String&gt;, itemID : Swift.String, callback : (ObjectiveC.NSDictionary, Swift.Bool) -&gt; ()) -&gt; ()).(closure #1)"
+                  symbolName = "JsapiApiTests.VideoTest.(testAddUserUploadedMediaItemAssests (JsapiApiTests.VideoTest) -&gt; () -&gt; ()).(closure #1)"
                   moduleName = "JsapiApiTests"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/CartService.swift"
-                  timestampString = "457634661.573606"
+                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApiTests/VideoTest.swift"
+                  timestampString = "457920221.133914"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "129"
-                  endingLineNumber = "129"
-                  offsetFromSymbolStart = "296">
+                  startingLineNumber = "292"
+                  endingLineNumber = "292"
+                  offsetFromSymbolStart = "357">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "JsapiApi.CartService.(cartDiscount (JsapiApi.CartService) -&gt; (Swift.Dictionary&lt;Swift.String, Swift.String&gt;, itemID : Swift.String, callback : (ObjectiveC.NSDictionary, Swift.Bool) -&gt; ()) -&gt; ()).(closure #1)"
-                  moduleName = "JsapiApi"
+                  symbolName = "JsapiApiTests.VideoTest.(testAddUserUploadedMediaItemAssests (JsapiApiTests.VideoTest) -&gt; () -&gt; ()).(closure #1).(implicit closure #2)"
+                  moduleName = "JsapiApiTests"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/CartService.swift"
-                  timestampString = "457634661.574624"
+                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApiTests/VideoTest.swift"
+                  timestampString = "457920221.134086"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "129"
-                  endingLineNumber = "129"
-                  offsetFromSymbolStart = "296">
+                  startingLineNumber = "292"
+                  endingLineNumber = "292"
+                  offsetFromSymbolStart = "42">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JSAPI SDK/JsapiApiTests/VideoTest.swift"
+            timestampString = "457920221.716264"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
+            landmarkName = "testAddUserUploadedMediaItemAssests()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "JsapiApiTests.VideoTest.(testAddUserUploadedMediaItemAssests (JsapiApiTests.VideoTest) -&gt; () -&gt; ()).(closure #1)"
+                  moduleName = "JsapiApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApiTests/VideoTest.swift"
+                  timestampString = "457920221.719018"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "289"
+                  endingLineNumber = "289"
+                  offsetFromSymbolStart = "119">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "JsapiApiTests.VideoTest.(testAddUserUploadedMediaItemAssests (JsapiApiTests.VideoTest) -&gt; () -&gt; ()).(closure #1).(implicit closure #1)"
+                  moduleName = "JsapiApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApiTests/VideoTest.swift"
+                  timestampString = "457920221.719247"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "289"
+                  endingLineNumber = "289"
+                  offsetFromSymbolStart = "42">
                </Location>
             </Locations>
          </BreakpointContent>
