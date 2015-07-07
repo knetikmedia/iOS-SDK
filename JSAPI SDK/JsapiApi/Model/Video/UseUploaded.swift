@@ -1,14 +1,15 @@
 //
-//	Asset.swift
+//	UseUploaded.swift
 //
-//	Create by Youssef on 14/4/2015
+//	Create by Youssef on 6/7/2015
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Asset{
+public class UseUploaded{
 
 	var id : Int!
-	var name : String!
+	var itemId : Int!
+	var userId : Int!
 
 
 	/**
@@ -16,7 +17,8 @@ public class Asset{
 	 */
 	init(fromDictionary dictionary: NSDictionary){
 		id = dictionary["id"] as? Int
-		name = dictionary["name"] as? String
+		itemId = dictionary["item_id"] as? Int
+		userId = dictionary["user_id"] as? Int
 	}
 
 }
