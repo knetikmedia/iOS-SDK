@@ -477,12 +477,10 @@ class ViewController: UIViewController {
     
     @IBAction func testUpdateUser()
     {
-        var userDetails=Dictionary<String,String>()
-        userDetails["configValue"]="lalaaaaa"
-        userDetails["configName"]="display_name"
+        var value = "knetik config value"
 
         var userObject = UserService()
-        userObject.updateUserInfo(userDetails)
+        userObject.updateUserInfo("display_name",params:value)
             {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)

@@ -23,6 +23,15 @@ class Utilities {
     
 
     /*
+    generate formated Put String
+    */
+    class func getformatedPutString(requestparamters:String)->String
+    {
+      return "\""+requestparamters+"\""
+    }
+
+    
+    /*
     generate Json Request from Dictionary
     */
     class func jsonRequestFromDictionary(requestparamters:Dictionary<String,Int>)->String
