@@ -14,6 +14,7 @@ class UserTest: XCTestCase {
     override func setUp() {
         super.setUp()
         JsapiAPi.jsapiInit("http://localhost:8080/jsapi", client_id: "knetik",secrect_key: "superSUPERsuperSECRET")
+        testDoLogin();
 
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -68,6 +69,34 @@ class UserTest: XCTestCase {
         self.waitForExpectationsWithTimeout(6.0, handler: { error in XCTAssertNil(error, "Oh, we got timeout")
         })
     }
+    
+    func testUpdateUser()
+    {
+        let readyExpectation = expectationWithDescription("ready")
+
+        var value="knetik config value"
+        
+        var userObject = UserService()
+        userObject.updateUserInfo("display_name",params:value)
+            {
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    XCTAssertTrue(issuccess, "testGetUserInfo failed")
+                    
+                }else
+                {
+                    XCTAssertTrue(issuccess, "testGetUserInfo pass")
+                    // Valid Response
+                }
+                readyExpectation.fulfill()
+
+        }
+        self.waitForExpectationsWithTimeout(6.0, handler: { error in XCTAssertNil(error, "Oh, we got timeout")
+        })
+
+    }
+
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
