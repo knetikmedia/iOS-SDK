@@ -5,12 +5,12 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Sku{
+public class Sku:NSObject{
 
 	var active : Bool!
 	var catalogId : Int!
 	var code : String!
-	var description : String!
+	var skuDescription : String!
 	var icon : String!
 	var id : Int!
 	var inventory : AnyObject!
@@ -44,7 +44,7 @@ public class Sku{
 		active = dictionary["active"] as? Bool
 		catalogId = dictionary["catalog_id"] as? Int
 		code = dictionary["code"] as? String
-		description = dictionary["description"] as? String
+		skuDescription = dictionary["description"] as? String
 		icon = dictionary["icon"] as? String
 		id = dictionary["id"] as? Int
 		inventory = dictionary["inventory"] as AnyObject!

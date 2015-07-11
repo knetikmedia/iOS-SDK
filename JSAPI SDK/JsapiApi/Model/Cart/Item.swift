@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Item{
+public class Item:NSObject{
 
 	var affiliateId : AnyObject!
 	var cartId : Int!

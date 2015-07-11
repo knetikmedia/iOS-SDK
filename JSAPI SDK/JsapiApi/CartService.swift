@@ -7,9 +7,8 @@
 //
 
 import Foundation
-public class CartService
+public class CartService:NSObject
 {
-    public init (){}
 
     /**"Creates a new cart from scratch
     *@params cartsparams it's emptyDictionry

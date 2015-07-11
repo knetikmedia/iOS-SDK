@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-class Countries{
+class Countries:NSObject{
 
 	var country : [Country]!
 

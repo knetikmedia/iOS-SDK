@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Related{
+public class Related:NSObject{
 
 	var id : Int!
 

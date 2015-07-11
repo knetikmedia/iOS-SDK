@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Country{
+public class Country:NSObject{
 
 	var id : Int!
 	var iso2 : String!

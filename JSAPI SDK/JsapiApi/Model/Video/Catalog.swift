@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Catalog{
+public class Catalog:NSObject{
 
 	var deleted : AnyObject!
 	var displayable : AnyObject!

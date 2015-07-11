@@ -17,9 +17,8 @@ class var ADDUSERUPLOADEDMEDIAITEMASSESTS:String {return "/services/latest/video
 */
 
 import Foundation
-public class VideoService
+public class VideoService:NSObject
 {
-    public init () {}
     
     /** Get Artist and Global Videos
     *@param params Dictionary

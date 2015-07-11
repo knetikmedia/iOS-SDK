@@ -7,9 +7,8 @@
 //
 
 import Foundation
-public class FriendshipService 
+public class FriendshipService :NSObject
 {
-    public init (){}
 
     /** addFriend.
     *@param params Dictionary{"target_user_id": 0,"user_id": 0}

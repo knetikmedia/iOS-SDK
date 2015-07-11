@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class User{
+public class User:NSObject{
 
 	var age : Int!
 	var avatarUrl : String!
@@ -44,7 +44,7 @@ public class User{
     public func getWallet()->Array<Wallet>{return wallet}
 
         
-    init(){}
+    override public init(){super.init()}
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values

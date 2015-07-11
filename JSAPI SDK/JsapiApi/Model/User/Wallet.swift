@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Wallet{
+public class Wallet:NSObject{
 
 	var balance : Double!
 	var code : String!

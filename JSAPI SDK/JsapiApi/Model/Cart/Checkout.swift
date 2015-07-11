@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Checkout{
+public class Checkout:NSObject{
 
 	var discounts : [AnyObject]!
 	var invoices : [Invoice]!
@@ -25,7 +25,7 @@ public class Checkout{
     {
         return items;
     }
-    init(){}
+    override public init(){super.init()}
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values

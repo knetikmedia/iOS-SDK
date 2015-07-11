@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-class Error{
+class Error:NSObject{
 
 	var code : Int!
 	var success : Bool!

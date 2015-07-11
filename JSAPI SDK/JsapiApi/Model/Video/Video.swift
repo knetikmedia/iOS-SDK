@@ -5,9 +5,12 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Video{
+public class Video:NSObject{
     
-    public init(){}
+    override public init() {
+        super.init()
+    }
+    
     public var assets : [Asset]!
     var behaviors : [Behavior]!
     var catalog : Catalog!
@@ -29,7 +32,7 @@ public class Video{
     var useUploaded : UseUploaded!
     public var filename : String!
     public var title : String!
-    public var description : String!
+    public var videodescription : String!
     public var displayable : Bool!
  
     
@@ -96,8 +99,8 @@ public class Video{
         if title != nil{
             dictionary["title"] = title
         }
-        if description != nil{
-            dictionary["description"] = description
+        if videodescription != nil{
+            dictionary["description"] = videodescription
         }
       
         if displayable != nil{

@@ -5,12 +5,14 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Asset{
+public class Asset:NSObject{
 
-    public init(){}
-	var deleted : Int!
-	var description : String!
-	var hash : String!
+    override public init() {
+        super.init()
+    }
+    var deleted : Int!
+	var assetDescription : String!
+	var assetHash : String!
 	var id : Int!
 	var itemId : Int!
 	var path : AnyObject!
@@ -24,8 +26,8 @@ public class Asset{
 	 */
 	init(fromDictionary dictionary: NSDictionary){
 		deleted = dictionary["deleted"] as? Int
-		description = dictionary["description"] as? String
-		hash = dictionary["hash"] as? String
+		assetDescription = dictionary["description"] as? String
+		assetHash = dictionary["hash"] as? String
 		id = dictionary["id"] as? Int
 		itemId = dictionary["item_id"] as? Int
 		path = dictionary["path"] as AnyObject!
@@ -43,11 +45,11 @@ public class Asset{
         if deleted != nil{
             dictionary["deleted"] = deleted
         }
-        if description != nil{
-            dictionary["description"] = description
+        if assetDescription != nil{
+            dictionary["description"] = assetDescription
         }
-        if hash != nil{
-            dictionary["hash"] = hash
+        if assetHash != nil{
+            dictionary["hash"] = assetHash
         }
         if id != nil{
             dictionary["id"] = id

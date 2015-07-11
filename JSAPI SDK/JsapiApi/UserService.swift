@@ -7,9 +7,8 @@
 //
 
 import Foundation
-public class UserService {
+public class UserService:NSObject {
  
-    public init (){}
 
  /**get User Info /services/latest/user/getinfo
  *@param params Dictionary Empty Dictionary {}
@@ -19,7 +18,7 @@ public class UserService {
  {
         
    let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETUSERINFO;
-   JsapiRest.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+    JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
     {
             (result:NSDictionary,issuccess:Bool) in
             var userResponse = UserResponse(fromDictionary: result)

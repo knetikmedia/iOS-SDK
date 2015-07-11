@@ -5,14 +5,14 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Friend{
+public class Friend:NSObject{
     
     var displayName : String!
     var userId : Int!
     var userStatus : String!
     var friends : [Friend]!
     var invites : [Friend]!
-    public init(){}
+    override public init(){super.init()}
 
     public func getFriends()->Array<Friend>
     {

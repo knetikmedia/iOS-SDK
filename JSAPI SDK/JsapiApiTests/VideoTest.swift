@@ -191,13 +191,12 @@ class VideoTest: XCTestCase {
         var addedVideo=Video()
         addedVideo.title="added Video Title"
         addedVideo.summary="Video Summary"
-        addedVideo.description="description"
+        addedVideo.videodescription="description"
         addedVideo.displayable=true
         addedVideo.filename="youssef video"
         
         var asset=Asset()
-        asset.description="Asset Description"
-        asset.description="Asset Description"
+        asset.assetDescription="Asset Description"
         asset.path="www.google.com"
         var assetsArray = [Asset]()
         assetsArray.append(asset)
@@ -232,7 +231,7 @@ class VideoTest: XCTestCase {
         let readyExpectation = expectationWithDescription("ready")
         var addedVideo=Video()
         addedVideo.title="added Video Title"
-        addedVideo.description="description"
+        addedVideo.videodescription="description"
         
         var videoParams=addedVideo.toDictionary()
         
@@ -266,9 +265,8 @@ class VideoTest: XCTestCase {
         addedVideo.filename="youssef video"
         
         var asset=Asset()
-        asset.description="Asset Description"
-        asset.description="Asset Description"
-        asset.hash="abcd12345667"
+        asset.assetDescription="Asset Description"
+        asset.assetHash="abcd12345667"
         asset.path="www.google.com"
         asset.sortOrder=1
         asset.type="a"

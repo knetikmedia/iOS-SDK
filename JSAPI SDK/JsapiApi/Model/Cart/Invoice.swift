@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Invoice{
+public class Invoice:NSObject{
     
     var address1 : AnyObject!
     var address2 : AnyObject!

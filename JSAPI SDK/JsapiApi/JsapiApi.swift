@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public class JsapiAPi
+public class JsapiAPi:NSObject
 {
     
     private var jsapiurl:String=""

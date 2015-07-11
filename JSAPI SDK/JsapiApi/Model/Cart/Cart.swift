@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Cart{
+public class Cart:NSObject{
 
 	var cartId : Int!
 	var city : AnyObject!
@@ -66,7 +66,7 @@ public class Cart{
     public func getTax ()-> Double{return tax}
     public func getZip ()-> AnyObject{return zip}
 
-    init(){}
+    override public init(){super.init()}
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */

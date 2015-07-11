@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class UseUploaded{
+public class UseUploaded:NSObject{
 
 	var id : Int!
 	var itemId : Int!

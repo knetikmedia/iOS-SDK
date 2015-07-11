@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-class Cartsku{
+class Cartsku:NSObject{
 
 	var sku : String!
     var skus:Array<String>!

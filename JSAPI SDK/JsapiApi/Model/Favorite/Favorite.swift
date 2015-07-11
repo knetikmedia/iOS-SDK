@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Favorite{
+public class Favorite:NSObject{
 
 	var _id : Int!
 	var address : AnyObject!
@@ -22,7 +22,7 @@ public class Favorite{
 	var dateUpdated : Int!
 	var deleted : Int!
 	var deletedAt : AnyObject!
-	var description : AnyObject!
+	var favoriteDescription : AnyObject!
 	var displayName : String!
 	var email : String!
 	var firstName : AnyObject!
@@ -86,7 +86,7 @@ public class Favorite{
 		dateUpdated = dictionary["date_updated"] as? Int
 		deleted = dictionary["deleted"] as? Int
 		deletedAt = dictionary["deleted_at"] as AnyObject!
-		description = dictionary["description"] as AnyObject!
+		favoriteDescription = dictionary["description"] as AnyObject!
 		displayName = dictionary["display_name"] as? String
 		email = dictionary["email"] as? String
 		firstName = dictionary["first_name"] as AnyObject!

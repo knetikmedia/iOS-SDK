@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-class BaseResponse{
+class BaseResponse:NSObject{
 
 	private var cached : Bool!
 	private var error : Error!

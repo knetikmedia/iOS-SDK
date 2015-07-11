@@ -7,9 +7,8 @@
 //
 
 import Foundation
-public class FavoriteService
+public class FavoriteService:NSObject
 {
-    public init(){}
 
     /** add Favorite Item
     *@param params Dictionary{"id": 0} // ItemID

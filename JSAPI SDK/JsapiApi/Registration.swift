@@ -7,9 +7,8 @@
 //
 
 import Foundation
-public class Registration
+public class Registration:NSObject
 {
-    public init (){}
 
     /*Generates/verifies a temporary secret to allow users to login without their password
     * /services/latest/registration/forgotPassword

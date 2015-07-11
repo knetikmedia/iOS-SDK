@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Behavior{
+public class Behavior:NSObject{
 
 	var displayable : Bool!
 	var endDate : AnyObject!

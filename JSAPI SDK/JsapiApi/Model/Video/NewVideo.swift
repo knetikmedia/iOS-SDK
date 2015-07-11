@@ -5,13 +5,13 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class NewVideo{
+public class NewVideo:NSObject{
 
-    public init(){}
+    override public init(){}
 	var created : Int!
 	var deleted : Bool!
 	var deletedAt : AnyObject!
-	var description : String!
+	var videodescription : String!
 	var displayable : Bool!
 	var fileName : String!
 	var id : Int!
@@ -30,7 +30,7 @@ public class NewVideo{
 		created = dictionary["created"] as? Int
 		deleted = dictionary["deleted"] as? Bool
 		deletedAt = dictionary["deletedAt"] as AnyObject!
-		description = dictionary["description"] as? String
+		videodescription = dictionary["description"] as? String
 		displayable = dictionary["displayable"] as? Bool
 		fileName = dictionary["fileName"] as? String
 		id = dictionary["id"] as? Int

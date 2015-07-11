@@ -7,10 +7,9 @@
 //
 
 import Foundation
-public class Store
+public class Store:NSObject
 {
     
-    public init (){}
 
     /** get Store Page
     *@param params Dictionary {"terms": [""],"related": [""],"vocabulary": "","limit": 0,"page": 0,"useCatalog": false,"fullObject": false}

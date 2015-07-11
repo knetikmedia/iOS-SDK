@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class RegisteredUser{
+public class RegisteredUser:NSObject{
     
     var address : AnyObject!
     var address2 : AnyObject!
@@ -15,7 +15,7 @@ public class RegisteredUser{
     var countryId : Int!
     var currency : Int!
     var dateOfBirth : AnyObject!
-    var description : AnyObject!
+    var userDescription : AnyObject!
     var displayName : AnyObject!
     var email : String!
     var firstName : AnyObject!
@@ -69,7 +69,7 @@ public class RegisteredUser{
     public func getToken ()->AnyObject{return token}
     public func getUsername ()->String{return username}
 
-    init(){}
+    override public init(){super.init()}
     /**
     * Instantiate the instance using the passed dictionary values to set the properties values
     */
@@ -82,7 +82,7 @@ public class RegisteredUser{
         countryId = dictionary["country_id"] as? Int
         currency = dictionary["currency"] as? Int
         dateOfBirth = dictionary["date_of_birth"] as AnyObject!
-        description = dictionary["description"] as AnyObject!
+        userDescription = dictionary["description"] as AnyObject!
         displayName = dictionary["display_name"] as AnyObject!
         email = dictionary["email"] as? String
         firstName = dictionary["first_name"] as AnyObject!

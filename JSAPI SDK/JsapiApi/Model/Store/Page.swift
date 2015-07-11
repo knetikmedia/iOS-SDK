@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Page{
+public class Page:NSObject{
 
 	var _id : Int!
 	var assets : [Asset]!
