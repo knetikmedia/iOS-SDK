@@ -13,9 +13,11 @@ public class Comment:NSObject{
 	var dateUpdated : String!
 	var deleted : Int!
 	var displayName : String!
-	var itemId : Int!
+    var summary : String!
+	var contextId : Int!
+    var context : String!
 	var userId : Int!
-
+    var user :SimpleUser!
     
     public func  getComment()-> String
     {
@@ -26,22 +28,25 @@ public class Comment:NSObject{
     public func  getDateUpdated()->String{return dateUpdated}
     public func  getDeleted()->Int{return deleted}
     public func  getDisplayName()->String{return displayName}
-    public func  getItemId()->Int{return itemId}
+    public func  getContextId()->Int{return contextId}
     public func  getUserId()->Int{return userId}
-    
+    public func  getContext()->String{return context}
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
 	init(fromDictionary dictionary: NSDictionary){
-		comment = dictionary["comment"] as? String
-		commentId = dictionary["comment_id"] as? Int
+		comment = dictionary["content"] as? String
+		commentId = dictionary["id"] as? Int
 		dateCreated = dictionary["date_created"] as? String
 		dateUpdated = dictionary["date_updated"] as? String
 		deleted = dictionary["deleted"] as? Int
 		displayName = dictionary["display_name"] as? String
-		itemId = dictionary["item_id"] as? Int
+        summary = dictionary["summary"] as? String
+        context = dictionary["context"] as? String
+		contextId = dictionary["context_id"] as? Int
 		userId = dictionary["user_id"] as? Int
+        user=SimpleUser(fromDictionary: dictionary["user"] as! NSDictionary)
 	}
 
 }

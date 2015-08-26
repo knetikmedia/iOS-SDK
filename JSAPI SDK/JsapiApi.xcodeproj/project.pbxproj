@@ -40,6 +40,12 @@
 		F41B6FD21B4AEA4400B66B1A /* VideoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41B6FC61B4AEA4400B66B1A /* VideoResponse.swift */; };
 		F41B6FD41B4AEC4300B66B1A /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41B6FD31B4AEC4300B66B1A /* Asset.swift */; };
 		F41B6FD51B4AEC4300B66B1A /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41B6FD31B4AEC4300B66B1A /* Asset.swift */; };
+		F423DECE1B8CB4E100720B8B /* SimpleUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F423DECD1B8CB4E100720B8B /* SimpleUser.swift */; };
+		F423DECF1B8CE8E300720B8B /* SimpleUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F423DECD1B8CB4E100720B8B /* SimpleUser.swift */; };
+		F423DED11B8CF1AD00720B8B /* Contributor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F423DED01B8CF1AD00720B8B /* Contributor.swift */; };
+		F423DED21B8CF1AD00720B8B /* Contributor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F423DED01B8CF1AD00720B8B /* Contributor.swift */; };
+		F423DED41B8CF1C800720B8B /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = F423DED31B8CF1C800720B8B /* Artist.swift */; };
+		F423DED51B8CF1C800720B8B /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = F423DED31B8CF1C800720B8B /* Artist.swift */; };
 		F43EED791ADD4ADE001EFC8B /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43EED771ADD4ADE001EFC8B /* Friend.swift */; };
 		F43EED7A1ADD4ADE001EFC8B /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43EED771ADD4ADE001EFC8B /* Friend.swift */; };
 		F43EED7B1ADD4ADE001EFC8B /* FriendsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43EED781ADD4ADE001EFC8B /* FriendsResponse.swift */; };
@@ -119,6 +125,17 @@
 		F4A1AAC71AA6147600D17F43 /* JsapiApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A1AABB1AA6147500D17F43 /* JsapiApi.framework */; };
 		F4A1AACE1AA6147600D17F43 /* JsapiApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A1AACD1AA6147600D17F43 /* JsapiApiTests.swift */; };
 		F4A1AAD81AA6172C00D17F43 /* JsapiApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A1AAD71AA6172C00D17F43 /* JsapiApi.swift */; };
+		F4AEA4211B8E1D0C0001F61A /* DispositionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AEA4201B8E1D0C0001F61A /* DispositionService.swift */; };
+		F4AEA4231B8E1DD40001F61A /* DispositionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AEA4221B8E1DD40001F61A /* DispositionTest.swift */; };
+		F4AEA4241B8E1E420001F61A /* DispositionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AEA4201B8E1D0C0001F61A /* DispositionService.swift */; };
+		F4AEA42B1B8E26AC0001F61A /* Disposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AEA4261B8E26AC0001F61A /* Disposition.swift */; };
+		F4AEA42C1B8E26AC0001F61A /* Disposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AEA4261B8E26AC0001F61A /* Disposition.swift */; };
+		F4AEA42D1B8E26AC0001F61A /* DispositionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AEA4271B8E26AC0001F61A /* DispositionResponse.swift */; };
+		F4AEA42E1B8E26AC0001F61A /* DispositionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AEA4271B8E26AC0001F61A /* DispositionResponse.swift */; };
+		F4AEA4311B8E26AC0001F61A /* Dispositions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AEA4291B8E26AC0001F61A /* Dispositions.swift */; };
+		F4AEA4321B8E26AC0001F61A /* Dispositions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AEA4291B8E26AC0001F61A /* Dispositions.swift */; };
+		F4AEA4361B8E2E100001F61A /* NewDispositionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AEA4351B8E2E100001F61A /* NewDispositionResponse.swift */; };
+		F4AEA4371B8E2E100001F61A /* NewDispositionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AEA4351B8E2E100001F61A /* NewDispositionResponse.swift */; };
 		F4C41C691B46D6CF0057F1A6 /* CartTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C41C681B46D6CF0057F1A6 /* CartTest.swift */; };
 		F4D5867C1ACDC0AA001B47CA /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D5867B1ACDC0AA001B47CA /* FavoriteService.swift */; };
 		F4D5867D1ACDC0AA001B47CA /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D5867B1ACDC0AA001B47CA /* FavoriteService.swift */; };
@@ -156,6 +173,9 @@
 		F41B6FC51B4AEA4400B66B1A /* UseUploaded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UseUploaded.swift; path = ../Video/UseUploaded.swift; sourceTree = "<group>"; };
 		F41B6FC61B4AEA4400B66B1A /* VideoResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoResponse.swift; sourceTree = "<group>"; };
 		F41B6FD31B4AEC4300B66B1A /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Asset.swift; path = ../Video/Asset.swift; sourceTree = "<group>"; };
+		F423DECD1B8CB4E100720B8B /* SimpleUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleUser.swift; sourceTree = "<group>"; };
+		F423DED01B8CF1AD00720B8B /* Contributor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contributor.swift; sourceTree = "<group>"; };
+		F423DED31B8CF1C800720B8B /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		F43EED771ADD4ADE001EFC8B /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		F43EED781ADD4ADE001EFC8B /* FriendsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsResponse.swift; sourceTree = "<group>"; };
 		F43EED801ADD5E3E001EFC8B /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
@@ -203,6 +223,12 @@
 		F4A1AACC1AA6147600D17F43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4A1AACD1AA6147600D17F43 /* JsapiApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsapiApiTests.swift; sourceTree = "<group>"; };
 		F4A1AAD71AA6172C00D17F43 /* JsapiApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsapiApi.swift; sourceTree = "<group>"; };
+		F4AEA4201B8E1D0C0001F61A /* DispositionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispositionService.swift; sourceTree = "<group>"; };
+		F4AEA4221B8E1DD40001F61A /* DispositionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispositionTest.swift; sourceTree = "<group>"; };
+		F4AEA4261B8E26AC0001F61A /* Disposition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Disposition.swift; sourceTree = "<group>"; };
+		F4AEA4271B8E26AC0001F61A /* DispositionResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispositionResponse.swift; sourceTree = "<group>"; };
+		F4AEA4291B8E26AC0001F61A /* Dispositions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispositions.swift; sourceTree = "<group>"; };
+		F4AEA4351B8E2E100001F61A /* NewDispositionResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewDispositionResponse.swift; sourceTree = "<group>"; };
 		F4C41C681B46D6CF0057F1A6 /* CartTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartTest.swift; sourceTree = "<group>"; };
 		F4D5867B1ACDC0AA001B47CA /* FavoriteService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteService.swift; sourceTree = "<group>"; };
 		F4F800301B4B3BE10048DEEC /* NewVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewVideo.swift; sourceTree = "<group>"; };
@@ -231,6 +257,7 @@
 		F4167B031AD5993300345DCB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F4AEA4251B8E26980001F61A /* Disposition */,
 				F41B6FBD1B4AE49300B66B1A /* Video */,
 				F4167B0B1AD5B04D00345DCB /* Common */,
 				F4167B041AD5B03000345DCB /* Cart */,
@@ -318,6 +345,7 @@
 		F4167B0A1AD5B03100345DCB /* User */ = {
 			isa = PBXGroup;
 			children = (
+				F423DECD1B8CB4E100720B8B /* SimpleUser.swift */,
 				F4167B211AD5B31D00345DCB /* Wallet.swift */,
 				F4167B1E1AD5B1B000345DCB /* UserResponse.swift */,
 				F4167B0D1AD5B15000345DCB /* User.swift */,
@@ -341,6 +369,8 @@
 		F41B6FBD1B4AE49300B66B1A /* Video */ = {
 			isa = PBXGroup;
 			children = (
+				F423DED31B8CF1C800720B8B /* Artist.swift */,
+				F423DED01B8CF1AD00720B8B /* Contributor.swift */,
 				F4F800301B4B3BE10048DEEC /* NewVideo.swift */,
 				F4F800311B4B3BE10048DEEC /* AddVideoResponse.swift */,
 				F41B6FC41B4AEA4400B66B1A /* Video.swift */,
@@ -382,6 +412,7 @@
 				F48BBD221ABB135B00EAFE09 /* Registration.swift */,
 				F49EB52F1ACAE8240030437F /* StoreService.swift */,
 				F41B6FB11B4ACB8700B66B1A /* VideoService.swift */,
+				F4AEA4201B8E1D0C0001F61A /* DispositionService.swift */,
 				F47861951AB1E62B00A10B02 /* JsapiRest.swift */,
 				F47861921AB1BD7400A10B02 /* Utilities.swift */,
 				F4A1AABE1AA6147500D17F43 /* Supporting Files */,
@@ -406,6 +437,7 @@
 				F47F8F861B45A63200934807 /* FriendShipTest.swift */,
 				F47F8F881B45A64700934807 /* UserTest.swift */,
 				F47F8F841B45A61100934807 /* StoreTest.swift */,
+				F4AEA4221B8E1DD40001F61A /* DispositionTest.swift */,
 				F47F8F821B45A5FD00934807 /* CommentsTest.swift */,
 				F4A1AACD1AA6147600D17F43 /* JsapiApiTests.swift */,
 				F47F8F7F1B45A5A400934807 /* RegistrationTest.swift */,
@@ -420,6 +452,17 @@
 				F4A1AACC1AA6147600D17F43 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F4AEA4251B8E26980001F61A /* Disposition */ = {
+			isa = PBXGroup;
+			children = (
+				F4AEA4351B8E2E100001F61A /* NewDispositionResponse.swift */,
+				F4AEA4261B8E26AC0001F61A /* Disposition.swift */,
+				F4AEA4271B8E26AC0001F61A /* DispositionResponse.swift */,
+				F4AEA4291B8E26AC0001F61A /* Dispositions.swift */,
+			);
+			path = Disposition;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -533,11 +576,14 @@
 				F4167B161AD5B17300345DCB /* Error.swift in Sources */,
 				F48BBD231ABB135B00EAFE09 /* Registration.swift in Sources */,
 				F43EEDC71ADDB00B001EFC8B /* RegisteredUser.swift in Sources */,
+				F4AEA42D1B8E26AC0001F61A /* DispositionResponse.swift in Sources */,
 				F43EEDB61ADDA34C001EFC8B /* Countries.swift in Sources */,
 				F47861931AB1BD7400A10B02 /* Utilities.swift in Sources */,
+				F423DECE1B8CB4E100720B8B /* SimpleUser.swift in Sources */,
 				F43EED901ADD5E65001EFC8B /* Related.swift in Sources */,
 				F4A1AAD81AA6172C00D17F43 /* JsapiApi.swift in Sources */,
 				F43EEDAF1ADDA005001EFC8B /* Shippable.swift in Sources */,
+				F4AEA42B1B8E26AC0001F61A /* Disposition.swift in Sources */,
 				F43EEDA91ADD949F001EFC8B /* GetCartResponse.swift in Sources */,
 				F43EED991ADD8519001EFC8B /* CartResponse.swift in Sources */,
 				F4167B2C1AD5DC7100345DCB /* Favorite.swift in Sources */,
@@ -551,6 +597,8 @@
 				F43EEDC91ADDB00B001EFC8B /* RegisteredUserResponse.swift in Sources */,
 				F41B6FCD1B4AEA4400B66B1A /* Video.swift in Sources */,
 				F43EEDAB1ADD949F001EFC8B /* Item.swift in Sources */,
+				F4AEA4211B8E1D0C0001F61A /* DispositionService.swift in Sources */,
+				F423DED11B8CF1AD00720B8B /* Contributor.swift in Sources */,
 				F41B6FC71B4AEA4400B66B1A /* Behavior.swift in Sources */,
 				F43EED9D1ADD8B50001EFC8B /* Cartsku.swift in Sources */,
 				F43EED8D1ADD5E3E001EFC8B /* StoreResponse.swift in Sources */,
@@ -561,6 +609,7 @@
 				F43EED8B1ADD5E3E001EFC8B /* Sku.swift in Sources */,
 				F41B6FD11B4AEA4400B66B1A /* VideoResponse.swift in Sources */,
 				F48B9BC41AB0EBDC0069DBFA /* CartService.swift in Sources */,
+				F4AEA4361B8E2E100001F61A /* NewDispositionResponse.swift in Sources */,
 				F4167B111AD5B15000345DCB /* User.swift in Sources */,
 				F41B6FC91B4AEA4400B66B1A /* Catalog.swift in Sources */,
 				F47BF4E91AC2096200F2FB17 /* CommentService.swift in Sources */,
@@ -577,7 +626,9 @@
 				F483B3E11AC5A48300A869C5 /* FriendshipService.swift in Sources */,
 				F41B6FCF1B4AEA4400B66B1A /* UseUploaded.swift in Sources */,
 				F4167B221AD5B31D00345DCB /* Wallet.swift in Sources */,
+				F4AEA4311B8E26AC0001F61A /* Dispositions.swift in Sources */,
 				F43EEDBF1ADDA60A001EFC8B /* CheckoutResponse.swift in Sources */,
+				F423DED41B8CF1C800720B8B /* Artist.swift in Sources */,
 				F43EED9F1ADD8B50001EFC8B /* CartSKUResponse.swift in Sources */,
 				F43EED891ADD5E3E001EFC8B /* Page.swift in Sources */,
 				F43EEDA71ADD949F001EFC8B /* CartDetails.swift in Sources */,
@@ -601,7 +652,9 @@
 				F4F800331B4B3BE10048DEEC /* NewVideo.swift in Sources */,
 				F41B6FD51B4AEC4300B66B1A /* Asset.swift in Sources */,
 				F47861941AB1BD7400A10B02 /* Utilities.swift in Sources */,
+				F4AEA4231B8E1DD40001F61A /* DispositionTest.swift in Sources */,
 				F41B6FD01B4AEA4400B66B1A /* UseUploaded.swift in Sources */,
+				F4AEA4371B8E2E100001F61A /* NewDispositionResponse.swift in Sources */,
 				F41B6FB41B4AD58200B66B1A /* VideoTest.swift in Sources */,
 				F43EED951ADD6EE3001EFC8B /* GuestUser.swift in Sources */,
 				F43EEDAC1ADD949F001EFC8B /* Item.swift in Sources */,
@@ -622,6 +675,7 @@
 				F43EED9E1ADD8B50001EFC8B /* Cartsku.swift in Sources */,
 				F43EED911ADD5E65001EFC8B /* Related.swift in Sources */,
 				F4167B201AD5B1B000345DCB /* UserResponse.swift in Sources */,
+				F4AEA4241B8E1E420001F61A /* DispositionService.swift in Sources */,
 				F41B6FC81B4AEA4400B66B1A /* Behavior.swift in Sources */,
 				F43EEDC41ADDA60A001EFC8B /* Invoice.swift in Sources */,
 				F47F8F8B1B45A66F00934807 /* FavoriteTest.swift in Sources */,
@@ -641,13 +695,19 @@
 				F43EED9A1ADD8519001EFC8B /* CartResponse.swift in Sources */,
 				F43EED7C1ADD4ADE001EFC8B /* FriendsResponse.swift in Sources */,
 				F4167B271AD5D15900345DCB /* Comment.swift in Sources */,
+				F4AEA4321B8E26AC0001F61A /* Dispositions.swift in Sources */,
+				F4AEA42C1B8E26AC0001F61A /* Disposition.swift in Sources */,
 				F41B6FD21B4AEA4400B66B1A /* VideoResponse.swift in Sources */,
+				F423DECF1B8CE8E300720B8B /* SimpleUser.swift in Sources */,
 				F43EED7A1ADD4ADE001EFC8B /* Friend.swift in Sources */,
+				F423DED51B8CF1C800720B8B /* Artist.swift in Sources */,
 				F47F8F871B45A63200934807 /* FriendShipTest.swift in Sources */,
 				F47BF4EA1AC2096200F2FB17 /* CommentService.swift in Sources */,
+				F423DED21B8CF1AD00720B8B /* Contributor.swift in Sources */,
 				F41B6FCE1B4AEA4400B66B1A /* Video.swift in Sources */,
 				F47F8F831B45A5FD00934807 /* CommentsTest.swift in Sources */,
 				F4167B291AD5D15900345DCB /* CommentResponse.swift in Sources */,
+				F4AEA42E1B8E26AC0001F61A /* DispositionResponse.swift in Sources */,
 				F47861971AB1E62B00A10B02 /* JsapiRest.swift in Sources */,
 				F43EEDBB1ADDA34C001EFC8B /* Country.swift in Sources */,
 				F43EED8E1ADD5E3E001EFC8B /* StoreResponse.swift in Sources */,

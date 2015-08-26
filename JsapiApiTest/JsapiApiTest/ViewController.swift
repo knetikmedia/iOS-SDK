@@ -522,7 +522,9 @@ class ViewController: UIViewController {
     @IBAction func testItemCommentsList()
     {
         var params=Dictionary<String,String>()
-        params["id"]="4"
+        params["context"]="video"
+        params["context_id"]="1"
+
         var comment = CommentService()
         comment.commentsList(params)
             {
@@ -547,8 +549,9 @@ class ViewController: UIViewController {
     @IBAction func testAddCommentToItem()
     {
         var params=Dictionary<String,String>()
-        params["item_id"]="4"
-        params["comment"]="hello"
+        params["content"]="hello"
+        params["contextId"]="1"
+        params["context"]="video"
 
         var comment = CommentService()
         comment.addComment(params)
@@ -616,10 +619,11 @@ class ViewController: UIViewController {
     {
         var params=Dictionary<String,AnyObject>()
         params["target_user_id"]=4330
-        
+        params["user_id"]=1
+ 
         var friendShip = FriendshipService()
         
-        friendShip.addFriend("1",params:params)
+        friendShip.addFriend(params)
             {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
@@ -638,11 +642,11 @@ class ViewController: UIViewController {
     {
         var params=Dictionary<String,AnyObject>()
         params["page"]=1
-        params["size"]=20
+        params["limit"]=20
       
         var friendShip = FriendshipService()
         
-        friendShip.getFriends("1",params:params)
+        friendShip.getFriends(params)
             {
                 (friends:Friend,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
@@ -668,7 +672,7 @@ class ViewController: UIViewController {
         
         var friendShip = FriendshipService()
         
-        friendShip.searchFriends("1",params:params)
+        friendShip.searchFriends(params)
             {
                 (friends:Friend,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
@@ -687,10 +691,11 @@ class ViewController: UIViewController {
     @IBAction func testRemoveFriend()
     {
         var params=Dictionary<String,AnyObject>()
-        
+        params["target_user_id"]=4330
+        params["user_id"]=1
         var friendShip = FriendshipService()
         
-        friendShip.removeFriend("1",targetUserId:"7224",params:params)
+        friendShip.removeFriend(params)
             {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)

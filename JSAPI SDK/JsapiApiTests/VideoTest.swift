@@ -12,7 +12,7 @@ class VideoTest: XCTestCase {
 
     var theUser:User = User()
     var lastVideo=Video()
-    var theNewVideo = NewVideo()
+    var theNewVideo = Video()
     override func setUp() {
         super.setUp()
         JsapiAPi.jsapiInit("http://localhost:8080/jsapi", client_id: "knetik",secrect_key: "superSUPERsuperSECRET")
@@ -121,7 +121,9 @@ class VideoTest: XCTestCase {
                 }else
                 {
                     XCTAssertTrue(issuccess, "testGetUserVideos pass")
+                    if(result.count>0){
                     self.lastVideo=result.last!
+                    }
                 }
                 readyExpectation.fulfill()
         }
@@ -164,10 +166,9 @@ class VideoTest: XCTestCase {
         var videoParams=Dictionary<String,AnyObject>()
         videoParams["page"]=1
         videoParams["size"]=20
-        videoParams["artist"]=""
         
         var video = VideoService()
-        video.getFriendsVideos(videoParams)
+        video.getFriendsVideos("1",params:videoParams)
             {
                 (result:Array<Video>,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
@@ -189,26 +190,34 @@ class VideoTest: XCTestCase {
     {
         let readyExpectation = expectationWithDescription("ready")
         var addedVideo=Video()
-        addedVideo.title="added Video Title"
-        addedVideo.summary="Video Summary"
-        addedVideo.videodescription="description"
-        addedVideo.displayable=true
-        addedVideo.filename="youssef video"
-        
-        var asset=Asset()
-        asset.assetDescription="Asset Description"
-        asset.path="www.google.com"
-        var assetsArray = [Asset]()
-        assetsArray.append(asset)
-        addedVideo.assets=assetsArray
-        
+        addedVideo.author=SimpleUser()
+        addedVideo.authored=1439404367
+        addedVideo.author.id=1
+        addedVideo.author.displayName="youssef"
+        addedVideo.height=400
+        addedVideo.embed="ok"
+        addedVideo.location="www.google.com"
+        addedVideo.longDescription="long"
+        addedVideo.shortDescription="short"
+        addedVideo.name="youssef Videp"
+        addedVideo.longDescription = "Long Description";
+        addedVideo.shortDescription = "Short Description";
+        addedVideo.name = "artist";
+        addedVideo.embed = "<>";
+        addedVideo.videoExtension = ".mp4";
+        addedVideo.height = 100;
+        addedVideo.length = 100;
+        addedVideo.location = "http://www.google.com";
+        addedVideo.mimeType = "video/mp4";
+        addedVideo.size = 10000;
+        addedVideo.width = 100;
         var videoParams=addedVideo.toDictionary()
         
         var video = VideoService()
         
         video.addVideo(videoParams as! Dictionary<String, AnyObject>)
             {
-                (result:NewVideo,errormessage:String,issuccess:Bool) in
+                (result:Video,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
                     XCTAssertTrue(issuccess, "testAddVideo failed")
@@ -223,6 +232,30 @@ class VideoTest: XCTestCase {
         })
     }
 
+    
+    
+    func testUpdateViewsCount()
+    {
+        let readyExpectation = expectationWithDescription("ready")
+
+        var params=Dictionary<String,String>()
+        var video = VideoService()
+        video.updateVideoViewsCount("193", params: params)
+            {
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    XCTAssertTrue(issuccess, "testAddVideo failed")
+                }else
+                {
+                    XCTAssertTrue(issuccess, "testAddVideo pass")
+                }
+                readyExpectation.fulfill()
+        }
+        self.waitForExpectationsWithTimeout(6.0, handler: { error in XCTAssertNil(error, "Oh, we got timeout")
+        })
+    }
+
 
     func testUpdateVideoDetails()
     {
@@ -230,8 +263,7 @@ class VideoTest: XCTestCase {
         
         let readyExpectation = expectationWithDescription("ready")
         var addedVideo=Video()
-        addedVideo.title="added Video Title"
-        addedVideo.videodescription="description"
+    
         
         var videoParams=addedVideo.toDictionary()
         
@@ -253,16 +285,35 @@ class VideoTest: XCTestCase {
         })
     }
 
-    
+    func testDeleteVideo()
+    {
+        let readyExpectation = expectationWithDescription("ready")
+        var params=Dictionary<String,String>()
+        params["id"]="1"
+        var video = VideoService()
+        video.deleteVideo(params)
+            {
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    XCTAssertTrue(issuccess, "testDeleteCommentToItem failed")
+                }else
+                {
+                    XCTAssertTrue(issuccess, "testDeleteCommentToItem pass")
+                }
+                readyExpectation.fulfill()
+        }
+        self.waitForExpectationsWithTimeout(6.0, handler: { error in XCTAssertNil(error, "Oh, we got timeout")
+        })
+        
+    }
+
     func testAddUserUploadedMediaItemAssests()
     {
         testAddVideo()
         
         let readyExpectation = expectationWithDescription("ready")
         var addedVideo=Video()
-        addedVideo.displayable=true
-        addedVideo.id=theNewVideo.id
-        addedVideo.filename="youssef video"
         
         var asset=Asset()
         asset.assetDescription="Asset Description"
@@ -273,7 +324,6 @@ class VideoTest: XCTestCase {
         asset.url="www.google.com"
         var assetsArray = [Asset]()
         assetsArray.append(asset)
-        addedVideo.assets=assetsArray
         
         var videoParams=addedVideo.toDictionary()
         

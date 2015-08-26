@@ -30,41 +30,51 @@ class var GUESTS:String {return "/services/latest/registration/guests"};
 //EndRegister
     
 //User
-class var GETUSERINFO:String {return "/services/latest/user/getinfo" }  // GET USER INFO
-class var UPDATEUSERINFO:String {return "/services/latest/users/me/%@"}; //UPDATE USER INFO
+class var GETUSERINFO:String {return "/services/latest/user/getinfo" }  
+class var UPDATEUSERINFO:String {return "/services/latest/users/me/%@"}; 
 class var SETUSERPASSWORD:String {return "/services/latest/user/%@/password"};
 //EndUser
 
     
 //Comment
-class var ADDCOMMENT:String {return "/services/latest/comment/add" }  // GET USER INFO
-class var DELETECOMMENT:String {return "/services/latest/comment/delete"}; //UPDATE USER INFO
-class var COMMENTLIST:String {return "/services/latest/comment/list"};
-class var REMOVECOMMENT:String {return "/services/latest/comment/remove"};
+class var ADDCOMMENT:String {return "/services/latest/comments" }
+class var DELETECOMMENT:String {return "/services/latest/comments/%@"};
+class var COMMENTLIST:String {return "/services/latest/comments"};
     
 //End Comment
     
 //FriendShip
-    class var ADDFRIEND:String {return "/services/latest/users/%@/friends"}
-    class var GETFRIENDS:String {return "/services/latest/users/%@/friends"}
-    class var REMOVEFRIEND:String {return "/services/latest/users/%@/friends/%@"}
-    class var SEARCHFRIEND:String {return "/services/latest/users/%@/friends"}
+    class var ADDFRIEND:String {return "/services/latest/friendship/addfriend"}
+    class var GETFRIENDS:String {return "/services/latest/friendship/getfriends"}
+    class var REMOVEFRIEND:String {return "/services/latest/friendship/removefriend"}
+    class var SEARCHFRIEND:String {return "/services/latest/friendship/searchfriends"}
 
 //End FriendShip
     
-//FriendShip
+//Videos
 
-    class var GETVIDEOS:String {return "/services/latest/videos"}
+    class var GETVIDEOS:String {return "/services/latest/media/videos"}
     class var GETUSERVIDEOS:String {return "/services/latest/users/%@/videos"} // %@  userID
     class var GETMYFAVORITESVIDEOS:String {return "/services/latest/users/%@/videos/favorited"} //%@ userID
-    class var GETFRIENDSVIDEO:String {return "/services/latest/friends/videos"}
-    class var ADDVIDEO:String {return "/services/latest/videos"}
+    class var DELETEVIDEO:String {return "/services/latest/media/videos/%@"};
+    class var VIEWVIDEO:String {return "/services/latest/media/videos/%@/views"};
+
+    class var GETFRIENDSVIDEO:String {return "/services/latest/users/%@/friends/videos"}
+    class var ADDVIDEO:String {return "/services/latest/media/videos"}
     class var UPDATEVIDEODETAILS:String {return "/services/latest/videos/%@/details"} //videoID
     class var ADDUSERUPLOADEDMEDIAITEMASSESTS:String {return "/services/latest/videos/assets"}
 
 
     
-//End FriendShip
+//End DISPOSITION
+   
+    //DISPOSITION
+    
+    class var DISPOSITION:String {return "/services/latest/dispositions"}
+    class var DELETEDISPOSITION:String {return "/services/latest/dispositions/%@"};
+   
+    
+//End DISPOSITION
     
     
     

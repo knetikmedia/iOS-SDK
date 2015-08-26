@@ -41,10 +41,10 @@ public class CommentService:NSObject
     public func commentsList(params:Dictionary<String,String>,callback:(Array<Comment>,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.COMMENTLIST;
-        JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        JsapiRest.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var commentResponse=CommentResponse(fromDictionary: result);
+                var commentResponse=CommentResponse(fromDictionary: (result["result"] as? NSDictionary)!);
                 if(!issuccess)
                 {
                     callback(commentResponse.comments,commentResponse.errormessage,issuccess)
@@ -63,8 +63,8 @@ public class CommentService:NSObject
     */
     public func deleteComment(params:Dictionary<String,String>,callback:(AnyObject,String,Bool)->Void)
     {
-        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.DELETECOMMENT;
-        JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        let methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.DELETECOMMENT,params["id"]!)
+        JsapiRest.deleteRequest(methodUrl as String, deleteParams: Utilities.jsonRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
                 var baseResponse=BaseResponse(fromDictionary: result)
@@ -78,27 +78,5 @@ public class CommentService:NSObject
                 }
         }
     }
-
-    /**Removes a comment from an item. Must have authorization as the user that originally posted the comment. (alias for delete)
-    *@param params Dictionary{"id": 0}
-    *@param callback
-    */
-    public func removeComment(params:Dictionary<String,String>,callback:(NSDictionary,Bool)->Void)
-    {
-        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.REMOVECOMMENT;
-        JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
-            {
-                (result:NSDictionary,issuccess:Bool) in
-                if(!issuccess)
-                {
-                    println(result["error"])
-                    println(result["error_description"])
-                }else
-                {
-                    println(result)
-                }
-                callback(result,issuccess)
-        }
-    }
-
+    
 }

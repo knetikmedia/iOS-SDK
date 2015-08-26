@@ -105,10 +105,10 @@ class FriendShipTest: XCTestCase {
         let readyExpectation = expectationWithDescription("ready")
         var params=Dictionary<String,AnyObject>()
         params["target_user_id"]=self.theRegisteredUser.getId()
-        
+        params["user_id"]=NSString(format:"%d",theUser.getId())
         var friendShip = FriendshipService()
         
-        friendShip.addFriend(NSString(format:"%d",theUser.getId()) as String,params:params)
+        friendShip.addFriend(params)
             {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
@@ -135,7 +135,7 @@ class FriendShipTest: XCTestCase {
         
         var friendShip = FriendshipService()
         
-        friendShip.getFriends(NSString(format:"%d",theUser.getId()) as String ,params:params)
+        friendShip.getFriends(params)
             {
                 (friends:Friend,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
@@ -166,7 +166,7 @@ class FriendShipTest: XCTestCase {
         
         var friendShip = FriendshipService()
         
-        friendShip.searchFriends(NSString(format:"%d",theUser.getId()) as String ,params:params)
+        friendShip.searchFriends(params)
             {
                 (friends:Friend,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
@@ -195,7 +195,7 @@ class FriendShipTest: XCTestCase {
         
         var friendShip = FriendshipService()
         
-        friendShip.removeFriend(NSString(format:"%d",theUser.getId()) as String ,targetUserId:NSString(format:"%d",theRegisteredUser.getId()) as String,params:params)
+        friendShip.removeFriend(params)
             {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)

@@ -1,11 +1,11 @@
 //
 //	VideoResponse.swift
 //
-//	Create by Youssef on 6/7/2015
+//	Create by Youssef on 25/8/2015
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-class VideoResponse : BaseResponse {
+class VideoResponse : BaseResponse{
 
 	var videos : [Video]!
 
@@ -15,15 +15,13 @@ class VideoResponse : BaseResponse {
 	 */
 	override init(fromDictionary dictionary: NSDictionary){
         super.init(fromDictionary: dictionary)
-
-		videos = [Video]()
-		if let resultArray = dictionary["result"] as? [NSDictionary]{
-			for dic in resultArray{
-				let value = Video(fromDictionary: dic)
-				videos.append(value)
-			}
-		}
+        videos = [Video]()
+		if let resultData = dictionary["content"] as? [NSDictionary]{
+            for dic in resultData {
+                let value = Video(fromDictionary : dic)
+                videos.append(value)
+            }
+            }
 	}
 
-	
 }

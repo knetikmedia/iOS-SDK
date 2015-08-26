@@ -15,7 +15,7 @@ class CommentResponse:BaseResponse{
 	override init(fromDictionary dictionary: NSDictionary){
         super.init(fromDictionary: dictionary)
 		comments = [Comment]()
-		if let commentsArray = dictionary["result"] as? [NSDictionary]{
+		if let commentsArray = dictionary["content"] as? [NSDictionary]{
 			for dic in commentsArray{
 				let value = Comment(fromDictionary: dic)
 				comments.append(value)
