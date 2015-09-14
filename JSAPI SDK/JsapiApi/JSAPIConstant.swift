@@ -78,6 +78,22 @@ class var COMMENTLIST:String {return "/services/latest/comments"};
     
     
     
+    //METRIC
+    
+    class var ADDMETRIC:String {return "/services/latest/metrics"}
+    
+    //End METRIC
+    
+    
+    //Leaderboard
+    
+    class var LEADERBOARDS:String {return "/services/latest/leaderboards"}
+    class var GETSTRATEGIES:String {return "/services/latest/leaderboards/strategies"}
+    class var GETUSERRANK:String {return "/services/latest/leaderboards/%@/users/%@/rank"}
+    
+    //End Leaderboard
+
+    
 //Store
     class var GETPAGE:String {return "/services/latest/store/getpage"};
 

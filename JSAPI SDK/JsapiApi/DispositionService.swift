@@ -73,6 +73,7 @@ public class DispositionService:NSObject
     public func deleteDisposition(params:Dictionary<String,String>,callback:(AnyObject,String,Bool)->Void)
     {
         let methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.DELETEDISPOSITION,params["id"]!)
+        
         JsapiRest.deleteRequest(methodUrl as String, deleteParams:Utilities.jsonRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in

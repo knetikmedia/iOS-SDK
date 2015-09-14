@@ -234,7 +234,7 @@
                   moduleName = "JsapiApiTests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/CommentService.swift"
-                  timestampString = "462303237.11551"
+                  timestampString = "463938759.654881"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "66"
@@ -249,7 +249,7 @@
                   moduleName = "JsapiApi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/CommentService.swift"
-                  timestampString = "462303237.138184"
+                  timestampString = "463938759.662724"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "66"
@@ -282,7 +282,7 @@
                   moduleName = "JsapiApiTests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/JsapiRest.swift"
-                  timestampString = "462303237.117676"
+                  timestampString = "463938759.656854"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "159"
@@ -297,7 +297,7 @@
                   moduleName = "JsapiApi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/JsapiRest.swift"
-                  timestampString = "462303237.138451"
+                  timestampString = "463938759.6629"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "159"
@@ -330,7 +330,7 @@
                   moduleName = "JsapiApiTests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/JsapiRest.swift"
-                  timestampString = "462303237.118001"
+                  timestampString = "463938759.657151"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "167"
@@ -345,7 +345,7 @@
                   moduleName = "JsapiApi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/JsapiRest.swift"
-                  timestampString = "462303237.138745"
+                  timestampString = "463938759.663159"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "167"
@@ -426,7 +426,7 @@
                   moduleName = "JsapiApiTests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/VideoService.swift"
-                  timestampString = "462303237.118798"
+                  timestampString = "463938759.658951"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "126"
@@ -441,7 +441,7 @@
                   moduleName = "JsapiApi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/VideoService.swift"
-                  timestampString = "462303237.139075"
+                  timestampString = "463938759.663385"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "126"
@@ -474,7 +474,7 @@
                   moduleName = "JsapiApiTests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/VideoService.swift"
-                  timestampString = "462303237.119049"
+                  timestampString = "463938759.659235"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "122"
@@ -489,7 +489,7 @@
                   moduleName = "JsapiApi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/VideoService.swift"
-                  timestampString = "462303237.13929"
+                  timestampString = "463938759.663657"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "122"
@@ -522,7 +522,7 @@
                   moduleName = "JsapiApiTests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/Model/Video/AddVideoResponse.swift"
-                  timestampString = "462303237.119297"
+                  timestampString = "463938759.65948"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
@@ -537,7 +537,7 @@
                   moduleName = "JsapiApi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/Model/Video/AddVideoResponse.swift"
-                  timestampString = "462303237.139565"
+                  timestampString = "463938759.663828"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
@@ -570,7 +570,7 @@
                   moduleName = "JsapiApiTests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/VideoService.swift"
-                  timestampString = "462303237.119491"
+                  timestampString = "463938759.65965"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "133"
@@ -585,7 +585,7 @@
                   moduleName = "JsapiApi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/VideoService.swift"
-                  timestampString = "462303237.139741"
+                  timestampString = "463938759.66414"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "133"
@@ -634,7 +634,7 @@
                   moduleName = "JsapiApiTests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/VideoService.swift"
-                  timestampString = "462303237.119956"
+                  timestampString = "463938759.660224"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "145"
@@ -649,7 +649,7 @@
                   moduleName = "JsapiApi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/VideoService.swift"
-                  timestampString = "462303237.139972"
+                  timestampString = "463938759.664325"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "145"
@@ -666,12 +666,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JSAPI SDK/JsapiApiTests/DispositionTest.swift"
-            timestampString = "462301653.648236"
+            timestampString = "462302394.879679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "testGetDispostions()"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "testAddDisposition()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -681,13 +681,253 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "JSAPI SDK/JsapiApiTests/DispositionTest.swift"
-            timestampString = "462302394.879679"
+            filePath = "JSAPI SDK/JsapiApi/Model/Disposition/NewDispositionResponse.swift"
+            timestampString = "463692625.240006"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "testAddDisposition()"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "init(fromDictionary:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "JsapiApiTests.NewDispositionResponse.init (JsapiApiTests.NewDispositionResponse.Type)(fromDictionary : ObjectiveC.NSDictionary) -&gt; JsapiApiTests.NewDispositionResponse"
+                  moduleName = "JsapiApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/Model/Disposition/NewDispositionResponse.swift"
+                  timestampString = "463938759.660622"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "42">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "JsapiApi.NewDispositionResponse.init (JsapiApi.NewDispositionResponse.Type)(fromDictionary : ObjectiveC.NSDictionary) -&gt; JsapiApi.NewDispositionResponse"
+                  moduleName = "JsapiApi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/Model/Disposition/NewDispositionResponse.swift"
+                  timestampString = "463938759.664647"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "42">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JSAPI SDK/JsapiApi/LeaderboardService.swift"
+            timestampString = "463933991.058967"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "getLeaderboards(_:callback:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "JsapiApiTests.LeaderboardService.(getLeaderboards (JsapiApiTests.LeaderboardService) -&gt; (Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, callback : (JsapiApiTests.Leaderboard, Swift.String, Swift.Bool) -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "JsapiApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/LeaderboardService.swift"
+                  timestampString = "463938759.660892"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "33">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "JsapiApi.LeaderboardService.(getLeaderboards (JsapiApi.LeaderboardService) -&gt; (Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, callback : (JsapiApi.Leaderboard, Swift.String, Swift.Bool) -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "JsapiApi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/LeaderboardService.swift"
+                  timestampString = "463938759.664812"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "33">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JSAPI SDK/JsapiApiTests/LeaderboardTest.swift"
+            timestampString = "463934040.296577"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "testGetLeaderboards()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JSAPI SDK/JsapiApi/LeaderboardService.swift"
+            timestampString = "463934044.008097"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "getLeaderboards(_:callback:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "JsapiApiTests.LeaderboardService.getLeaderboards (JsapiApiTests.LeaderboardService)(Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, callback : (JsapiApiTests.Leaderboard, Swift.String, Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "JsapiApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/LeaderboardService.swift"
+                  timestampString = "463938759.661279"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "27">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "JsapiApi.LeaderboardService.getLeaderboards (JsapiApi.LeaderboardService)(Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, callback : (JsapiApi.Leaderboard, Swift.String, Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "JsapiApi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/LeaderboardService.swift"
+                  timestampString = "463938759.665149"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "27">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JSAPI SDK/JsapiApi/LeaderboardService.swift"
+            timestampString = "463936969.707601"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "getUserRank(_:callback:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "JsapiApiTests.LeaderboardService.(getUserRank (JsapiApiTests.LeaderboardService) -&gt; (Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, callback : (JsapiApiTests.Entrie, Swift.String, Swift.Bool) -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "JsapiApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/LeaderboardService.swift"
+                  timestampString = "463938759.661598"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "33">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "JsapiApi.LeaderboardService.(getUserRank (JsapiApi.LeaderboardService) -&gt; (Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, callback : (JsapiApi.Entrie, Swift.String, Swift.Bool) -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "JsapiApi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JSAPI%20SDK/JsapiApi/LeaderboardService.swift"
+                  timestampString = "463938759.665368"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "33">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JSAPI SDK/JsapiApiTests/LeaderboardTest.swift"
+            timestampString = "463937795.613185"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "testGetUserRank()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JSAPI SDK/JsapiApiTests/LeaderboardTest.swift"
+            timestampString = "463937800.042905"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "testGetUserRank()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JSAPI SDK/JsapiApiTests/MetricTest.swift"
+            timestampString = "463938519.568813"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "testAddMetric()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -96,6 +96,24 @@
 		F43EEDC81ADDB00B001EFC8B /* RegisteredUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43EEDC51ADDB00B001EFC8B /* RegisteredUser.swift */; };
 		F43EEDC91ADDB00B001EFC8B /* RegisteredUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43EEDC61ADDB00B001EFC8B /* RegisteredUserResponse.swift */; };
 		F43EEDCA1ADDB00B001EFC8B /* RegisteredUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43EEDC61ADDB00B001EFC8B /* RegisteredUserResponse.swift */; };
+		F44231881BA370FD0004810F /* MetricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44231871BA370FD0004810F /* MetricService.swift */; };
+		F44231891BA371240004810F /* MetricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44231871BA370FD0004810F /* MetricService.swift */; };
+		F442318B1BA371CF0004810F /* LeaderboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F442318A1BA371CF0004810F /* LeaderboardService.swift */; };
+		F442318C1BA371D40004810F /* LeaderboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F442318A1BA371CF0004810F /* LeaderboardService.swift */; };
+		F44231901BA372C40004810F /* Entrie.swift in Sources */ = {isa = PBXBuildFile; fileRef = F442318E1BA372C40004810F /* Entrie.swift */; };
+		F44231911BA372C40004810F /* Entrie.swift in Sources */ = {isa = PBXBuildFile; fileRef = F442318E1BA372C40004810F /* Entrie.swift */; };
+		F44231921BA372C40004810F /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F442318F1BA372C40004810F /* Leaderboard.swift */; };
+		F44231931BA372C40004810F /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F442318F1BA372C40004810F /* Leaderboard.swift */; };
+		F46ABB0B1BA70AC5004DF427 /* LeaderboardTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46ABB0A1BA70AC5004DF427 /* LeaderboardTest.swift */; };
+		F46ABB0D1BA71517004DF427 /* LeaderboardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46ABB0C1BA71517004DF427 /* LeaderboardResponse.swift */; };
+		F46ABB0E1BA7151B004DF427 /* LeaderboardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46ABB0C1BA71517004DF427 /* LeaderboardResponse.swift */; };
+		F46ABB111BA71AA0004DF427 /* StrategiesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46ABB101BA71AA0004DF427 /* StrategiesResponse.swift */; };
+		F46ABB121BA71AA0004DF427 /* StrategiesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46ABB101BA71AA0004DF427 /* StrategiesResponse.swift */; };
+		F46ABB151BA72043004DF427 /* UserRankResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46ABB141BA72043004DF427 /* UserRankResponse.swift */; };
+		F46ABB161BA72043004DF427 /* UserRankResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46ABB141BA72043004DF427 /* UserRankResponse.swift */; };
+		F46ABB181BA721C0004DF427 /* MetricTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46ABB171BA721C0004DF427 /* MetricTest.swift */; };
+		F46ABB1B1BA7222C004DF427 /* Metric.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46ABB1A1BA7222C004DF427 /* Metric.swift */; };
+		F46ABB1C1BA7222C004DF427 /* Metric.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46ABB1A1BA7222C004DF427 /* Metric.swift */; };
 		F47822F41AA7967F004464E1 /* JsapiApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A1AAD71AA6172C00D17F43 /* JsapiApi.swift */; };
 		F47822F51AA7967F004464E1 /* JSAPIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48006631AA656F600B27561 /* JSAPIConstant.swift */; };
 		F47861931AB1BD7400A10B02 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47861921AB1BD7400A10B02 /* Utilities.swift */; };
@@ -201,6 +219,16 @@
 		F43EEDBE1ADDA60A001EFC8B /* Invoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
 		F43EEDC51ADDB00B001EFC8B /* RegisteredUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisteredUser.swift; sourceTree = "<group>"; };
 		F43EEDC61ADDB00B001EFC8B /* RegisteredUserResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisteredUserResponse.swift; sourceTree = "<group>"; };
+		F44231871BA370FD0004810F /* MetricService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetricService.swift; sourceTree = "<group>"; };
+		F442318A1BA371CF0004810F /* LeaderboardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardService.swift; sourceTree = "<group>"; };
+		F442318E1BA372C40004810F /* Entrie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entrie.swift; sourceTree = "<group>"; };
+		F442318F1BA372C40004810F /* Leaderboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
+		F46ABB0A1BA70AC5004DF427 /* LeaderboardTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardTest.swift; sourceTree = "<group>"; };
+		F46ABB0C1BA71517004DF427 /* LeaderboardResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardResponse.swift; sourceTree = "<group>"; };
+		F46ABB101BA71AA0004DF427 /* StrategiesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategiesResponse.swift; sourceTree = "<group>"; };
+		F46ABB141BA72043004DF427 /* UserRankResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRankResponse.swift; sourceTree = "<group>"; };
+		F46ABB171BA721C0004DF427 /* MetricTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetricTest.swift; sourceTree = "<group>"; };
+		F46ABB1A1BA7222C004DF427 /* Metric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Metric.swift; sourceTree = "<group>"; };
 		F47861921AB1BD7400A10B02 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		F47861951AB1E62B00A10B02 /* JsapiRest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsapiRest.swift; sourceTree = "<group>"; };
 		F47BB5A41ABC8457009AD1F6 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -264,8 +292,12 @@
 				F4167B051AD5B03000345DCB /* Comment */,
 				F4167B061AD5B03000345DCB /* Favorite */,
 				F4167B071AD5B03100345DCB /* Friendship */,
-				F4167B081AD5B03100345DCB /* Registration */,
 				F4167B091AD5B03100345DCB /* Store */,
+				F4167B081AD5B03100345DCB /* Registration */,
+				F46ABB0F1BA71AA0004DF427 /* strategies */,
+				F442318D1BA372C40004810F /* leaderboard */,
+				F46ABB191BA7222C004DF427 /* metric */,
+				F46ABB131BA72043004DF427 /* userrank */,
 				F4167B0A1AD5B03100345DCB /* User */,
 			);
 			path = Model;
@@ -379,6 +411,42 @@
 			path = Video;
 			sourceTree = "<group>";
 		};
+		F442318D1BA372C40004810F /* leaderboard */ = {
+			isa = PBXGroup;
+			children = (
+				F46ABB0C1BA71517004DF427 /* LeaderboardResponse.swift */,
+				F442318E1BA372C40004810F /* Entrie.swift */,
+				F442318F1BA372C40004810F /* Leaderboard.swift */,
+			);
+			path = leaderboard;
+			sourceTree = "<group>";
+		};
+		F46ABB0F1BA71AA0004DF427 /* strategies */ = {
+			isa = PBXGroup;
+			children = (
+				F46ABB101BA71AA0004DF427 /* StrategiesResponse.swift */,
+			);
+			name = strategies;
+			path = User/strategies;
+			sourceTree = "<group>";
+		};
+		F46ABB131BA72043004DF427 /* userrank */ = {
+			isa = PBXGroup;
+			children = (
+				F46ABB141BA72043004DF427 /* UserRankResponse.swift */,
+			);
+			name = userrank;
+			path = leaderboard/userrank;
+			sourceTree = "<group>";
+		};
+		F46ABB191BA7222C004DF427 /* metric */ = {
+			isa = PBXGroup;
+			children = (
+				F46ABB1A1BA7222C004DF427 /* Metric.swift */,
+			);
+			path = metric;
+			sourceTree = "<group>";
+		};
 		F4A1AAB11AA6147500D17F43 = {
 			isa = PBXGroup;
 			children = (
@@ -413,6 +481,8 @@
 				F49EB52F1ACAE8240030437F /* StoreService.swift */,
 				F41B6FB11B4ACB8700B66B1A /* VideoService.swift */,
 				F4AEA4201B8E1D0C0001F61A /* DispositionService.swift */,
+				F44231871BA370FD0004810F /* MetricService.swift */,
+				F442318A1BA371CF0004810F /* LeaderboardService.swift */,
 				F47861951AB1E62B00A10B02 /* JsapiRest.swift */,
 				F47861921AB1BD7400A10B02 /* Utilities.swift */,
 				F4A1AABE1AA6147500D17F43 /* Supporting Files */,
@@ -431,6 +501,8 @@
 		F4A1AACA1AA6147600D17F43 /* JsapiApiTests */ = {
 			isa = PBXGroup;
 			children = (
+				F46ABB0A1BA70AC5004DF427 /* LeaderboardTest.swift */,
+				F46ABB171BA721C0004DF427 /* MetricTest.swift */,
 				F41B6FB31B4AD58200B66B1A /* VideoTest.swift */,
 				F4C41C681B46D6CF0057F1A6 /* CartTest.swift */,
 				F47F8F8A1B45A66F00934807 /* FavoriteTest.swift */,
@@ -584,6 +656,8 @@
 				F4A1AAD81AA6172C00D17F43 /* JsapiApi.swift in Sources */,
 				F43EEDAF1ADDA005001EFC8B /* Shippable.swift in Sources */,
 				F4AEA42B1B8E26AC0001F61A /* Disposition.swift in Sources */,
+				F44231881BA370FD0004810F /* MetricService.swift in Sources */,
+				F44231921BA372C40004810F /* Leaderboard.swift in Sources */,
 				F43EEDA91ADD949F001EFC8B /* GetCartResponse.swift in Sources */,
 				F43EED991ADD8519001EFC8B /* CartResponse.swift in Sources */,
 				F4167B2C1AD5DC7100345DCB /* Favorite.swift in Sources */,
@@ -592,10 +666,12 @@
 				F43EEDBA1ADDA34C001EFC8B /* Country.swift in Sources */,
 				F43EED941ADD6EE3001EFC8B /* GuestUser.swift in Sources */,
 				F41B6FD41B4AEC4300B66B1A /* Asset.swift in Sources */,
+				F46ABB151BA72043004DF427 /* UserRankResponse.swift in Sources */,
 				F4167B2E1AD5DC7100345DCB /* FavoriteResponse.swift in Sources */,
 				F43EED961ADD6EE3001EFC8B /* GuestUserResponse.swift in Sources */,
 				F43EEDC91ADDB00B001EFC8B /* RegisteredUserResponse.swift in Sources */,
 				F41B6FCD1B4AEA4400B66B1A /* Video.swift in Sources */,
+				F46ABB0D1BA71517004DF427 /* LeaderboardResponse.swift in Sources */,
 				F43EEDAB1ADD949F001EFC8B /* Item.swift in Sources */,
 				F4AEA4211B8E1D0C0001F61A /* DispositionService.swift in Sources */,
 				F423DED11B8CF1AD00720B8B /* Contributor.swift in Sources */,
@@ -604,6 +680,7 @@
 				F43EED8D1ADD5E3E001EFC8B /* StoreResponse.swift in Sources */,
 				F4F800321B4B3BE10048DEEC /* NewVideo.swift in Sources */,
 				F48006641AA656F600B27561 /* JSAPIConstant.swift in Sources */,
+				F442318B1BA371CF0004810F /* LeaderboardService.swift in Sources */,
 				F4167B261AD5D15900345DCB /* Comment.swift in Sources */,
 				F43EEDA51ADD949F001EFC8B /* Cart.swift in Sources */,
 				F43EED8B1ADD5E3E001EFC8B /* Sku.swift in Sources */,
@@ -614,6 +691,7 @@
 				F41B6FC91B4AEA4400B66B1A /* Catalog.swift in Sources */,
 				F47BF4E91AC2096200F2FB17 /* CommentService.swift in Sources */,
 				F43EEDB11ADDA005001EFC8B /* ShippableResponse.swift in Sources */,
+				F46ABB1B1BA7222C004DF427 /* Metric.swift in Sources */,
 				F4F800341B4B3BE10048DEEC /* AddVideoResponse.swift in Sources */,
 				F43EED7B1ADD4ADE001EFC8B /* FriendsResponse.swift in Sources */,
 				F47BB5A51ABC8457009AD1F6 /* UserService.swift in Sources */,
@@ -621,10 +699,12 @@
 				F4167B1F1AD5B1B000345DCB /* UserResponse.swift in Sources */,
 				F43EEDC31ADDA60A001EFC8B /* Invoice.swift in Sources */,
 				F47861961AB1E62B00A10B02 /* JsapiRest.swift in Sources */,
+				F46ABB111BA71AA0004DF427 /* StrategiesResponse.swift in Sources */,
 				F41B6FB21B4ACB8700B66B1A /* VideoService.swift in Sources */,
 				F4D5867C1ACDC0AA001B47CA /* FavoriteService.swift in Sources */,
 				F483B3E11AC5A48300A869C5 /* FriendshipService.swift in Sources */,
 				F41B6FCF1B4AEA4400B66B1A /* UseUploaded.swift in Sources */,
+				F44231901BA372C40004810F /* Entrie.swift in Sources */,
 				F4167B221AD5B31D00345DCB /* Wallet.swift in Sources */,
 				F4AEA4311B8E26AC0001F61A /* Dispositions.swift in Sources */,
 				F43EEDBF1ADDA60A001EFC8B /* CheckoutResponse.swift in Sources */,
@@ -645,15 +725,18 @@
 				F43EEDAA1ADD949F001EFC8B /* GetCartResponse.swift in Sources */,
 				F43EEDB01ADDA005001EFC8B /* Shippable.swift in Sources */,
 				F47822F41AA7967F004464E1 /* JsapiApi.swift in Sources */,
+				F46ABB0E1BA7151B004DF427 /* LeaderboardResponse.swift in Sources */,
 				F47F8F891B45A64700934807 /* UserTest.swift in Sources */,
 				F48B9BC51AB0EBDC0069DBFA /* CartService.swift in Sources */,
 				F43EEDC21ADDA60A001EFC8B /* Checkout.swift in Sources */,
 				F4D5867D1ACDC0AA001B47CA /* FavoriteService.swift in Sources */,
 				F4F800331B4B3BE10048DEEC /* NewVideo.swift in Sources */,
+				F44231931BA372C40004810F /* Leaderboard.swift in Sources */,
 				F41B6FD51B4AEC4300B66B1A /* Asset.swift in Sources */,
 				F47861941AB1BD7400A10B02 /* Utilities.swift in Sources */,
 				F4AEA4231B8E1DD40001F61A /* DispositionTest.swift in Sources */,
 				F41B6FD01B4AEA4400B66B1A /* UseUploaded.swift in Sources */,
+				F46ABB1C1BA7222C004DF427 /* Metric.swift in Sources */,
 				F4AEA4371B8E2E100001F61A /* NewDispositionResponse.swift in Sources */,
 				F41B6FB41B4AD58200B66B1A /* VideoTest.swift in Sources */,
 				F43EED951ADD6EE3001EFC8B /* GuestUser.swift in Sources */,
@@ -664,6 +747,7 @@
 				F41B6FCA1B4AEA4400B66B1A /* Catalog.swift in Sources */,
 				F43EEDC81ADDB00B001EFC8B /* RegisteredUser.swift in Sources */,
 				F48BBD241ABB135B00EAFE09 /* Registration.swift in Sources */,
+				F46ABB0B1BA70AC5004DF427 /* LeaderboardTest.swift in Sources */,
 				F43EEDCA1ADDB00B001EFC8B /* RegisteredUserResponse.swift in Sources */,
 				F4167B2F1AD5DC7100345DCB /* FavoriteResponse.swift in Sources */,
 				F41B6FB51B4AD79A00B66B1A /* VideoService.swift in Sources */,
@@ -671,6 +755,7 @@
 				F43EEDB91ADDA34C001EFC8B /* CountriesResponse.swift in Sources */,
 				F4167B231AD5B31D00345DCB /* Wallet.swift in Sources */,
 				F4F800351B4B3BE10048DEEC /* AddVideoResponse.swift in Sources */,
+				F46ABB181BA721C0004DF427 /* MetricTest.swift in Sources */,
 				F4A1AACE1AA6147600D17F43 /* JsapiApiTests.swift in Sources */,
 				F43EED9E1ADD8B50001EFC8B /* Cartsku.swift in Sources */,
 				F43EED911ADD5E65001EFC8B /* Related.swift in Sources */,
@@ -687,26 +772,31 @@
 				F43EEDA61ADD949F001EFC8B /* Cart.swift in Sources */,
 				F4167B171AD5B17300345DCB /* Error.swift in Sources */,
 				F49EB5311ACAE8240030437F /* StoreService.swift in Sources */,
+				F44231891BA371240004810F /* MetricService.swift in Sources */,
 				F483B3E21AC5A48300A869C5 /* FriendshipService.swift in Sources */,
 				F43EED8A1ADD5E3E001EFC8B /* Page.swift in Sources */,
 				F43EEDC01ADDA60A001EFC8B /* CheckoutResponse.swift in Sources */,
+				F44231911BA372C40004810F /* Entrie.swift in Sources */,
 				F4167B2D1AD5DC7100345DCB /* Favorite.swift in Sources */,
 				F47BB5A61ABC8457009AD1F6 /* UserService.swift in Sources */,
 				F43EED9A1ADD8519001EFC8B /* CartResponse.swift in Sources */,
 				F43EED7C1ADD4ADE001EFC8B /* FriendsResponse.swift in Sources */,
 				F4167B271AD5D15900345DCB /* Comment.swift in Sources */,
+				F46ABB161BA72043004DF427 /* UserRankResponse.swift in Sources */,
 				F4AEA4321B8E26AC0001F61A /* Dispositions.swift in Sources */,
 				F4AEA42C1B8E26AC0001F61A /* Disposition.swift in Sources */,
 				F41B6FD21B4AEA4400B66B1A /* VideoResponse.swift in Sources */,
 				F423DECF1B8CE8E300720B8B /* SimpleUser.swift in Sources */,
 				F43EED7A1ADD4ADE001EFC8B /* Friend.swift in Sources */,
 				F423DED51B8CF1C800720B8B /* Artist.swift in Sources */,
+				F442318C1BA371D40004810F /* LeaderboardService.swift in Sources */,
 				F47F8F871B45A63200934807 /* FriendShipTest.swift in Sources */,
 				F47BF4EA1AC2096200F2FB17 /* CommentService.swift in Sources */,
 				F423DED21B8CF1AD00720B8B /* Contributor.swift in Sources */,
 				F41B6FCE1B4AEA4400B66B1A /* Video.swift in Sources */,
 				F47F8F831B45A5FD00934807 /* CommentsTest.swift in Sources */,
 				F4167B291AD5D15900345DCB /* CommentResponse.swift in Sources */,
+				F46ABB121BA71AA0004DF427 /* StrategiesResponse.swift in Sources */,
 				F4AEA42E1B8E26AC0001F61A /* DispositionResponse.swift in Sources */,
 				F47861971AB1E62B00A10B02 /* JsapiRest.swift in Sources */,
 				F43EEDBB1ADDA34C001EFC8B /* Country.swift in Sources */,
