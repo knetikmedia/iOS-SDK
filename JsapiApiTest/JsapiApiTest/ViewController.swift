@@ -13,8 +13,8 @@ class ViewController: UIViewController {
     var cartNumber="5893edf8-27ea-43e6-b419-7410fb301f85"
     var cartID="ce56166b-cbed-4314-b5a0-8f7a7a2070a1"
     var skus=""
-    var username = "admin"
-    var password = "123123"
+    var username = "gt4"
+    var password = "gt4"
     var comment_id="33"
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,11 +90,16 @@ class ViewController: UIViewController {
     */
     @IBAction func testCreateCardSku()
     {
-        var skuDetails=Dictionary<String,String>()
-        skuDetails["quantity"]="5"
-        skuDetails["prefix"]="WHAT"
+        var commonParamtersDictionry=Dictionary<String,AnyObject>()
+        //var n22ew=Dictionary<String,String>()
+        commonParamtersDictionry["productId"]="197"
+      //  n22ew["item_key"]="mhrk_welcome"
+      //  n22ew["env_username"]="gt3"
+        
+     //   commonParamtersDictionry["params"]=n22ew
+        
         var cartObject=CartService()
-        cartObject.createCartSku(skuDetails)
+        cartObject.createCartSku(commonParamtersDictionry)
             {
                 (skus:Array<String>,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
@@ -105,6 +110,61 @@ class ViewController: UIViewController {
                     print(skus)
                 }
 
+        }
+    }
+
+    /*
+    Test Cart SKU Function
+    */
+    @IBAction func testGetProductInfo()
+    {
+        var commonParamtersDictionry=Dictionary<String,AnyObject>()
+        //var n22ew=Dictionary<String,String>()
+        commonParamtersDictionry["productId"]="197"
+        //  n22ew["item_key"]="mhrk_welcome"
+        //  n22ew["env_username"]="gt3"
+        
+        //   commonParamtersDictionry["params"]=n22ew
+        
+        var cartObject=CartService()
+        cartObject.createCartSku(commonParamtersDictionry)
+            {
+                (skus:Array<String>,errormessage:String,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("Create Card SKU Failed")
+                }else
+                {
+                    print(skus)
+                }
+                
+        }
+    }
+
+    
+    /*
+    Test Cart SKU Function
+    */
+    @IBAction func testCreateBRE()
+    {
+        var commonParamtersDictionry=Dictionary<String,AnyObject>()
+        var n22ew=Dictionary<String,String>()
+        commonParamtersDictionry["eventName"]="achievement_earned"
+         n22ew["item_key"]="mhrk_welcome"
+         commonParamtersDictionry["params"]=n22ew
+        
+        var bre=BREService()
+        bre.createBRE(commonParamtersDictionry)
+            {
+                (skus:Array<String>,errormessage:String,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    println("Create Card SKU Failed")
+                }else
+                {
+                    print(skus)
+                }
+                
         }
     }
 
@@ -323,11 +383,11 @@ class ViewController: UIViewController {
     @IBAction func testUserRegisteration()
     {
         var userDetails=Dictionary<String,String>()
-        userDetails["username"]="sswq12312ww31ss23ewqssweq"
-        userDetails["password"]="123123"
-        userDetails["email"]="sssw23ss12123sww@knetik.com"
+        userDetails["username"]="gt5"
+        userDetails["password"]="gt5"
+        userDetails["email"]="gt5@knetik.com"
         userDetails["gender"]="male"
-        userDetails["fullname"]="yssosww123ussssefm2aher"
+        userDetails["fullname"]="gt5"
         var regObject = Registration()
         regObject.doUserRegistration(userDetails)
             {

@@ -36,9 +36,8 @@ public class CartService:NSObject
     /**Generates and save a new SKU based on the given prefix
     *@params skuparams {"quantity": 5,"prefix": "WHAT"}
     */
-    public func createCartSku(skuparams:Dictionary<String,String>,callback:(Array<String>,String,Bool)->Void)
+    public func createCartSku(skuparams:Dictionary<String,AnyObject>,callback:(Array<String>,String,Bool)->Void)
     {
-        var commonParamtersDictionry=Dictionary<String,String>()
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.CARTSSKU
         println(methodurl)
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(skuparams),isJson:true)
@@ -50,7 +49,7 @@ public class CartService:NSObject
                     callback(Array<String>(),skuResponse.errormessage,issuccess)
                 }else
                 {
-                    callback(skuResponse.cartsku.skus,"",issuccess)
+                  //  callback(skuResponse.cartsku.skus,"",issuccess)
                 }
         }
     }

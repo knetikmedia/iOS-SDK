@@ -94,5 +94,23 @@ public class UserService:NSObject {
         }
     }
     
+    public func getProductInfo(params:Dictionary<String,AnyObject>,callback:(Array<String>,String,Bool)->Void)
+    {
+        let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.PRODUCTINFO
+        println(methodurl)
+        JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                var skuResponse=CartSKUResponse(fromDictionary: result)
+                if(!issuccess)
+                {
+                    callback(Array<String>(),skuResponse.errormessage,issuccess)
+                }else
+                {
+                    //  callback(skuResponse.cartsku.skus,"",issuccess)
+                }
+        }
+    }
+
 
 }

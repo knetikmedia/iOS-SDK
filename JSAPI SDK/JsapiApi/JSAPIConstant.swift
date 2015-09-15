@@ -13,7 +13,9 @@ class var OAUTH_TOKEN:String {return "/oauth/token" }  // Login EndPoint class
 class var TOKENBREAR:String {return "" }
 //Cart EndPoints 
 class var SCARTS:String {return "/services/latest/carts" }  // SCARTS because there is carts class
-class var CARTSSKU:String {return "/services/latest/carts/skus" }  // SCARTS because there is carts class
+class var CARTSSKU:String {return "/services/latest/user/getinfowithproduct" }  // SCARTS because there is carts class
+class var PRODUCTINFO:String {return "/services/latest/user/getinfowithproduct" }  // SCARTS because there is carts class
+class var BREEVENT:String {return "/services/latest/bre/fireevent" }  // SCARTS because there is carts class
 class var CARTCHECKOUT:String {return "/services/latest/carts/%@/checkout" }  // %@ CARTGUID
 class var CARTCOUNTRIES:String {return "/services/latest/carts/%@/countries" }  // %@ CARTGUID countries
 class var CARTDISCOUNT:String {return "/services/latest/carts/%@/discounts" }  // %@ CARTGUID discount
