@@ -11,8 +11,12 @@ public class WalletService:NSObject
 {
     
     /** wallet Change
+    sample request {"reason":"No Reason","userId":29199,"currencyType":"SP","delta":100000,"username":"gt9"}
     *@param params Dictionary
     *@param callback
+    *in case of add additions Balance set delta with positive value
+    *in case of add deductions Balance set delta with negative value
+    *@admin
     */
 
     public func walletChange(params:Dictionary<String,AnyObject>,callback:(Wallet,String,Bool)->Void)
@@ -24,7 +28,7 @@ public class WalletService:NSObject
                 var baseResponse=WalletResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    callback(baseResponse.wallet,baseResponse.errormessage,issuccess)
+                    callback(Wallet(),baseResponse.errormessage,issuccess)
                     
                 }else
                 {

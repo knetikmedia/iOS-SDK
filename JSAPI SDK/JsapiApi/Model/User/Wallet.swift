@@ -13,6 +13,8 @@ public class Wallet:NSObject{
 	var id : Int!
     var walletId : Int!
 
+    override public init(){super.init()}
+
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */

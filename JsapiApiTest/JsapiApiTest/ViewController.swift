@@ -13,8 +13,8 @@ class ViewController: UIViewController {
     var cartNumber="5893edf8-27ea-43e6-b419-7410fb301f85"
     var cartID="ce56166b-cbed-4314-b5a0-8f7a7a2070a1"
     var skus=""
-    var username = "admin"
-    var password = "123123"
+    var username = "gt9"
+    var password = "gt9"
     var comment_id="33"
     
     var newUser = User()
@@ -59,8 +59,8 @@ class ViewController: UIViewController {
     {
         
         var walletRequest = WalletRequest();
-        walletRequest.userId = newUser.getId()
-        walletRequest.username = newUser.getUsername()
+        walletRequest.userId = 29199
+        walletRequest.username = "gt9"
         walletRequest.delta = 100000
         walletRequest.currencyType = "SP"
         walletRequest.reason = "No Reason"
@@ -81,6 +81,34 @@ class ViewController: UIViewController {
 
         
     }
+    
+    @IBAction func testdedWallet()
+    {
+        
+        var walletRequest = WalletRequest();
+        walletRequest.userId = 29199
+        walletRequest.username = "gt9"
+        walletRequest.delta = -1000
+        walletRequest.currencyType = "SP"
+        walletRequest.reason = "No Reason"
+        
+        
+        var params=walletRequest.toDictionary()
+        
+        var walletService = WalletService()
+        walletService.walletChange(params as! Dictionary<String,AnyObject>)
+            {
+                (wallet:Wallet,errormessage:String,issuccess:Bool) in
+                if(!issuccess)
+                {
+                }else
+                {
+                }
+        }
+        
+        
+    }
+
 
     
     /*
@@ -354,11 +382,11 @@ class ViewController: UIViewController {
     @IBAction func testUserRegisteration()
     {
         var userDetails=Dictionary<String,String>()
-        userDetails["username"]="gt"
-        userDetails["password"]="123123"
-        userDetails["email"]="sssw23ss12123sww@knetik.com"
+        userDetails["username"]="gt9"
+        userDetails["password"]="gt9"
+        userDetails["email"]="gt9@knetik.com"
         userDetails["gender"]="male"
-        userDetails["fullname"]="yssosww123ussssefm2aher"
+        userDetails["fullname"]="gt9"
         var regObject = Registration()
         regObject.doUserRegistration(userDetails)
             {

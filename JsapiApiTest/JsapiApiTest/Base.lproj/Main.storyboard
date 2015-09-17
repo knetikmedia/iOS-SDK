@@ -358,7 +358,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="testAddFavorite" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0gV-cx-Cyb"/>
+                                    <action selector="testChangeWallet" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2UP-rE-RZ7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LD8-vf-0Ft">
@@ -367,7 +367,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="testAddFavorite" destination="vXZ-lx-hvc" eventType="touchUpInside" id="GpQ-IT-ceU"/>
+                                    <action selector="testdedWallet" destination="vXZ-lx-hvc" eventType="touchUpInside" id="CVf-M0-HRu"/>
                                 </connections>
                             </button>
                         </subviews>
