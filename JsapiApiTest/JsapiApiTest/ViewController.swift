@@ -16,6 +16,9 @@ class ViewController: UIViewController {
     var username = "admin"
     var password = "123123"
     var comment_id="33"
+    
+    var newUser = User()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,6 +54,34 @@ class ViewController: UIViewController {
         }
      
     }
+    
+    @IBAction func testChangeWallet()
+    {
+        
+        var walletRequest = WalletRequest();
+        walletRequest.userId = newUser.getId()
+        walletRequest.username = newUser.getUsername()
+        walletRequest.delta = 100000
+        walletRequest.currencyType = "SP"
+        walletRequest.reason = "No Reason"
+        
+        
+        var params=walletRequest.toDictionary()
+        
+        var walletService = WalletService()
+        walletService.walletChange(params as! Dictionary<String,AnyObject>)
+            {
+                (wallet:Wallet,errormessage:String,issuccess:Bool) in
+                if(!issuccess)
+                {
+                }else
+                {
+                }
+        }
+
+        
+    }
+
     
     /*
     Test User Logout
@@ -323,7 +354,7 @@ class ViewController: UIViewController {
     @IBAction func testUserRegisteration()
     {
         var userDetails=Dictionary<String,String>()
-        userDetails["username"]="sswq12312ww31ss23ewqssweq"
+        userDetails["username"]="gt"
         userDetails["password"]="123123"
         userDetails["email"]="sssw23ss12123sww@knetik.com"
         userDetails["gender"]="male"

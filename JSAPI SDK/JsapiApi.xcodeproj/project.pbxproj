@@ -114,6 +114,13 @@
 		F46ABB181BA721C0004DF427 /* MetricTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46ABB171BA721C0004DF427 /* MetricTest.swift */; };
 		F46ABB1B1BA7222C004DF427 /* Metric.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46ABB1A1BA7222C004DF427 /* Metric.swift */; };
 		F46ABB1C1BA7222C004DF427 /* Metric.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46ABB1A1BA7222C004DF427 /* Metric.swift */; };
+		F4759B781BAB1D220047C6BA /* WalletService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4759B771BAB1D220047C6BA /* WalletService.swift */; };
+		F4759B791BAB1D220047C6BA /* WalletService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4759B771BAB1D220047C6BA /* WalletService.swift */; };
+		F4759B7D1BAB20500047C6BA /* WalletRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4759B7C1BAB20500047C6BA /* WalletRequest.swift */; };
+		F4759B7E1BAB20500047C6BA /* WalletRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4759B7C1BAB20500047C6BA /* WalletRequest.swift */; };
+		F4759B811BAB208A0047C6BA /* WalletTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4759B7F1BAB208A0047C6BA /* WalletTest.swift */; };
+		F4759B831BAB2CB40047C6BA /* WalletResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4759B821BAB2CB40047C6BA /* WalletResponse.swift */; };
+		F4759B841BAB2CB40047C6BA /* WalletResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4759B821BAB2CB40047C6BA /* WalletResponse.swift */; };
 		F47822F41AA7967F004464E1 /* JsapiApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A1AAD71AA6172C00D17F43 /* JsapiApi.swift */; };
 		F47822F51AA7967F004464E1 /* JSAPIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48006631AA656F600B27561 /* JSAPIConstant.swift */; };
 		F47861931AB1BD7400A10B02 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47861921AB1BD7400A10B02 /* Utilities.swift */; };
@@ -229,6 +236,10 @@
 		F46ABB141BA72043004DF427 /* UserRankResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRankResponse.swift; sourceTree = "<group>"; };
 		F46ABB171BA721C0004DF427 /* MetricTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetricTest.swift; sourceTree = "<group>"; };
 		F46ABB1A1BA7222C004DF427 /* Metric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Metric.swift; sourceTree = "<group>"; };
+		F4759B771BAB1D220047C6BA /* WalletService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletService.swift; sourceTree = "<group>"; };
+		F4759B7C1BAB20500047C6BA /* WalletRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletRequest.swift; sourceTree = "<group>"; };
+		F4759B7F1BAB208A0047C6BA /* WalletTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletTest.swift; sourceTree = "<group>"; };
+		F4759B821BAB2CB40047C6BA /* WalletResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletResponse.swift; sourceTree = "<group>"; };
 		F47861921AB1BD7400A10B02 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		F47861951AB1E62B00A10B02 /* JsapiRest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsapiRest.swift; sourceTree = "<group>"; };
 		F47BB5A41ABC8457009AD1F6 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -285,6 +296,7 @@
 		F4167B031AD5993300345DCB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F4759B7B1BAB20500047C6BA /* Wallet */,
 				F4AEA4251B8E26980001F61A /* Disposition */,
 				F41B6FBD1B4AE49300B66B1A /* Video */,
 				F4167B0B1AD5B04D00345DCB /* Common */,
@@ -447,6 +459,16 @@
 			path = metric;
 			sourceTree = "<group>";
 		};
+		F4759B7B1BAB20500047C6BA /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				F4759B821BAB2CB40047C6BA /* WalletResponse.swift */,
+				F4759B7C1BAB20500047C6BA /* WalletRequest.swift */,
+			);
+			name = Wallet;
+			path = wallet;
+			sourceTree = "<group>";
+		};
 		F4A1AAB11AA6147500D17F43 = {
 			isa = PBXGroup;
 			children = (
@@ -483,6 +505,7 @@
 				F4AEA4201B8E1D0C0001F61A /* DispositionService.swift */,
 				F44231871BA370FD0004810F /* MetricService.swift */,
 				F442318A1BA371CF0004810F /* LeaderboardService.swift */,
+				F4759B771BAB1D220047C6BA /* WalletService.swift */,
 				F47861951AB1E62B00A10B02 /* JsapiRest.swift */,
 				F47861921AB1BD7400A10B02 /* Utilities.swift */,
 				F4A1AABE1AA6147500D17F43 /* Supporting Files */,
@@ -501,6 +524,7 @@
 		F4A1AACA1AA6147600D17F43 /* JsapiApiTests */ = {
 			isa = PBXGroup;
 			children = (
+				F4759B7F1BAB208A0047C6BA /* WalletTest.swift */,
 				F46ABB0A1BA70AC5004DF427 /* LeaderboardTest.swift */,
 				F46ABB171BA721C0004DF427 /* MetricTest.swift */,
 				F41B6FB31B4AD58200B66B1A /* VideoTest.swift */,
@@ -669,12 +693,14 @@
 				F46ABB151BA72043004DF427 /* UserRankResponse.swift in Sources */,
 				F4167B2E1AD5DC7100345DCB /* FavoriteResponse.swift in Sources */,
 				F43EED961ADD6EE3001EFC8B /* GuestUserResponse.swift in Sources */,
+				F4759B781BAB1D220047C6BA /* WalletService.swift in Sources */,
 				F43EEDC91ADDB00B001EFC8B /* RegisteredUserResponse.swift in Sources */,
 				F41B6FCD1B4AEA4400B66B1A /* Video.swift in Sources */,
 				F46ABB0D1BA71517004DF427 /* LeaderboardResponse.swift in Sources */,
 				F43EEDAB1ADD949F001EFC8B /* Item.swift in Sources */,
 				F4AEA4211B8E1D0C0001F61A /* DispositionService.swift in Sources */,
 				F423DED11B8CF1AD00720B8B /* Contributor.swift in Sources */,
+				F4759B7D1BAB20500047C6BA /* WalletRequest.swift in Sources */,
 				F41B6FC71B4AEA4400B66B1A /* Behavior.swift in Sources */,
 				F43EED9D1ADD8B50001EFC8B /* Cartsku.swift in Sources */,
 				F43EED8D1ADD5E3E001EFC8B /* StoreResponse.swift in Sources */,
@@ -690,6 +716,7 @@
 				F4167B111AD5B15000345DCB /* User.swift in Sources */,
 				F41B6FC91B4AEA4400B66B1A /* Catalog.swift in Sources */,
 				F47BF4E91AC2096200F2FB17 /* CommentService.swift in Sources */,
+				F4759B831BAB2CB40047C6BA /* WalletResponse.swift in Sources */,
 				F43EEDB11ADDA005001EFC8B /* ShippableResponse.swift in Sources */,
 				F46ABB1B1BA7222C004DF427 /* Metric.swift in Sources */,
 				F4F800341B4B3BE10048DEEC /* AddVideoResponse.swift in Sources */,
@@ -726,6 +753,7 @@
 				F43EEDB01ADDA005001EFC8B /* Shippable.swift in Sources */,
 				F47822F41AA7967F004464E1 /* JsapiApi.swift in Sources */,
 				F46ABB0E1BA7151B004DF427 /* LeaderboardResponse.swift in Sources */,
+				F4759B811BAB208A0047C6BA /* WalletTest.swift in Sources */,
 				F47F8F891B45A64700934807 /* UserTest.swift in Sources */,
 				F48B9BC51AB0EBDC0069DBFA /* CartService.swift in Sources */,
 				F43EEDC21ADDA60A001EFC8B /* Checkout.swift in Sources */,
@@ -761,6 +789,7 @@
 				F43EED911ADD5E65001EFC8B /* Related.swift in Sources */,
 				F4167B201AD5B1B000345DCB /* UserResponse.swift in Sources */,
 				F4AEA4241B8E1E420001F61A /* DispositionService.swift in Sources */,
+				F4759B841BAB2CB40047C6BA /* WalletResponse.swift in Sources */,
 				F41B6FC81B4AEA4400B66B1A /* Behavior.swift in Sources */,
 				F43EEDC41ADDA60A001EFC8B /* Invoice.swift in Sources */,
 				F47F8F8B1B45A66F00934807 /* FavoriteTest.swift in Sources */,
@@ -789,6 +818,7 @@
 				F423DECF1B8CE8E300720B8B /* SimpleUser.swift in Sources */,
 				F43EED7A1ADD4ADE001EFC8B /* Friend.swift in Sources */,
 				F423DED51B8CF1C800720B8B /* Artist.swift in Sources */,
+				F4759B7E1BAB20500047C6BA /* WalletRequest.swift in Sources */,
 				F442318C1BA371D40004810F /* LeaderboardService.swift in Sources */,
 				F47F8F871B45A63200934807 /* FriendShipTest.swift in Sources */,
 				F47BF4EA1AC2096200F2FB17 /* CommentService.swift in Sources */,
@@ -798,6 +828,7 @@
 				F4167B291AD5D15900345DCB /* CommentResponse.swift in Sources */,
 				F46ABB121BA71AA0004DF427 /* StrategiesResponse.swift in Sources */,
 				F4AEA42E1B8E26AC0001F61A /* DispositionResponse.swift in Sources */,
+				F4759B791BAB1D220047C6BA /* WalletService.swift in Sources */,
 				F47861971AB1E62B00A10B02 /* JsapiRest.swift in Sources */,
 				F43EEDBB1ADDA34C001EFC8B /* Country.swift in Sources */,
 				F43EED8E1ADD5E3E001EFC8B /* StoreResponse.swift in Sources */,

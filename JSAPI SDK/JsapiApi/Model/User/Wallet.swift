@@ -11,7 +11,7 @@ public class Wallet:NSObject{
 	var code : String!
 	var currencyName : String!
 	var id : Int!
-
+    var walletId : Int!
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
@@ -21,6 +21,8 @@ public class Wallet:NSObject{
 		code = dictionary["code"] as? String
 		currencyName = dictionary["currency_name"] as? String
 		id = dictionary["id"] as? Int
+        walletId = dictionary["wallet_id"] as? Int
+
 	}
 
 }
