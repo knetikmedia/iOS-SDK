@@ -13,7 +13,7 @@ public class BREService:NSObject
    
     public func createBRE(params:Dictionary<String,AnyObject>,callback:(Array<String>,String,Bool)->Void)
     {
-        let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.CARTSSKU
+        let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.BREEVENT
         println(methodurl)
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
