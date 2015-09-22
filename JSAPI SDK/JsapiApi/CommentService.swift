@@ -19,14 +19,14 @@ public class CommentService:NSObject
         JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=BaseResponse(fromDictionary: result)
+                let baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(baseResponse,baseResponse.errormessage,issuccess)
 
                 }else
                 {
-                    println(result)
+                    print(result)
                     callback(baseResponse,"",issuccess)
 
                 }
@@ -44,7 +44,7 @@ public class CommentService:NSObject
         JsapiRest.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var commentResponse=CommentResponse(fromDictionary: (result["result"] as? NSDictionary)!);
+                let commentResponse=CommentResponse(fromDictionary: (result["result"] as? NSDictionary)!);
                 if(!issuccess)
                 {
                     callback(commentResponse.comments,commentResponse.errormessage,issuccess)
@@ -67,7 +67,7 @@ public class CommentService:NSObject
         JsapiRest.deleteRequest(methodUrl as String, deleteParams: Utilities.jsonRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=BaseResponse(fromDictionary: result)
+                let baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(baseResponse,baseResponse.errormessage,issuccess)

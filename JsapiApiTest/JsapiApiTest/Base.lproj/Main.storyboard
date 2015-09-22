@@ -343,6 +343,7 @@
                                     <action selector="testDeleteFavorites" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7M4-k9-W7P"/>
                                 </connections>
                             </button>
+
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZx-vc-bNj">
                                 <rect key="frame" x="223" y="10" width="54" height="30"/>
                                 <state key="normal" title="Logout">
@@ -352,6 +353,7 @@
                                     <action selector="testLogout" destination="vXZ-lx-hvc" eventType="touchUpInside" id="pgc-1P-oXe"/>
                                 </connections>
                             </button>
+
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGA-X5-b9n">
                                 <rect key="frame" x="12" y="473" width="84" height="30"/>
                                 <state key="normal" title="ProductInfo">
@@ -361,6 +363,7 @@
                                     <action selector="testGetProductInfo" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ntx-BU-ovQ"/>
                                 </connections>
                             </button>
+
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AEZ-MX-ZeZ">
                                 <rect key="frame" x="124" y="473" width="84" height="30"/>
                                 <state key="normal" title="BRE">
@@ -368,6 +371,24 @@
                                 </state>
                                 <connections>
                                     <action selector="testCreateBRE" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qcD-5k-aGd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYQ-6v-96F">
+                                <rect key="frame" x="7" y="479" width="123" height="30"/>
+                                <state key="normal" title="additions Balance">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="testChangeWallet" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2UP-rE-RZ7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LD8-vf-0Ft">
+                                <rect key="frame" x="160" y="479" width="136" height="30"/>
+                                <state key="normal" title="deductions Balance">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="testdedWallet" destination="vXZ-lx-hvc" eventType="touchUpInside" id="CVf-M0-HRu"/>
                                 </connections>
                             </button>
                         </subviews>

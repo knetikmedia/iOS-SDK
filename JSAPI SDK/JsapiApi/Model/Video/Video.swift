@@ -68,7 +68,7 @@ public class Video :NSObject{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if author != nil{
 			dictionary["author"] = author.toDictionary()
 		}

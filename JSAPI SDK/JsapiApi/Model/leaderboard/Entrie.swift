@@ -30,7 +30,7 @@ public class Entrie:NSObject{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if rank != nil{
 			dictionary["rank"] = rank
 		}

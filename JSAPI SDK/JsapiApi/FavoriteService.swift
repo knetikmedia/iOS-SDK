@@ -20,7 +20,7 @@ public class FavoriteService:NSObject
         JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=BaseResponse(fromDictionary: result)
+                let baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(baseResponse,baseResponse.errormessage,issuccess)
@@ -43,7 +43,7 @@ public class FavoriteService:NSObject
         JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var favResponse=FavoriteResponse(fromDictionary: result)
+                let favResponse=FavoriteResponse(fromDictionary: result)
                 callback(favResponse.favorites,favResponse.errormessage,issuccess)
         }
     }
@@ -59,7 +59,7 @@ public class FavoriteService:NSObject
         JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=BaseResponse(fromDictionary: result)
+                let baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(baseResponse,baseResponse.errormessage,issuccess)

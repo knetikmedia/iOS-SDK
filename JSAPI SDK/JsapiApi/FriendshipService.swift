@@ -20,7 +20,7 @@ public class FriendshipService :NSObject
         JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var friendsResponse=FriendsResponse(fromDictionary: result)
+                let friendsResponse=FriendsResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(friendsResponse,friendsResponse.errormessage,issuccess)
@@ -45,8 +45,8 @@ public class FriendshipService :NSObject
         JsapiRest.postrequest(methodUrl , postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var friendsResponse=FriendsResponse(fromDictionary: result)
-                var friendObject=friendsResponse.friends
+                let friendsResponse=FriendsResponse(fromDictionary: result)
+                let friendObject=friendsResponse.friends
                 if(!issuccess)
                 {
                     callback(Friend(),friendsResponse.errormessage,issuccess)
@@ -69,7 +69,7 @@ public class FriendshipService :NSObject
         JsapiRest.postrequest(methodUrl , postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var friendsResponse=FriendsResponse(fromDictionary: result)
+                let friendsResponse=FriendsResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(friendsResponse,friendsResponse.errormessage,issuccess)
@@ -92,8 +92,8 @@ public class FriendshipService :NSObject
         JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var friendsResponse=FriendsResponse(fromDictionary: result)
-                var friendObject=friendsResponse.friends
+                let friendsResponse=FriendsResponse(fromDictionary: result)
+                let friendObject=friendsResponse.friends
                 if(!issuccess)
                 {
                     callback(Friend(),friendsResponse.errormessage,issuccess)

@@ -94,6 +94,9 @@ class var COMMENTLIST:String {return "/services/latest/comments"};
     class var GETUSERRANK:String {return "/services/latest/leaderboards/%@/users/%@/rank"}
     
     //End Leaderboard
+    class var WALLETCHANGE:String {return "/services/latest/admin/walletchange"}
+
+    //Wallet
 
     
 //Store

@@ -23,14 +23,14 @@ public class VideoService:NSObject
         JsapiRest.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=VideoResponse(fromDictionary: result["result"] as! NSDictionary)
+                let baseResponse=VideoResponse(fromDictionary: result["result"] as! NSDictionary)
                 if(!issuccess)
                 {
                     callback(baseResponse.videos,baseResponse.errormessage,issuccess)
                     
                 }else
                 {
-                    println(result)
+                    print(result)
                     callback(baseResponse.videos,"",issuccess)
                     
                 }
@@ -48,14 +48,14 @@ public class VideoService:NSObject
         JsapiRest.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=VideoResponse(fromDictionary: result["result"] as! NSDictionary)
+                let baseResponse=VideoResponse(fromDictionary: result["result"] as! NSDictionary)
                 if(!issuccess)
                 {
                     callback(baseResponse.videos,baseResponse.errormessage,issuccess)
                     
                 }else
                 {
-                    println(result)
+                    print(result)
                     callback(baseResponse.videos,"",issuccess)
                     
                 }
@@ -74,14 +74,14 @@ public class VideoService:NSObject
         JsapiRest.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=VideoResponse(fromDictionary: result["result"] as! NSDictionary)
+                let baseResponse=VideoResponse(fromDictionary: result["result"] as! NSDictionary)
                 if(!issuccess)
                 {
                     callback(baseResponse.videos,baseResponse.errormessage,issuccess)
                     
                 }else
                 {
-                    println(result)
+                    print(result)
                     callback(baseResponse.videos,"",issuccess)
                     
                 }
@@ -99,13 +99,13 @@ public class VideoService:NSObject
         JsapiRest.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=VideoResponse(fromDictionary: result["result"] as! NSDictionary)
+                let baseResponse=VideoResponse(fromDictionary: result["result"] as! NSDictionary)
                 if(!issuccess)
                 {
                     callback(baseResponse.videos,baseResponse.errormessage,issuccess)
                 }else
                 {
-                    println(result)
+                    print(result)
                     callback(baseResponse.videos,"",issuccess)
                 }
                 
@@ -123,13 +123,13 @@ public class VideoService:NSObject
         JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=AddVideoResponse(fromDictionary: result)
+                let baseResponse=AddVideoResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(Video(),baseResponse.errormessage,issuccess)
                 }else
                 {
-                    println(result)
+                    print(result)
                     callback(baseResponse.video,"",issuccess)
                 }
                 
@@ -146,13 +146,13 @@ public class VideoService:NSObject
         JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=BaseResponse(fromDictionary: result)
+                let baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(baseResponse,baseResponse.errormessage,issuccess)
                 }else
                 {
-                    println(result)
+                    print(result)
                     callback(baseResponse,"",issuccess)
                 }
                 
@@ -170,13 +170,13 @@ public class VideoService:NSObject
         JsapiRest.putRequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=AddVideoResponse(fromDictionary: result)
+                let baseResponse=AddVideoResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback("",baseResponse.errormessage,issuccess)
                 }else
                 {
-                    println(result)
+                    print(result)
                     callback("","",issuccess)
                 }
                 
@@ -194,7 +194,7 @@ public class VideoService:NSObject
         JsapiRest.deleteRequest(methodUrl as String, deleteParams: Utilities.jsonRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=BaseResponse(fromDictionary: result)
+                let baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(baseResponse,baseResponse.errormessage,issuccess)
@@ -217,13 +217,13 @@ public class VideoService:NSObject
         JsapiRest.postrequest(methodUrl, postParams : Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=BaseResponse(fromDictionary: result)
+                let baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback("",baseResponse.errormessage,issuccess)
                 }else
                 {
-                    println(result)
+                    print(result)
                     callback("","",issuccess)
                 }
                 

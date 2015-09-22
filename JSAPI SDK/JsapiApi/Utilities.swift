@@ -14,10 +14,9 @@ class Utilities {
     */
     class func jsonRequestFromDictionary(requestparamters:Dictionary<String,String>)->String
     {
-        var err: NSError?
-        let body = NSJSONSerialization.dataWithJSONObject(requestparamters, options: nil, error: &err)!
-        var datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
-        println(datastring)
+        let body = try! NSJSONSerialization.dataWithJSONObject(requestparamters, options: [])
+        let datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
+        print(datastring)
         return datastring
     }
     
@@ -36,10 +35,9 @@ class Utilities {
     */
     class func jsonRequestFromDictionary(requestparamters:Dictionary<String,Int>)->String
     {
-        var err: NSError?
-        let body = NSJSONSerialization.dataWithJSONObject(requestparamters, options: nil, error: &err)!
-        var datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
-        println(datastring)
+        let body = try! NSJSONSerialization.dataWithJSONObject(requestparamters, options: [])
+        let datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
+        print(datastring)
         return datastring
     }
 
@@ -48,10 +46,9 @@ class Utilities {
     */
     class func jsonRequestFromDictionary(requestparamters:Dictionary<String,AnyObject>)->String
     {
-        var err: NSError?
-        let body = NSJSONSerialization.dataWithJSONObject(requestparamters, options: nil, error: &err)!
-        var datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
-        println(datastring)
+        let body = try! NSJSONSerialization.dataWithJSONObject(requestparamters, options: [] )
+        let datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
+        print(datastring)
         return datastring
     }
 
@@ -74,7 +71,7 @@ class Utilities {
     }
 
     class func currentTimeMillis() -> Int64{
-        var nowDouble = NSDate().timeIntervalSince1970
+        let nowDouble = NSDate().timeIntervalSince1970
         return Int64(nowDouble*1000)
     }
     

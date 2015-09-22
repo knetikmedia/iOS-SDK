@@ -21,14 +21,14 @@ public class MetricService : NSObject
         JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=BaseResponse(fromDictionary: result)
+                let baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(baseResponse,baseResponse.errormessage,issuccess)
                     
                 }else
                 {
-                    println(result)
+                    print(result)
                     callback(baseResponse,"",issuccess)
                     
                 }

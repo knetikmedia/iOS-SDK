@@ -42,7 +42,7 @@ public class Leaderboard:NSObject{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if created != nil{
 			dictionary["created"] = created
 		}

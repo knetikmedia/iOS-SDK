@@ -21,18 +21,18 @@ public class UserService:NSObject {
     JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
     {
             (result:NSDictionary,issuccess:Bool) in
-            var userResponse = UserResponse(fromDictionary: result)
+            let userResponse = UserResponse(fromDictionary: result)
             if(!issuccess)
             {
-                println(result["error"])
-                println(result["error_description"])
-                println(userResponse.errormessage)
+                print(result["error"])
+                print(result["error_description"])
+                print(userResponse.errormessage)
                 
                 callback(User(),userResponse.errormessage,issuccess)
 
             }else
             {
-                println(result)
+                print(result)
                 callback(userResponse.user,"",issuccess)
 
             }
@@ -46,20 +46,20 @@ public class UserService:NSObject {
  */
     public func updateUserInfo(configName:String,params:String,callback:(AnyObject,String,Bool)->Void)
     {
-        var methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.UPDATEUSERINFO,configName) as String
+        let methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.UPDATEUSERINFO,configName) as String
         JsapiRest.putRequest(methodUrl, postParams: Utilities.getformatedPutString(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=BaseResponse(fromDictionary: result)
+                let baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    println(result["error"])
-                    println(result["error_description"])
+                    print(result["error"])
+                    print(result["error_description"])
                     callback(baseResponse,baseResponse.errormessage,issuccess)
 
                 }else
                 {
-                    println(result)
+                    print(result)
                     callback(baseResponse,"",issuccess)
 
                 }
@@ -72,22 +72,22 @@ public class UserService:NSObject {
     */
     public func setPassword(params:Dictionary<String,String>,userID:String,callback:(AnyObject,String,Bool)->Void)
     {
-        var endpoint=NSString(format: JSAPIConstant.SETUSERPASSWORD,userID)
+        let endpoint=NSString(format: JSAPIConstant.SETUSERPASSWORD,userID)
 
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String);
         JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=BaseResponse(fromDictionary: result)
+                let baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    println(result["error"])
-                    println(result["error_description"])
+                    print(result["error"])
+                    print(result["error_description"])
                     callback(baseResponse,baseResponse.errormessage,issuccess)
 
                 }else
                 {
-                    println(result)
+                    print(result)
                     callback(baseResponse,"",issuccess)
 
                 }
@@ -97,11 +97,11 @@ public class UserService:NSObject {
     public func getProductInfo(params:Dictionary<String,AnyObject>,callback:(Array<String>,String,Bool)->Void)
     {
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.PRODUCTINFO
-        println(methodurl)
+        print(methodurl)
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var skuResponse=CartSKUResponse(fromDictionary: result)
+                let skuResponse=CartSKUResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(Array<String>(),skuResponse.errormessage,issuccess)

@@ -89,7 +89,7 @@ class CommentsTest: XCTestCase {
                 if(comments.count>0){
                     var comment=comments[comments.count-1] as Comment
                     self.comment_id=String(comment.getCommentId())
-                    println("comment id is "+self.comment_id)
+                    print("comment id is "+self.comment_id)
                  }
                     XCTAssertTrue(issuccess, "testItemCommentsList pass")
                 }

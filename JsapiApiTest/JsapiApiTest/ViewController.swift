@@ -16,6 +16,9 @@ class ViewController: UIViewController {
     var username = "gt4"
     var password = "gt4"
     var comment_id="33"
+    
+    var newUser = User()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,16 +44,72 @@ class ViewController: UIViewController {
         (result:NSDictionary,issuccess:Bool) in
             if(!issuccess)
             {
-                println("testDoLogin Failed")
+                print("testDoLogin Failed")
             }else
             {
-                println("testDoLogin PASS")
+                print("testDoLogin PASS")
 
             }
 
         }
      
     }
+    
+    @IBAction func testChangeWallet()
+    {
+        
+        var walletRequest = WalletRequest();
+        walletRequest.userId = 29199
+        walletRequest.username = "gt9"
+        walletRequest.delta = 100000
+        walletRequest.currencyType = "SP"
+        walletRequest.reason = "No Reason"
+        
+        
+        var params=walletRequest.toDictionary()
+        
+        var walletService = WalletService()
+        walletService.walletChange(params as! Dictionary<String,AnyObject>)
+            {
+                (wallet:Wallet,errormessage:String,issuccess:Bool) in
+                if(!issuccess)
+                {
+                }else
+                {
+                }
+        }
+
+        
+    }
+    
+    @IBAction func testdedWallet()
+    {
+        
+        var walletRequest = WalletRequest();
+        walletRequest.userId = 29199
+        walletRequest.username = "gt9"
+        walletRequest.delta = -1000
+        walletRequest.currencyType = "SP"
+        walletRequest.reason = "No Reason"
+        
+        
+        var params=walletRequest.toDictionary()
+        
+        var walletService = WalletService()
+        walletService.walletChange(params as! Dictionary<String,AnyObject>)
+            {
+                (wallet:Wallet,errormessage:String,issuccess:Bool) in
+                if(!issuccess)
+                {
+                }else
+                {
+                }
+        }
+        
+        
+    }
+
+
     
     /*
     Test User Logout
@@ -73,7 +132,7 @@ class ViewController: UIViewController {
                 (cartNumber:String,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("Create Card SKU Failed")
+                    print("Create Card SKU Failed")
                 }else
                 {
                     self.cartID=cartNumber
@@ -104,7 +163,7 @@ class ViewController: UIViewController {
                 (skus:Array<String>,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("Create Card SKU Failed")
+                    print("Create Card SKU Failed")
                 }else
                 {
                     print(skus)
@@ -132,7 +191,7 @@ class ViewController: UIViewController {
                 (skus:Array<String>,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("Create Card SKU Failed")
+                    print("Create Card SKU Failed")
                 }else
                 {
                     print(skus)
@@ -159,7 +218,7 @@ class ViewController: UIViewController {
                 (skus:Array<String>,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("Create Card SKU Failed")
+                    print("Create Card SKU Failed")
                 }else
                 {
                     print(skus)
@@ -182,10 +241,10 @@ class ViewController: UIViewController {
                 (cartDetails:CartDetails,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testgetCart Failed")
+                    print("testgetCart Failed")
                 }else
                 {
-                    println("testgetCart PASS")
+                    print("testgetCart PASS")
                     print(cartDetails.getCart().getCity())
 
                 }
@@ -231,10 +290,10 @@ class ViewController: UIViewController {
                 (result:NSDictionary,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testCartCheckout Failed")
+                    print("testCartCheckout Failed")
                 }else
                 {
-                    println("testCartCheckout PASS")
+                    print("testCartCheckout PASS")
                 }
                 print(result)
                 
@@ -254,7 +313,7 @@ class ViewController: UIViewController {
                 (countries:Array<Country>,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println(errormessage)
+                    print(errormessage)
                 }else
                 {
                     print(countries)
@@ -279,10 +338,10 @@ class ViewController: UIViewController {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testCartChangeItems Failed")
+                    print("testCartChangeItems Failed")
                 }else
                 {
-                    println("testCartChangeItems PASS")
+                    print("testCartChangeItems PASS")
                 }
                 print(result)
                 
@@ -308,10 +367,10 @@ class ViewController: UIViewController {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testCartAddItems Failed")
+                    print("testCartAddItems Failed")
                 }else
                 {
-                    println("testCartAddItems PASS")
+                    print("testCartAddItems PASS")
                 }
                 print(result)
                 
@@ -333,7 +392,7 @@ class ViewController: UIViewController {
                 (shippable:Shippable,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println(errormessage)
+                    print(errormessage)
                 }else
                 {
                     print(shippable.getCartId())
@@ -383,21 +442,22 @@ class ViewController: UIViewController {
     @IBAction func testUserRegisteration()
     {
         var userDetails=Dictionary<String,String>()
-        userDetails["username"]="gt5"
-        userDetails["password"]="gt5"
-        userDetails["email"]="gt5@knetik.com"
+
+        userDetails["username"]="gt9"
+        userDetails["password"]="gt9"
+        userDetails["email"]="gt9@knetik.com"
         userDetails["gender"]="male"
-        userDetails["fullname"]="gt5"
+        userDetails["fullname"]="gt9"
         var regObject = Registration()
         regObject.doUserRegistration(userDetails)
             {
                 (registeredUser:RegisteredUser,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println(errormessage)
+                    print(errormessage)
                 }else
                 {
-                    println(registeredUser.getFullname())
+                    print(registeredUser.getFullname())
                     // Valid Response
                 }
         }
@@ -419,10 +479,10 @@ class ViewController: UIViewController {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testUserRegisteration Failed")
+                    print("testUserRegisteration Failed")
                 }else
                 {
-                    println("testUserRegisteration PASS")
+                    print("testUserRegisteration PASS")
                     // Valid Response
                 }
         }
@@ -437,11 +497,11 @@ class ViewController: UIViewController {
                 (guest:GuestUser,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println(errormessage)
+                    print(errormessage)
                     return;
                 }else
                 {
-                    println("testUserRegisteration PASS")
+                    print("testUserRegisteration PASS")
                     // Valid Response
                 
                 self.username=guest.getUsername()
@@ -455,10 +515,10 @@ class ViewController: UIViewController {
                         (result:NSDictionary,issuccess:Bool) in
                         if(!issuccess)
                         {
-                            println("testDoLogin Failed")
+                            print("testDoLogin Failed")
                         }else
                         {
-                            println("testDoLogin PASS")
+                            print("testDoLogin PASS")
                             
                         }
                         var userDetails=Dictionary<String,String>()
@@ -474,10 +534,10 @@ class ViewController: UIViewController {
                                 (result:AnyObject,errormessage:String,issuccess:Bool) in
                                 if(!issuccess)
                                 {
-                                    println("testUserRegisteration Failed")
+                                    print("testUserRegisteration Failed")
                                 }else
                                 {
-                                    println("testUserRegisteration PASS")
+                                    print("testUserRegisteration PASS")
                                     // Valid Response
                                 }
                         }
@@ -498,7 +558,7 @@ class ViewController: UIViewController {
                 (guestUser:GuestUser,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testUserRegisteration Failed")
+                    print("testUserRegisteration Failed")
                     return;
                 }else
                 {
@@ -521,13 +581,13 @@ class ViewController: UIViewController {
                 (user:User,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testUserRegisteration Failed")
-                    println(errormessage)
+                    print("testUserRegisteration Failed")
+                    print(errormessage)
 
                 }else
                 {
-                    println("testUserRegisteration PASS")
-                    println(user.getFullname())
+                    print("testUserRegisteration PASS")
+                    print(user.getFullname())
 
                     // Valid Response
                 }
@@ -545,12 +605,12 @@ class ViewController: UIViewController {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testUpdateUser Failed")
-                    println(errormessage)
+                    print("testUpdateUser Failed")
+                    print(errormessage)
 
                 }else
                 {
-                    println("testUpdateUser PASS")
+                    print("testUpdateUser PASS")
                     // Valid Response
                 }
         }
@@ -566,15 +626,15 @@ class ViewController: UIViewController {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testSetPassword Failed")
-                    println(errormessage)
+                    print("testSetPassword Failed")
+                    print(errormessage)
 
                 }else
                 {
-                    println("testSetPassword PASS")
+                    print("testSetPassword PASS")
                     // Valid Response
                 }
-                println(result)
+                print(result)
         }
     }
 //////////////////COMMENTS//////////////////////////////////////////////////
@@ -591,14 +651,14 @@ class ViewController: UIViewController {
                 (comments:Array<Comment>,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testItemCommentsList Failed")
-                    println(errormessage)
+                    print("testItemCommentsList Failed")
+                    print(errormessage)
                 }else
                 {
                         if(comments.count>0){
                             var comment=comments[comments.count-1] as Comment
                             self.comment_id=String(comment.getCommentId())
-                            println("comment id is "+self.comment_id)
+                            print("comment id is "+self.comment_id)
                     }
                     // Valid Response
                 }
@@ -619,14 +679,14 @@ class ViewController: UIViewController {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testAddCommentToItem Failed")
-                    println(errormessage)
+                    print("testAddCommentToItem Failed")
+                    print(errormessage)
                 }else
                 {
-                    println("testAddCommentToItem PASS")
+                    print("testAddCommentToItem PASS")
                     // Valid Response
                 }
-                println(result)
+                print(result)
         }
     }
 
@@ -642,13 +702,13 @@ class ViewController: UIViewController {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testAddCommentToItem Failed")
+                    print("testAddCommentToItem Failed")
                 }else
                 {
-                    println("testAddCommentToItem PASS")
+                    print("testAddCommentToItem PASS")
                     // Valid Response
                 }
-                println(result)
+                print(result)
         }
     }
   
@@ -663,13 +723,13 @@ class ViewController: UIViewController {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testRemoveCommentToItem Failed")
+                    print("testRemoveCommentToItem Failed")
                 }else
                 {
-                    println("testRemoveCommentToItem PASS")
+                    print("testRemoveCommentToItem PASS")
                     // Valid Response
                 }
-                println(result)
+                print(result)
         }
     }
 
@@ -688,13 +748,13 @@ class ViewController: UIViewController {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testAdd Friend Failed")
+                    print("testAdd Friend Failed")
                 }else
                 {
-                    println("testAdd Friend PASS")
+                    print("testAdd Friend PASS")
                     // Valid Response
                 }
-                println(result)
+                print(result)
         }
     }
     
@@ -711,10 +771,10 @@ class ViewController: UIViewController {
                 (friends:Friend,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testGetFriend Failed")
+                    print("testGetFriend Failed")
                 }else
                 {
-                    println("testGetFriend PASS")
+                    print("testGetFriend PASS")
                     var friendsList=friends.getFriends()
                     var invitedList=friends.getInvites()
 
@@ -737,10 +797,10 @@ class ViewController: UIViewController {
                 (friends:Friend,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testGetFriend Failed")
+                    print("testGetFriend Failed")
                 }else
                 {
-                    println("testGetFriend PASS")
+                    print("testGetFriend PASS")
                     var friendsList=friends.getFriends()
                     var invitedList=friends.getInvites()
                     
@@ -760,13 +820,13 @@ class ViewController: UIViewController {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testAddCommentToItem Failed")
+                    print("testAddCommentToItem Failed")
                 }else
                 {
-                    println("testAddCommentToItem PASS")
+                    print("testAddCommentToItem PASS")
                     // Valid Response
                 }
-                println(result)
+                print(result)
         }
     }
     
@@ -790,13 +850,13 @@ class ViewController: UIViewController {
                 (pages:Array<Page>,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("testStoreGetPage Failed")
+                    print("testStoreGetPage Failed")
                 }else
                 {
                     var storeArray=pages
-                    println(pages)
+                    print(pages)
 
-                    println("testStoreGetPage PASS")
+                    print("testStoreGetPage PASS")
                     // Valid Response
                 }
         }
@@ -817,13 +877,13 @@ class ViewController: UIViewController {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("Test Add Favorite Failed")
+                    print("Test Add Favorite Failed")
                 }else
                 {
-                    println("Test Add Favorite PASS")
+                    print("Test Add Favorite PASS")
                     // Valid Response
                 }
-                println(errormessage)
+                print(errormessage)
         }
     }
     
@@ -836,15 +896,15 @@ class ViewController: UIViewController {
                 (favorites:Array<Favorite>,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("test Get Favorites Failed")
+                    print("test Get Favorites Failed")
                 }else
                 {
                     var favist=favorites
                     
-                    println("test Get Favorites PASS")
+                    print("test Get Favorites PASS")
                     // Valid Response
                 }
-                println(errormessage)
+                print(errormessage)
         }
     }
     
@@ -860,13 +920,13 @@ class ViewController: UIViewController {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println("test Delete Favorites Failed")
+                    print("test Delete Favorites Failed")
                 }else
                 {
-                    println("test Delete Favorites PASS")
+                    print("test Delete Favorites PASS")
                     // Valid Response
                 }
-                println(errormessage)
+                print(errormessage)
         }
     }
 

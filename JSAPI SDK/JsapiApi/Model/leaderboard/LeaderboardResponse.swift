@@ -25,7 +25,7 @@ class LeaderboardResponse :BaseResponse{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 	
         if leaderboard != nil{
 			dictionary["result"] = leaderboard.toDictionary()

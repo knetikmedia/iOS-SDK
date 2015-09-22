@@ -41,7 +41,7 @@ public class Asset:NSObject{
     */
     func toDictionary() -> NSDictionary
     {
-        var dictionary = NSMutableDictionary()
+        let dictionary = NSMutableDictionary()
         if deleted != nil{
             dictionary["deleted"] = deleted
         }

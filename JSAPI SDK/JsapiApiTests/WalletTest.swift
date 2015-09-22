@@ -1,28 +1,29 @@
 //
-//  FavoriteTest.swift
+//  Leaderboard.swift
 //  JsapiApi
 //
-//  Created by youssef on 7/2/15.
+//  Created by youssef on 9/14/15.
 //  Copyright (c) 2015 Knetik. All rights reserved.
 //
 
 import UIKit
 import XCTest
 
-class FavoriteTest: XCTestCase {
+class WalletTest: XCTestCase {
 
     var theUser:User = User()
-    var theRegisteredUser :RegisteredUser=RegisteredUser();
-
+    var newUser=RegisteredUser()
     override func setUp() {
         super.setUp()
         JsapiAPi.jsapiInit("http://localhost:8080/jsapi", client_id: "knetik",secrect_key: "superSUPERsuperSECRET")
-        testDoLogin();
-        testGetUserInfo()
+        doUserRegisteration()
+        
+        DoLogin();
         
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    func testDoLogin()
+    
+    func DoLogin()
     {
         let readyExpectation = expectationWithDescription("ready")
         var userDetails=Dictionary<String,String>()
@@ -46,33 +47,9 @@ class FavoriteTest: XCTestCase {
         })
     }
     
-    func testGetUserInfo()
+    func doUserRegisteration()
     {
-        
-        testDoLogin();
-        let readyExpectation = expectationWithDescription("ready")
-        var userDetails=Dictionary<String,String>()
-        var userObject = UserService()
-        userObject.getUserInfo(userDetails)
-            {
-                (user:User,errormessage:String,issuccess:Bool) in
-                if(!issuccess)
-                {
-                    XCTAssertTrue(issuccess, "testGetUserInfo failed")
-                }else
-                {
-                    self.theUser=user
-                    XCTAssertTrue(issuccess, "testGetUserInfo pass")
-                }
-                readyExpectation.fulfill()
-                
-        }
-        self.waitForExpectationsWithTimeout(6.0, handler: { error in XCTAssertNil(error, "Oh, we got timeout")
-        })
-    }
-    
-    func testUserRegisteration()
-    {
+
         var userDetails=Dictionary<String,String>()
         let readyExpectation = expectationWithDescription("ready")
         userDetails["username"]=NSString(format: "meyoussef%d",Utilities.currentTimeMillis()) as String
@@ -84,94 +61,88 @@ class FavoriteTest: XCTestCase {
         regObject.doUserRegistration(userDetails)
             {
                 (registeredUser:RegisteredUser,errormessage:String,issuccess:Bool) in
+                
+                self.newUser = registeredUser
                 if(!issuccess)
                 {
                     XCTAssertTrue(issuccess, "regiteration failed")
+                    print(errormessage)
                 }else
                 {
-                    self.theRegisteredUser=registeredUser
                     XCTAssertTrue((registeredUser.getFullname() == userDetails["fullname"]) , "regiteration pass")
+                    
                     print(registeredUser.getFullname())
+                    // Valid Response
                 }
                 readyExpectation.fulfill()
         }
         self.waitForExpectationsWithTimeout(5.0, handler: { error in XCTAssertNil(error, "Oh, we got timeout")
         })
     }
-
-
-    func testAddFavorite()
+    
+    func testChangeWallet()
     {
-        testUserRegisteration()
         let readyExpectation = expectationWithDescription("ready")
-        var params=Dictionary<String,AnyObject>()
-        params["id"]=NSString(format: "%d",theRegisteredUser.getId()) as String
-        var favorite = FavoriteService()
+
+        var walletRequest = WalletRequest();
+        walletRequest.userId = newUser.getId()
+        walletRequest.username = newUser.getUsername()
+        walletRequest.delta = 100000
+        walletRequest.currencyType = "SP"
+        walletRequest.reason = "No Reason"
         
-        favorite.addFavoriteItem(params)
+               
+        var params=walletRequest.toDictionary()
+
+        var walletService = WalletService()
+        walletService.walletChange(params as! Dictionary<String,AnyObject>)
             {
-                (result:AnyObject,errormessage:String,issuccess:Bool) in
+                (wallet:Wallet,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    XCTAssertTrue(issuccess, "testAddFavorite failed")
+                    XCTAssertTrue(issuccess, "testItemCommentsList failed")
                 }else
                 {
-                    XCTAssertTrue(issuccess, "testAddFavorite Pass")
-                    // Valid Response
+                    XCTAssertTrue(issuccess, "testItemCommentsList pass")
                 }
                 readyExpectation.fulfill()
         }
-        self.waitForExpectationsWithTimeout(5.0, handler: { error in XCTAssertNil(error, "Oh, we got timeout")
+        self.waitForExpectationsWithTimeout(6.0, handler: { error in XCTAssertNil(error, "Oh, we got timeout")
         })
+        
     }
     
-    func testGetFavorites()
-    {
-        let readyExpectation = expectationWithDescription("ready")
-
-        var params=Dictionary<String,AnyObject>()
-        var favorite = FavoriteService()
-        favorite.getFavorites(params)
-            {
-                (favorites:Array<Favorite>,errormessage:String,issuccess:Bool) in
-                if(!issuccess)
-                {
-                    XCTAssertTrue(issuccess, "testGetFavorites failed")
-                }else
-                {
-                    var favist=favorites
-                    XCTAssertTrue(issuccess, "testGetFavorites pass")
-
-                }
-                readyExpectation.fulfill()
-        }
-        self.waitForExpectationsWithTimeout(5.0, handler: { error in XCTAssertNil(error, "Oh, we got timeout")
-        })
-    }
     
-    func testDeleteFavorites()
+    func testdDeductionsWallet()
     {
-        testAddFavorite()
         let readyExpectation = expectationWithDescription("ready")
-
-        var params=Dictionary<String,AnyObject>()
-        params["id"]=NSString(format: "%d",theRegisteredUser.getId()) as String
-        var favorite = FavoriteService()
-        favorite.deleteFavorite(params)
+        
+        var walletRequest = WalletRequest();
+        walletRequest.userId = newUser.getId()
+        walletRequest.username = newUser.getUsername()
+        walletRequest.delta = -1000
+        walletRequest.currencyType = "SP"
+        walletRequest.reason = "No Reason"
+        
+        
+        var params=walletRequest.toDictionary()
+        
+        var walletService = WalletService()
+        walletService.walletChange(params as! Dictionary<String,AnyObject>)
             {
-                (result:AnyObject,errormessage:String,issuccess:Bool) in
+                (wallet:Wallet,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    XCTAssertTrue(issuccess, "testDeleteFavorites failed")
+                    XCTAssertTrue(issuccess, "testItemCommentsList failed")
                 }else
                 {
-                    XCTAssertTrue(issuccess, "testDeleteFavorites pass")
-                    // Valid Response
+                    XCTAssertTrue(issuccess, "testItemCommentsList pass")
                 }
                 readyExpectation.fulfill()
         }
-        self.waitForExpectationsWithTimeout(5.0, handler: { error in XCTAssertNil(error, "Oh, we got timeout")
+        self.waitForExpectationsWithTimeout(6.0, handler: { error in XCTAssertNil(error, "Oh, we got timeout")
         })
+        
     }
 
     

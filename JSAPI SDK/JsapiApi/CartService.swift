@@ -17,11 +17,11 @@ public class CartService:NSObject
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.SCARTS
-        println(methodurl)
+        print(methodurl)
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(cartsparams),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var cartNumberResponse=CartResponse(fromDictionary: result)
+                let cartNumberResponse=CartResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback("",cartNumberResponse.errormessage,issuccess)
@@ -39,11 +39,11 @@ public class CartService:NSObject
     public func createCartSku(skuparams:Dictionary<String,AnyObject>,callback:(Array<String>,String,Bool)->Void)
     {
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.CARTSSKU
-        println(methodurl)
+        print(methodurl)
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(skuparams),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var skuResponse=CartSKUResponse(fromDictionary: result)
+                let skuResponse=CartSKUResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(Array<String>(),skuResponse.errormessage,issuccess)
@@ -63,11 +63,11 @@ public class CartService:NSObject
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.SCARTS+"/"+guidID
-        println(methodurl)
+        print(methodurl)
         JsapiRest.getRequest(methodurl,postParams: Utilities.getGETRequestFromDictionary(cart))
             {
                 (result:NSDictionary,issuccess:Bool) in
-               var getCartResponse = GetCartResponse(fromDictionary: result)
+               let getCartResponse = GetCartResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(CartDetails(),getCartResponse.errormessage,issuccess)
@@ -87,13 +87,13 @@ public class CartService:NSObject
     public func cartCheckout(cart:Dictionary<String,String>,itemID:String,callback:(Checkout,String,Bool)->Void)
     {
         var commonParamtersDictionry=Dictionary<String,String>()
-        var endpoint=NSString(format: JSAPIConstant.CARTCHECKOUT,itemID)
+        let endpoint=NSString(format: JSAPIConstant.CARTCHECKOUT,itemID)
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String)
-        println(methodurl)
+        print(methodurl)
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(cart),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-               var checkoutResponse = CheckoutResponse(fromDictionary: result)
+               let checkoutResponse = CheckoutResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(Checkout(),checkoutResponse.errormessage,issuccess)
@@ -112,19 +112,19 @@ public class CartService:NSObject
     public func cartDiscount(cart:Dictionary<String,String>,itemID:String,callback:(NSDictionary,Bool)->Void)
     {
         var commonParamtersDictionry=Dictionary<String,String>()
-        var endpoint=NSString(format: JSAPIConstant.CARTDISCOUNT,itemID)
+        let endpoint=NSString(format: JSAPIConstant.CARTDISCOUNT,itemID)
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String)
-        println(methodurl)
+        print(methodurl)
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(cart),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println(result["error"])
-                    println(result["error_description"])
+                    print(result["error"])
+                    print(result["error_description"])
                 }else
                 {
-                    println(result)
+                    print(result)
                 }
                 callback(result,issuccess)
         }
@@ -138,13 +138,13 @@ public class CartService:NSObject
     public func cartCountries(cart:Dictionary<String,String>,itemID:String,callback:(Array<Country>,String,Bool)->Void)
     {
         var commonParamtersDictionry=Dictionary<String,String>()
-        var endpoint=NSString(format: JSAPIConstant.CARTCOUNTRIES,itemID)
+        let endpoint=NSString(format: JSAPIConstant.CARTCOUNTRIES,itemID)
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String)
-        println(methodurl)
+        print(methodurl)
         JsapiRest.getRequest(methodurl,postParams: Utilities.getGETRequestFromDictionary(cart))
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var countriesResponse = CountriesResponse(fromDictionary: result)
+                let countriesResponse = CountriesResponse(fromDictionary: result)
                 
                 if(!issuccess)
                 {
@@ -171,13 +171,13 @@ public class CartService:NSObject
     public func changeItem(params:Dictionary<String,String>,itemID:String,callback:(AnyObject,String,Bool)->Void)
     {
         var commonParamtersDictionry=Dictionary<String,String>()
-        var endpoint=NSString(format: JSAPIConstant.CARTITEMS,itemID)
+        let endpoint=NSString(format: JSAPIConstant.CARTITEMS,itemID)
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String)
-        println(methodurl)
+        print(methodurl)
         JsapiRest.putRequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=BaseResponse(fromDictionary: result)
+                let baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(baseResponse,baseResponse.errormessage,issuccess)
@@ -204,13 +204,13 @@ public class CartService:NSObject
     public func addCartItems(params:Dictionary<String,String>,itemID:String,callback:(AnyObject,String,Bool)->Void)
     {
         var commonParamtersDictionry=Dictionary<String,String>()
-        var endpoint=NSString(format: JSAPIConstant.CARTITEMS,itemID)
+        let endpoint=NSString(format: JSAPIConstant.CARTITEMS,itemID)
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String)
-        println(methodurl)
+        print(methodurl)
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=BaseResponse(fromDictionary: result)
+                let baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(baseResponse,baseResponse.errormessage,issuccess)
@@ -243,13 +243,13 @@ public class CartService:NSObject
     public func modifyShippingAddress(params:Dictionary<String,String>,itemID:String,callback:(AnyObject,String,Bool)->Void)
     {
         var commonParamtersDictionry=Dictionary<String,String>()
-        var endpoint=NSString(format: JSAPIConstant.SHIPPINGADDRESS,itemID)
+        let endpoint=NSString(format: JSAPIConstant.SHIPPINGADDRESS,itemID)
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String)
-        println(methodurl)
+        print(methodurl)
         JsapiRest.putRequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var shippingResponse=BaseResponse(fromDictionary: result)
+                let shippingResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(shippingResponse,shippingResponse.errormessage,issuccess)
@@ -267,13 +267,13 @@ public class CartService:NSObject
     public func checkShippable(params:Dictionary<String,String>,itemID:String,callback:(Shippable,String,Bool)->Void)
     {
         var commonParamtersDictionry=Dictionary<String,String>()
-        var endpoint=NSString(format: JSAPIConstant.SHIPPABLE,itemID)
+        let endpoint=NSString(format: JSAPIConstant.SHIPPABLE,itemID)
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String)
-        println(methodurl)
+        print(methodurl)
         JsapiRest.getRequest(methodurl,postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var shippable = ShippableResponse(fromDictionary: result)
+                let shippable = ShippableResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(Shippable(),shippable.errormessage,issuccess)
