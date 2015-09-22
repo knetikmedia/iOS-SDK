@@ -18,13 +18,13 @@ public class Registration:NSObject
     public func forgotPassword(params:Dictionary<String,String>,callback:(AnyObject,String,Bool)->Void)
     {
         var commonParamtersDictionry=Dictionary<String,String>()
-        var endpoint=JSAPIConstant.FORGOTPASSWORD
+        let endpoint=JSAPIConstant.FORGOTPASSWORD
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+endpoint
         print(methodurl)
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-               var baseResponse=BaseResponse(fromDictionary: result)
+               let baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(baseResponse,baseResponse.errormessage,issuccess)
@@ -47,13 +47,13 @@ public class Registration:NSObject
     public func guests(params:Dictionary<String,String>,callback:(GuestUser,String,Bool)->Void)
     {
         var commonParamtersDictionry=Dictionary<String,String>()
-        var endpoint=JSAPIConstant.GUESTS
+        let endpoint=JSAPIConstant.GUESTS
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+endpoint
         print(methodurl)
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var guestResponse=GuestUserResponse(fromDictionary: result)
+                let guestResponse=GuestUserResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(GuestUser(),guestResponse.errormessage,issuccess)
@@ -74,13 +74,13 @@ public class Registration:NSObject
     public func guestUpgrade(params:Dictionary<String,String>,callback:(AnyObject,String,Bool)->Void)
     {
         var commonParamtersDictionry=Dictionary<String,String>()
-        var endpoint=JSAPIConstant.GUESTUPGRADE
+        let endpoint=JSAPIConstant.GUESTUPGRADE
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+endpoint
         print(methodurl)
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=BaseResponse(fromDictionary: result)
+                let baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(baseResponse,baseResponse.errormessage,issuccess)
@@ -104,7 +104,7 @@ public class Registration:NSObject
         JsapiRest.postrequest(methodurl,postParams:  Utilities.jsonRequestFromDictionary(registerationDetails),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var registeredResponse=RegisteredUserResponse(fromDictionary: result)
+                let registeredResponse=RegisteredUserResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(RegisteredUser(),registeredResponse.errormessage,issuccess)

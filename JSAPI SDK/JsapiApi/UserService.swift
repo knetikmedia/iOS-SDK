@@ -21,7 +21,7 @@ public class UserService:NSObject {
     JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
     {
             (result:NSDictionary,issuccess:Bool) in
-            var userResponse = UserResponse(fromDictionary: result)
+            let userResponse = UserResponse(fromDictionary: result)
             if(!issuccess)
             {
                 print(result["error"])
@@ -46,11 +46,11 @@ public class UserService:NSObject {
  */
     public func updateUserInfo(configName:String,params:String,callback:(AnyObject,String,Bool)->Void)
     {
-        var methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.UPDATEUSERINFO,configName) as String
+        let methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.UPDATEUSERINFO,configName) as String
         JsapiRest.putRequest(methodUrl, postParams: Utilities.getformatedPutString(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=BaseResponse(fromDictionary: result)
+                let baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     print(result["error"])
@@ -72,13 +72,13 @@ public class UserService:NSObject {
     */
     public func setPassword(params:Dictionary<String,String>,userID:String,callback:(AnyObject,String,Bool)->Void)
     {
-        var endpoint=NSString(format: JSAPIConstant.SETUSERPASSWORD,userID)
+        let endpoint=NSString(format: JSAPIConstant.SETUSERPASSWORD,userID)
 
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String);
         JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=BaseResponse(fromDictionary: result)
+                let baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     print(result["error"])

@@ -24,7 +24,7 @@ public class DispositionService:NSObject
         JsapiRest.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=DispositionResponse(fromDictionary: result)
+                let baseResponse=DispositionResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(baseResponse.result.content,baseResponse.errormessage,issuccess)
@@ -50,7 +50,7 @@ public class DispositionService:NSObject
         JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=NewDispositionResponse(fromDictionary: result)
+                let baseResponse=NewDispositionResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(baseResponse.result,baseResponse.errormessage,issuccess)
@@ -77,7 +77,7 @@ public class DispositionService:NSObject
         JsapiRest.deleteRequest(methodUrl as String, deleteParams:Utilities.jsonRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=BaseResponse(fromDictionary: result)
+                let baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(baseResponse,baseResponse.errormessage,issuccess)

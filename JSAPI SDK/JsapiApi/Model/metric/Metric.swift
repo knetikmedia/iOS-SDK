@@ -32,7 +32,7 @@ public class Metric :NSObject{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if activityOccurenceId != nil{
 			dictionary["activity_occurence_id"] = activityOccurenceId
 		}

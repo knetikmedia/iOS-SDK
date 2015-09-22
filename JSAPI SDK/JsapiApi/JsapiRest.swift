@@ -55,7 +55,7 @@ class JsapiRest
                 return;
             }
             var eerror : AutoreleasingUnsafeMutablePointer<NSError?> = nil
-            var jsonResult: NSDictionary! = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers ) as? NSDictionary
+            let jsonResult: NSDictionary! = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers ) as? NSDictionary
             if(jsonResult == nil)
             {
                 callback(NSDictionary(),true)
@@ -65,7 +65,7 @@ class JsapiRest
             {
                 let errorObject = jsonResult["error"] as! Dictionary<String,Bool>
                 
-                var isSuccess=errorObject["success"]?.boolValue
+                let isSuccess=errorObject["success"]?.boolValue
                 callback(jsonResult,isSuccess!)
             }else
                 if(jsonResult["error"] != nil)
@@ -112,7 +112,7 @@ class JsapiRest
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             print("responseString = \(responseString)")
             var eerror : AutoreleasingUnsafeMutablePointer<NSError?> = nil
-            var jsonResult: NSDictionary! = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
+            let jsonResult: NSDictionary! = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
             if(jsonResult == nil)
             {
                 callback(NSDictionary(),true)
@@ -123,7 +123,7 @@ class JsapiRest
             {
                 let errorObject = jsonResult["error"]  as! Dictionary<String,Bool>
                 
-                var isSuccess=errorObject["success"]?.boolValue
+                let isSuccess=errorObject["success"]?.boolValue
                 callback(jsonResult,isSuccess!)
             }else
              {
@@ -163,7 +163,7 @@ class JsapiRest
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             print("responseString = \(responseString)")
             var eerror : AutoreleasingUnsafeMutablePointer<NSError?> = nil
-            var jsonResult: NSDictionary! = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers ) as? NSDictionary
+            let jsonResult: NSDictionary! = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers ) as? NSDictionary
             if(jsonResult == nil)
             {
                 callback(NSDictionary(),true)
@@ -174,7 +174,7 @@ class JsapiRest
             {
                 let errorObject = jsonResult["error"]  as! Dictionary<String,Bool>
                 
-                var isSuccess=errorObject["success"]?.boolValue
+                let isSuccess=errorObject["success"]?.boolValue
                 callback(jsonResult,isSuccess!)
             }else
             {
@@ -226,7 +226,7 @@ class JsapiRest
                 return;
             }
             var eerror : AutoreleasingUnsafeMutablePointer<NSError?> = nil
-            var jsonResult: NSDictionary! = try! NSJSONSerialization.JSONObjectWithData(data! , options: NSJSONReadingOptions.MutableContainers ) as? NSDictionary
+            let jsonResult: NSDictionary! = try! NSJSONSerialization.JSONObjectWithData(data! , options: NSJSONReadingOptions.MutableContainers ) as? NSDictionary
             if(jsonResult == nil)
             {
                 callback(NSDictionary(),true)
@@ -237,7 +237,7 @@ class JsapiRest
             {
                 let errorObject = jsonResult["error"]  as! Dictionary<String,Bool>
                 
-                var isSuccess=errorObject["success"]?.boolValue
+                let isSuccess=errorObject["success"]?.boolValue
                 callback(jsonResult,isSuccess!)
             }else
                 if(jsonResult["error"] != nil)

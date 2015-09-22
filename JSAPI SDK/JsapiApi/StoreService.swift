@@ -21,7 +21,7 @@ public class Store:NSObject
         JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var pageResponse=StoreResponse(fromDictionary: result)
+                let pageResponse=StoreResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(pageResponse.pages,pageResponse.errormessage,issuccess)

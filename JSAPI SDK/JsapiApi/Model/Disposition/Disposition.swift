@@ -38,7 +38,7 @@ public class Disposition:NSObject{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if context != nil{
 			dictionary["context"] = context
 		}

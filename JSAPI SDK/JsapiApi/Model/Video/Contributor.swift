@@ -30,7 +30,7 @@ public class Contributor :NSObject{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if artist != nil{
 			dictionary["artist"] = artist.toDictionary()
 		}

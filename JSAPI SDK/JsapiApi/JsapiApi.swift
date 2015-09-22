@@ -169,7 +169,7 @@ public class JsapiAPi:NSObject
     {
         var err: NSError?
         let body = try! NSJSONSerialization.dataWithJSONObject(requestparamters, options: [] )
-        var datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
+        let datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
         print(datastring)
         return datastring
     }

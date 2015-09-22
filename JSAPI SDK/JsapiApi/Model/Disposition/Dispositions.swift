@@ -44,7 +44,7 @@ public class Dispositions:NSObject{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if content != nil{
 			var dictionaryElements = [NSDictionary]()
 			for contentElement in content {

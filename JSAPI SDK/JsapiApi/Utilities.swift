@@ -15,7 +15,7 @@ class Utilities {
     class func jsonRequestFromDictionary(requestparamters:Dictionary<String,String>)->String
     {
         let body = try! NSJSONSerialization.dataWithJSONObject(requestparamters, options: [])
-        var datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
+        let datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
         print(datastring)
         return datastring
     }
@@ -36,7 +36,7 @@ class Utilities {
     class func jsonRequestFromDictionary(requestparamters:Dictionary<String,Int>)->String
     {
         let body = try! NSJSONSerialization.dataWithJSONObject(requestparamters, options: [])
-        var datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
+        let datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
         print(datastring)
         return datastring
     }
@@ -47,7 +47,7 @@ class Utilities {
     class func jsonRequestFromDictionary(requestparamters:Dictionary<String,AnyObject>)->String
     {
         let body = try! NSJSONSerialization.dataWithJSONObject(requestparamters, options: [] )
-        var datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
+        let datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
         print(datastring)
         return datastring
     }
@@ -71,7 +71,7 @@ class Utilities {
     }
 
     class func currentTimeMillis() -> Int64{
-        var nowDouble = NSDate().timeIntervalSince1970
+        let nowDouble = NSDate().timeIntervalSince1970
         return Int64(nowDouble*1000)
     }
     

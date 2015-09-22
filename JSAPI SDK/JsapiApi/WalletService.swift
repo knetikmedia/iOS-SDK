@@ -25,7 +25,7 @@ public class WalletService:NSObject
         JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=WalletResponse(fromDictionary: result)
+                let baseResponse=WalletResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(Wallet(),baseResponse.errormessage,issuccess)

@@ -21,7 +21,7 @@ public class LeaderboardService:NSObject
         JsapiRest.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=LeaderboardResponse(fromDictionary: result)
+                let baseResponse=LeaderboardResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(baseResponse.leaderboard,baseResponse.errormessage,issuccess)
@@ -47,7 +47,7 @@ public class LeaderboardService:NSObject
         JsapiRest.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=StrategiesResponse(fromDictionary: result)
+                let baseResponse=StrategiesResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(baseResponse.strategies,baseResponse.errormessage,issuccess)
@@ -75,7 +75,7 @@ public class LeaderboardService:NSObject
         JsapiRest.getRequest(methodUrl as String, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
-                var baseResponse=UserRankResponse(fromDictionary: result)
+                let baseResponse=UserRankResponse(fromDictionary: result)
                 if(!issuccess)
                 {
                     callback(baseResponse.rank,baseResponse.errormessage,issuccess)

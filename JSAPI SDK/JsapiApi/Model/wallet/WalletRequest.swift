@@ -35,7 +35,7 @@ public class WalletRequest :NSObject {
 	 */
 	public func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if currencyType != nil{
 			dictionary["currencyType"] = currencyType
 		}
