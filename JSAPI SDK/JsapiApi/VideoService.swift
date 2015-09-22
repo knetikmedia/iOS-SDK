@@ -30,7 +30,7 @@ public class VideoService:NSObject
                     
                 }else
                 {
-                    println(result)
+                    print(result)
                     callback(baseResponse.videos,"",issuccess)
                     
                 }
@@ -55,7 +55,7 @@ public class VideoService:NSObject
                     
                 }else
                 {
-                    println(result)
+                    print(result)
                     callback(baseResponse.videos,"",issuccess)
                     
                 }
@@ -81,7 +81,7 @@ public class VideoService:NSObject
                     
                 }else
                 {
-                    println(result)
+                    print(result)
                     callback(baseResponse.videos,"",issuccess)
                     
                 }
@@ -105,7 +105,7 @@ public class VideoService:NSObject
                     callback(baseResponse.videos,baseResponse.errormessage,issuccess)
                 }else
                 {
-                    println(result)
+                    print(result)
                     callback(baseResponse.videos,"",issuccess)
                 }
                 
@@ -129,7 +129,7 @@ public class VideoService:NSObject
                     callback(Video(),baseResponse.errormessage,issuccess)
                 }else
                 {
-                    println(result)
+                    print(result)
                     callback(baseResponse.video,"",issuccess)
                 }
                 
@@ -152,7 +152,7 @@ public class VideoService:NSObject
                     callback(baseResponse,baseResponse.errormessage,issuccess)
                 }else
                 {
-                    println(result)
+                    print(result)
                     callback(baseResponse,"",issuccess)
                 }
                 
@@ -176,7 +176,7 @@ public class VideoService:NSObject
                     callback("",baseResponse.errormessage,issuccess)
                 }else
                 {
-                    println(result)
+                    print(result)
                     callback("","",issuccess)
                 }
                 
@@ -223,7 +223,7 @@ public class VideoService:NSObject
                     callback("",baseResponse.errormessage,issuccess)
                 }else
                 {
-                    println(result)
+                    print(result)
                     callback("","",issuccess)
                 }
                 

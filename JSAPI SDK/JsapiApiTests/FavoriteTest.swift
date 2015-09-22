@@ -91,7 +91,7 @@ class FavoriteTest: XCTestCase {
                 {
                     self.theRegisteredUser=registeredUser
                     XCTAssertTrue((registeredUser.getFullname() == userDetails["fullname"]) , "regiteration pass")
-                    println(registeredUser.getFullname())
+                    print(registeredUser.getFullname())
                 }
                 readyExpectation.fulfill()
         }

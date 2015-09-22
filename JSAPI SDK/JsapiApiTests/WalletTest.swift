@@ -66,12 +66,12 @@ class WalletTest: XCTestCase {
                 if(!issuccess)
                 {
                     XCTAssertTrue(issuccess, "regiteration failed")
-                    println(errormessage)
+                    print(errormessage)
                 }else
                 {
                     XCTAssertTrue((registeredUser.getFullname() == userDetails["fullname"]) , "regiteration pass")
                     
-                    println(registeredUser.getFullname())
+                    print(registeredUser.getFullname())
                     // Valid Response
                 }
                 readyExpectation.fulfill()

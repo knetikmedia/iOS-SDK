@@ -14,10 +14,9 @@ class Utilities {
     */
     class func jsonRequestFromDictionary(requestparamters:Dictionary<String,String>)->String
     {
-        var err: NSError?
-        let body = NSJSONSerialization.dataWithJSONObject(requestparamters, options: nil, error: &err)!
+        let body = try! NSJSONSerialization.dataWithJSONObject(requestparamters, options: [])
         var datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
-        println(datastring)
+        print(datastring)
         return datastring
     }
     
@@ -36,10 +35,9 @@ class Utilities {
     */
     class func jsonRequestFromDictionary(requestparamters:Dictionary<String,Int>)->String
     {
-        var err: NSError?
-        let body = NSJSONSerialization.dataWithJSONObject(requestparamters, options: nil, error: &err)!
+        let body = try! NSJSONSerialization.dataWithJSONObject(requestparamters, options: [])
         var datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
-        println(datastring)
+        print(datastring)
         return datastring
     }
 
@@ -48,10 +46,9 @@ class Utilities {
     */
     class func jsonRequestFromDictionary(requestparamters:Dictionary<String,AnyObject>)->String
     {
-        var err: NSError?
-        let body = NSJSONSerialization.dataWithJSONObject(requestparamters, options: nil, error: &err)!
+        let body = try! NSJSONSerialization.dataWithJSONObject(requestparamters, options: [] )
         var datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
-        println(datastring)
+        print(datastring)
         return datastring
     }
 

@@ -36,12 +36,12 @@ class RegistrationTest: XCTestCase {
                 if(!issuccess)
                 {
                     XCTAssertTrue(issuccess, "regiteration failed")
-                    println(errormessage)
+                    print(errormessage)
                 }else
                 {
                     XCTAssertTrue((registeredUser.getFullname() == userDetails["fullname"]) , "regiteration pass")
                     
-                    println(registeredUser.getFullname())
+                    print(registeredUser.getFullname())
                     // Valid Response
                 }
                 readyExpectation.fulfill()
@@ -62,7 +62,7 @@ class RegistrationTest: XCTestCase {
                 (guest:GuestUser,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println(errormessage)
+                    print(errormessage)
                     XCTAssertTrue(issuccess, "regiteration guest user failed")
 
                     return;

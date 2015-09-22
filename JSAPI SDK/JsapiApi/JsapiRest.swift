@@ -19,8 +19,8 @@ class JsapiRest
     */
     class func postrequest(functionURL:String,postParams:String,isJson:Bool,callback:(NSDictionary,Bool)->Void)
     {
-        println(functionURL)
-        println(postParams)
+        print(functionURL)
+        print(postParams)
         let request = NSMutableURLRequest(URL: NSURL(string: functionURL)!)
         request.HTTPMethod = "POST"
         let postString = postParams
@@ -31,7 +31,7 @@ class JsapiRest
             request.setValue("application/json", forHTTPHeaderField: "Accept")
         if(!JsapiAPi.sharedInstance.getJsapiToken().isEmpty&&JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR)
             {
-                println("token not empty :"+JsapiAPi.sharedInstance.getJsapiToken())
+                print("token not empty :"+JsapiAPi.sharedInstance.getJsapiToken())
     request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
             }
 
@@ -45,17 +45,17 @@ class JsapiRest
                 callback(NSDictionary(),false)
                 return
             }
-            let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
-            println(responseString)
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print(responseString)
 
             if(responseString == "")
             {
-                println("Empty Response")
+                print("Empty Response")
                  callback(NSDictionary(),true)
                 return;
             }
             var eerror : AutoreleasingUnsafeMutablePointer<NSError?> = nil
-            var jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: eerror) as? NSDictionary
+            var jsonResult: NSDictionary! = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers ) as? NSDictionary
             if(jsonResult == nil)
             {
                 callback(NSDictionary(),true)
@@ -90,7 +90,7 @@ class JsapiRest
     */
     class func getRequest(functionURL:String,postParams:String,callback:(NSDictionary,Bool)->Void)
     {
-        println(postParams)
+        print(postParams)
         let request = NSMutableURLRequest(URL: NSURL(string: functionURL+postParams)!)
         request.HTTPMethod = "GET"
         let postString = postParams
@@ -99,20 +99,20 @@ class JsapiRest
         
         
         if(!JsapiAPi.sharedInstance.getJsapiToken().isEmpty&&JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR){
-            println("token not empty :"+JsapiAPi.sharedInstance.getJsapiToken())
+            print("token not empty :"+JsapiAPi.sharedInstance.getJsapiToken())
             request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
         }
-        println(JsapiAPi.sharedInstance.getJsapiToken())
+        print(JsapiAPi.sharedInstance.getJsapiToken())
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
             if error != nil {
                 callback(NSDictionary(),true)
                 return
             }
-            let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
-            println("responseString = \(responseString)")
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("responseString = \(responseString)")
             var eerror : AutoreleasingUnsafeMutablePointer<NSError?> = nil
-            var jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: eerror) as? NSDictionary
+            var jsonResult: NSDictionary! = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
             if(jsonResult == nil)
             {
                 callback(NSDictionary(),true)
@@ -142,7 +142,7 @@ class JsapiRest
     */
     class func deleteRequest(functionURL:String,deleteParams:String,callback:(NSDictionary,Bool)->Void)
     {
-        println(deleteParams)
+        print(deleteParams)
         let request = NSMutableURLRequest(URL: NSURL(string: functionURL)!)
         request.HTTPMethod = "DELETE"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -150,20 +150,20 @@ class JsapiRest
         
         
         if(!JsapiAPi.sharedInstance.getJsapiToken().isEmpty&&JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR){
-            println("token not empty :"+JsapiAPi.sharedInstance.getJsapiToken())
+            print("token not empty :"+JsapiAPi.sharedInstance.getJsapiToken())
             request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
         }
-        println(JsapiAPi.sharedInstance.getJsapiToken())
+        print(JsapiAPi.sharedInstance.getJsapiToken())
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
             if error != nil {
                 callback(NSDictionary(),true)
                 return
             }
-            let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
-            println("responseString = \(responseString)")
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("responseString = \(responseString)")
             var eerror : AutoreleasingUnsafeMutablePointer<NSError?> = nil
-            var jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: eerror) as? NSDictionary
+            var jsonResult: NSDictionary! = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers ) as? NSDictionary
             if(jsonResult == nil)
             {
                 callback(NSDictionary(),true)
@@ -194,7 +194,7 @@ class JsapiRest
     */
     class func putRequest(functionURL:String,postParams:String,isJson:Bool,callback:(NSDictionary,Bool)->Void)
     {
-        println(postParams)
+        print(postParams)
         let request = NSMutableURLRequest(URL: NSURL(string: functionURL)!)
         request.HTTPMethod = "PUT"
         let postString = postParams
@@ -204,7 +204,7 @@ class JsapiRest
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.setValue("application/json", forHTTPHeaderField: "Accept")
         if(!JsapiAPi.sharedInstance.getJsapiToken().isEmpty&&JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR){
-            println("token not empty :"+JsapiAPi.sharedInstance.getJsapiToken())
+            print("token not empty :"+JsapiAPi.sharedInstance.getJsapiToken())
             request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
             }
         }else{
@@ -217,8 +217,8 @@ class JsapiRest
                 callback(NSDictionary(),false)
                 return
             }
-            let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
-            println("responseString = \(responseString)")
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("responseString = \(responseString)")
             if(responseString=="")
             {
                 callback(NSDictionary(),true)
@@ -226,7 +226,7 @@ class JsapiRest
                 return;
             }
             var eerror : AutoreleasingUnsafeMutablePointer<NSError?> = nil
-            var jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: eerror) as? NSDictionary
+            var jsonResult: NSDictionary! = try! NSJSONSerialization.JSONObjectWithData(data! , options: NSJSONReadingOptions.MutableContainers ) as? NSDictionary
             if(jsonResult == nil)
             {
                 callback(NSDictionary(),true)

@@ -47,14 +47,14 @@ public class JsapiAPi:NSObject
     public class func jsapiInit(jsapiurl:String,client_id:String,secrect_key:String)
     {
         if(jsapiurl.isEmpty){
-            println("JSAPI Init failed please check jsapiurl");
+            print("JSAPI Init failed please check jsapiurl");
             return;
         }
         if(client_id.isEmpty){
-            println("JSAPI Init failed please check client_id");
+            print("JSAPI Init failed please check client_id");
               return;
         }
-        println("JSAPI init Success");
+        print("JSAPI init Success");
 
         JsapiAPi.sharedInstance.jsapiurl=jsapiurl
         JsapiAPi.sharedInstance.client_id=client_id
@@ -82,17 +82,17 @@ public class JsapiAPi:NSObject
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         let methodurl:String=jsapiurl+JSAPIConstant.REGISTER
-        println(methodurl)
+        print(methodurl)
         JsapiRest.postrequest(methodurl,postParams: jsonRequestFromDictionary(registerationDetails),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println(result["error"])
-                    println(result["error_description"])
+                    print(result["error"])
+                    print(result["error_description"])
                 }else
                 {
-                    println(result)
+                    print(result)
                 }
                 callback(result,issuccess)
         }
@@ -105,20 +105,20 @@ public class JsapiAPi:NSObject
     public func doUserLogin(loginDetails:Dictionary<String,String>,callback:(NSDictionary,Bool)->Void)
     {
         let methodurl:String=jsapiurl+JSAPIConstant.OAUTH_TOKEN
-        println(methodurl)
+        print(methodurl)
         JsapiRest.postrequest(methodurl,postParams: authenticateRequestFromDictionary(loginDetails),isJson:false)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    println(result["error"])
-                    println(result["error_description"])
+                    print(result["error"])
+                    print(result["error_description"])
                 }else
                 {
                     self.token=result.valueForKey("access_token") as! String!
                     self.token_type=result.valueForKey("token_type") as! String!
 
-                    println("token is : "+self.token)
+                    print("token is : "+self.token)
                 }
                 callback(result,issuccess)
         }
@@ -158,7 +158,7 @@ public class JsapiAPi:NSObject
 //            postString+="&"
 //           }
         }
-        println(postString)
+        print(postString)
         return postString
     }
     
@@ -168,9 +168,9 @@ public class JsapiAPi:NSObject
     func jsonRequestFromDictionary(requestparamters:Dictionary<String,String>)->String
     {
         var err: NSError?
-        let body = NSJSONSerialization.dataWithJSONObject(requestparamters, options: nil, error: &err)!
+        let body = try! NSJSONSerialization.dataWithJSONObject(requestparamters, options: [] )
         var datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
-        println(datastring)
+        print(datastring)
         return datastring
     }
 

@@ -31,7 +31,7 @@ public class DispositionService:NSObject
                     
                 }else
                 {
-                    println(result)
+                    print(result)
                     callback(baseResponse.result.content,"",issuccess)
                     
                 }
@@ -57,7 +57,7 @@ public class DispositionService:NSObject
                     
                 }else
                 {
-                    println(result)
+                    print(result)
                     callback(baseResponse.result,"",issuccess)
                     
                 }

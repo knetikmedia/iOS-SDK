@@ -32,7 +32,7 @@ public class WalletService:NSObject
                     
                 }else
                 {
-                    println(result)
+                    print(result)
                     callback(baseResponse.wallet,"",issuccess)
                     
                 }

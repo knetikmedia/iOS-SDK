@@ -26,7 +26,7 @@ public class CommentService:NSObject
 
                 }else
                 {
-                    println(result)
+                    print(result)
                     callback(baseResponse,"",issuccess)
 
                 }

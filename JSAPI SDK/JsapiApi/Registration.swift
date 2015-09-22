@@ -20,7 +20,7 @@ public class Registration:NSObject
         var commonParamtersDictionry=Dictionary<String,String>()
         var endpoint=JSAPIConstant.FORGOTPASSWORD
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+endpoint
-        println(methodurl)
+        print(methodurl)
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
@@ -49,7 +49,7 @@ public class Registration:NSObject
         var commonParamtersDictionry=Dictionary<String,String>()
         var endpoint=JSAPIConstant.GUESTS
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+endpoint
-        println(methodurl)
+        print(methodurl)
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
@@ -76,7 +76,7 @@ public class Registration:NSObject
         var commonParamtersDictionry=Dictionary<String,String>()
         var endpoint=JSAPIConstant.GUESTUPGRADE
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+endpoint
-        println(methodurl)
+        print(methodurl)
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
@@ -100,7 +100,7 @@ public class Registration:NSObject
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.REGISTER
-        println(methodurl)
+        print(methodurl)
         JsapiRest.postrequest(methodurl,postParams:  Utilities.jsonRequestFromDictionary(registerationDetails),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in

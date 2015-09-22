@@ -24,15 +24,15 @@ public class UserService:NSObject {
             var userResponse = UserResponse(fromDictionary: result)
             if(!issuccess)
             {
-                println(result["error"])
-                println(result["error_description"])
-                println(userResponse.errormessage)
+                print(result["error"])
+                print(result["error_description"])
+                print(userResponse.errormessage)
                 
                 callback(User(),userResponse.errormessage,issuccess)
 
             }else
             {
-                println(result)
+                print(result)
                 callback(userResponse.user,"",issuccess)
 
             }
@@ -53,13 +53,13 @@ public class UserService:NSObject {
                 var baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    println(result["error"])
-                    println(result["error_description"])
+                    print(result["error"])
+                    print(result["error_description"])
                     callback(baseResponse,baseResponse.errormessage,issuccess)
 
                 }else
                 {
-                    println(result)
+                    print(result)
                     callback(baseResponse,"",issuccess)
 
                 }
@@ -81,13 +81,13 @@ public class UserService:NSObject {
                 var baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    println(result["error"])
-                    println(result["error_description"])
+                    print(result["error"])
+                    print(result["error_description"])
                     callback(baseResponse,baseResponse.errormessage,issuccess)
 
                 }else
                 {
-                    println(result)
+                    print(result)
                     callback(baseResponse,"",issuccess)
 
                 }
