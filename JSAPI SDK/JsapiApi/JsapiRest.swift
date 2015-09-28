@@ -63,10 +63,25 @@ class JsapiRest
             }
             if(jsonResult["error"] != nil && isJson)
             {
+                if jsonResult["error"] is Dictionary<String,Bool>{
                 let errorObject = jsonResult["error"] as! Dictionary<String,Bool>
                 
                 let isSuccess=errorObject["success"]?.boolValue
                 callback(jsonResult,isSuccess!)
+                }else
+                {
+                    let errorObject = jsonResult["error"] as! String
+                    let error_description = jsonResult["error_description"] as! String
+
+                    let isSuccess = false
+                    var dictionary = Dictionary<String ,String>()
+                     dictionary.updateValue(errorObject,forKey: "error")
+                    dictionary.updateValue(error_description,forKey: "error_description")
+
+                    callback(jsonResult , isSuccess)
+
+                }
+                
             }else
                 if(jsonResult["error"] != nil)
                 {
@@ -225,7 +240,6 @@ class JsapiRest
 
                 return;
             }
-            var eerror : AutoreleasingUnsafeMutablePointer<NSError?> = nil
             let jsonResult: NSDictionary! = try! NSJSONSerialization.JSONObjectWithData(data! , options: NSJSONReadingOptions.MutableContainers ) as? NSDictionary
             if(jsonResult == nil)
             {

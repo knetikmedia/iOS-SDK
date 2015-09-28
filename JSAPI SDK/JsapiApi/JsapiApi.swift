@@ -182,7 +182,7 @@ public class JsapiAPi:NSObject
 
     public func getJsapiToken()->String
     {
-        return self.token_type+self.token;
+        return self.token_type+" "+self.token;
     }
 
 }

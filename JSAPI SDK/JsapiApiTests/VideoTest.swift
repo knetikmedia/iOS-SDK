@@ -13,15 +13,17 @@ class VideoTest: XCTestCase {
     var theUser:User = User()
     var lastVideo=Video()
     var theNewVideo = Video()
+    
     override func setUp() {
         super.setUp()
         JsapiAPi.jsapiInit("http://localhost:8080/jsapi", client_id: "knetik",secrect_key: "superSUPERsuperSECRET")
 
-        testDoLogin()
-        testGetUserInfo()
+        DoLogin()
+        GetUserInfo()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    func testDoLogin()
+    
+    func DoLogin()
     {
         let readyExpectation = expectationWithDescription("ready")
         var userDetails=Dictionary<String,String>()
@@ -37,18 +39,18 @@ class VideoTest: XCTestCase {
                 {
                     XCTAssertTrue(issuccess, "Login pass")
                 }
+               
                 readyExpectation.fulfill()
-                
+
                 
         }
-        self.waitForExpectationsWithTimeout(5.0, handler: { error in XCTAssertNil(error, "Oh, we got timeout")
+        
+                self.waitForExpectationsWithTimeout(5.0, handler: { error in XCTAssertNil(error, "Oh, we got timeout")
         })
     }
     
-    func testGetUserInfo()
+    func GetUserInfo()
     {
-        
-        testDoLogin();
         let readyExpectation = expectationWithDescription("ready")
         var userDetails=Dictionary<String,String>()
         var userObject = UserService()

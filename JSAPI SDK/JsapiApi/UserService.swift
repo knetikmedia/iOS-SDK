@@ -17,7 +17,7 @@ public class UserService:NSObject {
  public func getUserInfo(params:Dictionary<String,String>,callback:(User,String,Bool)->Void)
  {
         
-   let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETUSERINFO;
+   let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETUSERINFO
     JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
     {
             (result:NSDictionary,issuccess:Bool) in
