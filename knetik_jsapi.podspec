@@ -21,6 +21,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "8.0"
   s.source       = { :git => "https://github.com/knetikmedia/iOS-SDK.git", :tag => '1.0.0' }
 
-  s.source_files  = "JSAPI SDK", "JsapiApi/**/*.swift"
+  s.source_files  = JsapiApi/**/*.swift"
   s.requires_arc = true
 end
