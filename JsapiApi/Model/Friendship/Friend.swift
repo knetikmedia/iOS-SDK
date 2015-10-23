@@ -24,7 +24,7 @@ public class Friend:NSObject{
     }
     public func getDisplayName()->String
     {
-        return userStatus;
+        return displayName;
     }
     
     public func getUserId()->Int
