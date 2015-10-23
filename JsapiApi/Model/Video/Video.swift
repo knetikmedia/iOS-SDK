@@ -11,24 +11,26 @@ public class Video :NSObject{
         super.init()
     }
     
-	var author : SimpleUser!
-	var authored : Int!
-	var contributors : [Contributor]!
-	var created : Int!
-	var embed : String!
-	var videoExtension : String!
-	var height : Int!
-	var id : Int!
-	var length : Int!
-	var location : String!
-	var longDescription : String!
-	var mimeType : String!
-	var name : String!
-	var shortDescription : String!
-	var size : Int!
-	var updated : Int!
-	var uploader : Artist!
-	var width : Int!
+    public var author : SimpleUser!
+    public var authored : Int!
+    public var contributors : [Contributor]!
+    public var created : Int!
+    public var embed : String!
+    public var videoExtension : String!
+    public var height : Int!
+    public var id : Int!
+    public var length : Int!
+    public var location : String!
+    public var longDescription : String!
+    public var mimeType : String!
+    public var name : String!
+    public var shortDescription : String!
+    public var size : Int!
+    public var updated : Int!
+    public var uploader : Artist!
+    public var width : Int!
+    
+    
 
 
 	/**
