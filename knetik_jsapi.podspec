@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => "BSD", :file => "LICENSE" }
   s.author             = { "Knetik" => "dev@knetik.com" }
   s.platform     = :ios, "8.0"
-  s.source       = { :git => "https://github.com/knetikmedia/iOS-SDK.git", :branch => 'jsapi2-OB' :tag => '1.0.0' }
+  s.source       = { :git => "https://github.com/knetikmedia/iOS-SDK.git", :tag => '1.0.0' }
 
   s.source_files  = "JsapiApi/**/*.swift"
   s.requires_arc = true
