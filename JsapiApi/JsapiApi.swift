@@ -122,6 +122,32 @@ public class JsapiAPi:NSObject
                 callback(result,issuccess)
         }
     }
+    
+    /**
+    do User Login
+    */
+    public func doFacebookLogin(loginDetails:Dictionary<String,String>,callback:(NSDictionary,Bool)->Void)
+    {
+        let methodurl:String=jsapiurl+JSAPIConstant.OAUTH_TOKEN
+        print(methodurl)
+        JsapiRest.postrequest(methodurl,postParams: authenticateFacebookRequestFromDictionary(loginDetails),isJson:false)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    print(result["error"])
+                    print(result["error_description"])
+                }else
+                {
+                    self.token=result.valueForKey("access_token") as! String!
+                    self.token_type=result.valueForKey("token_type") as! String!
+                    
+                    print("token is : "+self.token)
+                }
+                callback(result,issuccess)
+        }
+    }
+
 
     /**
     do User Logout
@@ -160,6 +186,35 @@ public class JsapiAPi:NSObject
         print(postString)
         return postString
     }
+    
+    /*
+    generate facebook auth request token from Dictionary
+    */
+    func authenticateFacebookRequestFromDictionary(requestparamters:Dictionary<String,String>)->String
+    {
+        var commonParamtersDictionry=Dictionary<String,String>()
+        commonParamtersDictionry["client_id"]=JsapiAPi.sharedInstance.client_id
+        commonParamtersDictionry["grant_type"]="facebook"
+        if(!JsapiAPi.sharedInstance.secrect_key.isEmpty){
+            
+            commonParamtersDictionry["client_secret"]=JsapiAPi.sharedInstance.secrect_key
+            
+        }
+        for key in requestparamters.keys
+        {
+            commonParamtersDictionry[key]=requestparamters[key]
+        }
+        var postString:String=""
+        for key in commonParamtersDictionry.keys
+        {
+            postString+=key+"="+commonParamtersDictionry[key]!
+            postString+="&"
+      }
+        print(postString)
+        return postString
+    }
+    
+    
     
     /*
     generate Json Request from Dictionary
