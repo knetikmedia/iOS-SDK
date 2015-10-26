@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "knetik_jsapi"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "knetik Jsapi"
   s.description  = <<-DESC
                    Connecting to JSAPI using IOS Swift
