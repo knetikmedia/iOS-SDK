@@ -18,7 +18,7 @@ public class UserService:NSObject {
  {
         
    let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETUSERINFO
-    JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
+    JsapiRest.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
     {
             (result:NSDictionary,issuccess:Bool) in
             let userResponse = UserResponse(fromDictionary: result)
@@ -44,10 +44,10 @@ public class UserService:NSObject {
   *@param params Dictionary{"userId": 0,"configName": "","configValue": ""}
   *@param callback
  */
-    public func updateUserInfo(configName:String,params:String,callback:(AnyObject,String,Bool)->Void)
+    public func updateUserInfo(params:Dictionary<String,String>,callback:(AnyObject,String,Bool)->Void)
     {
-        let methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.UPDATEUSERINFO,configName) as String
-        JsapiRest.putRequest(methodUrl, postParams: Utilities.getformatedPutString(params), isJson: true)
+        let methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.UPDATEUSERINFO) as String
+        JsapiRest.putRequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let baseResponse=BaseResponse(fromDictionary: result)

@@ -30,8 +30,8 @@ class var GUESTS:String {return "/services/latest/registration/guests"};
 //EndRegister
     
 //User
-class var GETUSERINFO:String {return "/services/latest/user/getinfo" }  
-class var UPDATEUSERINFO:String {return "/services/latest/users/me/%@"}; 
+class var GETUSERINFO:String {return "/services/latest/users/me" }
+class var UPDATEUSERINFO:String {return "/services/latest/users/me"}; 
 class var SETUSERPASSWORD:String {return "/services/latest/user/%@/password"};
 //EndUser
 

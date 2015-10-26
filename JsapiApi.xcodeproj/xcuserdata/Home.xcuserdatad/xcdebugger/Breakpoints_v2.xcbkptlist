@@ -17,6 +17,38 @@
             endingLineNumber = "50"
             landmarkName = "addDisposition(_:callback:)"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "JsapiApiTests.DispositionService.addDisposition (JsapiApiTests.DispositionService)(Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, callback : (JsapiApiTests.Disposition, Swift.String, Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "JsapiApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JsapiApi/DispositionService.swift"
+                  timestampString = "467570957.885093"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "1150">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "JsapiApi.DispositionService.addDisposition (JsapiApi.DispositionService)(Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, callback : (JsapiApi.Disposition, Swift.String, Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "JsapiApi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JsapiApi/DispositionService.swift"
+                  timestampString = "467570957.892568"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "1150">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -33,6 +65,38 @@
             endingLineNumber = "49"
             landmarkName = "addDisposition(_:callback:)"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "JsapiApiTests.DispositionService.addDisposition (JsapiApiTests.DispositionService)(Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, callback : (JsapiApiTests.Disposition, Swift.String, Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "JsapiApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JsapiApi/DispositionService.swift"
+                  timestampString = "467570957.888414"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "27">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "JsapiApi.DispositionService.addDisposition (JsapiApi.DispositionService)(Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, callback : (JsapiApi.Disposition, Swift.String, Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "JsapiApi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///KnetikProjects/JSAPI-Mobile_SDK/iOS-SDK/JsapiApi/DispositionService.swift"
+                  timestampString = "467570957.892889"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "27">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -57,13 +121,61 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "JsapiApi/UserService.swift"
-            timestampString = "467068029.349524"
+            filePath = "JsapiApiTests/CartTest.swift"
+            timestampString = "467566510.665936"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "getUserInfo(_:callback:)"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "testGetUserInfo()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JsapiApiTests/CartTest.swift"
+            timestampString = "467566595.417407"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "testGetUserInfo()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JsapiApiTests/UserTest.swift"
+            timestampString = "467570956.559249"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "testUpdateUser()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JsapiApiTests/UserTest.swift"
+            timestampString = "467570956.559249"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "testUpdateUser()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

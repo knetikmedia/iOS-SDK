@@ -69,32 +69,33 @@ class UserTest: XCTestCase {
         })
     }
     
-//    func testUpdateUser()
-//    {
-//        let readyExpectation = expectationWithDescription("ready")
-//
-//        var value="knetik config value"
-//        
-//        var userObject = UserService()
-//        userObject.updateUserInfo("display_name",params:value)
-//            {
-//                (result:AnyObject,errormessage:String,issuccess:Bool) in
-//                if(!issuccess)
-//                {
-//                    XCTAssertTrue(issuccess, "testGetUserInfo failed")
-//                    
-//                }else
-//                {
-//                    XCTAssertTrue(issuccess, "testGetUserInfo pass")
-//                    // Valid Response
-//                }
-//                readyExpectation.fulfill()
-//
-//        }
-//        self.waitForExpectationsWithTimeout(6.0, handler: { error in XCTAssertNil(error, "Oh, we got timeout")
-//        })
-//
-//    }
+    func testUpdateUser()
+    {
+        let readyExpectation = expectationWithDescription("ready")
+
+        var userDetails=Dictionary<String,String>()
+        userDetails["displayname"] = "admin amin"
+        userDetails["email"] = "admin@admin.com"
+        let userObject = UserService()
+        userObject.updateUserInfo(userDetails)
+            {
+                (result:AnyObject,errormessage:String,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    XCTAssertTrue(issuccess, "testGetUserInfo failed")
+                    
+                }else
+                {
+                    XCTAssertTrue(issuccess, "testGetUserInfo pass")
+                    // Valid Response
+                }
+                readyExpectation.fulfill()
+
+        }
+        self.waitForExpectationsWithTimeout(6.0, handler: { error in XCTAssertNil(error, "Oh, we got timeout")
+        })
+
+    }
 
     
     override func tearDown() {
