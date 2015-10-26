@@ -7,11 +7,11 @@ import Foundation
 
 public class SimpleUser:NSObject{
 
-	var id : Int!
-	var displayName : String!
-	var avatarUrl : String!
+	public var userId : Int!
+	public var displayName : String!
+	public  var avatarUrl : String!
     
-    public func getId()->Int{return id}
+    public func getId()->Int{return userId}
     public func getAvatarUrl()->String{return avatarUrl }
     public func getDisplayName()->String{return displayName }
   
@@ -22,7 +22,7 @@ public class SimpleUser:NSObject{
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
 	init(fromDictionary dictionary: NSDictionary){
-		id = dictionary["id"] as? Int
+		userId = dictionary["id"] as? Int
 		avatarUrl = dictionary["avatarUrl"] as? String
 		displayName = dictionary["displayname"] as? String
 		}
@@ -30,8 +30,8 @@ public class SimpleUser:NSObject{
     func toDictionary() -> NSDictionary
     {
         let dictionary = NSMutableDictionary()
-        if id != nil{
-            dictionary["id"] = id
+        if userId != nil{
+            dictionary["id"] = userId
         }
         if displayName != nil{
             dictionary["name"] = displayName

@@ -18,7 +18,7 @@ public class Video :NSObject{
     public var embed : String!
     public var videoExtension : String!
     public var height : Int!
-    public var id : Int!
+    public var videoId : Int!
     public var length : Int!
     public var location : String!
     public var longDescription : String!
@@ -50,7 +50,7 @@ public class Video :NSObject{
 		embed = dictionary["embed"] as? String
 		videoExtension = dictionary["extension"] as? String
 		height = dictionary["height"] as? Int
-		id = dictionary["id"] as? Int
+		videoId = dictionary["id"] as? Int
 		length = dictionary["length"] as? Int
 		location = dictionary["location"] as? String
 		longDescription = dictionary["longDescription"] as? String
@@ -96,8 +96,8 @@ public class Video :NSObject{
 		if height != nil{
 			dictionary["height"] = height
 		}
-		if id != nil{
-			dictionary["id"] = id
+		if videoId != nil{
+			dictionary["id"] = videoId
 		}
 		if length != nil{
 			dictionary["length"] = length

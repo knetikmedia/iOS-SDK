@@ -194,7 +194,7 @@ class VideoTest: XCTestCase {
         var addedVideo=Video()
         addedVideo.author=SimpleUser()
         addedVideo.authored=1439404367
-        addedVideo.author.id=1
+        addedVideo.author.userId=1
         addedVideo.author.displayName="youssef"
         addedVideo.height=400
         addedVideo.embed="ok"
@@ -271,7 +271,7 @@ class VideoTest: XCTestCase {
         
         var video = VideoService()
         
-        video.updateVideoDetails(NSString(format:"%d",theNewVideo.id) as String,params:videoParams as! Dictionary<String, AnyObject>)
+        video.updateVideoDetails(NSString(format:"%d",theNewVideo.videoId) as String,params:videoParams as! Dictionary<String, AnyObject>)
             {
                 (result:String,errormessage:String,issuccess:Bool) in
                 if(!issuccess)
