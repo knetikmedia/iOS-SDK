@@ -51,8 +51,8 @@ class FriendShipTest: XCTestCase {
         
         testDoLogin();
         let readyExpectation = expectationWithDescription("ready")
-        var userDetails=Dictionary<String,String>()
-        var userObject = UserService()
+        let userDetails=Dictionary<String,String>()
+        let userObject = UserService()
         userObject.getUserInfo(userDetails)
             {
                 (user:User,errormessage:String,issuccess:Bool) in
@@ -106,7 +106,7 @@ class FriendShipTest: XCTestCase {
         var params=Dictionary<String,AnyObject>()
         params["target_user_id"]=self.theRegisteredUser.getId()
         params["user_id"]=NSString(format:"%d",theUser.getId())
-        var friendShip = FriendshipService()
+        let friendShip = FriendshipService()
         
         friendShip.addFriend(params)
             {
@@ -133,7 +133,7 @@ class FriendShipTest: XCTestCase {
         params["page"]=1
         params["size"]=20
         
-        var friendShip = FriendshipService()
+        let friendShip = FriendshipService()
         
         friendShip.getFriends(params)
             {

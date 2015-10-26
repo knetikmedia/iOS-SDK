@@ -7,16 +7,25 @@ import Foundation
 
 public class Dispositions:NSObject{
 
-	var content : [Disposition]!
-	var first : Bool!
-	var last : Bool!
-	var number : Int!
-	var numberOfElements : Int!
-	var size : Int!
-	var sort : AnyObject!
-	var totalElements : Int!
-	var totalPages : Int!
+	public var content : [Disposition]!
+	public var first : Bool!
+	public var last : Bool!
+	public var number : NSNumber!
+	public var numberOfElements : NSNumber!
+	public var size : NSNumber!
+	public var sort : AnyObject!
+	public var totalElements : NSNumber!
+	public var totalPages : NSNumber!
 
+    public func getFirst()->Bool{
+    
+        return first;
+    }
+    
+    public func getLast()->Bool{
+        
+        return last;
+    }
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
@@ -31,12 +40,12 @@ public class Dispositions:NSObject{
 		}
 		first = dictionary["first"] as? Bool
 		last = dictionary["last"] as? Bool
-		number = dictionary["number"] as? Int
-		numberOfElements = dictionary["numberOfElements"] as? Int
-		size = dictionary["size"] as? Int
+		number = dictionary["number"] as? NSNumber
+		numberOfElements = dictionary["numberOfElements"] as? NSNumber
+		size = dictionary["size"] as? NSNumber
 		sort = dictionary["sort"] as? NSString
-		totalElements = dictionary["totalElements"] as? Int
-		totalPages = dictionary["totalPages"] as? Int
+		totalElements = dictionary["totalElements"] as? NSNumber
+		totalPages = dictionary["totalPages"] as? NSNumber
 	}
 
 	/**

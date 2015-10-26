@@ -7,9 +7,9 @@ import Foundation
 
 public class Checkout:NSObject{
 
-	var discounts : [AnyObject]!
-	var invoices : [Invoice]!
-	var items : [Item]!
+	public var discounts : [AnyObject]!
+	public var invoices : [Invoice]!
+	public var items : [Item]!
 
     public func getDiscounts()->AnyObject
     {

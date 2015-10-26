@@ -8,7 +8,7 @@ import Foundation
 public class Friend:NSObject{
     
     var displayName : String!
-    var userId : Int!
+    var userId : NSNumber!
     var userStatus : String!
     var friends : [Friend]!
     var invites : [Friend]!
@@ -27,7 +27,7 @@ public class Friend:NSObject{
         return displayName;
     }
     
-    public func getUserId()->Int
+    public func getUserId()->NSNumber
     {
         return userId;
     }
@@ -41,7 +41,7 @@ public class Friend:NSObject{
     */
     init(fromDictionary dictionary: NSDictionary){
         displayName = dictionary["display_name"] as? String
-        userId = dictionary["user_id"] as? Int
+        userId = dictionary["user_id"] as? NSNumber
         userStatus = dictionary["user_status"] as? String
         friends = [Friend]()
         if let friendsArray = dictionary["friends"] as? [NSDictionary]{

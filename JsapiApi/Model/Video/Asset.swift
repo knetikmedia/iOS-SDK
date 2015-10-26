@@ -10,28 +10,28 @@ public class Asset:NSObject{
     override public init() {
         super.init()
     }
-    var deleted : Int!
-	var assetDescription : String!
-	var assetHash : String!
-	var id : Int!
-	var itemId : Int!
-	var path : AnyObject!
-	var sortOrder : Int!
-	var type : String!
-	var url : String!
+    public var deleted : NSNumber!
+	public var assetDescription : String!
+	public var assetHash : String!
+	public var assetId : NSNumber!
+	public var itemId : NSNumber!
+	public var path : AnyObject!
+	public var sortOrder : NSNumber!
+	public var type : String!
+	public var url : String!
 
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
 	init(fromDictionary dictionary: NSDictionary){
-		deleted = dictionary["deleted"] as? Int
+		deleted = dictionary["deleted"] as? NSNumber
 		assetDescription = dictionary["description"] as? String
 		assetHash = dictionary["hash"] as? String
-		id = dictionary["id"] as? Int
-		itemId = dictionary["item_id"] as? Int
+		assetId = dictionary["id"] as? NSNumber
+		itemId = dictionary["item_id"] as? NSNumber
 		path = dictionary["path"] as AnyObject!
-		sortOrder = dictionary["sort_order"] as? Int
+		sortOrder = dictionary["sort_order"] as? NSNumber
 		type = dictionary["type"] as? String
 		url = dictionary["url"] as? String
 	}
@@ -51,8 +51,8 @@ public class Asset:NSObject{
         if assetHash != nil{
             dictionary["hash"] = assetHash
         }
-        if id != nil{
-            dictionary["id"] = id
+        if assetId != nil{
+            dictionary["id"] = assetId
         }
         if itemId != nil{
             dictionary["item_id"] = itemId

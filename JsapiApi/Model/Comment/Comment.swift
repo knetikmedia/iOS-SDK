@@ -8,28 +8,28 @@ import Foundation
 public class Comment:NSObject{
 
 	var comment : String!
-	var commentId : Int!
+	var commentId : NSNumber!
 	var dateCreated : String!
 	var dateUpdated : String!
-	var deleted : Int!
+	var deleted : NSNumber!
 	var displayName : String!
     var summary : String!
-	var contextId : Int!
+	var contextId : NSNumber!
     var context : String!
-	var userId : Int!
+	var userId : NSNumber!
     var user :SimpleUser!
     
     public func  getComment()-> String
     {
         return comment;
     }
-    public func  getCommentId()-> Int{return commentId}
+    public func  getCommentId()-> NSNumber{return commentId}
     public func  getDateCreated()->String{return dateCreated}
     public func  getDateUpdated()->String{return dateUpdated}
-    public func  getDeleted()->Int{return deleted}
+    public func  getDeleted()->NSNumber{return deleted}
     public func  getDisplayName()->String{return displayName}
-    public func  getContextId()->Int{return contextId}
-    public func  getUserId()->Int{return userId}
+    public func  getContextId()->NSNumber{return contextId}
+    public func  getUserId()->NSNumber{return userId}
     public func  getContext()->String{return context}
 
 	/**
@@ -37,15 +37,15 @@ public class Comment:NSObject{
 	 */
 	init(fromDictionary dictionary: NSDictionary){
 		comment = dictionary["content"] as? String
-		commentId = dictionary["id"] as? Int
+		commentId = dictionary["id"] as? NSNumber
 		dateCreated = dictionary["date_created"] as? String
 		dateUpdated = dictionary["date_updated"] as? String
-		deleted = dictionary["deleted"] as? Int
+		deleted = dictionary["deleted"] as? NSNumber
 		displayName = dictionary["display_name"] as? String
         summary = dictionary["summary"] as? String
         context = dictionary["context"] as? String
-		contextId = dictionary["context_id"] as? Int
-		userId = dictionary["user_id"] as? Int
+		contextId = dictionary["context_id"] as? NSNumber
+		userId = dictionary["user_id"] as? NSNumber
         user=SimpleUser(fromDictionary: dictionary["user"] as! NSDictionary)
 	}
 

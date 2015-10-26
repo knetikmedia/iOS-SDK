@@ -7,14 +7,14 @@ import Foundation
 
 public class Related:NSObject{
 
-	var id : Int!
+	public var relatedId : NSNumber!
 
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
 	init(fromDictionary dictionary: NSDictionary){
-		id = dictionary["id"] as? Int
+		relatedId = dictionary["id"] as? NSNumber
 	}
 
 }

@@ -12,23 +12,23 @@ public class Video :NSObject{
     }
     
     public var author : SimpleUser!
-    public var authored : Int!
+    public var authored : NSNumber!
     public var contributors : [Contributor]!
-    public var created : Int!
+    public var created : NSNumber!
     public var embed : String!
     public var videoExtension : String!
-    public var height : Int!
-    public var videoId : Int!
-    public var length : Int!
+    public var height : NSNumber!
+    public var videoId : NSNumber!
+    public var length : NSNumber!
     public var location : String!
     public var longDescription : String!
     public var mimeType : String!
     public var name : String!
     public var shortDescription : String!
-    public var size : Int!
-    public var updated : Int!
+    public var size : NSNumber!
+    public var updated : NSNumber!
     public var uploader : Artist!
-    public var width : Int!
+    public var width : NSNumber!
     
     
 
@@ -38,7 +38,7 @@ public class Video :NSObject{
 	 */
 	init(fromDictionary dictionary: NSDictionary){
 		author = dictionary["author"] as? SimpleUser!
-		authored = dictionary["authored"] as? Int
+		authored = dictionary["authored"] as? NSNumber
 		contributors = [Contributor]()
 		if let contributorsArray = dictionary["contributors"] as? [NSDictionary]{
 			for dic in contributorsArray{
@@ -46,23 +46,23 @@ public class Video :NSObject{
 				contributors.append(value)
 			}
 		}
-		created = dictionary["created"] as? Int
+		created = dictionary["created"] as? NSNumber
 		embed = dictionary["embed"] as? String
 		videoExtension = dictionary["extension"] as? String
-		height = dictionary["height"] as? Int
-		videoId = dictionary["id"] as? Int
-		length = dictionary["length"] as? Int
+		height = dictionary["height"] as? NSNumber
+		videoId = dictionary["id"] as? NSNumber
+		length = dictionary["length"] as? NSNumber
 		location = dictionary["location"] as? String
 		longDescription = dictionary["longDescription"] as? String
 		mimeType = dictionary["mime_type"] as? String
 		name = dictionary["name"] as? String
 		shortDescription = dictionary["shortDescription"] as? String
-		size = dictionary["size"] as? Int
-		updated = dictionary["updated"] as? Int
+		size = dictionary["size"] as? NSNumber
+		updated = dictionary["updated"] as? NSNumber
 		if let uploaderData = dictionary["uploader"] as? NSDictionary{
 			uploader = Artist(fromDictionary: uploaderData)
 		}
-		width = dictionary["width"] as? Int
+		width = dictionary["width"] as? NSNumber
 	}
 
 	/**

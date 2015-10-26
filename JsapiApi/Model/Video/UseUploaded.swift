@@ -7,18 +7,18 @@ import Foundation
 
 public class UseUploaded:NSObject{
 
-	var id : Int!
-	var itemId : Int!
-	var userId : Int!
+	public var uploadId : NSNumber!
+	public var itemId : NSNumber!
+	public var userId : NSNumber!
 
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
 	init(fromDictionary dictionary: NSDictionary){
-		id = dictionary["id"] as? Int
-		itemId = dictionary["item_id"] as? Int
-		userId = dictionary["user_id"] as? Int
+		uploadId = dictionary["id"] as? NSNumber
+		itemId = dictionary["item_id"] as? NSNumber
+		userId = dictionary["user_id"] as? NSNumber
 	}
 
 }

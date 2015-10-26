@@ -50,8 +50,8 @@ class DispositionTest: XCTestCase {
         
         testDoLogin();
         let readyExpectation = expectationWithDescription("ready")
-        var userDetails=Dictionary<String,String>()
-        var userObject = UserService()
+        let userDetails=Dictionary<String,String>()
+        let userObject = UserService()
         userObject.getUserInfo(userDetails)
             {
                 (user:User,errormessage:String,issuccess:Bool) in

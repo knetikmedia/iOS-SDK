@@ -8,11 +8,11 @@ import Foundation
 public class WalletRequest :NSObject {
 
 	public var currencyType : String!
-	public var delta : Int!
-	public var invoiceId : Int!
+	public var delta : NSNumber!
+	public var invoiceId : NSNumber!
 	public var reason : String!
 	public var type : String!
-	public var userId : Int!
+	public var userId : NSNumber!
 	public var username : String!
 
     override public init(){super.init()}
@@ -22,11 +22,11 @@ public class WalletRequest :NSObject {
 	 */
 	init(fromDictionary dictionary: NSDictionary){
 		currencyType = dictionary["currencyType"] as? String
-		delta = dictionary["delta"] as? Int
-		invoiceId = dictionary["invoiceId"] as? Int
+		delta = dictionary["delta"] as? NSNumber
+		invoiceId = dictionary["invoiceId"] as? NSNumber
 		reason = dictionary["reason"] as? String
 		type = dictionary["type"] as? String
-		userId = dictionary["userId"] as? Int
+		userId = dictionary["userId"] as? NSNumber
 		username = dictionary["username"] as? String
 	}
 

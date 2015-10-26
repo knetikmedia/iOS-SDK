@@ -7,7 +7,7 @@ import Foundation
 
 class WalletResponse :BaseResponse{
 
-	var wallet : Wallet!
+	public var wallet : Wallet!
 
 
 	/**

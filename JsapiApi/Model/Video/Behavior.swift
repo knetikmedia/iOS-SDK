@@ -7,12 +7,16 @@ import Foundation
 
 public class Behavior:NSObject{
 
-	var displayable : Bool!
-	var endDate : AnyObject!
-	var id : Int!
-	var startDate : AnyObject!
-	var typeHint : String!
+	public var displayable : Bool!
+	public var endDate : AnyObject!
+	public var behaviorId : NSNumber!
+	public var startDate : AnyObject!
+	public var typeHNSNumber : String!
 
+    
+    public func getDisplayable()->Bool{
+        return displayable;
+    }
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
@@ -20,9 +24,9 @@ public class Behavior:NSObject{
 	init(fromDictionary dictionary: NSDictionary){
 		displayable = dictionary["displayable"] as? Bool
 		endDate = dictionary["end_date"] as AnyObject!
-		id = dictionary["id"] as? Int
+		behaviorId = dictionary["id"] as? NSNumber
 		startDate = dictionary["start_date"] as AnyObject!
-		typeHint = dictionary["type_hint"] as? String
+		typeHNSNumber = dictionary["type_hNSNumber"] as? String
 	}
     
 }

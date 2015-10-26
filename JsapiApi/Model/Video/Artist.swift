@@ -7,15 +7,15 @@ import Foundation
 
 public class Artist :NSObject{
 
-    var id : Int!
-	var name : String!
+    public var artistId : NSNumber!
+	public var name : String!
 
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
 	init(fromDictionary dictionary: NSDictionary){
-		id = dictionary["id"] as? Int
+		artistId = dictionary["id"] as? NSNumber
 		name = dictionary["name"] as? String
 	}
 
@@ -25,8 +25,8 @@ public class Artist :NSObject{
 	func toDictionary() -> NSDictionary
 	{
 		let dictionary = NSMutableDictionary()
-		if id != nil{
-			dictionary["id"] = id
+		if artistId != nil{
+			dictionary["id"] = artistId
 		}
 		if name != nil{
 			dictionary["name"] = name

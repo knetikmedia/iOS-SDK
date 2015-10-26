@@ -24,7 +24,7 @@ public class LeaderboardService:NSObject
                 let baseResponse=LeaderboardResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    callback(baseResponse.leaderboard,baseResponse.errormessage,issuccess)
+                    callback(Leaderboard(),baseResponse.errormessage,issuccess)
                     
                 }else
                 {
@@ -78,7 +78,7 @@ public class LeaderboardService:NSObject
                 let baseResponse=UserRankResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    callback(baseResponse.rank,baseResponse.errormessage,issuccess)
+                    callback(Entrie(),baseResponse.errormessage,issuccess)
                     
                 }else
                 {

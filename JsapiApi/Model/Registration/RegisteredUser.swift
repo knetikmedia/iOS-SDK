@@ -12,8 +12,8 @@ public class RegisteredUser:NSObject{
     var affiliateId : AnyObject!
     var avatarUrl : AnyObject!
     var city : AnyObject!
-    var countryId : Int!
-    var currency : Int!
+    var countryId : NSNumber!
+    var currency : NSNumber!
     var dateOfBirth : AnyObject!
     var userDescription : AnyObject!
     var displayName : AnyObject!
@@ -21,7 +21,7 @@ public class RegisteredUser:NSObject{
     var firstName : AnyObject!
     var fullname : String!
     var gender : String!
-    var id : Int!
+    var registerationId : NSNumber!
     var lang : AnyObject!
     var lastActivity : AnyObject!
     var lastLogin : AnyObject!
@@ -43,8 +43,8 @@ public class RegisteredUser:NSObject{
     public func getAffiliateId ()->AnyObject{return affiliateId}
     public func getAvatarUrl ()->AnyObject{return avatarUrl}
     public func getCity ()->AnyObject{return city}
-    public func getCountryId ()->Int{return countryId}
-    public func getCurrency ()->Int{return currency}
+    public func getCountryId ()->NSNumber{return countryId}
+    public func getCurrency ()->NSNumber{return currency}
     public func getDateOfBirth ()->AnyObject{return dateOfBirth}
     public func getDescription ()->AnyObject{return description}
     public func getDisplayName ()->AnyObject{return displayName}
@@ -52,7 +52,7 @@ public class RegisteredUser:NSObject{
     public func getFirstName ()->AnyObject{return firstName}
     public func getFullname ()->String{return fullname}
     public func getGender ()->String{return gender}
-    public func getId ()->Int{return id}
+    public func getId ()->NSNumber{return registerationId}
     public func getLang ()->AnyObject{return lang}
     public func getLastActivity ()->AnyObject{return lastActivity}
     public func getLastLogin ()->AnyObject{return lastLogin}
@@ -79,8 +79,8 @@ public class RegisteredUser:NSObject{
         affiliateId = dictionary["affiliate_id"] as AnyObject!
         avatarUrl = dictionary["avatar_url"] as AnyObject!
         city = dictionary["city"] as AnyObject!
-        countryId = dictionary["country_id"] as? Int
-        currency = dictionary["currency"] as? Int
+        countryId = dictionary["country_id"] as? NSNumber
+        currency = dictionary["currency"] as? NSNumber
         dateOfBirth = dictionary["date_of_birth"] as AnyObject!
         userDescription = dictionary["description"] as AnyObject!
         displayName = dictionary["display_name"] as AnyObject!
@@ -88,7 +88,7 @@ public class RegisteredUser:NSObject{
         firstName = dictionary["first_name"] as AnyObject!
         fullname = dictionary["fullname"] as? String
         gender = dictionary["gender"] as? String
-        id = dictionary["id"] as? Int
+        registerationId = dictionary["id"] as? NSNumber
         lang = dictionary["lang"] as AnyObject!
         lastActivity = dictionary["last_activity"] as AnyObject!
         lastLogin = dictionary["last_login"] as AnyObject!

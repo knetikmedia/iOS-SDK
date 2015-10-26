@@ -7,14 +7,14 @@ import Foundation
 
 public class Catalog:NSObject{
 
-	var deleted : AnyObject!
-	var displayable : AnyObject!
-	var id : AnyObject!
-	var itemId : Int!
-	var storeEnd : AnyObject!
-	var storeStart : AnyObject!
-	var vendorId : AnyObject!
-	var virtualCurrencyId : AnyObject!
+	public var deleted : AnyObject!
+	public var displayable : AnyObject!
+	public var catalogId : AnyObject!
+	public var itemId : NSNumber!
+	public var storeEnd : AnyObject!
+	public var storeStart : AnyObject!
+	public var vendorId : AnyObject!
+	public var virtualCurrencyId : AnyObject!
 
 
 	/**
@@ -23,8 +23,8 @@ public class Catalog:NSObject{
 	init(fromDictionary dictionary: NSDictionary){
 		deleted = dictionary["deleted"] as AnyObject!
 		displayable = dictionary["displayable"] as AnyObject!
-		id = dictionary["id"] as AnyObject!
-		itemId = dictionary["item_id"] as? Int
+		catalogId = dictionary["id"] as AnyObject!
+		itemId = dictionary["item_id"] as? NSNumber
 		storeEnd = dictionary["store_end"] as AnyObject!
 		storeStart = dictionary["store_start"] as AnyObject!
 		vendorId = dictionary["vendor_id"] as AnyObject!

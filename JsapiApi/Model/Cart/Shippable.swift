@@ -7,10 +7,10 @@ import Foundation
 
 public class Shippable:NSObject{
 
-	var cartId : Int!
+	var cartId : NSNumber!
 	var shippable : Bool!
     
-    public func getCartId()->Int
+    public func getCartId()->NSNumber
     {
     return cartId
     }
@@ -24,7 +24,7 @@ public class Shippable:NSObject{
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
 	init(fromDictionary dictionary: NSDictionary){
-		cartId = dictionary["cartId"] as? Int
+		cartId = dictionary["cartId"] as? NSNumber
 		shippable = dictionary["shippable"] as? Bool
 	}
 

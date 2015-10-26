@@ -5,24 +5,26 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Entrie:NSObject{
+public class Entrie : NSObject{
 
-	var rank : Int!
-	var score : Int!
-	var userAvatarUrl : String!
-	var userDisplayName : String!
-	var userId : Int!
+	public var rank : NSNumber!
+	public var score : NSNumber!
+	public var userAvatarUrl : String!
+	public var userDisplayName : String!
+	public var userId : NSNumber!
 
+
+    override public init(){super.init()}
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
 	init(fromDictionary dictionary: NSDictionary){
-		rank = dictionary["rank"] as? Int
-		score = dictionary["score"] as? Int
+		rank = dictionary["rank"] as? NSNumber
+		score = dictionary["score"] as? NSNumber
 		userAvatarUrl = dictionary["user_avatar_url"] as? String
 		userDisplayName = dictionary["user_display_name"] as? String
-		userId = dictionary["user_id"] as? Int
+		userId = dictionary["user_id"] as? NSNumber
 	}
 
 	/**

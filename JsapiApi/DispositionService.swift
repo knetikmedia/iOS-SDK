@@ -46,14 +46,14 @@ public class DispositionService:NSObject
     */
     public func addDisposition(params:Dictionary<String,AnyObject>,callback:(Disposition,String,Bool)->Void)
     {
-        let methodUrl = NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDDISPOSITION, params["context"] as! String , params["contextId"] as! String )
+        let methodUrl = NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDDISPOSITION, params["context"] as! String , params["contextId"] as! NSNumber )
         JsapiRest.postrequest(methodUrl as String, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let baseResponse=NewDispositionResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    callback(baseResponse.result,baseResponse.errormessage,issuccess)
+                    callback(Disposition(),baseResponse.errormessage,issuccess)
                     
                 }else
                 {

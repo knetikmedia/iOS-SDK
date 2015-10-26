@@ -11,20 +11,20 @@ public class Metric :NSObject{
         super.init()
     }
     
-	var activityOccurenceId : Int!
-	var name : String!
-	var tags : [String]!
-	var value : Int!
+	public var activityOccurenceId : NSNumber!
+	public var name : String!
+	public var tags : [String]!
+	public var value : NSNumber!
 
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
 	init(fromDictionary dictionary: NSDictionary){
-		activityOccurenceId = dictionary["activity_occurence_id"] as? Int
+		activityOccurenceId = dictionary["activity_occurence_id"] as? NSNumber
 		name = dictionary["name"] as? String
 		tags = dictionary["tags"] as? [String]
-		value = dictionary["value"] as? Int
+		value = dictionary["value"] as? NSNumber
 	}
 
 	/**

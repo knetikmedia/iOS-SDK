@@ -7,21 +7,22 @@ import Foundation
 
 public class Leaderboard:NSObject{
 
-	var created : Int!
-	var entries : [Entrie]!
-	var id : Int!
-	var longDescription : AnyObject!
-	var name : AnyObject!
-	var shortDescription : AnyObject!
-	var strategy : String!
-	var updated : Int!
+    override public init(){super.init()}
+	public var created : NSNumber!
+	public var entries : [Entrie]!
+	public var leaderboardId : NSNumber!
+	public var longDescription : AnyObject!
+	public var name : AnyObject!
+	public var shortDescription : AnyObject!
+	public var strategy : String!
+	public var updated : NSNumber!
 
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
 	init(fromDictionary dictionary: NSDictionary){
-		created = dictionary["created"] as? Int
+		created = dictionary["created"] as? NSNumber
 		entries = [Entrie]()
 		if let entriesArray = dictionary["entries"] as? [NSDictionary]{
 			for dic in entriesArray{
@@ -29,12 +30,12 @@ public class Leaderboard:NSObject{
 				entries.append(value)
 			}
 		}
-		id = dictionary["id"] as? Int
+		leaderboardId = dictionary["id"] as? NSNumber
 		longDescription = dictionary["longDescription"] as? String
 		name = dictionary["name"] as? String
 		shortDescription = dictionary["shortDescription"] as? String
 		strategy = dictionary["strategy"] as? String
-		updated = dictionary["updated"] as? Int
+		updated = dictionary["updated"] as? NSNumber
 	}
 
 	/**
@@ -53,8 +54,8 @@ public class Leaderboard:NSObject{
 			}
 			dictionary["entries"] = dictionaryElements
 		}
-		if id != nil{
-			dictionary["id"] = id
+		if leaderboardId != nil{
+			dictionary["id"] = leaderboardId
 		}
 		if longDescription != nil{
 			dictionary["longDescription"] = longDescription

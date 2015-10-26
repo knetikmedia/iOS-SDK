@@ -9,9 +9,9 @@
 import Foundation
 class JSAPIConstant:NSObject
 {
-class var OAUTH_TOKEN:String {return "/oauth/token" }  // Login EndPoint class
+class var OAUTH_TOKEN:String {return "/oauth/token" }  // Login EndPoNSNumber class
 class var TOKENBREAR:String {return "" }
-//Cart EndPoints 
+//Cart EndPoNSNumbers 
 class var SCARTS:String {return "/services/latest/carts" }  // SCARTS because there is carts class
 class var CARTSSKU:String {return "/services/latest/carts/skus" }  // SCARTS because there is carts class
 class var CARTCHECKOUT:String {return "/services/latest/carts/%@/checkout" }  // %@ CARTGUID
@@ -23,7 +23,7 @@ class var SHIPPABLE:String {return "/services/latest/carts/%@/shippable" }  // %
  ///End Carts
 
 //registration
-class var REGISTER:String {return "/services/latest/registration" }  // Register Endpoint
+class var REGISTER:String {return "/services/latest/registration" }  // Register EndpoNSNumber
 class var FORGOTPASSWORD:String {return "/services/latest/registration/forgotpassword"};
 class var GUESTUPGRADE:String {return "/services/latest/registration/guestupgrade"};
 class var GUESTS:String {return "/services/latest/registration/guests"};

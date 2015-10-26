@@ -50,8 +50,8 @@ class CommentsTest: XCTestCase {
         
         testDoLogin();
         let readyExpectation = expectationWithDescription("ready")
-        var userDetails=Dictionary<String,String>()
-        var userObject = UserService()
+        let userDetails=Dictionary<String,String>()
+        let userObject = UserService()
         userObject.getUserInfo(userDetails)
             {
                 (user:User,errormessage:String,issuccess:Bool) in
@@ -77,7 +77,7 @@ class CommentsTest: XCTestCase {
 
         var params=Dictionary<String,String>()
         params["id"]="4"
-        var comment = CommentService()
+        let comment = CommentService()
         comment.commentsList(params)
             {
                (comments:Array<Comment>,errormessage:String,issuccess:Bool) in
@@ -87,7 +87,7 @@ class CommentsTest: XCTestCase {
                }else
                {
                 if(comments.count>0){
-                    var comment=comments[comments.count-1] as Comment
+                    let comment=comments[comments.count-1] as Comment
                     self.comment_id=String(comment.getCommentId())
                     print("comment id is "+self.comment_id)
                  }

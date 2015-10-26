@@ -7,11 +7,11 @@ import Foundation
 
 public class Wallet:NSObject{
 
-	var balance : Double!
-	var code : String!
-	var currencyName : String!
-	var id : Int!
-    var walletId : Int!
+	public var balance : NSNumber!
+	public var code : String!
+	public var currencyName : String!
+	public var wid : NSNumber!
+    public var walletId : NSNumber!
 
     override public init(){super.init()}
 
@@ -19,11 +19,11 @@ public class Wallet:NSObject{
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
 	init(fromDictionary dictionary: NSDictionary){
-		balance = dictionary["balance"] as? Double
+		balance = dictionary["balance"] as? NSNumber
 		code = dictionary["code"] as? String
 		currencyName = dictionary["currency_name"] as? String
-		id = dictionary["id"] as? Int
-        walletId = dictionary["wallet_id"] as? Int
+		wid = dictionary["id"] as? NSNumber
+        walletId = dictionary["wallet_id"] as? NSNumber
 
 	}
 

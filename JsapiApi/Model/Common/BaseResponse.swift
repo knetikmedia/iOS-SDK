@@ -9,7 +9,7 @@ class BaseResponse:NSObject{
 
 	private var cached : Bool!
 	private var error : Error!
-	var errormessage : String!
+	public var errormessage : String!
 	private var requestId : String!
 
 

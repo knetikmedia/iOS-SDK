@@ -7,59 +7,59 @@ import Foundation
 
 public class Favorite:NSObject{
 
-	var _id : Int!
-	var address : AnyObject!
-	var address2 : AnyObject!
-	var affiliateId : AnyObject!
-	var assets : [AnyObject]!
-	var avatarUrl : AnyObject!
-	var behaviors : [AnyObject]!
-	var city : AnyObject!
-	var countryId : AnyObject!
-	var currency : AnyObject!
-	var dateCreated : Int!
-	var dateOfBirth : AnyObject!
-	var dateUpdated : Int!
-	var deleted : Int!
-	var deletedAt : AnyObject!
-	var favoriteDescription : AnyObject!
-	var displayName : String!
-	var email : String!
-	var firstName : AnyObject!
-	var fullname : String!
-	var gender : AnyObject!
-	var id : Int!
-	var lang : AnyObject!
-	var lastActivity : Int!
-	var lastLogin : Int!
-	var lastName : AnyObject!
-	var lockoutAttempts : AnyObject!
-	var lockoutDate : AnyObject!
-	var longDescription : String!
-	var mobileNumber : AnyObject!
-	var name : String!
-	var oldId : AnyObject!
-	var password : String!
-	var postalCode : AnyObject!
-	var related : [AnyObject]!
-	var shortDescription : String!
-	var skus : [AnyObject]!
-	var sort : Int!
-	var state : AnyObject!
-	var status : String!
-	var terms : [AnyObject]!
-	var timezoneId : AnyObject!
-	var token : AnyObject!
-	var typeHint : String!
-	var uniqueKey : String!
-	var username : String!
+	public var _id : NSNumber!
+	public var address : AnyObject!
+	public var address2 : AnyObject!
+	public var affiliateId : AnyObject!
+	public var assets : [AnyObject]!
+	public var avatarUrl : AnyObject!
+	public var behaviors : [AnyObject]!
+	public var city : AnyObject!
+	public var countryId : AnyObject!
+	public var currency : AnyObject!
+	public var dateCreated : NSNumber!
+	public var dateOfBirth : AnyObject!
+	public var dateUpdated : NSNumber!
+	public var deleted : NSNumber!
+	public var deletedAt : AnyObject!
+	public var favoriteDescription : AnyObject!
+	public var displayName : String!
+	public var email : String!
+	public var firstName : AnyObject!
+	public var fullname : String!
+	public var gender : AnyObject!
+	public var id : NSNumber!
+	public var lang : AnyObject!
+	public var lastActivity : NSNumber!
+	public var lastLogin : NSNumber!
+	public var lastName : AnyObject!
+	public var lockoutAttempts : AnyObject!
+	public var lockoutDate : AnyObject!
+	public var longDescription : String!
+	public var mobileNumber : AnyObject!
+	public var name : String!
+	public var oldId : AnyObject!
+	public var password : String!
+	public var postalCode : AnyObject!
+	public var related : [AnyObject]!
+	public var shortDescription : String!
+	public var skus : [AnyObject]!
+	public var sort : NSNumber!
+	public var state : AnyObject!
+	public var status : String!
+	public var terms : [AnyObject]!
+	public var timezoneId : AnyObject!
+	public var token : AnyObject!
+	public var typeHNSNumber : String!
+	public var uniqueKey : String!
+	public var username : String!
 
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
 	init(fromDictionary dictionary: NSDictionary){
-		_id = dictionary["_id"] as? Int
+		_id = dictionary["_id"] as? NSNumber
 		address = dictionary["address"] as AnyObject!
 		address2 = dictionary["address2"] as AnyObject!
 		affiliateId = dictionary["affiliate_id"] as AnyObject!
@@ -81,10 +81,10 @@ public class Favorite:NSObject{
 		city = dictionary["city"] as AnyObject!
 		countryId = dictionary["country_id"] as AnyObject!
 		currency = dictionary["currency"] as AnyObject!
-		dateCreated = dictionary["date_created"] as? Int
+		dateCreated = dictionary["date_created"] as? NSNumber
 		dateOfBirth = dictionary["date_of_birth"] as AnyObject!
-		dateUpdated = dictionary["date_updated"] as? Int
-		deleted = dictionary["deleted"] as? Int
+		dateUpdated = dictionary["date_updated"] as? NSNumber
+		deleted = dictionary["deleted"] as? NSNumber
 		deletedAt = dictionary["deleted_at"] as AnyObject!
 		favoriteDescription = dictionary["description"] as AnyObject!
 		displayName = dictionary["display_name"] as? String
@@ -92,10 +92,10 @@ public class Favorite:NSObject{
 		firstName = dictionary["first_name"] as AnyObject!
 		fullname = dictionary["fullname"] as? String
 		gender = dictionary["gender"] as AnyObject!
-		id = dictionary["id"] as? Int
+		id = dictionary["id"] as? NSNumber
 		lang = dictionary["lang"] as AnyObject!
-		lastActivity = dictionary["last_activity"] as? Int
-		lastLogin = dictionary["last_login"] as? Int
+		lastActivity = dictionary["last_activity"] as? NSNumber
+		lastLogin = dictionary["last_login"] as? NSNumber
 		lastName = dictionary["last_name"] as AnyObject!
 		lockoutAttempts = dictionary["lockout_attempts"] as AnyObject!
 		lockoutDate = dictionary["lockout_date"] as AnyObject!
@@ -120,7 +120,7 @@ public class Favorite:NSObject{
 				skus.append(value)
 			}
 		}
-		sort = dictionary["sort"] as? Int
+		sort = dictionary["sort"] as? NSNumber
 		state = dictionary["state"] as AnyObject!
 		status = dictionary["status"] as? String
 		terms = [AnyObject]()
@@ -132,7 +132,7 @@ public class Favorite:NSObject{
 		}
 		timezoneId = dictionary["timezone_id"] as AnyObject!
 		token = dictionary["token"] as AnyObject!
-		typeHint = dictionary["type_hint"] as? String
+		typeHNSNumber = dictionary["type_hNSNumber"] as? String
 		uniqueKey = dictionary["unique_key"] as? String
 		username = dictionary["username"] as? String
 	}

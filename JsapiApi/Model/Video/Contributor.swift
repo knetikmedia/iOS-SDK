@@ -7,9 +7,9 @@ import Foundation
 
 public class Contributor :NSObject{
 
-	var artist : Artist!
-	var media : Artist!
-	var role : String!
+	public var artist : Artist!
+	public var media : Artist!
+	public var role : String!
 
 
 	/**

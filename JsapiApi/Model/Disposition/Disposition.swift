@@ -9,13 +9,13 @@ public class Disposition:NSObject{
 
     override public init(){}
 
-	var context : String!
-	var contextId : Int!
-	var created : Int!
-	var id : Int!
-	var name : String!
-	var updated : Int!
-	var user : SimpleUser!
+	public var context : String!
+	public var contextId : NSNumber!
+	public var created : NSNumber!
+	public var dispositionId : NSNumber!
+	public var name : String!
+	public var updated : NSNumber!
+	public var user : SimpleUser!
 
 
 	/**
@@ -23,11 +23,11 @@ public class Disposition:NSObject{
 	 */
 	init(fromDictionary dictionary: NSDictionary){
 		context = dictionary["context"] as? String
-		contextId = dictionary["contextId"] as? Int
-		created = dictionary["created"] as? Int
-		id = dictionary["id"] as? Int
+		contextId = dictionary["contextId"] as? NSNumber
+		created = dictionary["created"] as? NSNumber
+		dispositionId = dictionary["id"] as? NSNumber
 		name = dictionary["name"] as? String
-		updated = dictionary["updated"] as? Int
+		updated = dictionary["updated"] as? NSNumber
 		if let userData = dictionary["user"] as? NSDictionary{
 			user = SimpleUser(fromDictionary: userData)
 		}
@@ -48,8 +48,8 @@ public class Disposition:NSObject{
 		if created != nil{
 			dictionary["created"] = created
 		}
-		if id != nil{
-			dictionary["id"] = id
+		if dispositionId != nil{
+			dictionary["id"] = dispositionId
 		}
 		if name != nil{
 			dictionary["name"] = name
