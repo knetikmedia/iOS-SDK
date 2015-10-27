@@ -31,7 +31,8 @@ class var GUESTS:String {return "/services/latest/registration/guests"};
     
 //User
 class var GETUSERINFO:String {return "/services/latest/users/me" }
-class var UPDATEUSERINFO:String {return "/services/latest/users/me"}; 
+class var GETACHIEVEMENT:String {return "/services/latest/user/getachievement" }
+class var UPDATEUSERINFO:String {return "/services/latest/users/me"};
 class var SETUSERPASSWORD:String {return "/services/latest/user/%@/password"};
 //EndUser
 

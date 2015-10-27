@@ -13,7 +13,7 @@ class UserTest: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        JsapiAPi.jsapiInit("http://localhost:8080/jsapi", client_id: "knetik",secrect_key: "superSUPERsuperSECRET")
+        JsapiAPi.jsapiInit("http://staging.api.games.teamrock.com:8080/rest", client_id: "guerilla_tea",secrect_key: "HEsd0EpPRfkGGEwi")
         DoLogin();
 
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -25,7 +25,7 @@ class UserTest: XCTestCase {
         let readyExpectation = expectationWithDescription("ready")
         var userDetails=Dictionary<String,String>()
         userDetails["username"] = "admin"
-        userDetails["password"] = "123123"
+        userDetails["password"] = "BronzeCoin.2014!"
         JsapiAPi.sharedInstance.doUserLogin(userDetails)
             {
                 (result:NSDictionary,issuccess:Bool) in
@@ -68,6 +68,31 @@ class UserTest: XCTestCase {
         self.waitForExpectationsWithTimeout(20, handler: { error in XCTAssertNil(error, "Oh, we got timeout")
         })
     }
+    
+    func testGetUserAchievements()
+    {
+        
+        let readyExpectation = expectationWithDescription("ready")
+        let userDetails=Dictionary<String,String>()
+        let userObject = UserService()
+        userObject.getUserAchievements(userDetails)
+            {
+                (achievments:Array<Achievement>,errormessage:String,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    XCTAssertTrue(issuccess, "testGetUserInfo failed")
+                    
+                }else
+                {
+                    XCTAssertTrue(issuccess, "testGetUserInfo pass")
+                }
+                readyExpectation.fulfill()
+                
+        }
+        self.waitForExpectationsWithTimeout(20, handler: { error in XCTAssertNil(error, "Oh, we got timeout")
+        })
+    }
+
     
     func testUpdateUser()
     {

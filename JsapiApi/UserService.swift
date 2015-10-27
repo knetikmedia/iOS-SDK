@@ -40,6 +40,34 @@ public class UserService:NSObject {
  }
     
     
+    /**get User Info /services/latest/user/getinfo
+    *@param params Dictionary Empty Dictionary {}
+    *@param callback
+    */
+public func getUserAchievements(params:Dictionary<String,String>,callback:(Array<Achievement>,String,Bool)->Void)
+    {
+        
+        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETACHIEVEMENT
+        JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                let achievementResponse = UserAchievementsResponse(fromDictionary: result)
+                if(!issuccess)
+                {
+                    
+                    callback(achievementResponse.achievements.achievement,achievementResponse.errormessage,issuccess)
+                    
+                }else
+                {
+                    print(result)
+                    callback(achievementResponse.achievements.achievement,"",issuccess)
+                    
+                }
+        }
+    }
+
+    
+    
   /**update User Info /services/latest/user/update
   *@param params Dictionary{"userId": 0,"configName": "","configValue": ""}
   *@param callback
