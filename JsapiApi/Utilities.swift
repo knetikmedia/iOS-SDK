@@ -56,6 +56,22 @@ class Utilities {
     /*
     generate Json Request from Dictionary
     */
+    class func getPostValueRequestFromDictionary(requestparamters:Dictionary<String,AnyObject>)->String
+    {
+        var datastring="\"";
+        for (myKey,myValue) in requestparamters {
+            if let str = myValue as? String {
+                datastring+=(myValue as! String)
+            }
+          
+        }
+        return datastring+"\""
+    }
+
+    
+    /*
+    generate Json Request from Dictionary
+    */
     class func getGETRequestFromDictionary(requestparamters:Dictionary<String,AnyObject>)->String
     {
         var datastring="?";

@@ -40,14 +40,40 @@ public class DispositionService:NSObject
     }
     
     
+    /** Get Dispositions Count
+     *@param params Dictionary
+     *@param callback
+     */
+    public func getDispositionsCount(params:Dictionary<String,AnyObject>,callback:(Dictionary<String,AnyObject>,String,Bool)->Void)
+    {
+        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETDISPOSITIONCOUNT
+        JsapiRest.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                let baseResponse=DispositionResponse(fromDictionary: result)
+                if(!issuccess)
+                {
+                    callback(result as! Dictionary<String, AnyObject>,baseResponse.errormessage,issuccess)
+                    
+                }else
+                {
+                    print(result)
+                    callback(result as! Dictionary<String, AnyObject>,"",issuccess)
+                    
+                }
+                
+        }
+    }
+
+    
     /**Add a new Dispostion . Requires user authentication.
     *@param params Dictionary
     *@param callback
     */
-    public func addDisposition(params:Dictionary<String,AnyObject>,callback:(Disposition,String,Bool)->Void)
+    public func addDisposition(params:Dictionary<String,AnyObject>,request:Dictionary<String,AnyObject>,callback:(Disposition,String,Bool)->Void)
     {
-        let methodUrl = NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDDISPOSITION, params["context"] as! String , params["contextId"] as! NSNumber )
-        JsapiRest.postrequest(methodUrl as String, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        let methodUrl = NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDDISPOSITION, params["context"] as! String , params["contextId"] as! String )
+        JsapiRest.postrequest(methodUrl as String, postParams: Utilities.getPostValueRequestFromDictionary(request), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let baseResponse=NewDispositionResponse(fromDictionary: result)

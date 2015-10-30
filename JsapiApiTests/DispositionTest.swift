@@ -108,18 +108,18 @@ class DispositionTest: XCTestCase {
         disposition.name="like"
         
         var dispositionservice = DispositionService()
-        dispositionservice.addDisposition(disposition.toDictionary() as! Dictionary<String, AnyObject>)
-            {
-                (result:Disposition,errormessage:String,issuccess:Bool) in
-                if(!issuccess)
-                {
-                    XCTAssertTrue(issuccess, "testAddCommentToItem failed")
-                }else
-                {
-                    XCTAssertTrue(issuccess, "testAddCommentToItem pass")
-                }
-                readyExpectation.fulfill()
-        }
+//        dispositionservice.addDisposition(disposition.toDictionary() as! Dictionary<String, AnyObject>)
+//            {
+//                (result:Disposition,errormessage:String,issuccess:Bool) in
+//                if(!issuccess)
+//                {
+//                    XCTAssertTrue(issuccess, "testAddCommentToItem failed")
+//                }else
+//                {
+//                    XCTAssertTrue(issuccess, "testAddCommentToItem pass")
+//                }
+//                readyExpectation.fulfill()
+//        }
         self.waitForExpectationsWithTimeout(6.0, handler: { error in XCTAssertNil(error, "Oh, we got timeout")
         })
         

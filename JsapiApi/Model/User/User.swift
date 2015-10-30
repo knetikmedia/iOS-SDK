@@ -31,19 +31,58 @@ public class User:NSObject{
     public func getCountry()->String{return country;}
     public func getDateOfBirth()->AnyObject{return dateOfBirth;}
     public func getEmail()->String{return email}
-    public func getFirstName()->String{return firstName}
-    public func getFullname()->String{return fullname}
+    public func getFirstName()->String{
+        if((firstName) != nil)
+        {
+            return firstName
+        
+        }
+        else {
+            return ""
+        }
+    
+    }
+    public func getFullname()->String{
+        if((fullname) != nil)
+        {
+            return fullname
+            
+        }
+        else {
+            return ""
+        }
+    }
     public func getGender()->String{return gender}
     public func getId()->NSNumber{return userId}
     public func getInventory()->AnyObject{return inventory}
     public func getLang()->AnyObject{return lang}
-    public func getLastName()->String{return lastName}
+    public func getLastName()->String{
+        if((lastName) != nil)
+        {
+            return lastName
+            
+        }
+        else {
+            return ""
+        }
+}
     public func getMobileNumber()->AnyObject{return mobileNumber}
     public func getProductItem()->AnyObject{return productItem}
     public func getToken()->AnyObject{return token}
     public func getUsername()->String{return username}
     public func getWallet()->Array<Wallet>{return wallet}
-    public func getDisplayName()->String{return displayname}
+
+    public func getDisplayName()->String{
+        if((displayname) != nil)
+        {
+            return displayname
+            
+        }
+        else {
+            return ""
+        }
+
+    }
 
 
     

@@ -29,7 +29,8 @@ public class Video :NSObject{
     public var updated : NSNumber!
     public var uploader : Artist!
     public var width : NSNumber!
-    
+    public var thumbnail : String!
+
     
 
 
@@ -58,6 +59,10 @@ public class Video :NSObject{
 		name = dictionary["name"] as? String
 		shortDescription = dictionary["shortDescription"] as? String
 		size = dictionary["size"] as? NSNumber
+        thumbnail = dictionary["thumbnail"] as? String
+        if(thumbnail == nil){
+            thumbnail = ""
+        }
 		updated = dictionary["updated"] as? NSNumber
 		if let uploaderData = dictionary["uploader"] as? NSDictionary{
 			uploader = Artist(fromDictionary: uploaderData)
@@ -129,6 +134,10 @@ public class Video :NSObject{
 		if width != nil{
 			dictionary["width"] = width
 		}
+        
+        if thumbnail != nil{
+            dictionary["thumbnail"] = thumbnail
+        }
 		return dictionary
 	}
 

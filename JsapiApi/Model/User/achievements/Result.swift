@@ -11,7 +11,9 @@ class Result{
 	var hasmore : Bool!
 	var pageIndex : Int!
 
-
+    init() {
+        achievement = [Achievement]()
+    }
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */

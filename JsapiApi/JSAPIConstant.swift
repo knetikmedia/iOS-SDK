@@ -76,10 +76,21 @@ class var COMMENTLIST:String {return "/services/latest/comments"};
 
     class var DELETEDISPOSITION:String {return "/services/latest/dispositions/%@"};
    
+    class var GETDISPOSITIONCOUNT:String {return "/services/latest/dispositions/count"};
+
     
 //End DISPOSITION
     
     
+    //FLAG
+    
+    class var FLAGS:String {return "/services/latest/flags"}
+    
+    class var GETFLAGS:String {return "/services/latest/flags"};
+    class var DELETEFLAG:String {return "/services/latest/flags/%@"};
+
+    //End FLAG
+
     
     //METRIC
     
