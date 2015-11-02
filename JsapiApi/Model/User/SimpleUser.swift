@@ -10,7 +10,8 @@ public class SimpleUser:NSObject{
 	public var userId : NSNumber!
 	public var displayName : String!
 	public  var avatarUrl : String!
-    
+    public  var name : String!
+
     public func getId()->NSNumber{return userId}
     public func getAvatarUrl()->String{return avatarUrl }
     public func getDisplayName()->String{return displayName }
@@ -25,6 +26,8 @@ public class SimpleUser:NSObject{
 		userId = dictionary["id"] as? NSNumber
 		avatarUrl = dictionary["avatarUrl"] as? String
 		displayName = dictionary["displayname"] as? String
+        name = dictionary["name"] as? String
+
 		}
 
     func toDictionary() -> NSDictionary
@@ -34,8 +37,13 @@ public class SimpleUser:NSObject{
             dictionary["id"] = userId
         }
         if displayName != nil{
+            dictionary["displayName"] = displayName
+        }
+        
+        if name != nil{
             dictionary["name"] = displayName
         }
+        
         return dictionary
     }
 

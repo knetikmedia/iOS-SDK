@@ -136,6 +136,31 @@ public class VideoService:NSObject
         }
     }
     
+    
+    /** Add User Video
+     *@param params Dictionary
+     *@param callback
+     */
+    public func addContributor(videoId:String , params:Dictionary<String,AnyObject> , callback:(String,Bool)->Void)
+    {
+           let methodUrl:String=NSString(format:JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDCONTRIBUTOR,videoId) as String
+
+        JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                let baseResponse=BaseResponse(fromDictionary: result)
+                if(!issuccess)
+                {
+                    callback(baseResponse.errormessage,issuccess)
+                }else
+                {
+                    callback("",issuccess)
+                }
+                
+        }
+    }
+
+    
     /** update VideoViews Count
     *@param params Dictionary
     *@param callback
@@ -191,7 +216,7 @@ public class VideoService:NSObject
     public func deleteVideo(params:Dictionary<String,String>,callback:(AnyObject,String,Bool)->Void)
     {
         let methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.DELETEVIDEO,params["id"]!)
-        JsapiRest.deleteRequest(methodUrl as String, deleteParams: Utilities.jsonRequestFromDictionary(params))
+        JsapiRest.deleteRequest(methodUrl as String, deleteParams: "")
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let baseResponse=BaseResponse(fromDictionary: result)

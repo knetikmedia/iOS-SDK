@@ -11,6 +11,9 @@ public class Artist :NSObject{
 	public var name : String!
 
 
+    override public init(){super.init()}
+
+    
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
@@ -22,7 +25,7 @@ public class Artist :NSObject{
 	/**
 	 * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
 	 */
-	func toDictionary() -> NSDictionary
+	public func toDictionary() -> NSDictionary
 	{
 		let dictionary = NSMutableDictionary()
 		if artistId != nil{

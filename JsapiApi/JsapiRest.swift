@@ -168,11 +168,23 @@ class JsapiRest
         print(JsapiAPi.sharedInstance.getJsapiToken())
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
+            
+            let httpResponse = response as! NSHTTPURLResponse
+            
             if error != nil {
-                callback(NSDictionary(),true)
+                callback(NSDictionary(),false)
                 return
             }
+            
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            
+            if(httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 && (responseString as! String) .isEmpty)
+            {
+                callback(NSDictionary(),true)
+                
+                return
+            }
+            
             print("responseString = \(responseString)")
             let jsonResult: NSDictionary! = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers ) as? NSDictionary
             if(jsonResult == nil)

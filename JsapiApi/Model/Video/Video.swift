@@ -11,7 +11,7 @@ public class Video :NSObject{
         super.init()
     }
     
-    public var author : SimpleUser!
+    public var author : Artist!
     public var authored : NSNumber!
     public var contributors : [Contributor]!
     public var created : NSNumber!
@@ -27,7 +27,7 @@ public class Video :NSObject{
     public var shortDescription : String!
     public var size : NSNumber!
     public var updated : NSNumber!
-    public var uploader : Artist!
+    public var uploader : SimpleUser!
     public var width : NSNumber!
     public var thumbnail : String!
 
@@ -38,7 +38,11 @@ public class Video :NSObject{
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
 	init(fromDictionary dictionary: NSDictionary){
-		author = dictionary["author"] as? SimpleUser!
+        
+        if let authorData = dictionary["author"] as? NSDictionary{
+            author = Artist(fromDictionary: authorData)
+        }
+        
 		authored = dictionary["authored"] as? NSNumber
 		contributors = [Contributor]()
 		if let contributorsArray = dictionary["contributors"] as? [NSDictionary]{
@@ -65,7 +69,7 @@ public class Video :NSObject{
         }
 		updated = dictionary["updated"] as? NSNumber
 		if let uploaderData = dictionary["uploader"] as? NSDictionary{
-			uploader = Artist(fromDictionary: uploaderData)
+			uploader = SimpleUser(fromDictionary: uploaderData)
 		}
 		width = dictionary["width"] as? NSNumber
 	}
