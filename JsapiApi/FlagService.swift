@@ -16,7 +16,7 @@ public class FlagService:NSObject
     public func addFlag(params:Dictionary<String,String>,callback:(AnyObject,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.FLAGS;
-        JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let baseResponse=BaseResponse(fromDictionary: result)
@@ -41,7 +41,7 @@ public class FlagService:NSObject
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.FLAGS
         
-        JsapiRest.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let flagresponse=FlagBaseResponse(fromDictionary:result);
@@ -64,7 +64,7 @@ public class FlagService:NSObject
     public func deleteFlag(params:Dictionary<String,String>,callback:(AnyObject,String,Bool)->Void)
     {
         let methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.DELETEFLAG,params["id"]!)
-        JsapiRest.deleteRequest(methodUrl as String, deleteParams: Utilities.jsonRequestFromDictionary(params))
+        JsapiRest.sharedInstance.deleteRequest(methodUrl as String, deleteParams: Utilities.jsonRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let baseResponse=BaseResponse(fromDictionary: result)

@@ -22,7 +22,7 @@ public class WalletService:NSObject
     public func walletChange(params:Dictionary<String,AnyObject>,callback:(Wallet,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.WALLETCHANGE
-        JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let baseResponse=WalletResponse(fromDictionary: result)

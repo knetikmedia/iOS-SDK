@@ -21,7 +21,7 @@ public class DispositionService:NSObject
     public func getDispositions(params:Dictionary<String,AnyObject>,callback:(Array<Disposition>,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.DISPOSITION
-        JsapiRest.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let baseResponse=DispositionResponse(fromDictionary: result)
@@ -47,7 +47,7 @@ public class DispositionService:NSObject
     public func getDispositionsCount(params:Dictionary<String,AnyObject>,callback:(Dictionary<String,AnyObject>,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETDISPOSITIONCOUNT
-        JsapiRest.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let baseResponse=DispositionResponse(fromDictionary: result)
@@ -73,7 +73,7 @@ public class DispositionService:NSObject
     public func addDisposition(params:Dictionary<String,AnyObject>,request:Dictionary<String,AnyObject>,callback:(Disposition,String,Bool)->Void)
     {
         let methodUrl = NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDDISPOSITION, params["context"] as! String , params["contextId"] as! String )
-        JsapiRest.postrequest(methodUrl as String, postParams: Utilities.getPostValueRequestFromDictionary(request), isJson: true)
+        JsapiRest.sharedInstance.postrequest(methodUrl as String, postParams: Utilities.getPostValueRequestFromDictionary(request), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let baseResponse=NewDispositionResponse(fromDictionary: result)
@@ -100,7 +100,7 @@ public class DispositionService:NSObject
     {
         let methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.DELETEDISPOSITION,params["id"]!)
         
-        JsapiRest.deleteRequest(methodUrl as String, deleteParams:Utilities.jsonRequestFromDictionary(params))
+        JsapiRest.sharedInstance.deleteRequest(methodUrl as String, deleteParams:Utilities.jsonRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let baseResponse=BaseResponse(fromDictionary: result)

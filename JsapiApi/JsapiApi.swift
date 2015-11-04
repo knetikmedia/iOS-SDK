@@ -18,7 +18,9 @@ public class JsapiAPi:NSObject
     private var token=""
     private var token_type=""
     private var refresh_token=""
+    
 
+    
     /**
     return a Singleton for JsapiApi class
     
@@ -81,7 +83,7 @@ public class JsapiAPi:NSObject
     {
         let methodurl:String=jsapiurl+JSAPIConstant.REGISTER
 
-        JsapiRest.postrequest(methodurl,postParams: jsonRequestFromDictionary(registerationDetails),isJson:true)
+        JsapiRest.sharedInstance.postrequest(methodurl,postParams: jsonRequestFromDictionary(registerationDetails),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 callback(result,issuccess)
@@ -96,7 +98,7 @@ public class JsapiAPi:NSObject
     {
         let methodurl:String=jsapiurl+JSAPIConstant.OAUTH_TOKEN
 
-        JsapiRest.postrequest(methodurl,postParams: authenticateRequestFromDictionary(loginDetails),isJson:false)
+        JsapiRest.sharedInstance.postrequest(methodurl,postParams: authenticateRequestFromDictionary(loginDetails),isJson:false)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 if(issuccess)
@@ -110,20 +112,51 @@ public class JsapiAPi:NSObject
     }
     
     /**
-    do User Login
-    */
-    public func doFacebookLogin(loginDetails:Dictionary<String,String>,callback:(NSDictionary,Bool)->Void)
+     do User Login
+     */
+    public func doRefreshToken(callback:(NSDictionary,Bool)->Void)
     {
+        var refreshRequest = Dictionary<String,String>();
+        
+        refreshRequest["refresh_token"] = self.refresh_token
+        
         let methodurl:String=jsapiurl+JSAPIConstant.OAUTH_TOKEN
-
-        JsapiRest.postrequest(methodurl,postParams: authenticateFacebookRequestFromDictionary(loginDetails),isJson:false)
+        
+        JsapiRest.sharedInstance.postrequest(methodurl,postParams: authenticateRefreshTokenRequestFromDictionary(refreshRequest),isJson:false)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 if(issuccess)
                 {
                     self.token=result.valueForKey("access_token") as! String!
                     self.token_type=result.valueForKey("token_type") as! String!
+                    if(result.valueForKey("refresh_token") != nil){
+                        
+                        self.refresh_token = result.valueForKey("refresh_token") as! String!
+                    }
+                }
+                callback(result,issuccess)
+        }
+    }
+
+    
+    /**
+    do User Login
+    */
+    public func doFacebookLogin(loginDetails:Dictionary<String,String>,callback:(NSDictionary,Bool)->Void)
+    {
+        let methodurl:String=jsapiurl+JSAPIConstant.OAUTH_TOKEN
+
+        JsapiRest.sharedInstance.postrequest(methodurl,postParams: authenticateFacebookRequestFromDictionary(loginDetails),isJson:false)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(issuccess)
+                {
+                    self.token=result.valueForKey("access_token") as! String!
+                    self.token_type=result.valueForKey("token_type") as! String!
+                    
+                    if(result.valueForKey("refresh_token") != nil){
                     self.refresh_token = result.valueForKey("refresh_token") as! String!
+                    }
 
                 }
                 callback(result,issuccess)
@@ -165,6 +198,31 @@ public class JsapiAPi:NSObject
     }
     
     /*
+    generate auth request token from Dictionary
+    */
+    func authenticateRefreshTokenRequestFromDictionary(requestparamters:Dictionary<String,String>)->String
+    {
+        var commonParamtersDictionry=Dictionary<String,String>()
+        commonParamtersDictionry["client_id"]=JsapiAPi.sharedInstance.client_id
+        commonParamtersDictionry["grant_type"]="refresh_token"
+        if(!JsapiAPi.sharedInstance.secrect_key.isEmpty){
+            commonParamtersDictionry["client_secret"]=JsapiAPi.sharedInstance.secrect_key
+        }
+        for key in requestparamters.keys
+        {
+            commonParamtersDictionry[key]=requestparamters[key]
+        }
+        var postString:String=""
+        for key in commonParamtersDictionry.keys
+        {
+            postString+=key+"="+commonParamtersDictionry[key]!
+            postString+="&"
+        }
+        return postString
+    }
+
+    
+    /*
     generate facebook auth request token from Dictionary
     */
     func authenticateFacebookRequestFromDictionary(requestparamters:Dictionary<String,String>)->String
@@ -191,6 +249,13 @@ public class JsapiAPi:NSObject
     }
     
     
+    func sessionExpired() {
+    
+        let appDelegate = UIApplication.sharedApplication().delegate
+        
+            appDelegate?.performSelector("sessionExpired")
+    
+    }
     
     /*
     generate Json Request from Dictionary

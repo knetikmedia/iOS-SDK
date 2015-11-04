@@ -17,7 +17,7 @@ public class FriendshipService :NSObject
     public func addFriend(params:Dictionary<String,AnyObject>,callback:(AnyObject,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDFRIEND
-        JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let friendsResponse=FriendsResponse(fromDictionary: result)
@@ -42,7 +42,7 @@ public class FriendshipService :NSObject
     {
         let methodUrl:String = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETFRIENDS
 
-        JsapiRest.postrequest(methodUrl , postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
+        JsapiRest.sharedInstance.postrequest(methodUrl , postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let friendsResponse=FriendsResponse(fromDictionary: result)
@@ -66,7 +66,7 @@ public class FriendshipService :NSObject
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.REMOVEFRIEND
 
-        JsapiRest.postrequest(methodUrl , postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
+        JsapiRest.sharedInstance.postrequest(methodUrl , postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let friendsResponse=FriendsResponse(fromDictionary: result)
@@ -89,7 +89,7 @@ public class FriendshipService :NSObject
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETFRIENDS
         
-        JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let friendsResponse=FriendsResponse(fromDictionary: result)

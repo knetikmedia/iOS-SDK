@@ -7,8 +7,28 @@
 //
 
 import Foundation
-class JsapiRest
+class JsapiRest :NSObject,NSURLSessionDelegate
 {
+    
+    private var requests:Dictionary<String,NSMutableURLRequest> = Dictionary<String,NSMutableURLRequest>()
+
+    class var sharedInstance:JsapiRest
+    {
+        struct Statics
+        {
+            static var instance:JsapiRest?
+            static var token:dispatch_once_t=0
+            
+        }
+        dispatch_once(&Statics.token)
+            {
+                Statics.instance=JsapiRest()
+                
+        }
+        return Statics.instance!
+    }
+
+    
     //
     /**
     postRequet
@@ -17,7 +37,7 @@ class JsapiRest
     @param isJson should sent true in case of json request
     @param callback block called once you got the response
     */
-    class func postrequest(functionURL:String,postParams:String,isJson:Bool,callback:(NSDictionary,Bool)->Void)
+    func postrequest(functionURL:String,postParams:String,isJson:Bool,callback:(NSDictionary,Bool)->Void)
     {
  
         let request = NSMutableURLRequest(URL: NSURL(string: functionURL)!)
@@ -40,13 +60,19 @@ class JsapiRest
             
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         }
+        self.requests[functionURL] = request
         
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+        let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration(), delegate: self, delegateQueue: nil)
+        
+     
+        let task = session.dataTaskWithRequest(request) {
             data, response, error in
             if error != nil {
                 callback(NSDictionary(),false)
                 return
             }
+            self.requests.removeValueForKey((request.URL?.absoluteString)!)
+            
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
            
             let httpResponse = response as! NSHTTPURLResponse
@@ -72,8 +98,9 @@ class JsapiRest
             }
             let jsonResult: NSDictionary! = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers ) as? NSDictionary
             
-            if(httpResponse.URL!.absoluteString != functionURL || httpResponse.statusCode == 301 || httpResponse.statusCode == 307 || httpResponse.statusCode == 302 ){
-                JsapiRest .postrequest(httpResponse.URL!.absoluteString , postParams: postParams, isJson: isJson, callback: callback)
+            if(httpResponse.statusCode == 301 || httpResponse.statusCode == 307){
+                
+                self.postrequest(httpResponse.URL!.absoluteString , postParams: postParams, isJson: isJson, callback: callback)
             }
             
             if(jsonResult == nil)
@@ -123,7 +150,7 @@ class JsapiRest
     @param functionURL : function URL Example http://localhost:8080/jsapi/services/latest/carts/e9486b32-674
     @param callback block called once you got the response
     */
-    class func getRequest(functionURL:String,postParams:String,callback:(NSDictionary,Bool)->Void)
+    func getRequest(functionURL:String,postParams:String,callback:(NSDictionary,Bool)->Void)
     {
 
         let request = NSMutableURLRequest(URL: NSURL(string: functionURL+postParams)!)
@@ -137,24 +164,32 @@ class JsapiRest
             request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
             
         }
-
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+        
+         self.requests[(request.URL?.absoluteString)!] = request
+        
+        let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration(), delegate: self, delegateQueue: nil)
+        
+        let task = session.dataTaskWithRequest(request) {
             data, response, error in
             if error != nil {
                 callback(NSDictionary(),true)
                 return
             }
            
+            self.requests.removeValueForKey((request.URL?.absoluteString)!)
+
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
 
             let httpResponse = response as! NSHTTPURLResponse
 
-            if(httpResponse.URL!.absoluteString != functionURL || httpResponse.statusCode == 301 || httpResponse.statusCode == 307 || httpResponse.statusCode == 302 ){
-                JsapiRest .getRequest(httpResponse.URL!.absoluteString , postParams: postParams,callback: callback)
+            if(httpResponse.statusCode == 301 || httpResponse.statusCode == 307 ){
+                self.getRequest(httpResponse.URL!.absoluteString , postParams: postParams,callback: callback)
+                return;
             }
 
             
             let jsonResult: NSDictionary! = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
+
             if(jsonResult == nil)
             {
                 callback(NSDictionary(),true)
@@ -163,10 +198,16 @@ class JsapiRest
             
             if(jsonResult["error"] != nil )
             {
+                if(jsonResult ["error"] as?String == "invalid_token") {
+                    
+                 JsapiAPi.sharedInstance.sessionExpired()
+                    
+                }else{
                 let errorObject = jsonResult["error"]  as! Dictionary<String,Bool>
                 
                 let isSuccess=errorObject["success"]?.boolValue
-                callback(jsonResult,isSuccess!)
+                    callback(jsonResult,isSuccess!)
+                }
             }else
              {
                     callback(jsonResult,true)
@@ -176,13 +217,15 @@ class JsapiRest
     }
 
     
+    
+    
     //
     /**
     DELETERequet
     @param functionURL : function URL Example
     @param callback block called once you got the response
     */
-    class func deleteRequest(functionURL:String,deleteParams:String,callback:(NSDictionary,Bool)->Void)
+    func deleteRequest(functionURL:String,deleteParams:String,callback:(NSDictionary,Bool)->Void)
     {
 
         let request = NSMutableURLRequest(URL: NSURL(string: functionURL)!)
@@ -196,8 +239,13 @@ class JsapiRest
             request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
             
         }
+        
+        self.requests[(request.URL?.absoluteString)!] = request
+        
+        let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration(), delegate: self, delegateQueue: nil)
 
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+        
+        let task = session.dataTaskWithRequest(request) {
             data, response, error in
             
             let httpResponse = response as! NSHTTPURLResponse
@@ -206,6 +254,8 @@ class JsapiRest
                 callback(NSDictionary(),false)
                 return
             }
+            
+            self.requests.removeValueForKey((request.URL?.absoluteString)!)
             
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             
@@ -218,8 +268,9 @@ class JsapiRest
         
             let jsonResult: NSDictionary! = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers ) as? NSDictionary
             
-            if(httpResponse.URL!.absoluteString != functionURL || httpResponse.statusCode == 301 || httpResponse.statusCode == 307 || httpResponse.statusCode == 302 ){
-                JsapiRest .deleteRequest(httpResponse.URL!.absoluteString , deleteParams: deleteParams, callback: callback)
+            if(httpResponse.URL!.absoluteString != functionURL && httpResponse.statusCode > 301 ){
+                self.deleteRequest(httpResponse.URL!.absoluteString , deleteParams: deleteParams, callback: callback)
+                return
             }
 
             
@@ -251,7 +302,7 @@ class JsapiRest
     @param isJson should sent true in case of json request
     @param callback block called once you got the response
     */
-    class func putRequest(functionURL:String,postParams:String,isJson:Bool,callback:(NSDictionary,Bool)->Void)
+    func putRequest(functionURL:String,postParams:String,isJson:Bool,callback:(NSDictionary,Bool)->Void)
     {
 
         let request = NSMutableURLRequest(URL: NSURL(string: functionURL)!)
@@ -269,15 +320,25 @@ class JsapiRest
             }
             
         }else{
+            
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         }
         
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+        self.requests[(request.URL?.absoluteString)!] = request
+        
+        let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration(), delegate: self, delegateQueue: nil)
+        
+
+        
+        let task = session.dataTaskWithRequest(request) {
             data, response, error in
             if error != nil {
                 callback(NSDictionary(),false)
                 return
             }
+            
+            self.requests.removeValueForKey((request.URL?.absoluteString)!)
+            
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             
             let httpResponse = response as! NSHTTPURLResponse
@@ -290,8 +351,8 @@ class JsapiRest
                 return
             }
 
-            if(httpResponse.URL!.absoluteString != functionURL || httpResponse.statusCode == 301 || httpResponse.statusCode == 307 || httpResponse.statusCode == 302 ){
-                JsapiRest .putRequest(httpResponse.URL!.absoluteString , postParams: postParams, isJson: isJson, callback: callback)
+            if(httpResponse.URL!.absoluteString != functionURL && httpResponse.statusCode > 301 ){
+                self.putRequest(httpResponse.URL!.absoluteString , postParams: postParams, isJson: isJson, callback: callback)
             }
 
 
@@ -327,6 +388,19 @@ class JsapiRest
         task.resume()
     }
 
+     var taskWillPerformHTTPRedirection: ((NSURLSession, NSURLSessionTask, NSHTTPURLResponse, NSURLRequest) -> NSURLRequest?)?
+    
+    func URLSession(session: NSURLSession, task: NSURLSessionTask, willPerformHTTPRedirection response: NSHTTPURLResponse, newRequest request: NSURLRequest, completionHandler: (NSURLRequest?) -> Void){
+        
+        
+        let originalUrl:String =   (response.URL?.absoluteString)!
+       
+        let redirectRequest: NSMutableURLRequest =  self.requests[originalUrl]!
+        
+        redirectRequest.URL = request.URL
+        
+        completionHandler(redirectRequest)
+    }
 
 
 }

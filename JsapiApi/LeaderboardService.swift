@@ -18,7 +18,7 @@ public class LeaderboardService:NSObject
     public func getLeaderboards(params:Dictionary<String,AnyObject>,callback:(Leaderboard,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.LEADERBOARDS
-        JsapiRest.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let baseResponse=LeaderboardResponse(fromDictionary: result)
@@ -44,7 +44,7 @@ public class LeaderboardService:NSObject
     public func getStrategies(params:Dictionary<String,AnyObject>,callback:(Array<String>,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETSTRATEGIES
-        JsapiRest.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let baseResponse=StrategiesResponse(fromDictionary: result)
@@ -72,7 +72,7 @@ public class LeaderboardService:NSObject
     {
         let methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETUSERRANK, (params["leaderboardId"] as?String)!,(params["userId"] as?String)!)
 
-        JsapiRest.getRequest(methodUrl as String, postParams: Utilities.getGETRequestFromDictionary(params))
+        JsapiRest.sharedInstance.getRequest(methodUrl as String, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let baseResponse=UserRankResponse(fromDictionary: result)

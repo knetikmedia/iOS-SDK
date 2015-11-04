@@ -18,7 +18,7 @@ public class UserService:NSObject {
  {
         
    let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETUSERINFO
-    JsapiRest.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+    JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
     {
             (result:NSDictionary,issuccess:Bool) in
             let userResponse = UserResponse(fromDictionary: result)
@@ -48,7 +48,7 @@ public func getUserAchievements(params:Dictionary<String,String>,callback:(Array
     {
         
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETACHIEVEMENT
-        JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let achievementResponse = UserAchievementsResponse(fromDictionary: result)
@@ -75,7 +75,7 @@ public func getUserAchievements(params:Dictionary<String,String>,callback:(Array
     public func updateUserInfo(params:Dictionary<String,String>,callback:(AnyObject,String,Bool)->Void)
     {
         let methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.UPDATEUSERINFO) as String
-        JsapiRest.putRequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        JsapiRest.sharedInstance.putRequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let baseResponse=BaseResponse(fromDictionary: result)
@@ -103,7 +103,7 @@ public func getUserAchievements(params:Dictionary<String,String>,callback:(Array
         let endpoint=NSString(format: JSAPIConstant.SETUSERPASSWORD,userID)
 
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String);
-        JsapiRest.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let baseResponse=BaseResponse(fromDictionary: result)

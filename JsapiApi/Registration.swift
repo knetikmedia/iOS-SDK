@@ -20,7 +20,7 @@ public class Registration:NSObject
         let endpoint=JSAPIConstant.FORGOTPASSWORD
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+endpoint
 
-        JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
+        JsapiRest.sharedInstance.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                let baseResponse=BaseResponse(fromDictionary: result)
@@ -48,7 +48,7 @@ public class Registration:NSObject
         let endpoint=JSAPIConstant.GUESTS
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+endpoint
 
-        JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
+        JsapiRest.sharedInstance.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let guestResponse=GuestUserResponse(fromDictionary: result)
@@ -74,7 +74,7 @@ public class Registration:NSObject
         let endpoint=JSAPIConstant.GUESTUPGRADE
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+endpoint
 
-        JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
+        JsapiRest.sharedInstance.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let baseResponse=BaseResponse(fromDictionary: result)
@@ -97,7 +97,7 @@ public class Registration:NSObject
     {
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.REGISTER
 
-        JsapiRest.postrequest(methodurl,postParams:  Utilities.jsonRequestFromDictionary(registerationDetails),isJson:true)
+        JsapiRest.sharedInstance.postrequest(methodurl,postParams:  Utilities.jsonRequestFromDictionary(registerationDetails),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let registeredResponse=RegisteredUserResponse(fromDictionary: result)
