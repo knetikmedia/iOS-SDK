@@ -13,7 +13,7 @@ class UserTest: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        JsapiAPi.jsapiInit("http://staging.api.games.teamrock.com:8080/rest", client_id: "guerilla_tea",secrect_key: "HEsd0EpPRfkGGEwi")
+        JsapiAPi.jsapiInit("http://localhost:8080/jsapi", client_id: "guerilla_tea",secrect_key: "HEsd0EpPRfkGGEwi")
         DoLogin();
 
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -22,10 +22,11 @@ class UserTest: XCTestCase {
 
     func DoLogin()
     {
-        let readyExpectation = expectationWithDescription("ready")
+         var readyExpectation = expectationWithDescription("ready")
+        readyExpectation.fulfill();
         var userDetails=Dictionary<String,String>()
         userDetails["username"] = "admin"
-        userDetails["password"] = "BronzeCoin.2014!"
+        userDetails["password"] = "123123"
         JsapiAPi.sharedInstance.doUserLogin(userDetails)
             {
                 (result:NSDictionary,issuccess:Bool) in
@@ -47,9 +48,11 @@ class UserTest: XCTestCase {
     func testGetUserInfo()
     {
         
-        let readyExpectation = expectationWithDescription("ready")
+        var readyExpectation = expectationWithDescription("ready")
         let userDetails=Dictionary<String,String>()
         let userObject = UserService()
+        readyExpectation.fulfill();
+
         userObject.getUserInfo(userDetails)
             {
                 (user:User,errormessage:String,issuccess:Bool) in
@@ -72,9 +75,11 @@ class UserTest: XCTestCase {
     func testGetUserAchievements()
     {
         
-        let readyExpectation = expectationWithDescription("ready")
+        var readyExpectation = expectationWithDescription("ready")
         let userDetails=Dictionary<String,String>()
         let userObject = UserService()
+        readyExpectation.fulfill();
+
         userObject.getUserAchievements(userDetails)
             {
                 (achievments:Array<Achievement>,errormessage:String,issuccess:Bool) in
@@ -96,12 +101,14 @@ class UserTest: XCTestCase {
     
     func testUpdateUser()
     {
-        let readyExpectation = expectationWithDescription("ready")
+        var readyExpectation = expectationWithDescription("ready")
 
         var userDetails=Dictionary<String,String>()
-        userDetails["displayname"] = "admin amin"
-        userDetails["email"] = "admin@admin.com"
+        userDetails["displayname"] = "admin_admin"
+        userDetails["email"] = "admin@@teamrock.com"
         let userObject = UserService()
+        readyExpectation.fulfill();
+
         userObject.updateUserInfo(userDetails)
             {
                 (result:AnyObject,errormessage:String,issuccess:Bool) in

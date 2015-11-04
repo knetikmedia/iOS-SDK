@@ -192,10 +192,10 @@ class VideoTest: XCTestCase {
     {
         let readyExpectation = expectationWithDescription("ready")
         var addedVideo=Video()
-        addedVideo.author=SimpleUser()
+        addedVideo.author=Artist()
         addedVideo.authored=1439404367
-        addedVideo.author.userId=1
-        addedVideo.author.displayName="youssef"
+        addedVideo.author.artistId=1
+        addedVideo.author.name="youssef"
         addedVideo.height=400
         addedVideo.embed="ok"
         addedVideo.location="www.google.com"

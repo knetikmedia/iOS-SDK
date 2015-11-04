@@ -26,7 +26,6 @@ public class FlagService:NSObject
 
                 }else
                 {
-                    print(result)
                     callback(baseResponse,"",issuccess)
 
                 }

@@ -94,7 +94,7 @@ class CartTest: XCTestCase {
                 {
                     self.theRegisteredUser=registeredUser
                     XCTAssertTrue((registeredUser.getFullname() == userDetails["fullname"]) , "regiteration pass")
-                    print(registeredUser.getFullname())
+
                 }
                 readyExpectation.fulfill()
         }
@@ -144,7 +144,6 @@ class CartTest: XCTestCase {
                 }else
                 {
                     XCTAssertTrue(issuccess, "testgetCart pass")
-                    print(cartDetails.getCart().getCity())
                     
                 }
                 
@@ -178,7 +177,6 @@ class CartTest: XCTestCase {
                 {
                     XCTAssertTrue(issuccess, "testCartCheckout")
 
-                    print(checkout.getInvoices()[0].getBillingAddress1())
                 }
                 readyExpectation.fulfill()
         }
@@ -234,7 +232,6 @@ class CartTest: XCTestCase {
                 {
                     XCTAssertTrue(issuccess, "testCarCountries pass ")
 
-                    print(countries)
                 }
                 readyExpectation.fulfill()
         }
@@ -328,7 +325,6 @@ class CartTest: XCTestCase {
                 {
                     XCTAssertTrue(issuccess, "testCheckShippable pass ")
 
-                    print(shippable.getCartId())
                 }
                 readyExpectation.fulfill()
         }
@@ -368,12 +364,10 @@ class CartTest: XCTestCase {
                 {
                     XCTAssertTrue(issuccess, "testModifyShippingAddress failed ")
 
-                    print(errormessage)
                 }else
                 {
                     XCTAssertTrue(issuccess, "testModifyShippingAddress pass ")
 
-                    print(result)
                 }
                 readyExpectation.fulfill()
         }

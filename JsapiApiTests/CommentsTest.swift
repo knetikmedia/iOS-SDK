@@ -15,7 +15,9 @@ class CommentsTest: XCTestCase {
     var comment_id="33"
     override func setUp() {
         super.setUp()
-        JsapiAPi.jsapiInit("http://localhost:8080/jsapi", client_id: "knetik",secrect_key: "superSUPERsuperSECRET")
+        
+        JsapiAPi.jsapiInit("http://localhost:8080/jsapi", client_id: "guerilla_tea",secrect_key: "HEsd0EpPRfkGGEwi")
+        
         testDoLogin();
         testGetUserInfo();
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -24,6 +26,7 @@ class CommentsTest: XCTestCase {
     func testDoLogin()
     {
         let readyExpectation = expectationWithDescription("ready")
+        readyExpectation.fulfill()
         var userDetails=Dictionary<String,String>()
         userDetails["username"] = "admin"
         userDetails["password"] = "123123"
@@ -50,6 +53,7 @@ class CommentsTest: XCTestCase {
         
         testDoLogin();
         let readyExpectation = expectationWithDescription("ready")
+        readyExpectation.fulfill()
         let userDetails=Dictionary<String,String>()
         let userObject = UserService()
         userObject.getUserInfo(userDetails)
@@ -74,7 +78,7 @@ class CommentsTest: XCTestCase {
     func testItemCommentsList()
     {
         let readyExpectation = expectationWithDescription("ready")
-
+        readyExpectation.fulfill()
         var params=Dictionary<String,String>()
         params["id"]="4"
         let comment = CommentService()
@@ -87,10 +91,11 @@ class CommentsTest: XCTestCase {
                }else
                {
                 if(comments.count>0){
+                    
                     let comment=comments[comments.count-1] as Comment
                     self.comment_id=String(comment.getCommentId())
-                    print("comment id is "+self.comment_id)
-                 }
+
+                }
                     XCTAssertTrue(issuccess, "testItemCommentsList pass")
                 }
                 readyExpectation.fulfill()
@@ -103,7 +108,7 @@ class CommentsTest: XCTestCase {
     func testAddCommentToItem()
     {
         let readyExpectation = expectationWithDescription("ready")
-
+        readyExpectation.fulfill()
         var params=Dictionary<String,String>()
         params["item_id"]="4"
         params["comment"]="hello"
@@ -130,6 +135,7 @@ class CommentsTest: XCTestCase {
     {
         testItemCommentsList();
         let readyExpectation = expectationWithDescription("ready")
+        readyExpectation.fulfill()
         var params=Dictionary<String,String>()
         params["id"]=self.comment_id
         var comment = CommentService()

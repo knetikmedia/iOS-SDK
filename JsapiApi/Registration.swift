@@ -19,7 +19,7 @@ public class Registration:NSObject
     {
         let endpoint=JSAPIConstant.FORGOTPASSWORD
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+endpoint
-        print(methodurl)
+
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
@@ -47,7 +47,7 @@ public class Registration:NSObject
     {
         let endpoint=JSAPIConstant.GUESTS
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+endpoint
-        print(methodurl)
+
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
@@ -73,7 +73,7 @@ public class Registration:NSObject
     {
         let endpoint=JSAPIConstant.GUESTUPGRADE
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+endpoint
-        print(methodurl)
+
         JsapiRest.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
@@ -96,7 +96,7 @@ public class Registration:NSObject
     public func doUserRegistration(registerationDetails:Dictionary<String,String>,callback:(RegisteredUser,String,Bool)->Void)
     {
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.REGISTER
-        print(methodurl)
+
         JsapiRest.postrequest(methodurl,postParams:  Utilities.jsonRequestFromDictionary(registerationDetails),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in

@@ -19,9 +19,9 @@ class JsapiRest
     */
     class func postrequest(functionURL:String,postParams:String,isJson:Bool,callback:(NSDictionary,Bool)->Void)
     {
-        print(functionURL)
-        print(postParams)
+ 
         let request = NSMutableURLRequest(URL: NSURL(string: functionURL)!)
+        
         request.HTTPMethod = "POST"
         let postString = postParams
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
@@ -29,13 +29,15 @@ class JsapiRest
         {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.setValue("application/json", forHTTPHeaderField: "Accept")
-        if(!JsapiAPi.sharedInstance.getJsapiToken().isEmpty&&JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR)
+            
+        if(!JsapiAPi.sharedInstance.getJsapiToken().isEmpty &&
+            JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR)
             {
-                print("token not empty :"+JsapiAPi.sharedInstance.getJsapiToken())
-    request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
+                request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
             }
 
         }else{
+            
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         }
         
@@ -46,15 +48,34 @@ class JsapiRest
                 return
             }
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print(responseString)
+           
+            let httpResponse = response as! NSHTTPURLResponse
+            
+            
+            if(httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 && (responseString as! String) .isEmpty)
+            {
+                callback(NSDictionary(),true)
+                
+                return
+            }
+            
+            //Redirection
+           
+            
 
             if(responseString == "")
             {
-                print("Empty Response")
-                 callback(NSDictionary(),true)
+
+                callback(NSDictionary(),true)
+                
                 return;
             }
             let jsonResult: NSDictionary! = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers ) as? NSDictionary
+            
+            if(httpResponse.URL!.absoluteString != functionURL || httpResponse.statusCode == 301 || httpResponse.statusCode == 307 || httpResponse.statusCode == 302 ){
+                JsapiRest .postrequest(httpResponse.URL!.absoluteString , postParams: postParams, isJson: isJson, callback: callback)
+            }
+            
             if(jsonResult == nil)
             {
                 callback(NSDictionary(),true)
@@ -74,7 +95,7 @@ class JsapiRest
 
                     let isSuccess = false
                     var dictionary = Dictionary<String ,String>()
-                     dictionary.updateValue(errorObject,forKey: "error")
+                    dictionary.updateValue(errorObject,forKey: "error")
                     dictionary.updateValue(error_description,forKey: "error_description")
 
                     callback(jsonResult , isSuccess)
@@ -104,7 +125,7 @@ class JsapiRest
     */
     class func getRequest(functionURL:String,postParams:String,callback:(NSDictionary,Bool)->Void)
     {
-        print(postParams)
+
         let request = NSMutableURLRequest(URL: NSURL(string: functionURL+postParams)!)
         request.HTTPMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -112,18 +133,27 @@ class JsapiRest
         
         
         if(!JsapiAPi.sharedInstance.getJsapiToken().isEmpty&&JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR){
-            print("token not empty :"+JsapiAPi.sharedInstance.getJsapiToken())
+            
             request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
+            
         }
-        print(JsapiAPi.sharedInstance.getJsapiToken())
+
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
             if error != nil {
                 callback(NSDictionary(),true)
                 return
             }
+           
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print("responseString = \(responseString)")
+
+            let httpResponse = response as! NSHTTPURLResponse
+
+            if(httpResponse.URL!.absoluteString != functionURL || httpResponse.statusCode == 301 || httpResponse.statusCode == 307 || httpResponse.statusCode == 302 ){
+                JsapiRest .getRequest(httpResponse.URL!.absoluteString , postParams: postParams,callback: callback)
+            }
+
+            
             let jsonResult: NSDictionary! = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
             if(jsonResult == nil)
             {
@@ -154,7 +184,7 @@ class JsapiRest
     */
     class func deleteRequest(functionURL:String,deleteParams:String,callback:(NSDictionary,Bool)->Void)
     {
-        print(deleteParams)
+
         let request = NSMutableURLRequest(URL: NSURL(string: functionURL)!)
         request.HTTPMethod = "DELETE"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -162,10 +192,11 @@ class JsapiRest
         
         
         if(!JsapiAPi.sharedInstance.getJsapiToken().isEmpty&&JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR){
-            print("token not empty :"+JsapiAPi.sharedInstance.getJsapiToken())
+
             request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
+            
         }
-        print(JsapiAPi.sharedInstance.getJsapiToken())
+
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
             
@@ -184,9 +215,14 @@ class JsapiRest
                 
                 return
             }
-            
-            print("responseString = \(responseString)")
+        
             let jsonResult: NSDictionary! = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers ) as? NSDictionary
+            
+            if(httpResponse.URL!.absoluteString != functionURL || httpResponse.statusCode == 301 || httpResponse.statusCode == 307 || httpResponse.statusCode == 302 ){
+                JsapiRest .deleteRequest(httpResponse.URL!.absoluteString , deleteParams: deleteParams, callback: callback)
+            }
+
+            
             if(jsonResult == nil)
             {
                 callback(NSDictionary(),true)
@@ -217,7 +253,7 @@ class JsapiRest
     */
     class func putRequest(functionURL:String,postParams:String,isJson:Bool,callback:(NSDictionary,Bool)->Void)
     {
-        print(postParams)
+
         let request = NSMutableURLRequest(URL: NSURL(string: functionURL)!)
         request.HTTPMethod = "PUT"
         let postString = postParams
@@ -227,9 +263,11 @@ class JsapiRest
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.setValue("application/json", forHTTPHeaderField: "Accept")
         if(!JsapiAPi.sharedInstance.getJsapiToken().isEmpty&&JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR){
-            print("token not empty :"+JsapiAPi.sharedInstance.getJsapiToken())
+            
             request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
+            
             }
+            
         }else{
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         }
@@ -241,7 +279,22 @@ class JsapiRest
                 return
             }
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print("responseString = \(responseString)")
+            
+            let httpResponse = response as! NSHTTPURLResponse
+            
+            
+            if(httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 && (responseString as! String) .isEmpty)
+            {
+                callback(NSDictionary(),true)
+                
+                return
+            }
+
+            if(httpResponse.URL!.absoluteString != functionURL || httpResponse.statusCode == 301 || httpResponse.statusCode == 307 || httpResponse.statusCode == 302 ){
+                JsapiRest .putRequest(httpResponse.URL!.absoluteString , postParams: postParams, isJson: isJson, callback: callback)
+            }
+
+
             if(responseString=="")
             {
                 callback(NSDictionary(),true)
