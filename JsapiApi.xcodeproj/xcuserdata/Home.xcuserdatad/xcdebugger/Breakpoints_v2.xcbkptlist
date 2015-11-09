@@ -303,8 +303,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
             endingLineNumber = "23"
-            landmarkName = "postrequest(_:postParams:isJson:callback:)"
-            landmarkType = "5">
+            landmarkName = "JsapiRest"
+            landmarkType = "3">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
@@ -399,7 +399,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "293"
             endingLineNumber = "293"
-            landmarkName = "putRequest(_:postParams:isJson:callback:)"
+            landmarkName = "deleteRequest(_:deleteParams:callback:)"
             landmarkType = "5">
             <Locations>
                <Location
@@ -447,7 +447,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "257"
             endingLineNumber = "257"
-            landmarkName = "putRequest(_:postParams:isJson:callback:)"
+            landmarkName = "deleteRequest(_:deleteParams:callback:)"
             landmarkType = "5">
             <Locations>
                <Location
@@ -495,7 +495,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "281"
             endingLineNumber = "281"
-            landmarkName = "putRequest(_:postParams:isJson:callback:)"
+            landmarkName = "deleteRequest(_:deleteParams:callback:)"
             landmarkType = "5">
             <Locations>
                <Location
@@ -543,7 +543,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "277"
             endingLineNumber = "277"
-            landmarkName = "putRequest(_:postParams:isJson:callback:)"
+            landmarkName = "deleteRequest(_:deleteParams:callback:)"
             landmarkType = "5">
             <Locations>
                <Location
