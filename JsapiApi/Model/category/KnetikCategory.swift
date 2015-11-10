@@ -5,10 +5,10 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Category:NSObject{
+public class KnetikCategory:NSObject{
 
 	public var categoryId : String!
-	public var categoryName : NSNumber!
+	public var categoryName : String!
 	public var image : String!
 	
     override public init(){super.init()}
