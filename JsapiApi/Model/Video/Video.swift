@@ -30,6 +30,7 @@ public class Video :NSObject{
     public var uploader : SimpleUser!
     public var width : NSNumber!
     public var thumbnail : String!
+    public var views : NSNumber!
 
     
 
@@ -72,6 +73,8 @@ public class Video :NSObject{
 			uploader = SimpleUser(fromDictionary: uploaderData)
 		}
 		width = dictionary["width"] as? NSNumber
+        views = dictionary["views"] as? NSNumber
+
 	}
 
 	/**
@@ -141,6 +144,10 @@ public class Video :NSObject{
         
         if thumbnail != nil{
             dictionary["thumbnail"] = thumbnail
+        }
+        
+        if views != nil{
+            dictionary["views"] = views
         }
 		return dictionary
 	}
