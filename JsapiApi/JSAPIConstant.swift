@@ -123,6 +123,11 @@ class var COMMENTLIST:String {return "/services/latest/comments"};
     class var DELETEFAVORITE:String {return "/services/latest/favorite/delete"};
     
 //End FAVORITE
+    
+//categories
+    class var GETCATEGORIES:String {return "/services/latest/categories"};
+
+    
 }
 
 

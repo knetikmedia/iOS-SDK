@@ -105,7 +105,10 @@ public class JsapiAPi:NSObject
                 {
                     self.token=result.valueForKey("access_token") as! String!
                     self.token_type=result.valueForKey("token_type") as! String!
+                    if(result.valueForKey("refresh_token") != nil){
+
                     self.refresh_token = result.valueForKey("refresh_token") as! String!
+                    }
                 }
                 callback(result,issuccess)
         }
