@@ -24,15 +24,11 @@ public class UserService:NSObject {
             let userResponse = UserResponse(fromDictionary: result)
             if(!issuccess)
             {
-                print(result["error"])
-                print(result["error_description"])
-                print(userResponse.errormessage)
                 
                 callback(User(),userResponse.errormessage,issuccess)
 
             }else
             {
-                print(result)
                 callback(userResponse.user,"",issuccess)
 
             }
