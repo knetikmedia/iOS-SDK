@@ -12,6 +12,7 @@ public class CategoryObject:NSObject{
 	public var categoryId : String!
 	public var name : String!
 
+    override public init(){super.init()}
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values

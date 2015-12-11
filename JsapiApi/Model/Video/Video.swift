@@ -15,6 +15,7 @@ public class Video :NSObject{
     public var authored : NSNumber!
     public var contributors : [Contributor]!
     public var created : NSNumber!
+    public var active : NSNumber!
     public var embed : String!
     public var videoExtension : String!
     public var height : NSNumber!
@@ -31,7 +32,7 @@ public class Video :NSObject{
     public var width : NSNumber!
     public var thumbnail : String!
     public var views : NSNumber!
-
+    public var videoCategory :CategoryObject!
     
 
 
@@ -56,6 +57,7 @@ public class Video :NSObject{
 		embed = dictionary["embed"] as? String
 		videoExtension = dictionary["extension"] as? String
 		height = dictionary["height"] as? NSNumber
+        active = dictionary["active"] as? NSNumber
 		videoId = dictionary["id"] as? NSNumber
 		length = dictionary["length"] as? NSNumber
 		location = dictionary["location"] as? String
@@ -149,6 +151,16 @@ public class Video :NSObject{
         if views != nil{
             dictionary["views"] = views
         }
+        if videoCategory != nil{
+            
+            dictionary["category"] = videoCategory.toDictionary()
+        }
+
+        if active != nil{
+            
+            dictionary["active"] = "true"
+        }
+        
 		return dictionary
 	}
 
