@@ -23,13 +23,16 @@ public class VideoService:NSObject
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
-                let baseResponse=VideoResponse(fromDictionary: result["result"] as! NSDictionary)
                 if(!issuccess)
                 {
+                    let baseResponse=VideoResponse(fromDictionary: result)
+
                     callback(baseResponse.videos,baseResponse.errormessage,issuccess)
                     
                 }else
                 {
+                    let baseResponse=VideoResponse(fromDictionary: result["result"] as! NSDictionary)
+
                     callback(baseResponse.videos,"",issuccess)
                     
                 }

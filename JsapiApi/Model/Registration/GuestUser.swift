@@ -10,8 +10,26 @@ public class GuestUser:NSObject{
 	var password : String!
 	var username : String!
     override public init(){super.init()}
-    public func getPassword ()->String{return password}
-    public func getUsername ()->String{return username}
+    public func getPassword ()->String{
+        
+        
+        if(password == nil ){
+            
+            return "";
+        }
+        
+        return password
+    
+    }
+    public func getUsername ()->String{
+        
+        if(username == nil ){
+        
+            return "";
+        }
+        return username
+    
+    }
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
