@@ -17,6 +17,7 @@ public class CategoryPage:NSObject{
 	public var totalElements : NSNumber!
 	public var totalPages : NSNumber!
 
+    override public init(){super.init()}
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values

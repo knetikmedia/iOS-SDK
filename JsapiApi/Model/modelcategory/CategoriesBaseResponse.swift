@@ -17,8 +17,13 @@ class CategoriesBaseResponse:BaseResponse{
         super.init(fromDictionary: dictionary);
         
 		if let resultData = dictionary["result"] as? NSDictionary{
+            
 			result = CategoryPage(fromDictionary: resultData)
-		}
+            
+        }else{
+            
+            result = CategoryPage()
+        }
 	}
 
 }

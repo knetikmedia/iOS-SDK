@@ -17,8 +17,13 @@ class UserResponse:BaseResponse{
 	override init(fromDictionary dictionary: NSDictionary){
         super.init(fromDictionary: dictionary)
 		if let userData = dictionary["result"] as? NSDictionary{
+            
 			user = User(fromDictionary: userData)
-		}
+            
+        }else{
+            
+            user = User();
+        }
 	}
 
 }

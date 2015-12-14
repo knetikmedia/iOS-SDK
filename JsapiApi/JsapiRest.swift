@@ -172,7 +172,7 @@ class JsapiRest :NSObject,NSURLSessionDelegate
         let task = session.dataTaskWithRequest(request) {
             data, response, error in
             if error != nil {
-                callback(NSDictionary(),true)
+                callback(NSDictionary(),false)
                 return
             }
            
