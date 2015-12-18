@@ -202,7 +202,10 @@ class JsapiRest :NSObject,NSURLSessionDelegate
                     
                  JsapiAPi.sharedInstance.sessionExpired()
                     
+                   callback(jsonResult,false)
+                    
                 }else{
+                    
                 let errorObject = jsonResult["error"]  as! Dictionary<String,Bool>
                 
                 let isSuccess=errorObject["success"]?.boolValue
