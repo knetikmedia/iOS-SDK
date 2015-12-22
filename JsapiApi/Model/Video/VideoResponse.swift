@@ -9,7 +9,6 @@ class VideoResponse : BaseResponse{
 
 	var videos : [Video]!
 
-
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */

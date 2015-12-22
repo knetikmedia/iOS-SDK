@@ -11,7 +11,7 @@ class BaseResponse:NSObject{
 	private var error : Error!
 	public var errormessage : String!
 	private var requestId : String!
-
+    
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
@@ -28,5 +28,7 @@ class BaseResponse:NSObject{
             errormessage=""
         }
 	}
+    
+    
 
 }
