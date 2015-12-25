@@ -8,12 +8,15 @@ import Foundation
 class VideoResponse : BaseResponse{
 
 	var videos : [Video]!
-
+    var page : PageRequest!
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
 	override init(fromDictionary dictionary: NSDictionary){
         super.init(fromDictionary: dictionary)
+        
+        page = PageRequest.init(fromDictionary: dictionary)
+        
         videos = [Video]()
 		if let resultData = dictionary["content"] as? [NSDictionary]{
             for dic in resultData {

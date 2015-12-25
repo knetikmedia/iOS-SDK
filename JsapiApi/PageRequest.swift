@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class PageRequest{
+public class PageRequest :NSObject{
 
 	public var first : NSNumber!
 	public var last : NSNumber!

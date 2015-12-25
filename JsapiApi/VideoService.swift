@@ -17,7 +17,7 @@ public class VideoService:NSObject
     *@param params Dictionary
     *@param callback
     */
-    public func getVideos(params:Dictionary<String,AnyObject>,callback:(Array<Video>,String,Bool)->Void)
+    public func getVideos(params:Dictionary<String,AnyObject>,callback:(Array<Video>,PageRequest,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETVIDEOS
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
@@ -27,13 +27,13 @@ public class VideoService:NSObject
                 {
                     let baseResponse=VideoResponse(fromDictionary: result)
 
-                    callback(baseResponse.videos,baseResponse.errormessage,issuccess)
+                    callback(baseResponse.videos,baseResponse.page,baseResponse.errormessage,issuccess)
                     
                 }else
                 {
                     let baseResponse=VideoResponse(fromDictionary: result["result"] as! NSDictionary)
 
-                    callback(baseResponse.videos,"",issuccess)
+                    callback(baseResponse.videos,baseResponse.page,"",issuccess)
                     
                 }
                 
@@ -44,7 +44,7 @@ public class VideoService:NSObject
     *@param params Dictionary
     *@param callback
     */
-    public func getUserVideos(userId:String,params:Dictionary<String,AnyObject>,callback:(Array<Video>,String,Bool)->Void)
+    public func getUserVideos(userId:String,params:Dictionary<String,AnyObject>,callback:(Array<Video>,PageRequest,String,Bool)->Void)
     {
         let methodUrl:String=NSString(format:JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETUSERVIDEOS,userId) as String
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
@@ -53,11 +53,11 @@ public class VideoService:NSObject
                 let baseResponse=VideoResponse(fromDictionary: result["result"] as! NSDictionary)
                 if(!issuccess)
                 {
-                    callback(baseResponse.videos,baseResponse.errormessage,issuccess)
+                    callback(baseResponse.videos,baseResponse.page,baseResponse.errormessage,issuccess)
                     
                 }else
                 {
-                    callback(baseResponse.videos,"",issuccess)
+                    callback(baseResponse.videos,baseResponse.page,"",issuccess)
                     
                 }
                 
