@@ -33,7 +33,7 @@ public class Video :NSObject{
     public var thumbnail : String!
     public var views : NSNumber!
     public var videoCategory :CategoryObject!
-    
+    public var comments:[Comment]!
 
 
 	/**
@@ -77,6 +77,13 @@ public class Video :NSObject{
 		width = dictionary["width"] as? NSNumber
         views = dictionary["views"] as? NSNumber
 
+        comments = [Comment]()
+        if let commentsArray = dictionary["comments"] as? [NSDictionary]{
+            for dic in commentsArray{
+                let value = Comment(fromDictionary: dic)
+                comments.append(value)
+            }
+        }
 	}
 
 	/**

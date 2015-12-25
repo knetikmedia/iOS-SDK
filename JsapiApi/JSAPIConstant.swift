@@ -38,9 +38,9 @@ class var SETUSERPASSWORD:String {return "/services/latest/user/%@/password"};
 
     
 //Comment
-class var ADDCOMMENT:String {return "/services/latest/comments" }
-class var DELETECOMMENT:String {return "/services/latest/comments/%@"};
-class var COMMENTLIST:String {return "/services/latest/comments"};
+class var ADDCOMMENT:String {return "/services/latest/media/videos/%@/comments" }
+class var DELETECOMMENT:String {return "/services/latest/media/videos/%@/comments"};
+class var COMMENTLIST:String {return "/services/latest/media/videos/%@/comments"};
     
 //End Comment
     
@@ -85,7 +85,7 @@ class var COMMENTLIST:String {return "/services/latest/comments"};
     
     //FLAG
     
-    class var FLAGS:String {return "/services/latest/flags"}
+    class var FLAGS:String {return "/services/latest/media/videos/%@/moderation"}
     
     class var GETFLAGS:String {return "/services/latest/flags"};
     class var DELETEFLAG:String {return "/services/latest/flags/%@"};

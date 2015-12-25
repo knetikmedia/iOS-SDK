@@ -13,10 +13,10 @@ public class FlagService:NSObject
     *@param
     *@param callback
     */
-    public func addFlag(params:Dictionary<String,String>,callback:(AnyObject,String,Bool)->Void)
+    public func addFlag(videoID:String,params:Dictionary<String,String>,callback:(AnyObject,String,Bool)->Void)
     {
-        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.FLAGS;
-        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        let methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.FLAGS,videoID)
+        JsapiRest.sharedInstance.postrequest(methodUrl as String, postParams: Utilities.getPostValueRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let baseResponse=BaseResponse(fromDictionary: result)
@@ -39,7 +39,7 @@ public class FlagService:NSObject
     */
     public func flagsList(params:Dictionary<String,String>,callback:(Array<Flag>,String,Bool)->Void)
     {
-        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.FLAGS
+        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETFLAGS
         
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
