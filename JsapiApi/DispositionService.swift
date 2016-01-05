@@ -39,6 +39,32 @@ public class DispositionService:NSObject
         }
     }
     
+    /** Get Dispositions
+     *@param params Dictionary
+     *@param callback
+     */
+    public func getMineDispositions(params:Dictionary<String,AnyObject>,callback:(Array<Disposition>,String,Bool)->Void)
+    {
+        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETMINEDISPOSITION
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                let baseResponse=DispositionResponse(fromDictionary: result)
+                if(!issuccess)
+                {
+                    callback(baseResponse.result.content,baseResponse.errormessage,issuccess)
+                    
+                }else
+                {
+                    
+                    callback(baseResponse.result.content,"",issuccess)
+                    
+                }
+                
+        }
+    }
+
+    
     
     /** Get Dispositions Count
      *@param params Dictionary

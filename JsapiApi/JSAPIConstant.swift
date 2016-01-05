@@ -73,6 +73,10 @@ class var COMMENTLIST:String {return "/services/latest/media/videos/%@/comments"
     //DISPOSITION
     
     class var DISPOSITION:String {return "/services/latest/dispositions"}
+    class var GETMINEDISPOSITION:String {return "/services/latest/dispositions/mine"}
+
+    class var GETMYDISPOSTION:String {return "/services/latest/dispositions"}
+
     class var ADDDISPOSITION:String {return "/services/latest/dispositions/%@/%@"}
 
     class var DELETEDISPOSITION:String {return "/services/latest/dispositions/%@"};
