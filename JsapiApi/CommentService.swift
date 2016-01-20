@@ -46,13 +46,15 @@ public class CommentService:NSObject
         JsapiRest.sharedInstance.getRequest(methodUrl as String, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
-                let commentResponse=CommentResponse(fromDictionary: (result["result"] as? NSDictionary)!);
                 if(!issuccess)
                 {
+                    let commentResponse=CommentResponse(fromDictionary:result);
                     callback(commentResponse.comments,commentResponse.errormessage,issuccess)
 
                 }else
                 {
+                    let commentResponse=CommentResponse(fromDictionary: (result["result"] as? NSDictionary)!);
+
                     callback(commentResponse.comments,"",issuccess)
                 }
         }

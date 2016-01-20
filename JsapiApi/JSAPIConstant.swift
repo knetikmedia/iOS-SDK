@@ -90,7 +90,8 @@ class var COMMENTLIST:String {return "/services/latest/media/videos/%@/comments"
     //FLAG
     
     class var FLAGS:String {return "/services/latest/media/videos/%@/moderation"}
-    
+    class var COMMENTFLAGS:String {return "/services/latest/media/videos/%@/moderation"}
+
     class var GETFLAGS:String {return "/services/latest/flags"};
     class var DELETEFLAG:String {return "/services/latest/flags/%@"};
 
