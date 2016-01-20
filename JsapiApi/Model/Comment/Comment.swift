@@ -7,17 +7,17 @@ import Foundation
 
 public class Comment:NSObject{
 
-	var comment : String!
-	var commentId : NSNumber!
-	var dateCreated : String!
-	var dateUpdated : String!
-	var deleted : NSNumber!
-	var displayName : String!
-    var summary : String!
-	var contextId : NSNumber!
-    var context : String!
-	var userId : NSNumber!
-    var user :SimpleUser!
+	public var comment : String!
+	public var commentId : NSNumber!
+	public var dateCreated : String!
+	public var dateUpdated : String!
+	public var deleted : NSNumber!
+	public var displayName : String!
+    public var summary : String!
+	public var contextId : NSNumber!
+    public var context : String!
+	public var userId : NSNumber!
+    public var user :SimpleUser!
     
     public func  getComment()-> String
     {
