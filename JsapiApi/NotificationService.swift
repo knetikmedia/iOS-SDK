@@ -70,5 +70,30 @@ public class NotificationService : NSObject
     }
     
     
+    /** Add  Notification
+     *@param params Dictionary
+     *@param callback
+     */
+    public func addCustomCall(endpointurl:String ,params:Dictionary<String,AnyObject>,callback:(NSDictionary,String,Bool)->Void)
+    {
+        
+        JsapiRest.sharedInstance.postrequest(endpointurl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                
+                let baseResponse=BaseResponse(fromDictionary: result)
+                
+                if(!issuccess)
+                {
+                    callback(result,baseResponse.errormessage,issuccess)
+                }else
+                {
+                    callback(result,"",issuccess)
+                }
+                
+        }
+    }
+
+    
   
 }
