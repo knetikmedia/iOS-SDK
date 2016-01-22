@@ -77,6 +77,10 @@ public class Video :NSObject{
 		width = dictionary["width"] as? NSNumber
         views = dictionary["views"] as? NSNumber
 
+        if let categoryData = dictionary["category"] as? NSDictionary{
+            videoCategory = CategoryObject(fromDictionary: categoryData)
+        }
+
         comments = [Comment]()
         if let commentsArray = dictionary["comments"] as? [NSDictionary]{
             for dic in commentsArray{
