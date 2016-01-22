@@ -11,6 +11,8 @@ public class JsapiAPi:NSObject
 {
     
     private var jsapiurl:String=""
+    private var notificationUrl:String=""
+
     private var client_id:String=""
     private var username:String=""
     private var password:String=""
@@ -48,7 +50,7 @@ public class JsapiAPi:NSObject
     secrect_key optional paramter
     */
     
-    public class func jsapiInit(jsapiurl:String,client_id:String,secrect_key:String)
+    public class func jsapiInit(jsapiurl:String,client_id:String,secrect_key:String,notificationUrl:String)
     {
         if(jsapiurl.isEmpty){
             return;
@@ -60,7 +62,7 @@ public class JsapiAPi:NSObject
         JsapiAPi.sharedInstance.jsapiurl=jsapiurl
         JsapiAPi.sharedInstance.client_id=client_id
         JsapiAPi.sharedInstance.secrect_key=secrect_key
-        
+        JsapiAPi.sharedInstance.notificationUrl = notificationUrl
     }
     /**
     reset function
@@ -72,7 +74,8 @@ public class JsapiAPi:NSObject
         JsapiAPi.sharedInstance.username=""
         JsapiAPi.sharedInstance.password=""
         JsapiAPi.sharedInstance.secrect_key=""
-        JsapiAPi.sharedInstance.token="";
+        JsapiAPi.sharedInstance.token=""
+        JsapiAPi.sharedInstance.notificationUrl = ""
     }
    
     
@@ -279,6 +282,16 @@ public class JsapiAPi:NSObject
     public func getJsapiToken()->String
     {
         return self.token_type+" "+self.token;
+    }
+    
+    public func getJsapiOriginalToken()->String
+    {
+        return self.token;
+    }
+
+    public func getNotificationUrl()->String
+    {
+        return self.notificationUrl;
     }
 
 }

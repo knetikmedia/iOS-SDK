@@ -19,7 +19,7 @@ public class NotificationService : NSObject
     */
     public func getNotifications(params:Dictionary<String,AnyObject>,callback:(NSDictionary,String,Bool)->Void)
     {
-        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.NOTIFICATIONS
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.NOTIFICATIONS
         
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
@@ -50,7 +50,7 @@ public class NotificationService : NSObject
     */
     public func addNotification(params:Dictionary<String,AnyObject>,callback:(AnyObject,String,Bool)->Void)
     {
-        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.NOTIFICATIONS
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.NOTIFICATIONS
         
         JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {

@@ -96,18 +96,28 @@ class JsapiRest :NSObject,NSURLSessionDelegate
                 
                 return;
             }
-            let jsonResult: NSDictionary! = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers ) as? NSDictionary
+            let jsonResult2: AnyObject! = try? NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers )
+            
+            if(jsonResult2 == nil ){
+
+                callback(NSDictionary(),false)
+                
+            return
+            }
+            let jsonResult : NSDictionary = (jsonResult2 as?NSDictionary)!;
+            
             
             if(httpResponse.statusCode == 301 || httpResponse.statusCode == 307){
                 
                 self.postrequest(httpResponse.URL!.absoluteString , postParams: postParams, isJson: isJson, callback: callback)
             }
             
-            if(jsonResult == nil)
-            {
-                callback(NSDictionary(),true)
-                return;
-            }
+//            if(jsonResult == nil)
+//            {
+//                callback(NSDictionary(),true)
+//                return;
+//            }
+            
             if(jsonResult["error"] != nil && isJson)
             {
                 if jsonResult["error"] is Dictionary<String,Bool>{
@@ -187,14 +197,25 @@ class JsapiRest :NSObject,NSURLSessionDelegate
                 return;
             }
 
+            if(data == nil || data?.length <= 0 ){
             
-            let jsonResult: NSDictionary! = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
+                callback(NSDictionary(),false)
+                return;
 
-            if(jsonResult == nil)
+            }
+            
+            let jsonResult2: AnyObject! = try? NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)
+
+            if(jsonResult2 == nil)
             {
-                callback(NSDictionary(),true)
+                callback(NSDictionary(),false)
                 return;
             }
+
+            
+            let jsonResult:NSDictionary = (jsonResult2 as? NSDictionary)!
+            
+            
             
             if(jsonResult["error"] != nil )
             {
