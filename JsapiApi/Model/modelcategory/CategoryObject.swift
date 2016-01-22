@@ -7,7 +7,7 @@ import Foundation
 
 public class CategoryObject:NSObject{
 
-	var active : Bool!
+	public var active : Bool!
 	public var assets : [NSDictionary]!
 	public var categoryId : String!
 	public var name : String!

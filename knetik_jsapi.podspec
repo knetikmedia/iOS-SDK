@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "knetik_jsapi"
-  s.version      = "1.3.0"
+  s.version      = "1.3.1"
   s.summary      = "knetik Jsapi"
   s.description  = <<-DESC
                    Connecting to JSAPI using IOS Swift
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => "BSD", :file => "LICENSE" }
   s.author             = { "Knetik" => "dev@knetik.com" }
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/knetikmedia/iOS-SDK.git", :tag => '1.3.0' }
+  s.source       = { :git => "https://github.com/knetikmedia/iOS-SDK.git", :tag => '1.3.1' }
 
   s.source_files  = "JsapiApi/**/*.swift"
   s.requires_arc = true
