@@ -33,7 +33,7 @@ public class ArtistService:NSObject
                     
                 }else
                 {
-                    let baseResponse=BaseArtistResponse(fromDictionary: result["result"] as! NSDictionary)
+                    let baseResponse=BaseArtistResponse(fromDictionary: result)
 
                     callback(baseResponse.result,"",issuccess)
                     
