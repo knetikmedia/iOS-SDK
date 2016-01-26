@@ -135,6 +135,10 @@ class var COMMENTLIST:String {return "/services/latest/media/videos/%@/comments"
     class var BREEVENT:String {return "/services/latest/bre/fireevent"};
     
     class var NOTIFICATIONS:String {return "/api/notifications"};
+    class var READNOTIFICATIONS:String {return "/api/notifications/%@"};
+
+    //
+    class var GETARTISTS:String {return "/services/latest/media/artists"}
 
 }
 

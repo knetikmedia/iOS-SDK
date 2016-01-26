@@ -21,11 +21,11 @@
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
+            buildForTesting = "NO"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F4A1AAC51AA6147600D17F43"
@@ -42,16 +42,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F4A1AAC51AA6147600D17F43"
-               BuildableName = "JsapiApiTests.xctest"
-               BlueprintName = "JsapiApiTests"
-               ReferencedContainer = "container:JsapiApi.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
@@ -78,9 +68,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F4A1AAC51AA6147600D17F43"
-            BuildableName = "JsapiApiTests.xctest"
-            BlueprintName = "JsapiApiTests"
+            BlueprintIdentifier = "F4A1AABA1AA6147500D17F43"
+            BuildableName = "JsapiApi.framework"
+            BlueprintName = "JsapiApi"
             ReferencedContainer = "container:JsapiApi.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

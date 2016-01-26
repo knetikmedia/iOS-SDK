@@ -74,6 +74,33 @@ public class NotificationService : NSObject
      *@param params Dictionary
      *@param callback
      */
+    public func markNotificationAsRead(notificationID:String, params:Dictionary<String,AnyObject> , callback:(AnyObject,String,Bool)->Void)
+    {
+        let methodUrl:String=NSString(format: JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.NOTIFICATIONS,notificationID) as String
+        
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                
+                let baseResponse=BaseResponse(fromDictionary: result)
+                
+                if(!issuccess)
+                {
+                    callback(baseResponse,baseResponse.errormessage,issuccess)
+                }else
+                {
+                    callback(baseResponse,"",issuccess)
+                }
+                
+        }
+    }
+
+    
+    
+    /** Add  Notification
+     *@param params Dictionary
+     *@param callback
+     */
     public func addCustomCall(endpointurl:String ,params:Dictionary<String,AnyObject>,callback:(NSDictionary,String,Bool)->Void)
     {
         

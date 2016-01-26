@@ -111,6 +111,10 @@
 		F44231911BA372C40004810F /* Entrie.swift in Sources */ = {isa = PBXBuildFile; fileRef = F442318E1BA372C40004810F /* Entrie.swift */; };
 		F44231921BA372C40004810F /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F442318F1BA372C40004810F /* Leaderboard.swift */; };
 		F44231931BA372C40004810F /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F442318F1BA372C40004810F /* Leaderboard.swift */; };
+		F45DBA8D1C581E92006A23AE /* ArtistObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45DBA8A1C581E92006A23AE /* ArtistObject.swift */; };
+		F45DBA8E1C581E92006A23AE /* ArtistPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45DBA8B1C581E92006A23AE /* ArtistPage.swift */; };
+		F45DBA8F1C581E92006A23AE /* BaseArtistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45DBA8C1C581E92006A23AE /* BaseArtistResponse.swift */; };
+		F45DBA911C58208A006A23AE /* ArtistService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45DBA901C58208A006A23AE /* ArtistService.swift */; };
 		F46ABB0B1BA70AC5004DF427 /* LeaderboardTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46ABB0A1BA70AC5004DF427 /* LeaderboardTest.swift */; };
 		F46ABB0D1BA71517004DF427 /* LeaderboardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46ABB0C1BA71517004DF427 /* LeaderboardResponse.swift */; };
 		F46ABB0E1BA7151B004DF427 /* LeaderboardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46ABB0C1BA71517004DF427 /* LeaderboardResponse.swift */; };
@@ -139,8 +143,6 @@
 		F47BF4E91AC2096200F2FB17 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47BF4E81AC2096200F2FB17 /* CommentService.swift */; };
 		F47BF4EA1AC2096200F2FB17 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47BF4E81AC2096200F2FB17 /* CommentService.swift */; };
 		F47F8F811B45A5A400934807 /* RegistrationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F8F7F1B45A5A400934807 /* RegistrationTest.swift */; };
-		F47F8F851B45A61100934807 /* StoreTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F8F841B45A61100934807 /* StoreTest.swift */; };
-		F47F8F871B45A63200934807 /* FriendShipTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F8F861B45A63200934807 /* FriendShipTest.swift */; };
 		F47F8F891B45A64700934807 /* UserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F8F881B45A64700934807 /* UserTest.swift */; };
 		F47F8F8B1B45A66F00934807 /* FavoriteTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F8F8A1B45A66F00934807 /* FavoriteTest.swift */; };
 		F48006641AA656F600B27561 /* JSAPIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48006631AA656F600B27561 /* JSAPIConstant.swift */; };
@@ -254,6 +256,10 @@
 		F442318A1BA371CF0004810F /* LeaderboardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardService.swift; sourceTree = "<group>"; };
 		F442318E1BA372C40004810F /* Entrie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entrie.swift; sourceTree = "<group>"; };
 		F442318F1BA372C40004810F /* Leaderboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
+		F45DBA8A1C581E92006A23AE /* ArtistObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistObject.swift; sourceTree = "<group>"; };
+		F45DBA8B1C581E92006A23AE /* ArtistPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistPage.swift; sourceTree = "<group>"; };
+		F45DBA8C1C581E92006A23AE /* BaseArtistResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseArtistResponse.swift; sourceTree = "<group>"; };
+		F45DBA901C58208A006A23AE /* ArtistService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistService.swift; sourceTree = "<group>"; };
 		F46ABB0A1BA70AC5004DF427 /* LeaderboardTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardTest.swift; sourceTree = "<group>"; };
 		F46ABB0C1BA71517004DF427 /* LeaderboardResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardResponse.swift; sourceTree = "<group>"; };
 		F46ABB101BA71AA0004DF427 /* StrategiesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategiesResponse.swift; sourceTree = "<group>"; };
@@ -269,8 +275,6 @@
 		F47BB5A41ABC8457009AD1F6 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		F47BF4E81AC2096200F2FB17 /* CommentService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		F47F8F7F1B45A5A400934807 /* RegistrationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTest.swift; sourceTree = "<group>"; };
-		F47F8F841B45A61100934807 /* StoreTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreTest.swift; sourceTree = "<group>"; };
-		F47F8F861B45A63200934807 /* FriendShipTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendShipTest.swift; sourceTree = "<group>"; };
 		F47F8F881B45A64700934807 /* UserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTest.swift; sourceTree = "<group>"; };
 		F47F8F8A1B45A66F00934807 /* FavoriteTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTest.swift; sourceTree = "<group>"; };
 		F48006631AA656F600B27561 /* JSAPIConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSAPIConstant.swift; sourceTree = "<group>"; };
@@ -328,6 +332,7 @@
 		F4167B031AD5993300345DCB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F45DBA891C581E92006A23AE /* artist */,
 				F488C4F31C064C4500F2AF03 /* modelcategory */,
 				F4B2EEF51BE41B320045B898 /* flags */,
 				F4759B7B1BAB20500047C6BA /* Wallet */,
@@ -468,6 +473,16 @@
 			path = leaderboard;
 			sourceTree = "<group>";
 		};
+		F45DBA891C581E92006A23AE /* artist */ = {
+			isa = PBXGroup;
+			children = (
+				F45DBA8A1C581E92006A23AE /* ArtistObject.swift */,
+				F45DBA8B1C581E92006A23AE /* ArtistPage.swift */,
+				F45DBA8C1C581E92006A23AE /* BaseArtistResponse.swift */,
+			);
+			path = artist;
+			sourceTree = "<group>";
+		};
 		F46ABB0F1BA71AA0004DF427 /* strategies */ = {
 			isa = PBXGroup;
 			children = (
@@ -549,6 +564,7 @@
 				F48BBD221ABB135B00EAFE09 /* Registration.swift */,
 				F49EB52F1ACAE8240030437F /* StoreService.swift */,
 				F41B6FB11B4ACB8700B66B1A /* VideoService.swift */,
+				F45DBA901C58208A006A23AE /* ArtistService.swift */,
 				F4AEA4201B8E1D0C0001F61A /* DispositionService.swift */,
 				F44231871BA370FD0004810F /* MetricService.swift */,
 				F442318A1BA371CF0004810F /* LeaderboardService.swift */,
@@ -578,9 +594,7 @@
 				F46ABB171BA721C0004DF427 /* MetricTest.swift */,
 				F4C41C681B46D6CF0057F1A6 /* CartTest.swift */,
 				F47F8F8A1B45A66F00934807 /* FavoriteTest.swift */,
-				F47F8F861B45A63200934807 /* FriendShipTest.swift */,
 				F47F8F881B45A64700934807 /* UserTest.swift */,
-				F47F8F841B45A61100934807 /* StoreTest.swift */,
 				F4AEA4221B8E1DD40001F61A /* DispositionTest.swift */,
 				F4A1AACD1AA6147600D17F43 /* JsapiApiTests.swift */,
 				F47F8F7F1B45A5A400934807 /* RegistrationTest.swift */,
@@ -759,11 +773,13 @@
 				F43EED991ADD8519001EFC8B /* CartResponse.swift in Sources */,
 				F4167B2C1AD5DC7100345DCB /* Favorite.swift in Sources */,
 				F436419C1C52B89A0062F95E /* CategoryObject.swift in Sources */,
+				F45DBA911C58208A006A23AE /* ArtistService.swift in Sources */,
 				F43EEDC11ADDA60A001EFC8B /* Checkout.swift in Sources */,
 				F49EB5301ACAE8240030437F /* StoreService.swift in Sources */,
 				F436419F1C52B8CB0062F95E /* NotificationService.swift in Sources */,
 				F488C4F71C064C4500F2AF03 /* CategoriesBaseResponse.swift in Sources */,
 				F43EEDBA1ADDA34C001EFC8B /* Country.swift in Sources */,
+				F45DBA8F1C581E92006A23AE /* BaseArtistResponse.swift in Sources */,
 				F43EED941ADD6EE3001EFC8B /* GuestUser.swift in Sources */,
 				F41B6FD41B4AEC4300B66B1A /* Asset.swift in Sources */,
 				F488C4F91C064C4500F2AF03 /* CategoryPage.swift in Sources */,
@@ -784,9 +800,11 @@
 				F43EED9D1ADD8B50001EFC8B /* Cartsku.swift in Sources */,
 				F43EED8D1ADD5E3E001EFC8B /* StoreResponse.swift in Sources */,
 				F4F800321B4B3BE10048DEEC /* NewVideo.swift in Sources */,
+				F45DBA8E1C581E92006A23AE /* ArtistPage.swift in Sources */,
 				F48006641AA656F600B27561 /* JSAPIConstant.swift in Sources */,
 				F442318B1BA371CF0004810F /* LeaderboardService.swift in Sources */,
 				F4167B261AD5D15900345DCB /* Comment.swift in Sources */,
+				F45DBA8D1C581E92006A23AE /* ArtistObject.swift in Sources */,
 				F43EEDA51ADD949F001EFC8B /* Cart.swift in Sources */,
 				F43EED8B1ADD5E3E001EFC8B /* Sku.swift in Sources */,
 				F41B6FD11B4AEA4400B66B1A /* VideoResponse.swift in Sources */,
@@ -883,7 +901,6 @@
 				F4167B1D1AD5B1A900345DCB /* BaseResponse.swift in Sources */,
 				F4167B121AD5B15000345DCB /* User.swift in Sources */,
 				F47F8F811B45A5A400934807 /* RegistrationTest.swift in Sources */,
-				F47F8F851B45A61100934807 /* StoreTest.swift in Sources */,
 				F43EEDA01ADD8B50001EFC8B /* CartSKUResponse.swift in Sources */,
 				F43EEDA61ADD949F001EFC8B /* Cart.swift in Sources */,
 				F4167B171AD5B17300345DCB /* Error.swift in Sources */,
@@ -910,7 +927,6 @@
 				F423DED51B8CF1C800720B8B /* Artist.swift in Sources */,
 				F4759B7E1BAB20500047C6BA /* WalletRequest.swift in Sources */,
 				F442318C1BA371D40004810F /* LeaderboardService.swift in Sources */,
-				F47F8F871B45A63200934807 /* FriendShipTest.swift in Sources */,
 				F47BF4EA1AC2096200F2FB17 /* CommentService.swift in Sources */,
 				F423DED21B8CF1AD00720B8B /* Contributor.swift in Sources */,
 				F41B6FCE1B4AEA4400B66B1A /* Video.swift in Sources */,
