@@ -65,7 +65,9 @@ class var COMMENTLIST:String {return "/services/latest/media/videos/%@/comments"
     class var UPDATEVIDEODETAILS:String {return "/services/latest/videos/%@/details"} //videoID
     class var ADDUSERUPLOADEDMEDIAITEMASSESTS:String {return "/services/latest/videos/assets"}
     class var ADDCONTRIBUTOR:String {return "/services/latest/media/videos/%@/contributors"}
+    class var ADDRELATEDVIDEO:String {return "/services/latest/media/videos/%@/related"}
 
+    
 
     
 //End DISPOSITION

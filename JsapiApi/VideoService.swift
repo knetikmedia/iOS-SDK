@@ -258,5 +258,56 @@ public class VideoService:NSObject
                 
         }
     }
+    
+    /** Add Video Realtionship
+     *@param params Dictionary
+     *@param callback
+     */
+    public func addVideoRealtionShip(videoId:String,params:Dictionary<String,AnyObject>,callback:(String,String,Bool)->Void)
+    {
+        
+        let methodUrl:String=NSString(format:JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDRELATEDVIDEO,videoId) as String
+        JsapiRest.sharedInstance.putRequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                let baseResponse=BaseResponse(fromDictionary: result)
+                if(!issuccess)
+                {
+                    callback("",baseResponse.errormessage,issuccess)
+                }else
+                {
+                    callback("","",issuccess)
+                }
+                
+        }
+    }
+
+    
+    /** Get Video Realtionship
+     *@param params Dictionary
+     *@param callback
+     */
+    public func getRelationship(videoId:String,params:Dictionary<String,AnyObject>,callback:(Array<RelationshipObject>,String,Bool)->Void)
+    {
+        let methodUrl:String=NSString(format:JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDRELATEDVIDEO,videoId) as String
+        
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    let baseResponse=RelationshipdBaseResponse(fromDictionary: result)
+                    
+                    callback(baseResponse.content,baseResponse.errormessage,issuccess)
+                }else
+                {
+                    let baseResponse=RelationshipdBaseResponse(fromDictionary: result)
+                    
+                    callback(baseResponse.content,"",issuccess)
+                }
+                
+        }
+    }
+
 
 }

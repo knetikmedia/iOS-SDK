@@ -34,7 +34,7 @@ public class Video :NSObject{
     public var views : NSNumber!
     public var videoCategory :CategoryObject!
     public var comments:[Comment]!
-
+    public var tags : [String]!
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
@@ -80,7 +80,9 @@ public class Video :NSObject{
         if let categoryData = dictionary["category"] as? NSDictionary{
             videoCategory = CategoryObject(fromDictionary: categoryData)
         }
-
+        
+        tags = dictionary["tags"] as? [String]
+        
         comments = [Comment]()
         if let commentsArray = dictionary["comments"] as? [NSDictionary]{
             for dic in commentsArray{
@@ -165,6 +167,10 @@ public class Video :NSObject{
         if videoCategory != nil{
             
             dictionary["category"] = videoCategory.toDictionary()
+        }
+        
+        if tags != nil{
+            dictionary["tags"] = tags
         }
 
         if active != nil{
