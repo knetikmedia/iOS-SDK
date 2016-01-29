@@ -7,7 +7,9 @@ import Foundation
 
 public class Disposition:NSObject{
 
-    override public init(){}
+    override public init(){
+    
+    }
 
 	public var context : String!
 	public var contextId : NSNumber!

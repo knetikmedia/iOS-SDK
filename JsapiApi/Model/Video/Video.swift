@@ -31,6 +31,7 @@ public class Video :NSObject{
     public var uploader : SimpleUser!
     public var width : NSNumber!
     public var thumbnail : String!
+    public var privacy : String!
     public var views : NSNumber!
     public var videoCategory :CategoryObject!
     public var comments:[Comment]!
@@ -65,6 +66,8 @@ public class Video :NSObject{
 		mimeType = dictionary["mime_type"] as? String
 		name = dictionary["name"] as? String
 		shortDescription = dictionary["shortDescription"] as? String
+        privacy = dictionary["privacy"] as? String
+
 		size = dictionary["size"] as? NSNumber
         thumbnail = dictionary["thumbnail"] as? String
         if(thumbnail == nil){
@@ -177,6 +180,11 @@ public class Video :NSObject{
             
             dictionary["active"] = "true"
         }
+        if privacy != nil{
+            
+            dictionary["privacy"] = privacy
+        }
+
         
 		return dictionary
 	}

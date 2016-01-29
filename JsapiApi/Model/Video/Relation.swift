@@ -7,15 +7,15 @@ import Foundation
 
 public class Relation : NSObject{
 
-	var relationshipId : NSNumber!
-	var name : String!
+	public var relationshipId : NSNumber!
+	public var name : String!
 
     override public init(){super.init()}
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
-	init(fromDictionary dictionary: NSDictionary){
+	public init(fromDictionary dictionary: NSDictionary){
 		relationshipId = dictionary["id"] as? Int
 		name = dictionary["name"] as? String
 	}
@@ -23,7 +23,7 @@ public class Relation : NSObject{
 	/**
 	 * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
 	 */
-	func toDictionary() -> NSDictionary
+	public func toDictionary() -> NSDictionary
 	{
 		var dictionary = NSMutableDictionary()
 		if relationshipId != nil{

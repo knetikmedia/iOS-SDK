@@ -71,7 +71,7 @@ class JsapiRest :NSObject,NSURLSessionDelegate
                 callback(NSDictionary(),false)
                 return
             }
-            self.requests.removeValueForKey((request.URL?.absoluteString)!)
+            self.requests.removeValueForKey(request.URL!.absoluteString)
             
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
            
@@ -175,7 +175,7 @@ class JsapiRest :NSObject,NSURLSessionDelegate
             
         }
         
-         self.requests[(request.URL?.absoluteString)!] = request
+         self.requests[functionURL] = request
         
         let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration(), delegate: self, delegateQueue: nil)
         
@@ -186,7 +186,8 @@ class JsapiRest :NSObject,NSURLSessionDelegate
                 return
             }
            
-            self.requests.removeValueForKey((request.URL?.absoluteString)!)
+            
+            self.requests.removeValueForKey(request.URL!.absoluteString)
 
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
 
@@ -264,7 +265,7 @@ class JsapiRest :NSObject,NSURLSessionDelegate
             
         }
         
-        self.requests[(request.URL?.absoluteString)!] = request
+        self.requests[functionURL] = request
         
         let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration(), delegate: self, delegateQueue: nil)
 
@@ -279,7 +280,7 @@ class JsapiRest :NSObject,NSURLSessionDelegate
                 return
             }
             
-            self.requests.removeValueForKey((request.URL?.absoluteString)!)
+            self.requests.removeValueForKey(request.URL!.absoluteString)
             
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             
@@ -348,7 +349,7 @@ class JsapiRest :NSObject,NSURLSessionDelegate
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         }
         
-        self.requests[(request.URL?.absoluteString)!] = request
+        self.requests[functionURL] = request
         
         let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration(), delegate: self, delegateQueue: nil)
         
@@ -361,7 +362,7 @@ class JsapiRest :NSObject,NSURLSessionDelegate
                 return
             }
             
-            self.requests.removeValueForKey((request.URL?.absoluteString)!)
+            self.requests.removeValueForKey(request.URL!.absoluteString)
             
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             

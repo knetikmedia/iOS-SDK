@@ -17,7 +17,11 @@ class DispositionResponse:BaseResponse{
         super.init(fromDictionary: dictionary)
 		if let resultData = dictionary["result"] as? NSDictionary{
 			result = Dispositions(fromDictionary: resultData)
-		}
+        }else{
+        
+            result = Dispositions()
+        
+        }
 	}
 
 }

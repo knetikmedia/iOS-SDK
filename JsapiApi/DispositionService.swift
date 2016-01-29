@@ -52,7 +52,7 @@ public class DispositionService:NSObject
                 let baseResponse=DispositionResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    callback(baseResponse.result.content,baseResponse.errormessage,issuccess)
+                    callback([Disposition](),baseResponse.errormessage,issuccess)
                     
                 }else
                 {

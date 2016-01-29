@@ -143,6 +143,30 @@ public class VideoService:NSObject
         }
     }
     
+    /** Add User Video
+     *@param params Dictionary
+     *@param callback
+     */
+    public func getVideoDetails(videoId:String ,params:Dictionary<String,AnyObject>,callback:(Video,String,Bool)->Void)
+    {
+        let methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.DELETEVIDEO,videoId)
+        
+        JsapiRest.sharedInstance.getRequest(methodUrl as String, postParams: Utilities.getGETRequestFromDictionary(params))
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                let baseResponse=AddVideoResponse(fromDictionary: result)
+                if(!issuccess)
+                {
+                    callback(Video(),baseResponse.errormessage,issuccess)
+                }else
+                {
+                    callback(baseResponse.video,"",issuccess)
+                }
+                
+        }
+    }
+
+    
     
     /** Add User Video
      *@param params Dictionary
@@ -267,7 +291,7 @@ public class VideoService:NSObject
     {
         
         let methodUrl:String=NSString(format:JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDRELATEDVIDEO,videoId) as String
-        JsapiRest.sharedInstance.putRequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let baseResponse=BaseResponse(fromDictionary: result)
@@ -301,7 +325,7 @@ public class VideoService:NSObject
                     callback(baseResponse.content,baseResponse.errormessage,issuccess)
                 }else
                 {
-                    let baseResponse=RelationshipdBaseResponse(fromDictionary: result)
+                    let baseResponse=RelationshipdBaseResponse(fromDictionary: result["result"] as! NSDictionary)
                     
                     callback(baseResponse.content,"",issuccess)
                 }

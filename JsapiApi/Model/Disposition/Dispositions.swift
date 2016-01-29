@@ -27,6 +27,10 @@ public class Dispositions:NSObject{
         return last;
     }
 
+    override public init(){super.init()
+    content = [Disposition]()
+    }
+
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
