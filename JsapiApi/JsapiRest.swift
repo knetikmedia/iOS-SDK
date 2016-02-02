@@ -71,7 +71,7 @@ class JsapiRest :NSObject,NSURLSessionDelegate
                 callback(NSDictionary(),false)
                 return
             }
-            self.requests.removeValueForKey(request.URL!.absoluteString)
+            //self.requests.removeValueForKey(request.URL!.absoluteString)
             
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
            
@@ -175,6 +175,8 @@ class JsapiRest :NSObject,NSURLSessionDelegate
             
         }
         
+     //   print(functionURL)
+
          self.requests[functionURL] = request
         
         let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration(), delegate: self, delegateQueue: nil)
@@ -186,8 +188,10 @@ class JsapiRest :NSObject,NSURLSessionDelegate
                 return
             }
            
-            
-            self.requests.removeValueForKey(request.URL!.absoluteString)
+          //  print(request.URL!.absoluteString)
+          //  print(request.URL!.absoluteURL)
+
+           // self.requests.removeValueForKey(request.URL!.absoluteString)
 
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
 
@@ -280,7 +284,7 @@ class JsapiRest :NSObject,NSURLSessionDelegate
                 return
             }
             
-            self.requests.removeValueForKey(request.URL!.absoluteString)
+           // self.requests.removeValueForKey(request.URL!.absoluteString)
             
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             
@@ -362,7 +366,7 @@ class JsapiRest :NSObject,NSURLSessionDelegate
                 return
             }
             
-            self.requests.removeValueForKey(request.URL!.absoluteString)
+           // self.requests.removeValueForKey(request.URL!.absoluteString)
             
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             
@@ -387,12 +391,23 @@ class JsapiRest :NSObject,NSURLSessionDelegate
 
                 return;
             }
-            let jsonResult: NSDictionary! = try! NSJSONSerialization.JSONObjectWithData(data! , options: NSJSONReadingOptions.MutableContainers ) as? NSDictionary
-            if(jsonResult == nil)
+            
+            let jsonResult2: AnyObject! = try? NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)
+            
+            if(jsonResult2 == nil)
             {
-                callback(NSDictionary(),true)
+                callback(NSDictionary(),false)
                 return;
             }
+
+            let jsonResult : NSDictionary = (jsonResult2 as?NSDictionary)!;
+
+            
+//            if(jsonResult == nil)
+//            {
+//                callback(NSDictionary(),true)
+//                return;
+//            }
             
             if(jsonResult["error"] != nil && isJson)
             {

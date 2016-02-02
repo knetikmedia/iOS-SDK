@@ -62,7 +62,7 @@ class var COMMENTLIST:String {return "/services/latest/media/videos/%@/comments"
 
     class var GETFRIENDSVIDEO:String {return "/services/latest/users/%@/friends/videos"}
     class var ADDVIDEO:String {return "/services/latest/media/videos"}
-    class var UPDATEVIDEODETAILS:String {return "/services/latest/videos/%@/details"} //videoID
+    class var UPDATEVIDEODETAILS:String {return "/services/latest/media/videos/%@"} //videoID
     class var ADDUSERUPLOADEDMEDIAITEMASSESTS:String {return "/services/latest/videos/assets"}
     class var ADDCONTRIBUTOR:String {return "/services/latest/media/videos/%@/contributors"}
     class var ADDRELATEDVIDEO:String {return "/services/latest/media/videos/%@/related"}
