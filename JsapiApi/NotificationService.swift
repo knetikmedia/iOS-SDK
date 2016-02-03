@@ -42,6 +42,31 @@ public class NotificationService : NSObject
         }
     }
 
+    public func getChallengeCode(params:Dictionary<String,AnyObject>,callback:(NSDictionary,String,Bool)->Void)
+    {
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.NOTIFICATIONSCHALLENGECODE
+        
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                
+                let baseResponse=BaseResponse(fromDictionary: result)
+                
+                if(!issuccess)
+                {
+                    
+                    callback(result ,baseResponse.errormessage,issuccess)
+                    
+                }else
+                {
+                    
+                    callback(result,"",issuccess)
+                    
+                }
+                
+        }
+    }
+
     
     
     /** Add  Notification

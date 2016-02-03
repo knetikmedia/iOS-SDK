@@ -137,6 +137,8 @@ class var COMMENTLIST:String {return "/services/latest/media/videos/%@/comments"
     class var BREEVENT:String {return "/services/latest/bre/fireevent"};
     
     class var NOTIFICATIONS:String {return "/api/notifications"};
+    class var NOTIFICATIONSCHALLENGECODE:String {return "/api/notifications/identifier"};
+
     class var READNOTIFICATIONS:String {return "/api/notifications/%@"};
 
     //
