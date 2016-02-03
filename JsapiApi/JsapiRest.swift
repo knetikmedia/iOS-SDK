@@ -49,9 +49,12 @@ class JsapiRest :NSObject,NSURLSessionDelegate
         {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.setValue("application/json", forHTTPHeaderField: "Accept")
+        
             
         if(!JsapiAPi.sharedInstance.getJsapiToken().isEmpty &&
-            JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR)
+            JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR
+            && !functionURL.containsString("google")
+            )
             {
                 request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
             }
@@ -125,16 +128,22 @@ class JsapiRest :NSObject,NSURLSessionDelegate
                 
                 let isSuccess=errorObject["success"]?.boolValue
                 callback(jsonResult,isSuccess!)
+                    
                 }else
                 {
+                    
+                    let isSuccess = false
+
+                    if let _ = jsonResult["error"] as? String {
+                        
                     let errorObject = jsonResult["error"] as! String
+                    
                     let error_description = jsonResult["error_description"] as! String
 
-                    let isSuccess = false
                     var dictionary = Dictionary<String ,String>()
                     dictionary.updateValue(errorObject,forKey: "error")
                     dictionary.updateValue(error_description,forKey: "error_description")
-
+                    }
                     callback(jsonResult , isSuccess)
 
                 }
