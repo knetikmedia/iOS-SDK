@@ -121,8 +121,16 @@ class JsapiRest :NSObject,NSURLSessionDelegate
 //                return;
 //            }
             
+
             if(jsonResult["error"] != nil && isJson)
             {
+                if(jsonResult ["error"] as?String == "invalid_token") {
+                    
+                    JsapiAPi.sharedInstance.sessionExpired()
+                    
+                    callback(jsonResult,false)
+                }
+                
                 if jsonResult["error"] is Dictionary<String,Bool>{
                 let errorObject = jsonResult["error"] as! Dictionary<String,Bool>
                 
@@ -172,7 +180,11 @@ class JsapiRest :NSObject,NSURLSessionDelegate
     func getRequest(functionURL:String,postParams:String,callback:(NSDictionary,Bool)->Void)
     {
 
-        let request = NSMutableURLRequest(URL: NSURL(string: functionURL+postParams)!)
+        var endpoint:String = functionURL + postParams
+
+        endpoint = endpoint.stringByReplacingOccurrencesOfString(" ", withString: "%20")
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: endpoint )!)
         request.HTTPMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
@@ -320,14 +332,24 @@ class JsapiRest :NSObject,NSURLSessionDelegate
             
             if(jsonResult["error"] != nil )
             {
-                let errorObject = jsonResult["error"]  as! Dictionary<String,Bool>
-                
-                let isSuccess=errorObject["success"]?.boolValue
-                callback(jsonResult,isSuccess!)
+                if(jsonResult ["error"] as?String == "invalid_token") {
+                    
+                    JsapiAPi.sharedInstance.sessionExpired()
+                    
+                    callback(jsonResult,false)
+                    
+                }else{
+                    
+                    let errorObject = jsonResult["error"]  as! Dictionary<String,Bool>
+                    
+                    let isSuccess=errorObject["success"]?.boolValue
+                    callback(jsonResult,isSuccess!)
+                }
             }else
             {
                 callback(jsonResult,true)
             }
+
         }
         task.resume()
     }
@@ -418,21 +440,27 @@ class JsapiRest :NSObject,NSURLSessionDelegate
 //                return;
 //            }
             
-            if(jsonResult["error"] != nil && isJson)
+            if(jsonResult["error"] != nil )
             {
-                let errorObject = jsonResult["error"]  as! Dictionary<String,Bool>
-                
-                let isSuccess=errorObject["success"]?.boolValue
-                callback(jsonResult,isSuccess!)
-            }else
-                if(jsonResult["error"] != nil)
-                {
+                if(jsonResult ["error"] as?String == "invalid_token") {
+                    
+                    JsapiAPi.sharedInstance.sessionExpired()
+                    
                     callback(jsonResult,false)
                     
-                }else
-                {
-                    callback(jsonResult,true)
+                }else{
+                    
+                    let errorObject = jsonResult["error"]  as! Dictionary<String,Bool>
+                    
+                    let isSuccess=errorObject["success"]?.boolValue
+                    callback(jsonResult,isSuccess!)
+                }
+            }else
+            {
+                callback(jsonResult,true)
             }
+
+           
         }
         task.resume()
     }

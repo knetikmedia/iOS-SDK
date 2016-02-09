@@ -73,11 +73,19 @@ class Utilities {
     {
         var datastring="?";
         for (myKey,myValue) in requestparamters {
+            
             if let str = myValue as? String {
-                datastring+=myKey+"="+(myValue as! String)+"&"
+                
+                let myStringValue = myValue.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+                
+                datastring+=myKey + "=" + myStringValue + "&"
             }
             else {
-                datastring+=myKey+"="+myValue.stringValue+"&"
+                
+                 let myStringValue = myValue.stringValue.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+                
+                datastring+=myKey+"="+myStringValue+"&"
+                
             }
            }
         return datastring
