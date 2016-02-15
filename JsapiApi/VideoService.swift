@@ -334,4 +334,29 @@ public class VideoService:NSObject
     }
 
 
+    public func getPopularVideos(params:Dictionary<String,AnyObject>,callback:(Array<Video>,PageRequest,String,Bool)->Void)
+    {
+        
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.POPULARVIDEOS
+
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    let baseResponse=VideoResponse(fromDictionary: result)
+                    
+                    callback(baseResponse.videos,baseResponse.page,baseResponse.errormessage,issuccess)
+                    
+                }else
+                {
+                    let baseResponse=VideoResponse(fromDictionary: result )
+                    
+                    callback(baseResponse.videos,baseResponse.page,"",issuccess)
+                    
+                }
+                
+        }
+    }
+
 }

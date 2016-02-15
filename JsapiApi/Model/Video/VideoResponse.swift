@@ -23,7 +23,13 @@ class VideoResponse : BaseResponse{
                 let value = Video(fromDictionary : dic)
                 videos.append(value)
             }
+            }else
+        if let resultData = dictionary["data"] as? [NSDictionary]{
+            for dic in resultData {
+                let value = Video(fromDictionary : dic)
+                videos.append(value)
             }
+        }
 	}
 
 }
