@@ -146,6 +146,11 @@ class var COMMENTLIST:String {return "/services/latest/media/videos/%@/comments"
 
     class var POPULARVIDEOS:String {return "/api/videos"};
 
+    
+    //CHALLENGES
+    class var GETCHALLENGES:String {return "/services/latest/challenges"};
+
+    
 }
 
 

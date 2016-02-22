@@ -60,6 +60,12 @@ public class Video :NSObject{
 		height = dictionary["height"] as? NSNumber
         active = dictionary["active"] as? NSNumber
 		videoId = dictionary["id"] as? NSNumber
+        
+        if(videoId == nil){
+        
+        videoId = dictionary["videoId"] as? NSNumber
+        }
+        
 		length = dictionary["length"] as? NSNumber
 		location = dictionary["location"] as? String
 		longDescription = dictionary["longDescription"] as? String

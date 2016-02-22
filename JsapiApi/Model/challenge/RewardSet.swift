@@ -1,0 +1,97 @@
+//
+//	RewardSet.swift
+//
+//	Create by Youssef on 22/2/2016
+//	Copyright © 2016. All rights reserved.
+import Foundation
+
+public class RewardSet{
+
+	public var created : NSNumber!
+	public var currencyRewards : [CurrencyReward]!
+	public var rewardSetId : NSNumber!
+	public var itemRewards : [NSDictionary]!
+	public var longDescription : String!
+	public var maxPlacing : NSNumber!
+	public var name : String!
+	public var shortDescription : String!
+	public var uniqueKey : String!
+	public var updated : NSNumber!
+
+
+	/**
+	 * Instantiate the instance using the passed dictionary values to set the properties values
+	 */
+	init(fromDictionary dictionary: NSDictionary){
+		created = dictionary["created"] as? NSNumber
+		currencyRewards = [CurrencyReward]()
+		if let currencyRewardsArray = dictionary["currency_rewards"] as? [NSDictionary]{
+			for dic in currencyRewardsArray{
+				let value = CurrencyReward(fromDictionary: dic)
+				currencyRewards.append(value)
+			}
+		}
+		rewardSetId = dictionary["id"] as? NSNumber
+		itemRewards = [NSDictionary]()
+		if let itemRewardsArray = dictionary["item_rewards"] as? [NSDictionary]{
+			for dic in itemRewardsArray{
+				let value =  dic
+				itemRewards.append(value)
+			}
+		}
+		longDescription = dictionary["long_description"] as? String
+		maxPlacing = dictionary["max_placing"] as? NSNumber
+		name = dictionary["name"] as? String
+		shortDescription = dictionary["short_description"] as? String
+		uniqueKey = dictionary["unique_key"] as? String
+		updated = dictionary["updated"] as? NSNumber
+	}
+
+	/**
+	 * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
+	 */
+	func toDictionary() -> NSDictionary
+	{
+		var dictionary = NSMutableDictionary()
+		if created != nil{
+			dictionary["created"] = created
+		}
+		if currencyRewards != nil{
+			var dictionaryElements = [NSDictionary]()
+			for currencyRewardsElement in currencyRewards {
+				dictionaryElements.append(currencyRewardsElement.toDictionary())
+			}
+			dictionary["currency_rewards"] = dictionaryElements
+		}
+		if rewardSetId != nil{
+			dictionary["id"] = rewardSetId
+		}
+		if itemRewards != nil{
+			var dictionaryElements = [NSDictionary]()
+			for itemRewardsElement in itemRewards {
+				dictionaryElements.append(itemRewardsElement)
+			}
+			dictionary["item_rewards"] = dictionaryElements
+		}
+		if longDescription != nil{
+			dictionary["long_description"] = longDescription
+		}
+		if maxPlacing != nil{
+			dictionary["max_placing"] = maxPlacing
+		}
+		if name != nil{
+			dictionary["name"] = name
+		}
+		if shortDescription != nil{
+			dictionary["short_description"] = shortDescription
+		}
+		if uniqueKey != nil{
+			dictionary["unique_key"] = uniqueKey
+		}
+		if updated != nil{
+			dictionary["updated"] = updated
+		}
+		return dictionary
+	}
+
+}
