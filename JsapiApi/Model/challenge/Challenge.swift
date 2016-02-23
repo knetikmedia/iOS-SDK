@@ -5,7 +5,7 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class Challenge{
+public class Challenge :NSObject{
 
 	public var activities : NSNumber!
 	public var campaignId : NSNumber!
@@ -24,6 +24,7 @@ public class Challenge{
 	public var startDate : NSNumber!
 	public var updated : NSNumber!
 
+    public override init(){}
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values

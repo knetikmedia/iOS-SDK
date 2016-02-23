@@ -13,32 +13,53 @@ import Foundation
 public class ChallengeService:NSObject
 {
     
-    /** Get Artist and Global Videos
-    *@param params Dictionary
-    *@param callback
-    */
-    public func getChallenges(params:Dictionary<String,AnyObject>,callback:(Array<Video>,PageRequest,String,Bool)->Void)
+    public func getChallenges(params:Dictionary<String,AnyObject>,callback:(ChallengesPage,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETCHALLENGES
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
+                
                 if(!issuccess)
                 {
-                    let baseResponse=VideoResponse(fromDictionary: result)
+                    let baseResponse=BaseChallengeResponse(fromDictionary: result)
 
-                    callback(baseResponse.videos,baseResponse.page,baseResponse.errormessage,issuccess)
+                    callback(baseResponse.result,baseResponse.errormessage,issuccess)
                     
                 }else
                 {
-                    let baseResponse=VideoResponse(fromDictionary: result["result"] as! NSDictionary)
+                    
+                    let baseResponse=BaseChallengeResponse(fromDictionary: result)
 
-                    callback(baseResponse.videos,baseResponse.page,"",issuccess)
+                    callback(baseResponse.result,"",issuccess)
                     
                 }
                 
         }
     }
 
+  
+    public func getChallengeAssets(params:Dictionary<String,AnyObject>,callback:(Array<BatchAssetPage>,String,Bool)->Void)
+    {
+        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETCHALLENGESBATCH
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                
+                let baseResponse=BaseAssetBatchResponse(fromDictionary: result)
+                
+                if(!issuccess)
+                {
+                    callback(baseResponse.result,baseResponse.errormessage,issuccess)
+                }else
+                {
+                    callback(baseResponse.result,"",issuccess)
+                }
+                
+        }
+    }
+    
+
+    
  
 }

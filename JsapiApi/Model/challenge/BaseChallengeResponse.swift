@@ -7,7 +7,7 @@ import Foundation
 
 class BaseChallengeResponse:BaseResponse{
 
-	var result : challengesPage!
+	var result : ChallengesPage!
 
 
 	/**
@@ -18,8 +18,12 @@ class BaseChallengeResponse:BaseResponse{
 		super.init(fromDictionary: dictionary)
         
         if let resultData = dictionary["result"] as? NSDictionary{
-			result = challengesPage(fromDictionary: resultData)
-		}
+			result = ChallengesPage(fromDictionary: resultData)
+            
+        }else{
+        
+            result = ChallengesPage();
+        }
 	}
 
 	

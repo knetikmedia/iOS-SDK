@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F40648701C7CDABE0056E415 /* AssetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406486A1C7CDABE0056E415 /* AssetContent.swift */; };
+		F40648711C7CDABE0056E415 /* BaseAssetBatchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406486B1C7CDABE0056E415 /* BaseAssetBatchResponse.swift */; };
+		F40648721C7CDABE0056E415 /* Batch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406486C1C7CDABE0056E415 /* Batch.swift */; };
+		F40648731C7CDABE0056E415 /* BatchAssetPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406486D1C7CDABE0056E415 /* BatchAssetPage.swift */; };
+		F40648741C7CDABE0056E415 /* BatchAssetResponseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406486E1C7CDABE0056E415 /* BatchAssetResponseItem.swift */; };
+		F40648751C7CDABE0056E415 /* BatchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406486F1C7CDABE0056E415 /* BatchRequest.swift */; };
 		F40CCA931C5A836E00A12FB2 /* RelationshipObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40CCA911C5A836E00A12FB2 /* RelationshipObject.swift */; };
 		F40CCA941C5A836E00A12FB2 /* Relation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40CCA921C5A836E00A12FB2 /* Relation.swift */; };
 		F40CCA961C5A84DD00A12FB2 /* RelationshipdBaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40CCA951C5A84DD00A12FB2 /* RelationshipdBaseResponse.swift */; };
@@ -213,6 +219,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F406486A1C7CDABE0056E415 /* AssetContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetContent.swift; sourceTree = "<group>"; };
+		F406486B1C7CDABE0056E415 /* BaseAssetBatchResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAssetBatchResponse.swift; sourceTree = "<group>"; };
+		F406486C1C7CDABE0056E415 /* Batch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Batch.swift; sourceTree = "<group>"; };
+		F406486D1C7CDABE0056E415 /* BatchAssetPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchAssetPage.swift; sourceTree = "<group>"; };
+		F406486E1C7CDABE0056E415 /* BatchAssetResponseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchAssetResponseItem.swift; sourceTree = "<group>"; };
+		F406486F1C7CDABE0056E415 /* BatchRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchRequest.swift; sourceTree = "<group>"; };
 		F40CCA911C5A836E00A12FB2 /* RelationshipObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelationshipObject.swift; sourceTree = "<group>"; };
 		F40CCA921C5A836E00A12FB2 /* Relation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Relation.swift; sourceTree = "<group>"; };
 		F40CCA951C5A84DD00A12FB2 /* RelationshipdBaseResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelationshipdBaseResponse.swift; sourceTree = "<group>"; };
@@ -347,9 +359,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F40648691C7CDABE0056E415 /* asset */ = {
+			isa = PBXGroup;
+			children = (
+				F406486A1C7CDABE0056E415 /* AssetContent.swift */,
+				F406486B1C7CDABE0056E415 /* BaseAssetBatchResponse.swift */,
+				F406486D1C7CDABE0056E415 /* BatchAssetPage.swift */,
+				F406486E1C7CDABE0056E415 /* BatchAssetResponseItem.swift */,
+				F406486C1C7CDABE0056E415 /* Batch.swift */,
+				F406486F1C7CDABE0056E415 /* BatchRequest.swift */,
+			);
+			path = asset;
+			sourceTree = "<group>";
+		};
 		F4167B031AD5993300345DCB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F40648691C7CDABE0056E415 /* asset */,
 				F4C6FF031C7B6DD20039176A /* challenge */,
 				F45DBA891C581E92006A23AE /* artist */,
 				F488C4F31C064C4500F2AF03 /* modelcategory */,
@@ -791,6 +817,7 @@
 				F43EEDC71ADDB00B001EFC8B /* RegisteredUser.swift in Sources */,
 				F4AEA42D1B8E26AC0001F61A /* DispositionResponse.swift in Sources */,
 				F43EEDB61ADDA34C001EFC8B /* Countries.swift in Sources */,
+				F40648731C7CDABE0056E415 /* BatchAssetPage.swift in Sources */,
 				F4B2EEF41BE417AB0045B898 /* FlagService.swift in Sources */,
 				F4D748DF1BE001EA004B57E6 /* Result.swift in Sources */,
 				F4D748E11BE001EA004B57E6 /* UserAchievementsResponse.swift in Sources */,
@@ -826,10 +853,13 @@
 				F46ABB151BA72043004DF427 /* UserRankResponse.swift in Sources */,
 				F4167B2E1AD5DC7100345DCB /* FavoriteResponse.swift in Sources */,
 				F43EED961ADD6EE3001EFC8B /* GuestUserResponse.swift in Sources */,
+				F40648751C7CDABE0056E415 /* BatchRequest.swift in Sources */,
 				F4759B781BAB1D220047C6BA /* WalletService.swift in Sources */,
 				F40CCA961C5A84DD00A12FB2 /* RelationshipdBaseResponse.swift in Sources */,
 				F43EEDC91ADDB00B001EFC8B /* RegisteredUserResponse.swift in Sources */,
+				F40648721C7CDABE0056E415 /* Batch.swift in Sources */,
 				F41B6FCD1B4AEA4400B66B1A /* Video.swift in Sources */,
+				F40648711C7CDABE0056E415 /* BaseAssetBatchResponse.swift in Sources */,
 				F46ABB0D1BA71517004DF427 /* LeaderboardResponse.swift in Sources */,
 				F43EEDAB1ADD949F001EFC8B /* Item.swift in Sources */,
 				F40CCA931C5A836E00A12FB2 /* RelationshipObject.swift in Sources */,
@@ -848,6 +878,7 @@
 				F4167B261AD5D15900345DCB /* Comment.swift in Sources */,
 				F45DBA8D1C581E92006A23AE /* ArtistObject.swift in Sources */,
 				F43EEDA51ADD949F001EFC8B /* Cart.swift in Sources */,
+				F40648701C7CDABE0056E415 /* AssetContent.swift in Sources */,
 				F43EED8B1ADD5E3E001EFC8B /* Sku.swift in Sources */,
 				F41B6FD11B4AEA4400B66B1A /* VideoResponse.swift in Sources */,
 				F4B2EF001BE41D380045B898 /* FlagContent.swift in Sources */,
@@ -885,6 +916,7 @@
 				F43EEDA71ADD949F001EFC8B /* CartDetails.swift in Sources */,
 				F4167B281AD5D15900345DCB /* CommentResponse.swift in Sources */,
 				F43EED791ADD4ADE001EFC8B /* Friend.swift in Sources */,
+				F40648741C7CDABE0056E415 /* BatchAssetResponseItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

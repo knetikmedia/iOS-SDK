@@ -5,7 +5,7 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class challengesPage{
+public class ChallengesPage:NSObject{
 
 	public var content : [Challenge]!
 	public var first : Bool!
@@ -17,6 +17,11 @@ public class challengesPage{
 	public var totalElements : NSNumber!
 	public var totalPages : NSNumber!
 
+    public override init(){
+    
+        content = [Challenge]()
+    }
+    
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values

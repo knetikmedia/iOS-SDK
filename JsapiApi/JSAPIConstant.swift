@@ -149,6 +149,7 @@ class var COMMENTLIST:String {return "/services/latest/media/videos/%@/comments"
     
     //CHALLENGES
     class var GETCHALLENGES:String {return "/services/latest/challenges"};
+    class var GETCHALLENGESBATCH:String {return "/services/latest/batch"};
 
     
 }
