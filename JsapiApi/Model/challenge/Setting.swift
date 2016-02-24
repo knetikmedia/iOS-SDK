@@ -5,7 +5,7 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class Setting{
+public class Setting:NSObject{
 
 	public var key : String!
 	public var keyName : String!

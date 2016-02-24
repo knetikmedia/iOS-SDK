@@ -65,10 +65,10 @@ public class ChallengeService : NSObject
     }
     
     
-    public func getChallengeActivity(challengeID:String,params:Dictionary<String,AnyObject>,callback:(ChallengeActivity,String,Bool)->Void)
+    public func getChallengeActivityDetails(challengeID:String,activityId:String,params:Dictionary<String,AnyObject>,callback:(ChallengeActivity,String,Bool)->Void)
     {
         
-        let methodUrl:String=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETCHALLENGEACTIVITY,challengeID) as String
+        let methodUrl:String=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETCHALLENGEACTIVITYDETAILS,challengeID,activityId) as String
         
         JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
@@ -93,6 +93,34 @@ public class ChallengeService : NSObject
         }
     }
     
+    public func getChallengeActivity(challengeID:String,params:Dictionary<String,AnyObject>,callback:(Activities,String,Bool)->Void)
+    {
+        
+        let methodUrl:String=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETCHALLENGEACTIVITY,challengeID) as String
+        
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                
+                
+                if(!issuccess)
+                {
+                    
+                    let response =  BaseResponse.init(fromDictionary: result)
+                    
+                    callback(Activities(),response.errormessage,issuccess)
+                    
+                    
+                }else
+                {
+                    let baseResponse=BaseChallengeActivity(fromDictionary: result)
+                    
+                    callback(baseResponse.result,"",issuccess)
+                    
+                }
+                
+        }
+    }
 
 
     

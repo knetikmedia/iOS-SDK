@@ -172,6 +172,9 @@
 		F4ABA0CE1C7DECF900984274 /* ChallengeActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ABA0CB1C7DECF900984274 /* ChallengeActivity.swift */; };
 		F4ABA0CF1C7DECF900984274 /* MainChallengeActiviyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ABA0CC1C7DECF900984274 /* MainChallengeActiviyResponse.swift */; };
 		F4ABA0D01C7DECF900984274 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ABA0CD1C7DECF900984274 /* Setting.swift */; };
+		F4ABA0D41C7DFC0D00984274 /* Activities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ABA0D11C7DFC0D00984274 /* Activities.swift */; };
+		F4ABA0D51C7DFC0D00984274 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ABA0D21C7DFC0D00984274 /* Activity.swift */; };
+		F4ABA0D61C7DFC0D00984274 /* BaseChallengeActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ABA0D31C7DFC0D00984274 /* BaseChallengeActivity.swift */; };
 		F4AEA4211B8E1D0C0001F61A /* DispositionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AEA4201B8E1D0C0001F61A /* DispositionService.swift */; };
 		F4AEA4231B8E1DD40001F61A /* DispositionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AEA4221B8E1DD40001F61A /* DispositionTest.swift */; };
 		F4AEA4241B8E1E420001F61A /* DispositionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AEA4201B8E1D0C0001F61A /* DispositionService.swift */; };
@@ -321,6 +324,9 @@
 		F4ABA0CB1C7DECF900984274 /* ChallengeActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeActivity.swift; sourceTree = "<group>"; };
 		F4ABA0CC1C7DECF900984274 /* MainChallengeActiviyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainChallengeActiviyResponse.swift; sourceTree = "<group>"; };
 		F4ABA0CD1C7DECF900984274 /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		F4ABA0D11C7DFC0D00984274 /* Activities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activities.swift; sourceTree = "<group>"; };
+		F4ABA0D21C7DFC0D00984274 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		F4ABA0D31C7DFC0D00984274 /* BaseChallengeActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseChallengeActivity.swift; sourceTree = "<group>"; };
 		F4AEA4201B8E1D0C0001F61A /* DispositionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispositionService.swift; sourceTree = "<group>"; };
 		F4AEA4221B8E1DD40001F61A /* DispositionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispositionTest.swift; sourceTree = "<group>"; };
 		F4AEA4261B8E26AC0001F61A /* Disposition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Disposition.swift; sourceTree = "<group>"; };
@@ -690,6 +696,9 @@
 		F4C6FF031C7B6DD20039176A /* challenge */ = {
 			isa = PBXGroup;
 			children = (
+				F4ABA0D11C7DFC0D00984274 /* Activities.swift */,
+				F4ABA0D21C7DFC0D00984274 /* Activity.swift */,
+				F4ABA0D31C7DFC0D00984274 /* BaseChallengeActivity.swift */,
 				F4ABA0CB1C7DECF900984274 /* ChallengeActivity.swift */,
 				F4ABA0CC1C7DECF900984274 /* MainChallengeActiviyResponse.swift */,
 				F4ABA0CD1C7DECF900984274 /* Setting.swift */,
@@ -837,6 +846,7 @@
 				F4C6FF0A1C7B6DD20039176A /* Challenge.swift in Sources */,
 				F488C4F21C064C3300F2AF03 /* CategoriesService.swift in Sources */,
 				F4A1AAD81AA6172C00D17F43 /* JsapiApi.swift in Sources */,
+				F4ABA0D61C7DFC0D00984274 /* BaseChallengeActivity.swift in Sources */,
 				F4ABA0CF1C7DECF900984274 /* MainChallengeActiviyResponse.swift in Sources */,
 				F40CCA941C5A836E00A12FB2 /* Relation.swift in Sources */,
 				F4C6FF091C7B6DD20039176A /* BaseChallengeResponse.swift in Sources */,
@@ -868,6 +878,7 @@
 				F40CCA961C5A84DD00A12FB2 /* RelationshipdBaseResponse.swift in Sources */,
 				F43EEDC91ADDB00B001EFC8B /* RegisteredUserResponse.swift in Sources */,
 				F40648721C7CDABE0056E415 /* Batch.swift in Sources */,
+				F4ABA0D51C7DFC0D00984274 /* Activity.swift in Sources */,
 				F41B6FCD1B4AEA4400B66B1A /* Video.swift in Sources */,
 				F40648711C7CDABE0056E415 /* BaseAssetBatchResponse.swift in Sources */,
 				F46ABB0D1BA71517004DF427 /* LeaderboardResponse.swift in Sources */,
@@ -928,6 +939,7 @@
 				F43EEDA71ADD949F001EFC8B /* CartDetails.swift in Sources */,
 				F4167B281AD5D15900345DCB /* CommentResponse.swift in Sources */,
 				F43EED791ADD4ADE001EFC8B /* Friend.swift in Sources */,
+				F4ABA0D41C7DFC0D00984274 /* Activities.swift in Sources */,
 				F40648741C7CDABE0056E415 /* BatchAssetResponseItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

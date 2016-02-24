@@ -5,7 +5,7 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class RewardSet{
+public class RewardSet :NSObject{
 
 	public var created : NSNumber!
 	public var currencyRewards : [CurrencyReward]!

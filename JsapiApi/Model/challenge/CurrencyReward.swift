@@ -5,7 +5,7 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class CurrencyReward{
+public class CurrencyReward :NSObject{
 
 	public var currencyId : NSNumber!
 	public var currencyName : String!
