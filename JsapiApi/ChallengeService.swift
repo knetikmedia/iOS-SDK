@@ -10,7 +10,8 @@
 */
 
 import Foundation
-public class ChallengeService:NSObject
+
+public class ChallengeService : NSObject
 {
     
     public func getChallenges(params:Dictionary<String,AnyObject>,callback:(ChallengesPage,String,Bool)->Void)
@@ -50,15 +51,49 @@ public class ChallengeService:NSObject
                 
                 if(!issuccess)
                 {
+                    
                     callback(baseResponse.result,baseResponse.errormessage,issuccess)
+                    
                 }else
                 {
+                    
                     callback(baseResponse.result,"",issuccess)
+                    
                 }
                 
         }
     }
     
+    
+    public func getChallengeActivity(challengeID:String,params:Dictionary<String,AnyObject>,callback:(ChallengeActivity,String,Bool)->Void)
+    {
+        
+        let methodUrl:String=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETCHALLENGEACTIVITY,challengeID) as String
+        
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                
+
+                if(!issuccess)
+                {
+                    
+                   let response =  BaseResponse.init(fromDictionary: result)
+                    callback(ChallengeActivity(),response.errormessage,issuccess)
+                    
+                    
+                }else
+                {
+                    let baseResponse=MainChallengeActiviyResponse(fromDictionary: result)
+
+                    callback(baseResponse.result,"",issuccess)
+                    
+                }
+                
+        }
+    }
+    
+
 
     
  

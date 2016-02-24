@@ -23,6 +23,7 @@ public class Challenge :NSObject{
 	public var shortDescription : String!
 	public var startDate : NSNumber!
 	public var updated : NSNumber!
+    public var assets : NSDictionary!
 
     public override init(){}
 

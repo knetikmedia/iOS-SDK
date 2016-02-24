@@ -16,7 +16,7 @@ public class BatchAssetPage : NSObject {
 	public var sort : AnyObject!
 	public var totalElements : NSNumber!
 	public var totalPages : NSNumber!
-	public var body : BatchAssetResponseItem!
+	public var batchAssetResponseItem : BatchAssetResponseItem!
 	public var code : NSNumber!
 	public var uri : String!
 
@@ -41,7 +41,7 @@ public class BatchAssetPage : NSObject {
 		totalElements = dictionary["totalElements"] as? NSNumber
 		totalPages = dictionary["totalPages"] as? NSNumber
 		if let bodyData = dictionary["body"] as? NSDictionary{
-			body = BatchAssetResponseItem(fromDictionary: bodyData)
+			batchAssetResponseItem = BatchAssetResponseItem(fromDictionary: bodyData)
 		}
 		code = dictionary["code"] as? NSNumber
 		uri = dictionary["uri"] as? String
