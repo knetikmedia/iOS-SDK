@@ -154,6 +154,9 @@ class var COMMENTLIST:String {return "/services/latest/media/videos/%@/comments"
     class var GETCHALLENGEACTIVITY:String {return "/services/latest/challenges/%@/activities"};
 
     
+    //Config
+    class var CONFIG:String {return "/services/latest/configs/%@"};
+
 }
 
 

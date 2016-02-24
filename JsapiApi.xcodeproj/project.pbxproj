@@ -175,6 +175,9 @@
 		F4ABA0D41C7DFC0D00984274 /* Activities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ABA0D11C7DFC0D00984274 /* Activities.swift */; };
 		F4ABA0D51C7DFC0D00984274 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ABA0D21C7DFC0D00984274 /* Activity.swift */; };
 		F4ABA0D61C7DFC0D00984274 /* BaseChallengeActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ABA0D31C7DFC0D00984274 /* BaseChallengeActivity.swift */; };
+		F4ABA0D81C7E193300984274 /* ConfigService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ABA0D71C7E193300984274 /* ConfigService.swift */; };
+		F4ABA0DC1C7E1B8600984274 /* BaseConfigResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ABA0DA1C7E1B8600984274 /* BaseConfigResponse.swift */; };
+		F4ABA0DD1C7E1B8600984274 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ABA0DB1C7E1B8600984274 /* Config.swift */; };
 		F4AEA4211B8E1D0C0001F61A /* DispositionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AEA4201B8E1D0C0001F61A /* DispositionService.swift */; };
 		F4AEA4231B8E1DD40001F61A /* DispositionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AEA4221B8E1DD40001F61A /* DispositionTest.swift */; };
 		F4AEA4241B8E1E420001F61A /* DispositionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AEA4201B8E1D0C0001F61A /* DispositionService.swift */; };
@@ -327,6 +330,9 @@
 		F4ABA0D11C7DFC0D00984274 /* Activities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activities.swift; sourceTree = "<group>"; };
 		F4ABA0D21C7DFC0D00984274 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		F4ABA0D31C7DFC0D00984274 /* BaseChallengeActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseChallengeActivity.swift; sourceTree = "<group>"; };
+		F4ABA0D71C7E193300984274 /* ConfigService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigService.swift; sourceTree = "<group>"; };
+		F4ABA0DA1C7E1B8600984274 /* BaseConfigResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseConfigResponse.swift; sourceTree = "<group>"; };
+		F4ABA0DB1C7E1B8600984274 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		F4AEA4201B8E1D0C0001F61A /* DispositionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispositionService.swift; sourceTree = "<group>"; };
 		F4AEA4221B8E1DD40001F61A /* DispositionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispositionTest.swift; sourceTree = "<group>"; };
 		F4AEA4261B8E26AC0001F61A /* Disposition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Disposition.swift; sourceTree = "<group>"; };
@@ -387,6 +393,7 @@
 		F4167B031AD5993300345DCB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F4ABA0D91C7E1B8600984274 /* config */,
 				F40648691C7CDABE0056E415 /* asset */,
 				F4C6FF031C7B6DD20039176A /* challenge */,
 				F45DBA891C581E92006A23AE /* artist */,
@@ -631,6 +638,7 @@
 				F442318A1BA371CF0004810F /* LeaderboardService.swift */,
 				F4759B771BAB1D220047C6BA /* WalletService.swift */,
 				F436419E1C52B8CB0062F95E /* NotificationService.swift */,
+				F4ABA0D71C7E193300984274 /* ConfigService.swift */,
 				F47861951AB1E62B00A10B02 /* JsapiRest.swift */,
 				F43641951C52B67D0062F95E /* BREService.swift */,
 				F47861921AB1BD7400A10B02 /* Utilities.swift */,
@@ -670,6 +678,15 @@
 				F4A1AACC1AA6147600D17F43 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F4ABA0D91C7E1B8600984274 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				F4ABA0DA1C7E1B8600984274 /* BaseConfigResponse.swift */,
+				F4ABA0DB1C7E1B8600984274 /* Config.swift */,
+			);
+			path = config;
 			sourceTree = "<group>";
 		};
 		F4AEA4251B8E26980001F61A /* Disposition */ = {
@@ -882,6 +899,7 @@
 				F41B6FCD1B4AEA4400B66B1A /* Video.swift in Sources */,
 				F40648711C7CDABE0056E415 /* BaseAssetBatchResponse.swift in Sources */,
 				F46ABB0D1BA71517004DF427 /* LeaderboardResponse.swift in Sources */,
+				F4ABA0DC1C7E1B8600984274 /* BaseConfigResponse.swift in Sources */,
 				F43EEDAB1ADD949F001EFC8B /* Item.swift in Sources */,
 				F40CCA931C5A836E00A12FB2 /* RelationshipObject.swift in Sources */,
 				F43641961C52B67D0062F95E /* BREService.swift in Sources */,
@@ -905,6 +923,7 @@
 				F4B2EF001BE41D380045B898 /* FlagContent.swift in Sources */,
 				F48B9BC41AB0EBDC0069DBFA /* CartService.swift in Sources */,
 				F4AEA4361B8E2E100001F61A /* NewDispositionResponse.swift in Sources */,
+				F4ABA0D81C7E193300984274 /* ConfigService.swift in Sources */,
 				F4167B111AD5B15000345DCB /* User.swift in Sources */,
 				F41B6FC91B4AEA4400B66B1A /* Catalog.swift in Sources */,
 				F47BF4E91AC2096200F2FB17 /* CommentService.swift in Sources */,
@@ -914,6 +933,7 @@
 				F46ABB1B1BA7222C004DF427 /* Metric.swift in Sources */,
 				F4F800341B4B3BE10048DEEC /* AddVideoResponse.swift in Sources */,
 				F43EED7B1ADD4ADE001EFC8B /* FriendsResponse.swift in Sources */,
+				F4ABA0DD1C7E1B8600984274 /* Config.swift in Sources */,
 				F47BB5A51ABC8457009AD1F6 /* UserService.swift in Sources */,
 				F43EEDB81ADDA34C001EFC8B /* CountriesResponse.swift in Sources */,
 				F4B2EEF81BE41B3F0045B898 /* Flag.swift in Sources */,

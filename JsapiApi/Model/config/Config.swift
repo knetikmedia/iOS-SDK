@@ -1,24 +1,22 @@
 //
-//	Content.swift
+//	Result.swift
 //
 //	Create by Youssef on 24/2/2016
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class Activity :NSObject{
+public class Config : NSObject{
 
-	public var activityId : NSNumber!
-	public var challengeId : NSNumber!
-	public var theActivityID : NSNumber!
+	public var name : String!
+	public var value : String!
 
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
 	init(fromDictionary dictionary: NSDictionary){
-		activityId = dictionary["activityId"] as? NSNumber
-		challengeId = dictionary["challengeId"] as? NSNumber
-		theActivityID = dictionary["id"] as? NSNumber
+		name = dictionary["name"] as? String
+		value = dictionary["value"] as? String
 	}
 
 	/**
@@ -27,14 +25,11 @@ public class Activity :NSObject{
 	func toDictionary() -> NSDictionary
 	{
 		var dictionary = NSMutableDictionary()
-		if activityId != nil{
-			dictionary["activityId"] = activityId
+		if name != nil{
+			dictionary["name"] = name
 		}
-		if challengeId != nil{
-			dictionary["challengeId"] = challengeId
-		}
-		if theActivityID != nil{
-			dictionary["id"] = theActivityID
+		if value != nil{
+			dictionary["value"] = value
 		}
 		return dictionary
 	}
