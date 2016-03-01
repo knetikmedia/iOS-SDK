@@ -36,6 +36,8 @@ public class Video :NSObject{
     public var videoCategory :CategoryObject!
     public var comments:[Comment]!
     public var tags : [String]!
+    public var popularity : NSNumber!
+    public var likes : NSNumber!
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
@@ -80,6 +82,10 @@ public class Video :NSObject{
             thumbnail = ""
         }
 		updated = dictionary["updated"] as? NSNumber
+        likes = dictionary["likes"] as? NSNumber
+        popularity = dictionary["popularity"] as? NSNumber
+
+        
 		if let uploaderData = dictionary["uploader"] as? NSDictionary{
 			uploader = SimpleUser(fromDictionary: uploaderData)
 		}

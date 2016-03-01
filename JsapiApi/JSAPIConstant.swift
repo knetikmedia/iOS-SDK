@@ -157,6 +157,9 @@ class var COMMENTLIST:String {return "/services/latest/media/videos/%@/comments"
     //Config
     class var CONFIG:String {return "/services/latest/configs/%@"};
 
+    // friendship
+    
+    class var AUTOFRIENDSHIP:String {return "/api/friends/facebookCheck"}
 }
 
 

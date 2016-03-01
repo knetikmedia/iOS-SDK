@@ -105,4 +105,23 @@ public class FriendshipService :NSObject
     }
 
     
+    public func facebookFriendsUpdate(params:Dictionary<String,AnyObject>,callback:(NSDictionary,String,Bool)->Void)
+    {
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.AUTOFRIENDSHIP
+        
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                let friendsResponse=BaseResponse(fromDictionary: result)
+                if(!issuccess)
+                {
+                    callback(result,friendsResponse.errormessage,issuccess)
+                }else
+                {
+                    callback(result,"",issuccess)
+                }
+        }
+    }
+
+    
 }

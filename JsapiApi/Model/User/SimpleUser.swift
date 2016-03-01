@@ -25,7 +25,14 @@ public class SimpleUser:NSObject{
 	init(fromDictionary dictionary: NSDictionary){
 		userId = dictionary["id"] as? NSNumber
 		avatarUrl = dictionary["avatarUrl"] as? String
+        
+        if(avatarUrl == nil )
+        {
+         avatarUrl = dictionary["avatar_url"] as? String
+        }
+        
 		displayName = dictionary["displayname"] as? String
+        
         name = dictionary["name"] as? String
 
 		}
