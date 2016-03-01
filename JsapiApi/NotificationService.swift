@@ -101,7 +101,7 @@ public class NotificationService : NSObject
      */
     public func markNotificationAsRead(notificationID:String, params:Dictionary<String,AnyObject> , callback:(AnyObject,String,Bool)->Void)
     {
-        let methodUrl:String=NSString(format: JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.NOTIFICATIONS,notificationID) as String
+        let methodUrl:String=NSString(format: JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.SEENNOTIFICATIONS,notificationID) as String
         
         JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
