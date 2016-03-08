@@ -165,6 +165,48 @@ public class VideoService:NSObject
                 
         }
     }
+    
+    public func getKNEVideoDetails(videoId:String ,params:Dictionary<String,AnyObject>,callback:(Video,String,Bool)->Void)
+    {
+        let methodUrl=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.POPULARVIDEOS
+        
+        JsapiRest.sharedInstance.getRequest(methodUrl as String, postParams: Utilities.getGETRequestFromDictionary(params))
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                let baseResponse=AddVideoResponse(fromDictionary: result)
+                
+                if(!issuccess)
+                {
+                    
+                    callback(Video(),baseResponse.errormessage,issuccess)
+                    
+                }else
+                {
+                    var videos = [Video]()
+                    
+                    if let resultData = result["data"] as? [NSDictionary]{
+                        
+                        for dic in resultData {
+                            
+                            let value = Video(fromDictionary : dic)
+                            videos.append(value)
+                            
+                        }
+                    }
+                    if(videos.count > 0)
+                    {
+                        callback(videos[0],"",issuccess)
+                    }
+                    else{
+                        callback(Video(),"",issuccess)
+
+                    }
+                    
+                }
+                
+        }
+    }
+
 
     
     
