@@ -58,6 +58,8 @@ class var COMMENTLIST:String {return "/services/latest/media/videos/%@/comments"
     class var GETUSERVIDEOS:String {return "/services/latest/users/%@/videos"} // %@  userID
     class var GETMYFAVORITESVIDEOS:String {return "/services/latest/users/%@/videos/favorited"} //%@ userID
     class var DELETEVIDEO:String {return "/services/latest/media/videos/%@"};
+    class var VIDEOAVATAR:String {return "/api/videos/%@/uploader"};
+
     class var VIEWVIDEO:String {return "/services/latest/media/videos/%@/views"};
 
     class var GETFRIENDSVIDEO:String {return "/services/latest/users/%@/friends/videos"}

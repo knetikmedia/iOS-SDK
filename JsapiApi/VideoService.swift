@@ -400,5 +400,30 @@ public class VideoService:NSObject
                 
         }
     }
+    
+    
+    /** Add Video Avatar
+     *@param params Dictionary
+     *@param callback
+     */
+    public func getAvatarDetails(videoId:String ,params:Dictionary<String,AnyObject>,callback:(BaseAvatarResponse,String,Bool)->Void)
+    {
+        let methodUrl=NSString(format: JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.VIDEOAVATAR,videoId)
+        
+        JsapiRest.sharedInstance.getRequest(methodUrl as String, postParams: Utilities.getGETRequestFromDictionary(params))
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                let baseResponse=BaseAvatarResponse(fromDictionary: result)
+                if(!issuccess)
+                {
+                    callback(baseResponse,"Not able to load avatar for exisiting video",issuccess)
+                }else
+                {
+                    callback(baseResponse,"",issuccess)
+                }
+                
+        }
+    }
+
 
 }
