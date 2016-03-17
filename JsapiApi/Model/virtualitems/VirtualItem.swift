@@ -12,7 +12,7 @@ public class VirtualItem :NSObject{
 	public var catalog : Catalog!
 	public var dateCreated : NSNumber!
 	public var dateUpdated : NSNumber!
-	public var id : NSNumber!
+	public var virtualId : NSNumber!
 	public var longDescription : String!
 	public var name : String!
 	public var shortDescription : String!
@@ -46,7 +46,7 @@ public class VirtualItem :NSObject{
 		}
 		dateCreated = dictionary["dateCreated"] as? NSNumber
 		dateUpdated = dictionary["dateUpdated"] as? NSNumber
-		id = dictionary["id"] as? NSNumber
+		virtualId = dictionary["id"] as? NSNumber
 		longDescription = dictionary["longDescription"] as? String
 		name = dictionary["name"] as? String
 		shortDescription = dictionary["shortDescription"] as? String
