@@ -50,6 +50,33 @@ public class Store:NSObject
                 }
         }
     }
+    
+    
+    public func getVirtualItemAssets(params:Dictionary<String,AnyObject>,callback:(Array<VirtualItemResultsAssets>,String,Bool)->Void)
+    {
+        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETCHALLENGESBATCH
+        
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                
+                let baseResponse=BaseVirtualItemsWithAssets(fromDictionary: result)
+                
+                if(!issuccess)
+                {
+                    
+                    callback(baseResponse.result,baseResponse.errormessage,issuccess)
+                    
+                }else
+                {
+                    
+                    callback(baseResponse.result,"",issuccess)
+                    
+                }
+                
+        }
+    }
+
 
 
 }

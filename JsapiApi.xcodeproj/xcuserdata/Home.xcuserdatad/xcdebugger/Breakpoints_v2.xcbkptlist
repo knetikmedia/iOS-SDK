@@ -351,7 +351,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "257"
             endingLineNumber = "257"
-            landmarkName = "deleteRequest(_:deleteParams:callback:)"
+            landmarkName = "getRequest(_:postParams:callback:)"
             landmarkType = "5">
             <Locations>
                <Location
@@ -447,8 +447,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "277"
             endingLineNumber = "277"
-            landmarkName = "deleteRequest(_:deleteParams:callback:)"
-            landmarkType = "5">
+            landmarkName = "JsapiRest"
+            landmarkType = "3">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
