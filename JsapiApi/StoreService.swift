@@ -33,5 +33,23 @@ public class Store:NSObject
         }
     }
 
+    public func getVirtualItem(params:Dictionary<String,AnyObject>,callback:(VirtualItemPage,String,Bool)->Void)
+    {
+        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.VIRTUALITEMS;
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                let pageResponse=BaseVirtualItem(fromDictionary: result)
+                if(!issuccess)
+                {
+                    callback(pageResponse.result,pageResponse.errormessage,issuccess)
+                    
+                }else
+                {
+                    callback(pageResponse.result,"",issuccess)
+                }
+        }
+    }
+
 
 }

@@ -123,6 +123,7 @@ class var COMMENTLIST:String {return "/services/latest/media/videos/%@/comments"
     
 //Store
     class var GETPAGE:String {return "/services/latest/store/getpage"};
+    class var VIRTUALITEMS:String {return "/services/latest/virtualitems"};
 
 //End Store
     

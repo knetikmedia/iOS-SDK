@@ -15,12 +15,20 @@ public class Catalog:NSObject{
 	public var storeStart : AnyObject!
 	public var vendorId : AnyObject!
 	public var virtualCurrencyId : AnyObject!
+    public var skus : [Sku]!
 
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
 	init(fromDictionary dictionary: NSDictionary){
+        skus = [Sku]()
+        if let skusArray = dictionary["skus"] as? [NSDictionary]{
+            for dic in skusArray{
+                let value = Sku(fromDictionary: dic)
+                skus.append(value)
+            }
+        }
 		deleted = dictionary["deleted"] as AnyObject!
 		displayable = dictionary["displayable"] as AnyObject!
 		catalogId = dictionary["id"] as AnyObject!

@@ -12,6 +12,8 @@ public class Behavior:NSObject{
 	public var behaviorId : NSNumber!
 	public var startDate : AnyObject!
 	public var typeHNSNumber : String!
+    var fulfillmentTypeName : String!
+    var typeHint : String!
 
     
     public func getDisplayable()->Bool{
@@ -27,6 +29,9 @@ public class Behavior:NSObject{
 		behaviorId = dictionary["id"] as? NSNumber
 		startDate = dictionary["start_date"] as AnyObject!
 		typeHNSNumber = dictionary["type_hNSNumber"] as? String
+        fulfillmentTypeName = dictionary["fulfillmentTypeName"] as? String
+        typeHint = dictionary["typeHint"] as? String
+
 	}
     
 }
