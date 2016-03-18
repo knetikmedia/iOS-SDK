@@ -165,6 +165,8 @@ class var COMMENTLIST:String {return "/services/latest/media/videos/%@/comments"
     // friendship
     
     class var AUTOFRIENDSHIP:String {return "/api/friends/facebookCheck"}
+    class var GETARTICLES:String {return "/services/latest/media/articles"};
+
 }
 
 
