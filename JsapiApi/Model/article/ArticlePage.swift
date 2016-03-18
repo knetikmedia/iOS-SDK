@@ -7,14 +7,14 @@ import Foundation
 
 public class ArticlePage :NSObject{
 
-	var content : [Article]!
-	var first : Bool!
-	var last : Bool!
-	var number : NSNumber!
-	var numberOfElements : NSNumber!
-	var size : NSNumber!
-	var totalElements : NSNumber!
-	var totalPages : NSNumber!
+	public var content : [Article]!
+	public var first : Bool!
+	public var last : Bool!
+	public var number : NSNumber!
+	public var numberOfElements : NSNumber!
+	public var size : NSNumber!
+	public var totalElements : NSNumber!
+	public var totalPages : NSNumber!
 
 
 	/**
