@@ -478,6 +478,91 @@ class JsapiRest :NSObject,NSURLSessionDelegate
         
         completionHandler(redirectRequest)
     }
+    
+    
+    
+    //
+    /**
+    getRequet
+    @param functionURL : function URL Example http://localhost:8080/jsapi/services/latest/carts/e9486b32-674
+    @param callback block called once you got the response
+    */
+    func getRequestWithoutAuthorization(functionURL:String,postParams:String,callback:(NSDictionary,Bool)->Void)
+    {
+        
+        var endpoint:String = functionURL + postParams
+        
+        endpoint = endpoint.stringByReplacingOccurrencesOfString(" ", withString: "%20")
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: endpoint )!)
+        request.HTTPMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        
+        
+        self.requests[functionURL] = request
+        
+        let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration(), delegate: self, delegateQueue: nil)
+        
+        let task = session.dataTaskWithRequest(request) {
+            data, response, error in
+            if error != nil {
+                callback(NSDictionary(),false)
+                return
+            }
+          
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            
+            let httpResponse = response as! NSHTTPURLResponse
+            
+            if(httpResponse.statusCode == 301 || httpResponse.statusCode == 307 ){
+                self.getRequest(httpResponse.URL!.absoluteString , postParams: postParams,callback: callback)
+                return;
+            }
+            
+            if(data == nil || data?.length <= 0 ){
+                
+                callback(NSDictionary(),false)
+                return;
+                
+            }
+            
+            let jsonResult2: AnyObject! = try? NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)
+            
+            if(jsonResult2 == nil)
+            {
+                callback(NSDictionary(),false)
+                return;
+            }
+            
+            
+            let jsonResult:NSDictionary = (jsonResult2 as? NSDictionary)!
+            
+            
+            
+            if(jsonResult["error"] != nil )
+            {
+                if(jsonResult ["error"] as?String == "invalid_token") {
+                    
+                    JsapiAPi.sharedInstance.sessionExpired()
+                    
+                    callback(jsonResult,false)
+                    
+                }else{
+                    
+                    let errorObject = jsonResult["error"]  as! Dictionary<String,Bool>
+                    
+                    let isSuccess=errorObject["success"]?.boolValue
+                    callback(jsonResult,isSuccess!)
+                }
+            }else
+            {
+                callback(jsonResult,true)
+            }
+        }
+        task.resume()
+    }
+
 
 
 }

@@ -39,6 +39,30 @@ public class VideoService:NSObject
                 
         }
     }
+    
+    public func getVideosWithoutAuth(params:Dictionary<String,AnyObject>,callback:(Array<Video>,PageRequest,String,Bool)->Void)
+    {
+        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETVIDEOS
+        JsapiRest.sharedInstance.getRequestWithoutAuthorization(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+            {
+                (result:NSDictionary,issuccess:Bool) in
+                if(!issuccess)
+                {
+                    let baseResponse=VideoResponse(fromDictionary: result)
+                    
+                    callback(baseResponse.videos,baseResponse.page,baseResponse.errormessage,issuccess)
+                    
+                }else
+                {
+                    let baseResponse=VideoResponse(fromDictionary: result["result"] as! NSDictionary)
+                    
+                    callback(baseResponse.videos,baseResponse.page,"",issuccess)
+                    
+                }
+                
+        }
+    }
+
 
     /** Get Artist and Global Videos for a user
     *@param params Dictionary
