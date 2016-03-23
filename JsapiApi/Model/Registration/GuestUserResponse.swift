@@ -14,9 +14,16 @@ class GuestUserResponse:BaseResponse{
 	 */
 	override init(fromDictionary dictionary: NSDictionary){
         super.init(fromDictionary: dictionary)
+        
 		if let guestUserData = dictionary["result"] as? NSDictionary{
+            
 			guestUser = GuestUser(fromDictionary: guestUserData)
-		}
+        
+        }else{
+        
+            guestUser = GuestUser()
+
+        }
 		
 	}
 

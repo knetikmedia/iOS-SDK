@@ -106,6 +106,12 @@ public class JsapiAPi:NSObject
                 (result:NSDictionary,issuccess:Bool) in
                 if(issuccess)
                 {
+                    if(result.count == 0 ){
+                        
+                        callback(result,false)
+                        return
+                    }
+                    
                     self.token=result.valueForKey("access_token") as! String!
                     self.token_type=result.valueForKey("token_type") as! String!
                     if(result.valueForKey("refresh_token") != nil){
@@ -157,6 +163,12 @@ public class JsapiAPi:NSObject
                 (result:NSDictionary,issuccess:Bool) in
                 if(issuccess)
                 {
+                    if(result.count == 0 ){
+                    
+                        callback(result,false)
+                        return
+                    }
+                    
                     self.token=result.valueForKey("access_token") as! String!
                     self.token_type=result.valueForKey("token_type") as! String!
                     
