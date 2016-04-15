@@ -71,7 +71,12 @@ class JsapiRest :NSObject,NSURLSessionDelegate
         let task = session.dataTaskWithRequest(request) {
             data, response, error in
             if error != nil {
-                callback(NSDictionary(),false)
+                
+                var res = NSMutableDictionary();
+                
+                res.setValue(JSAPIConstant.CONNECTION_ERROR, forKey: "message")
+                
+                callback(res,false)
                 return
             }
             //self.requests.removeValueForKey(request.URL!.absoluteString)
@@ -205,7 +210,12 @@ class JsapiRest :NSObject,NSURLSessionDelegate
         let task = session.dataTaskWithRequest(request) {
             data, response, error in
             if error != nil {
-                callback(NSDictionary(),false)
+                
+                var res = NSMutableDictionary();
+                
+                res.setValue(JSAPIConstant.CONNECTION_ERROR, forKey: "message")
+                callback(res,false)
+
                 return
             }
            
@@ -301,7 +311,12 @@ class JsapiRest :NSObject,NSURLSessionDelegate
             let httpResponse = response as! NSHTTPURLResponse
             
             if error != nil {
-                callback(NSDictionary(),false)
+                
+                var res = NSMutableDictionary();
+                
+                res.setValue(JSAPIConstant.CONNECTION_ERROR, forKey: "message")
+                callback(res,false)
+
                 return
             }
             
@@ -393,7 +408,11 @@ class JsapiRest :NSObject,NSURLSessionDelegate
         let task = session.dataTaskWithRequest(request) {
             data, response, error in
             if error != nil {
-                callback(NSDictionary(),false)
+                
+                var res = NSMutableDictionary();
+                res.setValue(JSAPIConstant.CONNECTION_ERROR, forKey: "message")
+                callback(res,false)
+
                 return
             }
             
@@ -507,7 +526,11 @@ class JsapiRest :NSObject,NSURLSessionDelegate
         let task = session.dataTaskWithRequest(request) {
             data, response, error in
             if error != nil {
-                callback(NSDictionary(),false)
+                
+                var res = NSMutableDictionary();
+                res.setValue(JSAPIConstant.CONNECTION_ERROR, forKey: "message")
+                callback(res,false)
+
                 return
             }
           

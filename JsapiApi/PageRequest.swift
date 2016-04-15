@@ -14,6 +14,7 @@ public class PageRequest :NSObject{
 	public var size : NSNumber!
 	public var totalElements : NSNumber!
 	public var totalPages : NSNumber!
+    public var count : NSNumber!
 
 
 	/**
@@ -27,6 +28,8 @@ public class PageRequest :NSObject{
 		size = dictionary["size"] as? NSNumber
 		totalElements = dictionary["totalElements"] as? NSNumber
 		totalPages = dictionary["totalPages"] as? NSNumber
+        count = dictionary["count"] as? NSNumber
+
 	}
 
 	/**

@@ -167,6 +167,12 @@ class var COMMENTLIST:String {return "/services/latest/media/videos/%@/comments"
     class var AUTOFRIENDSHIP:String {return "/api/friends/facebookCheck"}
     class var GETARTICLES:String {return "/services/latest/media/articles"};
 
+    
+    
+    // ERROR CONNECTION
+    
+    class var CONNECTION_ERROR:String {return "We're sorry, the connection to the server has been lost. Please try again."};
+
 }
 
 
