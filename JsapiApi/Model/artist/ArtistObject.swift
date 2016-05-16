@@ -18,7 +18,7 @@ public class ArtistObject :NSObject{
 	public var priority : NSNumber!
 	public var shortDescription : String!
 	public var updated : NSNumber!
-    
+    public var assets :  [AssetContent]!
     override public init(){super.init()}
 
 
@@ -37,6 +37,13 @@ public class ArtistObject :NSObject{
 		priority = dictionary["priority"] as? NSNumber
 		shortDescription = dictionary["shortDescription"] as? String
 		updated = dictionary["updated"] as? NSNumber
+        assets = [AssetContent]()
+        if let assetsArray = dictionary["assets"] as? [NSDictionary]{
+            for dic in assetsArray{
+                let value = AssetContent(fromDictionary: dic)
+                assets.append(value)
+            }
+        }
 	}
 
 	/**

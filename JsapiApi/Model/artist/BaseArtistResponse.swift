@@ -8,6 +8,7 @@ import Foundation
 class BaseArtistResponse:BaseResponse{
     
 	var result : ArtistPage!
+    var artistDetails : ArtistObject!
 
 
 	/**
@@ -27,6 +28,25 @@ class BaseArtistResponse:BaseResponse{
         
         }
 	}
+    
+    /**
+     * Instantiate the instance using the passed dictionary values to set the properties values
+     */
+    init(fromDictionary dictionary: NSDictionary , withDetails details:Bool){
+        
+        super.init(fromDictionary: dictionary);
+        
+        if let resultData = dictionary["result"] as? NSDictionary{
+            
+            artistDetails = ArtistObject(fromDictionary: resultData)
+            
+        }else{
+            
+            artistDetails = ArtistObject()
+            
+        }
+    }
+
 
 	
 }
