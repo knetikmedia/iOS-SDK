@@ -23,7 +23,7 @@ class var SHIPPABLE:String {return "/services/latest/carts/%@/shippable" }  // %
  ///End Carts
 
 //registration
-class var REGISTER:String {return "/services/latest/registration" }  // Register EndpoNSNumber
+class var REGISTER:String {return "/services/latest/users" }  // Register EndpoNSNumber
 class var FORGOTPASSWORD:String {return "/services/latest/registration/forgotpassword"};
 class var GUESTUPGRADE:String {return "/services/latest/registration/guestupgrade"};
 class var GUESTS:String {return "/services/latest/registration/guests"};
@@ -167,7 +167,7 @@ class var COMMENTLIST:String {return "/services/latest/media/videos/%@/comments"
     
     class var AUTOFRIENDSHIP:String {return "/api/friends/facebookCheck"}
     class var GETARTICLES:String {return "/services/latest/media/articles"};
-
+    class var GETACHIEVEMENTLIST:String {return "/services/latest/achievements"};
     
     
     // ERROR CONNECTION

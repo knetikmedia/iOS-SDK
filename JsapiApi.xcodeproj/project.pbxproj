@@ -139,6 +139,10 @@
 		F46ABB181BA721C0004DF427 /* MetricTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46ABB171BA721C0004DF427 /* MetricTest.swift */; };
 		F46ABB1B1BA7222C004DF427 /* Metric.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46ABB1A1BA7222C004DF427 /* Metric.swift */; };
 		F46ABB1C1BA7222C004DF427 /* Metric.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46ABB1A1BA7222C004DF427 /* Metric.swift */; };
+		F46E82261CEE52C2005B2F49 /* AchievementsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E82211CEE52C2005B2F49 /* AchievementsResponse.swift */; };
+		F46E82271CEE52C2005B2F49 /* Achievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E82221CEE52C2005B2F49 /* Achievements.swift */; };
+		F46E822A1CEE52C2005B2F49 /* AchievementsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E82251CEE52C2005B2F49 /* AchievementsPage.swift */; };
+		F46E822C1CEE566A005B2F49 /* AchievementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E822B1CEE566A005B2F49 /* AchievementService.swift */; };
 		F4759B781BAB1D220047C6BA /* WalletService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4759B771BAB1D220047C6BA /* WalletService.swift */; };
 		F4759B791BAB1D220047C6BA /* WalletService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4759B771BAB1D220047C6BA /* WalletService.swift */; };
 		F4759B7D1BAB20500047C6BA /* WalletRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4759B7C1BAB20500047C6BA /* WalletRequest.swift */; };
@@ -315,6 +319,10 @@
 		F46ABB141BA72043004DF427 /* UserRankResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRankResponse.swift; sourceTree = "<group>"; };
 		F46ABB171BA721C0004DF427 /* MetricTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetricTest.swift; sourceTree = "<group>"; };
 		F46ABB1A1BA7222C004DF427 /* Metric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Metric.swift; sourceTree = "<group>"; };
+		F46E82211CEE52C2005B2F49 /* AchievementsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementsResponse.swift; sourceTree = "<group>"; };
+		F46E82221CEE52C2005B2F49 /* Achievements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Achievements.swift; sourceTree = "<group>"; };
+		F46E82251CEE52C2005B2F49 /* AchievementsPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementsPage.swift; sourceTree = "<group>"; };
+		F46E822B1CEE566A005B2F49 /* AchievementService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementService.swift; sourceTree = "<group>"; };
 		F4759B771BAB1D220047C6BA /* WalletService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletService.swift; sourceTree = "<group>"; };
 		F4759B7C1BAB20500047C6BA /* WalletRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletRequest.swift; sourceTree = "<group>"; };
 		F4759B7F1BAB208A0047C6BA /* WalletTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletTest.swift; sourceTree = "<group>"; };
@@ -415,6 +423,7 @@
 		F4167B031AD5993300345DCB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F46E82201CEE52C2005B2F49 /* Achievements */,
 				F47B97C21C9CB54300A2B30F /* article */,
 				F438E0931C9B3BEE0038B4D8 /* virtualitems */,
 				F4ABA0D91C7E1B8600984274 /* config */,
@@ -614,6 +623,16 @@
 			path = metric;
 			sourceTree = "<group>";
 		};
+		F46E82201CEE52C2005B2F49 /* Achievements */ = {
+			isa = PBXGroup;
+			children = (
+				F46E82211CEE52C2005B2F49 /* AchievementsResponse.swift */,
+				F46E82221CEE52C2005B2F49 /* Achievements.swift */,
+				F46E82251CEE52C2005B2F49 /* AchievementsPage.swift */,
+			);
+			path = Achievements;
+			sourceTree = "<group>";
+		};
 		F4759B7B1BAB20500047C6BA /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
@@ -667,6 +686,7 @@
 			children = (
 				F4167B031AD5993300345DCB /* Model */,
 				F4A1AAD71AA6172C00D17F43 /* JsapiApi.swift */,
+				F46E822B1CEE566A005B2F49 /* AchievementService.swift */,
 				F47B97C91C9CB68600A2B30F /* ArticleService.swift */,
 				F488C4F11C064C3300F2AF03 /* CategoriesService.swift */,
 				F48006631AA656F600B27561 /* JSAPIConstant.swift */,
@@ -896,6 +916,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4167B1C1AD5B1A900345DCB /* BaseResponse.swift in Sources */,
+				F46E822A1CEE52C2005B2F49 /* AchievementsPage.swift in Sources */,
 				F4167B161AD5B17300345DCB /* Error.swift in Sources */,
 				F48BBD231ABB135B00EAFE09 /* Registration.swift in Sources */,
 				F43EEDC71ADDB00B001EFC8B /* RegisteredUser.swift in Sources */,
@@ -904,6 +925,7 @@
 				F43EEDB61ADDA34C001EFC8B /* Countries.swift in Sources */,
 				F40648731C7CDABE0056E415 /* BatchAssetPage.swift in Sources */,
 				F4B2EEF41BE417AB0045B898 /* FlagService.swift in Sources */,
+				F46E822C1CEE566A005B2F49 /* AchievementService.swift in Sources */,
 				F4D748DF1BE001EA004B57E6 /* Result.swift in Sources */,
 				F4D748E11BE001EA004B57E6 /* UserAchievementsResponse.swift in Sources */,
 				F47861931AB1BD7400A10B02 /* Utilities.swift in Sources */,
@@ -962,6 +984,7 @@
 				F43641991C52B7950062F95E /* PageRequest.swift in Sources */,
 				F43EED9D1ADD8B50001EFC8B /* Cartsku.swift in Sources */,
 				F43EED8D1ADD5E3E001EFC8B /* StoreResponse.swift in Sources */,
+				F46E82271CEE52C2005B2F49 /* Achievements.swift in Sources */,
 				F4F800321B4B3BE10048DEEC /* NewVideo.swift in Sources */,
 				F45DBA8E1C581E92006A23AE /* ArtistPage.swift in Sources */,
 				F48006641AA656F600B27561 /* JSAPIConstant.swift in Sources */,
@@ -997,6 +1020,7 @@
 				F46ABB111BA71AA0004DF427 /* StrategiesResponse.swift in Sources */,
 				F41B6FB21B4ACB8700B66B1A /* VideoService.swift in Sources */,
 				F438E0A21C9B4AD80038B4D8 /* VirtualItem.swift in Sources */,
+				F46E82261CEE52C2005B2F49 /* AchievementsResponse.swift in Sources */,
 				F4E64A4A1C99A59000EDA52C /* UserAvatarObject.swift in Sources */,
 				F4C6FF0F1C7B6DED0039176A /* ChallengeService.swift in Sources */,
 				F4D5867C1ACDC0AA001B47CA /* FavoriteService.swift in Sources */,
