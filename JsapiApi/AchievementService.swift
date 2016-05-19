@@ -29,9 +29,9 @@ public class AchievementService:NSObject
         }
     }
     
-    public func getAchievements(params:Dictionary<String,AnyObject>,callback:(AchievementsPage,String,Bool)->Void)
+    public func getUserAchievements(params:Dictionary<String,AnyObject>,callback:(AchievementsPage,String,Bool)->Void)
     {
-        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETACHIEVEMENTLIST;
+        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETUSERACHIEVEMENTLIST;
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
         {
             (result:NSDictionary,issuccess:Bool) in

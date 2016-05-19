@@ -168,7 +168,8 @@ class var COMMENTLIST:String {return "/services/latest/media/videos/%@/comments"
     class var AUTOFRIENDSHIP:String {return "/api/friends/facebookCheck"}
     class var GETARTICLES:String {return "/services/latest/media/articles"};
     class var GETACHIEVEMENTLIST:String {return "/services/latest/achievements"};
-    
+    class var GETUSERACHIEVEMENTLIST:String {return "/services/latest/users/achievements"};
+
     
     // ERROR CONNECTION
     
