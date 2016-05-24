@@ -137,7 +137,7 @@ class var COMMENTLIST:String {return "/services/latest/media/videos/%@/comments"
 //categories
     class var GETCATEGORIES:String {return "/services/latest/categories"};
 
-    class var BREEVENT:String {return "/services/latest/bre/fireevent"};
+    class var BREEVENT:String {return "/services/latest/bre/events"};
     
     class var NOTIFICATIONS:String {return "/api/notifications"};
     class var SEENNOTIFICATIONS:String {return "/api/notifications/%@/view"};
@@ -168,7 +168,7 @@ class var COMMENTLIST:String {return "/services/latest/media/videos/%@/comments"
     class var AUTOFRIENDSHIP:String {return "/api/friends/facebookCheck"}
     class var GETARTICLES:String {return "/services/latest/media/articles"};
     class var GETACHIEVEMENTLIST:String {return "/services/latest/achievements"};
-    class var GETUSERACHIEVEMENTLIST:String {return "/services/latest/users/achievements"};
+    class var GETUSERACHIEVEMENTLIST:String {return "/services/latest/users/%@/achievements"};
 
     
     // ERROR CONNECTION
