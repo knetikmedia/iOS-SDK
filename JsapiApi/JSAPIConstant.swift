@@ -117,6 +117,7 @@ class var COMMENTLIST:String {return "/services/latest/media/videos/%@/comments"
     
     //End Leaderboard
     class var WALLETCHANGE:String {return "/services/latest/admin/walletchange"}
+    class var GETUSERWALLETS:String {return "/services/latest/users/%@/wallets"}
 
     //Wallet
 
@@ -141,6 +142,7 @@ class var COMMENTLIST:String {return "/services/latest/media/videos/%@/comments"
     
     class var NOTIFICATIONS:String {return "/api/notifications"};
     class var SEENNOTIFICATIONS:String {return "/api/notifications/%@/view"};
+    class var SEENALLNOTIFICATIONS:String {return "/api/notifications/viewAll"};
 
     class var NOTIFICATIONSCHALLENGECODE:String {return "/api/notifications/identifier"};
 

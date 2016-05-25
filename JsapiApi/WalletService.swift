@@ -10,32 +10,24 @@ import Foundation
 public class WalletService:NSObject
 {
     
-    /** wallet Change
-    sample request {"reason":"No Reason","userId":29199,"currencyType":"SP","delta":100000,"username":"gt9"}
-    *@param params Dictionary
-    *@param callback
-    *in case of add additions Balance set delta with positive value
-    *in case of add deductions Balance set delta with negative value
-    *@admin
-    */
-
-    public func walletChange(params:Dictionary<String,AnyObject>,callback:(Wallet,String,Bool)->Void)
+    public func GetUserWallet(userId:String,params:Dictionary<String,AnyObject>,callback:(Array<Wallet>,String,Bool)->Void)
     {
-        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.WALLETCHANGE
-        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
+        let methodUrl:String = NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETUSERWALLETS,userId) as String
+
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            let baseResponse=WalletResponse(fromDictionary: result)
+            if(!issuccess)
             {
-                (result:NSDictionary,issuccess:Bool) in
-                let baseResponse=WalletResponse(fromDictionary: result)
-                if(!issuccess)
-                {
-                    callback(Wallet(),baseResponse.errormessage,issuccess)
-                    
-                }else
-                {
-                    callback(baseResponse.wallet,"",issuccess)
-                    
-                }
+                callback(baseResponse.wallets,baseResponse.errormessage,issuccess)
                 
+            }else
+            {
+                callback(baseResponse.wallets,"",issuccess)
+                
+            }
+            
         }
     }
 

@@ -120,6 +120,31 @@ public class NotificationService : NSObject
         }
     }
 
+    /** Add  Notification
+     *@param params Dictionary
+     *@param callback
+     */
+    public func markAllNotificationAsRead(params:Dictionary<String,AnyObject> , callback:(AnyObject,String,Bool)->Void)
+    {
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.SEENALLNOTIFICATIONS
+        
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            
+            let baseResponse=BaseResponse(fromDictionary: result)
+            
+            if(!issuccess)
+            {
+                callback(baseResponse,baseResponse.errormessage,issuccess)
+            }else
+            {
+                callback(baseResponse,"",issuccess)
+            }
+            
+        }
+    }
+
     
     
     /** Add  Notification

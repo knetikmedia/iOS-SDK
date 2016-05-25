@@ -7,17 +7,23 @@ import Foundation
 
 class WalletResponse :BaseResponse{
 
-	public var wallet : Wallet!
+	public var wallets : [Wallet]!
 
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
 	override init(fromDictionary dictionary: NSDictionary){
+        
         super.init(fromDictionary: dictionary)
-        if let resultData = dictionary["result"] as? NSDictionary{
-			wallet = Wallet(fromDictionary: resultData)
-		}
-	}
+        wallets = [Wallet]()
+        
+        if let resultArray = dictionary["result"] as? [NSDictionary]{
+            for dic in resultArray{
+                let value = Wallet(fromDictionary: dic)
+                wallets.append(value)
+            }
+        }
+      	}
 
 }
