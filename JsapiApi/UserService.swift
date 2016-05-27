@@ -35,6 +35,33 @@ public class UserService:NSObject {
     }
  }
     
+    /**get User Info /services/latest/user/getinfo
+     *@param params Dictionary Empty Dictionary {}
+     *@param callback
+     */
+    public func getUserInfoByUserId(userId:String,params:Dictionary<String,String>,callback:(User,String,Bool)->Void)
+    {
+        
+        let methodUrl:String = NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETUSERINFOBYID,userId) as String
+
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            let userResponse = UserResponse(fromDictionary: result)
+            if(!issuccess)
+            {
+                
+                callback(User(),userResponse.errormessage,issuccess)
+                
+            }else
+            {
+                callback(userResponse.user,"",issuccess)
+                
+            }
+        }
+    }
+
+    
     
     /**get User Info /services/latest/user/getinfo
     *@param params Dictionary Empty Dictionary {}

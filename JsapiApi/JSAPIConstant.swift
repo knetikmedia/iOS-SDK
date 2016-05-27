@@ -34,6 +34,8 @@ class var GETUSERINFO:String {return "/services/latest/users/me" }
 class var GETACHIEVEMENT:String {return "/services/latest/user/getachievement" }
 class var UPDATEUSERINFO:String {return "/services/latest/users/me"};
 class var SETUSERPASSWORD:String {return "/services/latest/user/%@/password"};
+class var GETUSERINFOBYID:String {return "/services/latest/users/%@"};
+
 //EndUser
 
     
