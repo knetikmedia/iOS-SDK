@@ -44,7 +44,7 @@ public class Comment:NSObject{
 		displayName = dictionary["display_name"] as? String
         summary = dictionary["summary"] as? String
         context = dictionary["context"] as? String
-		contextId = dictionary["context_id"] as? NSNumber
+		contextId = dictionary["contextId"] as? NSNumber
 		userId = dictionary["user_id"] as? NSNumber
         user=SimpleUser(fromDictionary: dictionary["user"] as! NSDictionary)
 	}
