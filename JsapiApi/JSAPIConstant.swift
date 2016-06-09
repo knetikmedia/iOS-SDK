@@ -173,6 +173,7 @@ class var COMMENTLIST:String {return "/services/latest/media/videos/%@/comments"
     class var GETARTICLES:String {return "/services/latest/media/articles"};
     class var GETACHIEVEMENTLIST:String {return "/services/latest/achievements"};
     class var GETUSERACHIEVEMENTLIST:String {return "/services/latest/users/%@/achievements"};
+    class var GETSINGLEACHIEVEMENT:String {return "/services/latest/achievements/%@"};
 
     
     // ERROR CONNECTION
