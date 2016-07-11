@@ -35,6 +35,7 @@ public class User:NSObject{
     public var postalCode : String!
     public var state : String!
     public var timezoneCode : String!
+    public var password : String!
     public func getAge()->NSNumber{return age;}
     public func getCountry()->String{return country;}
     public func getDateOfBirth()->AnyObject{return dateOfBirth;}
@@ -116,6 +117,8 @@ public class User:NSObject{
         productItem = dictionary["product_item"] as AnyObject!
         token = dictionary["token"] as AnyObject!
         username = dictionary["username"] as? String
+        password = dictionary["password"] as? String
+
         wallet = [Wallet]()
         if let walletArray = dictionary["wallet"] as? [NSDictionary]{
             for dic in walletArray{
@@ -184,6 +187,9 @@ public class User:NSObject{
         }
         if username != nil{
             dictionary["username"] = username
+        }
+        if password != nil{
+            dictionary["password"] = password
         }
         return dictionary
     }
