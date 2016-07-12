@@ -34,6 +34,15 @@ public class SimpleUser:NSObject{
 		displayName = dictionary["displayname"] as? String
         
         name = dictionary["name"] as? String
+        
+        if(name == nil)
+        {
+            if(displayName != nil){
+                
+            name = displayName;
+                
+            }
+        }
 
 		}
 
