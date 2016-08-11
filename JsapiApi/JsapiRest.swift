@@ -355,10 +355,19 @@ class JsapiRest :NSObject,NSURLSessionDelegate
                     
                 }else{
                     
-                    let errorObject = jsonResult["error"]  as! Dictionary<String,Bool>
+                    if ((jsonResult["error"] as? NSDictionary) != nil) {
                     
-                    let isSuccess=errorObject["success"]?.boolValue
-                    callback(jsonResult,isSuccess!)
+                        let errorObject = jsonResult["error"]  as! Dictionary<String,Bool>
+
+                        let isSuccess=errorObject["success"]?.boolValue
+                        callback(jsonResult,isSuccess!)
+                    }else{
+                    
+                        callback(jsonResult,false)
+
+                    }
+                    
+                
                 }
             }else
             {
@@ -469,10 +478,18 @@ class JsapiRest :NSObject,NSURLSessionDelegate
                     
                 }else{
                     
-                    let errorObject = jsonResult["error"]  as! Dictionary<String,Bool>
-                    
-                    let isSuccess=errorObject["success"]?.boolValue
-                    callback(jsonResult,isSuccess!)
+                    if ((jsonResult["error"] as? NSDictionary) != nil) {
+                        
+                        let errorObject = jsonResult["error"]  as! Dictionary<String,Bool>
+                        
+                        let isSuccess=errorObject["success"]?.boolValue
+                        callback(jsonResult,isSuccess!)
+                    }else{
+                        
+                        callback(jsonResult,false)
+                        
+                    }
+
                 }
             }else
             {
@@ -573,11 +590,19 @@ class JsapiRest :NSObject,NSURLSessionDelegate
                     
                 }else{
                     
-                    let errorObject = jsonResult["error"]  as! Dictionary<String,Bool>
-                    
-                    let isSuccess=errorObject["success"]?.boolValue
-                    callback(jsonResult,isSuccess!)
-                }
+                    if ((jsonResult["error"] as? NSDictionary) != nil) {
+                        
+                        let errorObject = jsonResult["error"]  as! Dictionary<String,Bool>
+                        
+                        let isSuccess=errorObject["success"]?.boolValue
+                        callback(jsonResult,isSuccess!)
+                    }else{
+                        
+                        callback(jsonResult,false)
+                        
+                    }
+
+                                    }
             }else
             {
                 callback(jsonResult,true)
