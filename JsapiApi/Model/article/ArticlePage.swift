@@ -16,7 +16,14 @@ public class ArticlePage :NSObject{
 	public var totalElements : NSNumber!
 	public var totalPages : NSNumber!
 
+    override public init()
+    {
+        super.init()
+        content = [Article]()
 
+    }
+
+    
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */

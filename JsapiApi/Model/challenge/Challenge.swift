@@ -14,7 +14,7 @@ public class Challenge :NSObject{
 	public var endDate : NSNumber!
 	public var challengeId : NSNumber!
 	public var leaderboardStrategy : String!
-	public var longDescription : String!
+	public var longDescription : NSNumber!
 	public var name : String!
 	public var nextEventDate : NSNumber!
 	public var rewardLagMinutes : NSNumber!
@@ -38,7 +38,17 @@ public class Challenge :NSObject{
 		endDate = dictionary["endDate"] as? NSNumber
 		challengeId = dictionary["id"] as? NSNumber
 		leaderboardStrategy = dictionary["leaderboardStrategy"] as? String
-		longDescription = dictionary["longDescription"] as? String
+        
+        var longValue = dictionary["longDescription"] as? String
+        
+        if let number = Int(longValue!){
+        
+            longDescription = Int(longValue!)
+        }else{
+        
+            longDescription = 500
+        }
+        
 		name = dictionary["name"] as? String
 		nextEventDate = dictionary["nextEventDate"] as? NSNumber
 		rewardLagMinutes = dictionary["rewardLagMinutes"] as? NSNumber

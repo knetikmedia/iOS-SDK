@@ -21,8 +21,19 @@ public class ArticleService:NSObject
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
+                
                 let articleResponse=BaseArticleResponse(fromDictionary: result)
-                callback(articleResponse.result,articleResponse.errormessage,issuccess)
+
+                if(issuccess){
+                    
+
+                    callback(articleResponse.result,articleResponse.errormessage,issuccess)
+                    
+                }else{
+                
+                    callback(ArticlePage(),articleResponse.errormessage,issuccess)
+
+                }
         }
     }
     

@@ -38,6 +38,7 @@ public class Video :NSObject{
     public var tags : [String]!
     public var popularity : NSNumber!
     public var likes : NSNumber!
+    public var parentId : NSNumber!
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
@@ -91,6 +92,7 @@ public class Video :NSObject{
 		}
 		width = dictionary["width"] as? NSNumber
         views = dictionary["views"] as? NSNumber
+        parentId = dictionary["parentId"] as? NSNumber
 
         if let categoryData = dictionary["category"] as? NSDictionary{
             videoCategory = CategoryObject(fromDictionary: categoryData)
