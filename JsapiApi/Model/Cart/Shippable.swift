@@ -5,17 +5,17 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Shippable:NSObject{
+open class Shippable:NSObject{
 
 	var cartId : NSNumber!
 	var shippable : Bool!
     
-    public func getCartId()->NSNumber
+    open func getCartId()->NSNumber
     {
     return cartId
     }
 
-    public func getShippable()->Bool
+    open func getShippable()->Bool
     {
         return shippable
     }

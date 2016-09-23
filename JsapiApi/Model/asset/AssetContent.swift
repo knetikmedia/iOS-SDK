@@ -5,12 +5,12 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class AssetContent : NSObject {
+open class AssetContent : NSObject {
 
-	public var data : NSDictionary!
-	public var displayName : String!
-	public var qualifier : String!
-	public var type : String!
+	open var data : NSDictionary!
+	open var displayName : String!
+	open var qualifier : String!
+	open var type : String!
 
 
 	/**

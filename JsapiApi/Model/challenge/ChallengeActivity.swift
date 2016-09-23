@@ -5,14 +5,14 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class ChallengeActivity :NSObject{
+open class ChallengeActivity :NSObject{
 
-	public var activityId : NSNumber!
-	public var challengeId : NSNumber!
-	public var entitlement : NSDictionary!
-	public var challengeActivityId : NSNumber!
-	public var rewardSet : RewardSet!
-	public var settings : [Setting]!
+	open var activityId : NSNumber!
+	open var challengeId : NSNumber!
+	open var entitlement : NSDictionary!
+	open var challengeActivityId : NSNumber!
+	open var rewardSet : RewardSet!
+	open var settings : [Setting]!
 
     public override init(){
     

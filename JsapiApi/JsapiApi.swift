@@ -7,19 +7,24 @@
 //
 
 import Foundation
-public class JsapiAPi:NSObject
+open class JsapiAPi:NSObject
 {
     
-    private var jsapiurl:String=""
-    private var notificationUrl:String=""
+    private static var __once: () = {
+            Statics.instance=JsapiAPi()
+         
+        }()
+    
+    fileprivate var jsapiurl:String=""
+    fileprivate var notificationUrl:String=""
 
-    private var client_id:String=""
-    private var username:String=""
-    private var password:String=""
-    private var secrect_key:String=""
-    private var token=""
-    private var token_type=""
-    private var refresh_token=""
+    fileprivate var client_id:String=""
+    fileprivate var username:String=""
+    fileprivate var password:String=""
+    fileprivate var secrect_key:String=""
+    fileprivate var token=""
+    fileprivate var token_type=""
+    fileprivate var refresh_token=""
     
 
     
@@ -27,19 +32,18 @@ public class JsapiAPi:NSObject
     return a Singleton for JsapiApi class
     
     */
-   public class var sharedInstance:JsapiAPi
+    
+    struct Statics
     {
-        struct Statics
-        {
-            static var instance:JsapiAPi?
-            static var token:dispatch_once_t=0
-            
-        }
-        dispatch_once(&Statics.token)
-        {
-            Statics.instance=JsapiAPi()
-         
-        }
+        static var instance:JsapiAPi?
+        static var token:Int=0
+        
+    }
+    
+   open class var sharedInstance:JsapiAPi
+    {
+    
+        _ = JsapiAPi.__once
         return Statics.instance!
     }
     
@@ -50,7 +54,7 @@ public class JsapiAPi:NSObject
     secrect_key optional paramter
     */
     
-    public class func jsapiInit(jsapiurl:String,client_id:String,secrect_key:String,notificationUrl:String)
+    open class func jsapiInit(_ jsapiurl:String,client_id:String,secrect_key:String,notificationUrl:String)
     {
         if(jsapiurl.isEmpty){
             return;
@@ -67,7 +71,7 @@ public class JsapiAPi:NSObject
     /**
     reset function
     */
-    public func reset()
+    open func reset()
     {
         JsapiAPi.sharedInstance.jsapiurl=""
         JsapiAPi.sharedInstance.client_id=""
@@ -82,7 +86,7 @@ public class JsapiAPi:NSObject
     /**
     do User Registration
     */
-    public func doUserRegistration(registerationDetails:Dictionary<String,String>,callback:(NSDictionary,Bool)->Void)
+    open func doUserRegistration(_ registerationDetails:Dictionary<String,String>,callback:@escaping (NSDictionary,Bool)->Void)
     {
         let methodurl:String=jsapiurl+JSAPIConstant.REGISTER
 
@@ -97,7 +101,7 @@ public class JsapiAPi:NSObject
     /**
     do User Login
     */
-    public func doUserLogin(loginDetails:Dictionary<String,String>,callback:(NSDictionary,Bool)->Void)
+    open func doUserLogin(_ loginDetails:Dictionary<String,String>,callback:@escaping (NSDictionary,Bool)->Void)
     {
         let methodurl:String=jsapiurl+JSAPIConstant.OAUTH_TOKEN
 
@@ -112,11 +116,11 @@ public class JsapiAPi:NSObject
                         return
                     }
                     
-                    self.token=result.valueForKey("access_token") as! String!
-                    self.token_type=result.valueForKey("token_type") as! String!
-                    if(result.valueForKey("refresh_token") != nil){
+                    self.token=result.value(forKey: "access_token") as! String!
+                    self.token_type=result.value(forKey: "token_type") as! String!
+                    if(result.value(forKey: "refresh_token") != nil){
 
-                    self.refresh_token = result.valueForKey("refresh_token") as! String!
+                    self.refresh_token = result.value(forKey: "refresh_token") as! String!
                     }
                 }
                 callback(result,issuccess)
@@ -126,7 +130,7 @@ public class JsapiAPi:NSObject
     /**
      do User Login
      */
-    public func doRefreshToken(callback:(NSDictionary,Bool)->Void)
+    open func doRefreshToken(_ callback:@escaping (NSDictionary,Bool)->Void)
     {
         var refreshRequest = Dictionary<String,String>();
         
@@ -139,11 +143,11 @@ public class JsapiAPi:NSObject
                 (result:NSDictionary,issuccess:Bool) in
                 if(issuccess)
                 {
-                    self.token=result.valueForKey("access_token") as! String!
-                    self.token_type=result.valueForKey("token_type") as! String!
-                    if(result.valueForKey("refresh_token") != nil){
+                    self.token=result.value(forKey: "access_token") as! String!
+                    self.token_type=result.value(forKey: "token_type") as! String!
+                    if(result.value(forKey: "refresh_token") != nil){
                         
-                        self.refresh_token = result.valueForKey("refresh_token") as! String!
+                        self.refresh_token = result.value(forKey: "refresh_token") as! String!
                     }
                 }
                 callback(result,issuccess)
@@ -154,7 +158,7 @@ public class JsapiAPi:NSObject
     /**
     do User Login
     */
-    public func doFacebookLogin(loginDetails:Dictionary<String,String>,callback:(NSDictionary,Bool)->Void)
+    open func doFacebookLogin(_ loginDetails:Dictionary<String,String>,callback:@escaping (NSDictionary,Bool)->Void)
     {
         let methodurl:String=jsapiurl+JSAPIConstant.OAUTH_TOKEN
 
@@ -169,11 +173,11 @@ public class JsapiAPi:NSObject
                         return
                     }
                     
-                    self.token=result.valueForKey("access_token") as! String!
-                    self.token_type=result.valueForKey("token_type") as! String!
+                    self.token=result.value(forKey: "access_token") as! String!
+                    self.token_type=result.value(forKey: "token_type") as! String!
                     
-                    if(result.valueForKey("refresh_token") != nil){
-                    self.refresh_token = result.valueForKey("refresh_token") as! String!
+                    if(result.value(forKey: "refresh_token") != nil){
+                    self.refresh_token = result.value(forKey: "refresh_token") as! String!
                     }
 
                 }
@@ -185,7 +189,7 @@ public class JsapiAPi:NSObject
     /**
     do User Logout
     */
-    public func doUserLogout()
+    open func doUserLogout()
     {
     self.token_type="";
     self.token="";
@@ -194,7 +198,7 @@ public class JsapiAPi:NSObject
     /*
     generate auth request token from Dictionary
     */
-    func authenticateRequestFromDictionary(requestparamters:Dictionary<String,String>)->String
+    func authenticateRequestFromDictionary(_ requestparamters:Dictionary<String,String>)->String
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         commonParamtersDictionry["client_id"]=JsapiAPi.sharedInstance.client_id
@@ -218,7 +222,7 @@ public class JsapiAPi:NSObject
     /*
     generate auth request token from Dictionary
     */
-    func authenticateRefreshTokenRequestFromDictionary(requestparamters:Dictionary<String,String>)->String
+    func authenticateRefreshTokenRequestFromDictionary(_ requestparamters:Dictionary<String,String>)->String
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         commonParamtersDictionry["client_id"]=JsapiAPi.sharedInstance.client_id
@@ -243,7 +247,7 @@ public class JsapiAPi:NSObject
     /*
     generate facebook auth request token from Dictionary
     */
-    func authenticateFacebookRequestFromDictionary(requestparamters:Dictionary<String,String>)->String
+    func authenticateFacebookRequestFromDictionary(_ requestparamters:Dictionary<String,String>)->String
     {
         var commonParamtersDictionry=Dictionary<String,String>()
         commonParamtersDictionry["client_id"]=JsapiAPi.sharedInstance.client_id
@@ -269,39 +273,39 @@ public class JsapiAPi:NSObject
     
     func sessionExpired() {
     
-        let appDelegate = UIApplication.sharedApplication().delegate
+        let appDelegate = UIApplication.shared.delegate
         
-            appDelegate?.performSelector("sessionExpired")
+            appDelegate?.perform(#selector(JsapiAPi.sessionExpired))
     
     }
     
     /*
     generate Json Request from Dictionary
     */
-    func jsonRequestFromDictionary(requestparamters:Dictionary<String,String>)->String
+    func jsonRequestFromDictionary(_ requestparamters:Dictionary<String,String>)->String
     {
-        let body = try! NSJSONSerialization.dataWithJSONObject(requestparamters, options: [] )
-        let datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
+        let body = try! JSONSerialization.data(withJSONObject: requestparamters, options: [] )
+        let datastring: String = NSString(data:body, encoding:String.Encoding.utf8.rawValue)! as String
         return datastring
     }
 
 
-    public func getJsapiUrl()->String
+    open func getJsapiUrl()->String
     {
     return jsapiurl;
     }
 
-    public func getJsapiToken()->String
+    open func getJsapiToken()->String
     {
         return self.token_type+" "+self.token;
     }
     
-    public func getJsapiOriginalToken()->String
+    open func getJsapiOriginalToken()->String
     {
         return self.token;
     }
 
-    public func getNotificationUrl()->String
+    open func getNotificationUrl()->String
     {
         return self.notificationUrl;
     }

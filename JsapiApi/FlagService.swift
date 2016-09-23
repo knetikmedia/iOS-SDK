@@ -7,16 +7,17 @@
 //
 
 import Foundation
-public class FlagService:NSObject
+open class FlagService:NSObject
 {
     /**Adds a new Flag to an item. Requires user authentication.
     *@param
     *@param callback
     */
-    public func addFlag(videoID:String,params:Dictionary<String,String>,callback:(AnyObject,String,Bool)->Void)
+    open func addFlag(_ videoID:String,params:Dictionary<String,String>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
-        let methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.FLAGS,videoID)
-        JsapiRest.sharedInstance.postrequest(methodUrl as String, postParams: Utilities.getPostValueRequestFromDictionary(params), isJson: true)
+        let url = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.FLAGS;
+        let methodUrl=NSString(format:url as NSString,videoID)
+        JsapiRest.sharedInstance.postrequest(methodUrl as String, postParams: Utilities.getPostValueRequestFromDictionary(params as Dictionary<String, AnyObject>), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let baseResponse=BaseResponse(fromDictionary: result)
@@ -37,11 +38,11 @@ public class FlagService:NSObject
     *@param params Dictionary{"item_id": 0}
     *@param callback
     */
-    public func flagsList(params:Dictionary<String,String>,callback:(Array<Flag>,String,Bool)->Void)
+    open func flagsList(_ params:Dictionary<String,String>,callback:@escaping (Array<Flag>,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETFLAGS
         
-        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params as Dictionary<String, AnyObject>))
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let flagresponse=FlagBaseResponse(fromDictionary:result);
@@ -61,9 +62,11 @@ public class FlagService:NSObject
     *@param params Dictionary{"id": 0}
     *@param callback
     */
-    public func deleteFlag(params:Dictionary<String,String>,callback:(AnyObject,String,Bool)->Void)
+    open func deleteFlag(_ params:Dictionary<String,String>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
-        let methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.DELETEFLAG,params["id"]!)
+        let url = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.DELETEFLAG;
+        
+        let methodUrl=NSString(format:url as NSString ,params["id"]!)
         JsapiRest.sharedInstance.deleteRequest(methodUrl as String, deleteParams: Utilities.jsonRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in

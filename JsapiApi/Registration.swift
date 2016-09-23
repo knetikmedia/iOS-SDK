@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public class Registration:NSObject
+open class Registration:NSObject
 {
 
     /*Generates/verifies a temporary secret to allow users to login without their password
@@ -15,7 +15,7 @@ public class Registration:NSObject
     @param params{"username": "","email": "","newpassword": "","secrethash": "","plaintext": false}
     @param callback Interface
     */
-    public func forgotPassword(params:Dictionary<String,String>,callback:(AnyObject,String,Bool)->Void)
+    open func forgotPassword(_ params:Dictionary<String,String>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
         let endpoint=JSAPIConstant.FORGOTPASSWORD
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+endpoint
@@ -43,7 +43,7 @@ public class Registration:NSObject
     @param Empty Params
     @param callback Interface
     */
-    public func guests(params:Dictionary<String,String>,callback:(GuestUser,String,Bool)->Void)
+    open func guests(_ params:Dictionary<String,String>,callback:@escaping (GuestUser,String,Bool)->Void)
     {
         let endpoint=JSAPIConstant.GUESTS
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+endpoint
@@ -69,7 +69,7 @@ public class Registration:NSObject
     @param params{"username": "","email": "","newpassword": "","secrethash": "","plaintext": false}
     @param callback Interface
     */
-    public func guestUpgrade(params:Dictionary<String,String>,callback:(AnyObject,String,Bool)->Void)
+    open func guestUpgrade(_ params:Dictionary<String,String>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
         let endpoint=JSAPIConstant.GUESTUPGRADE
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+endpoint
@@ -93,7 +93,7 @@ public class Registration:NSObject
     * /services/latest/registration
     @param params{"username": "","email": "","newpassword": "","secrethash": "","plaintext": false}
     */
-    public func doUserRegistration(registerationDetails:Dictionary<String,String>,callback:(RegisteredUser,String,Bool)->Void)
+    open func doUserRegistration(_ registerationDetails:Dictionary<String,String>,callback:@escaping (RegisteredUser,String,Bool)->Void)
     {
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.REGISTER
 

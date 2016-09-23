@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public class StoreService:NSObject
+open class StoreService:NSObject
 {
     
 
@@ -15,7 +15,7 @@ public class StoreService:NSObject
     *@param params Dictionary {"terms": [""],"related": [""],"vocabulary": "","limit": 0,"page": 0,"useCatalog": false,"fullObject": false}
     *@param callback
     */
-    public func getPage(params:Dictionary<String,AnyObject>,callback:(Array<Page>,String,Bool)->Void)
+    open func getPage(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<Page>,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETPAGE;
         JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
@@ -33,7 +33,7 @@ public class StoreService:NSObject
         }
     }
 
-    public func getVirtualItem(params:Dictionary<String,AnyObject>,callback:(VirtualItemPage,String,Bool)->Void)
+    open func getVirtualItem(_ params:Dictionary<String,AnyObject>,callback:@escaping (VirtualItemPage,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.VIRTUALITEMS;
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
@@ -52,7 +52,7 @@ public class StoreService:NSObject
     }
     
     
-    public func getVirtualItemAssets(params:Dictionary<String,AnyObject>,callback:(Array<VirtualItemResultsAssets>,String,Bool)->Void)
+    open func getVirtualItemAssets(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<VirtualItemResultsAssets>,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETCHALLENGESBATCH
         

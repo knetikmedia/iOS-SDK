@@ -5,29 +5,29 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Achievement : NSObject {
+open class Achievement : NSObject {
 
-	public var achievementTypeId : NSNumber!
-	public var assets : [AnyObject]!
-	public var behaviors : [Behavior]!
-	public var dateCreated : NSNumber!
-	public var dateUpdated : NSNumber!
-	public var deleted : NSNumber!
-	public var deletedAt : String!
-	public var earnedAssetId : String!
-	public var geoPolicyId : String!
-	public var achievementId : NSNumber!
-	public var longDescription : String!
-	public var name : String!
-	public var related : [AnyObject]!
-	public var shortDescription : String!
-	public var skus : [AnyObject]!
-	public var sort : NSNumber!
-	public var terms : [AnyObject]!
-	public var typeHNSNumber : String!
-	public var unearnedAssetId : String!
-	public var uniqueKey : String!
-	public var value : NSNumber!
+	open var achievementTypeId : NSNumber!
+	open var assets : [AnyObject]!
+	open var behaviors : [Behavior]!
+	open var dateCreated : NSNumber!
+	open var dateUpdated : NSNumber!
+	open var deleted : NSNumber!
+	open var deletedAt : String!
+	open var earnedAssetId : String!
+	open var geoPolicyId : String!
+	open var achievementId : NSNumber!
+	open var longDescription : String!
+	open var name : String!
+	open var related : [AnyObject]!
+	open var shortDescription : String!
+	open var skus : [AnyObject]!
+	open var sort : NSNumber!
+	open var terms : [AnyObject]!
+	open var typeHNSNumber : String!
+	open var unearnedAssetId : String!
+	open var uniqueKey : String!
+	open var value : NSNumber!
 
 
 	/**

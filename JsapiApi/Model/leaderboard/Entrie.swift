@@ -5,13 +5,13 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Entrie : NSObject{
+open class Entrie : NSObject{
 
-	public var rank : NSNumber!
-	public var score : NSNumber!
-	public var userAvatarUrl : String!
-	public var userDisplayName : String!
-	public var userId : NSNumber!
+	open var rank : NSNumber!
+	open var score : NSNumber!
+	open var userAvatarUrl : String!
+	open var userDisplayName : String!
+	open var userId : NSNumber!
 
 
     override public init(){super.init()}

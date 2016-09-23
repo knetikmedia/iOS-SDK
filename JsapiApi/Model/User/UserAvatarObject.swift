@@ -5,11 +5,11 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class UserAvatarObject : NSObject{
+open class UserAvatarObject : NSObject{
 
-	public var uploaderAvatarUrl : String!
-	public var uploaderId : Int!
-	public var uploaderUsername : String!
+	open var uploaderAvatarUrl : String!
+	open var uploaderId : Int!
+	open var uploaderUsername : String!
 
 
 	/**

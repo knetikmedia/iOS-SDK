@@ -5,9 +5,9 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class BatchAssetResponseItem : NSObject{
+open class BatchAssetResponseItem : NSObject{
 
-    public var result : BatchAssetPage!
+    open var result : BatchAssetPage!
 
 
 	/**

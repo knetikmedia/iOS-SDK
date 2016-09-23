@@ -7,14 +7,14 @@
 //
 
 import Foundation
-public class FavoriteService:NSObject
+open class FavoriteService:NSObject
 {
 
     /** add Favorite Item
     *@param params Dictionary{"id": 0} // ItemID
     *@param callback
     */
-    public func addFavoriteItem(params:Dictionary<String,AnyObject>,callback:(AnyObject,String,Bool)->Void)
+    open func addFavoriteItem(_ params:Dictionary<String,AnyObject>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDFAVORITE;
         JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
@@ -37,7 +37,7 @@ public class FavoriteService:NSObject
     *@param params Dictionary {} Empty
     *@param callback
     */
-    public func getFavorites(params:Dictionary<String,AnyObject>,callback:(Array<Favorite>,String,Bool)->Void)
+    open func getFavorites(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<Favorite>,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETFAVORITES;
         JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
@@ -53,7 +53,7 @@ public class FavoriteService:NSObject
     *@param params Dictionary {"id": 0} fav item ID
     *@param callback
     */
-    public func deleteFavorite(params:Dictionary<String,AnyObject>,callback:(AnyObject,String,Bool)->Void)
+    open func deleteFavorite(_ params:Dictionary<String,AnyObject>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.DELETEFAVORITE;
         JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)

@@ -5,20 +5,20 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Asset:NSObject{
+open class Asset:NSObject{
 
     override public init() {
         super.init()
     }
-    public var deleted : NSNumber!
-	public var assetDescription : String!
-	public var assetHash : String!
-	public var assetId : NSNumber!
-	public var itemId : NSNumber!
-	public var path : AnyObject!
-	public var sortOrder : NSNumber!
-	public var type : String!
-	public var url : String!
+    open var deleted : NSNumber!
+	open var assetDescription : String!
+	open var assetHash : String!
+	open var assetId : NSNumber!
+	open var itemId : NSNumber!
+	open var path : AnyObject!
+	open var sortOrder : NSNumber!
+	open var type : String!
+	open var url : String!
 
 
 	/**

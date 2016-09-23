@@ -5,11 +5,11 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class UseUploaded:NSObject{
+open class UseUploaded:NSObject{
 
-	public var uploadId : NSNumber!
-	public var itemId : NSNumber!
-	public var userId : NSNumber!
+	open var uploadId : NSNumber!
+	open var itemId : NSNumber!
+	open var userId : NSNumber!
 
 
 	/**

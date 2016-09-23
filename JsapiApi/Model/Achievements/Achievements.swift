@@ -5,26 +5,26 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class Achievements : NSObject{
+open class Achievements : NSObject{
 
-	public var assets : [AssetContent]!
-	public var created : NSNumber!
-	public var deleted : NSNumber!
-	public var description_str : String!
-	public var hidden : NSNumber!
-	public var maxValue : NSNumber!
-	public var minValue : NSNumber!
-	public var name : String!
-	public var ruleId : NSNumber!
-	public var tags : [String]!
-	public var triggerEventName : String!
-	public var updated : NSNumber!
-    public var achieved : NSNumber!
-    public var achievementId : String!
-    public var earned : NSNumber!
-    public var progress : NSNumber!
-    public var userId : NSNumber!
-    public var achievement : String!
+	open var assets : [AssetContent]!
+	open var created : NSNumber!
+	open var deleted : NSNumber!
+	open var description_str : String!
+	open var hidden : NSNumber!
+	open var maxValue : NSNumber!
+	open var minValue : NSNumber!
+	open var name : String!
+	open var ruleId : NSNumber!
+	open var tags : [String]!
+	open var triggerEventName : String!
+	open var updated : NSNumber!
+    open var achieved : NSNumber!
+    open var achievementId : String!
+    open var earned : NSNumber!
+    open var progress : NSNumber!
+    open var userId : NSNumber!
+    open var achievement : String!
 
     override public init(){super.init()
         assets = [AssetContent]()

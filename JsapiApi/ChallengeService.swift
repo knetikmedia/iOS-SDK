@@ -11,10 +11,10 @@
 
 import Foundation
 
-public class ChallengeService : NSObject
+open class ChallengeService : NSObject
 {
     
-    public func getChallenges(params:Dictionary<String,AnyObject>,callback:(ChallengesPage,String,Bool)->Void)
+    open func getChallenges(_ params:Dictionary<String,AnyObject>,callback:@escaping (ChallengesPage,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETCHALLENGES
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
@@ -40,7 +40,7 @@ public class ChallengeService : NSObject
     }
 
   
-    public func getChallengeAssets(params:Dictionary<String,AnyObject>,callback:(Array<BatchAssetPage>,String,Bool)->Void)
+    open func getChallengeAssets(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<BatchAssetPage>,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETCHALLENGESBATCH
         JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
@@ -65,10 +65,12 @@ public class ChallengeService : NSObject
     }
     
     
-    public func getChallengeActivityDetails(challengeID:String,activityId:String,params:Dictionary<String,AnyObject>,callback:(ChallengeActivity,String,Bool)->Void)
+    open func getChallengeActivityDetails(_ challengeID:String,activityId:String,params:Dictionary<String,AnyObject>,callback:@escaping (ChallengeActivity,String,Bool)->Void)
     {
         
-        let methodUrl:String=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETCHALLENGEACTIVITYDETAILS,challengeID,activityId) as String
+        let url =  JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETCHALLENGEACTIVITYDETAILS
+        
+        let methodUrl:String=NSString(format: url as NSString ,challengeID,activityId) as String
         
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
@@ -93,10 +95,11 @@ public class ChallengeService : NSObject
         }
     }
     
-    public func getChallengeActivity(challengeID:String,params:Dictionary<String,AnyObject>,callback:(Activities,String,Bool)->Void)
+    open func getChallengeActivity(_ challengeID:String,params:Dictionary<String,AnyObject>,callback:@escaping (Activities,String,Bool)->Void)
     {
+        let url = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETCHALLENGEACTIVITY
         
-        let methodUrl:String=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETCHALLENGEACTIVITY,challengeID) as String
+        let methodUrl:String=NSString(format: url as NSString ,challengeID) as String
         
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {

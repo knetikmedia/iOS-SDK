@@ -5,15 +5,15 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class WalletRequest :NSObject {
+open class WalletRequest :NSObject {
 
-	public var currencyType : String!
-	public var delta : NSNumber!
-	public var invoiceId : NSNumber!
-	public var reason : String!
-	public var type : String!
-	public var userId : NSNumber!
-	public var username : String!
+	open var currencyType : String!
+	open var delta : NSNumber!
+	open var invoiceId : NSNumber!
+	open var reason : String!
+	open var type : String!
+	open var userId : NSNumber!
+	open var username : String!
 
     override public init(){super.init()}
 
@@ -33,7 +33,7 @@ public class WalletRequest :NSObject {
 	/**
 	 * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
 	 */
-	public func toDictionary() -> NSDictionary
+	open func toDictionary() -> NSDictionary
 	{
 		let dictionary = NSMutableDictionary()
 		if currencyType != nil{

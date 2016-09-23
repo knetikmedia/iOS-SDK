@@ -5,9 +5,9 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Related:NSObject{
+open class Related:NSObject{
 
-	public var relatedId : NSNumber!
+	open var relatedId : NSNumber!
 
 
 	/**

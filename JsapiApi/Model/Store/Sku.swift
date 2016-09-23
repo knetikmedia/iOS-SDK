@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Sku:NSObject{
+open class Sku:NSObject{
 
 	var active : Bool!
 	var catalogId : NSNumber!
@@ -22,20 +22,20 @@ public class Sku:NSObject{
 	var stopDate : NSNumber!
 	var virtualCurrencyId : NSNumber!
 
-    public func getActive()->Bool{return active}
-    public func getCatalogId()->NSNumber{return catalogId}
-    public func getCode()->String{return code}
-    public func getDescription()->String{return description}
-    public func getIcon()->String{return icon}
-    public func getId()->NSNumber{return skuId}
-    public func getInventory()->AnyObject{return inventory}
-    public func getMinInventoryThreshold()->AnyObject{return minInventoryThreshold}
-    public func getName()->String{return name}
-    public func getPrice()->Float{return price}
-    public func getSku()->String{return sku}
-    public func getStartDate()->NSNumber{return startDate}
-    public func getStopDate()->NSNumber{return stopDate}
-    public func getVirtualCurrencyId()->NSNumber{return virtualCurrencyId}
+    open func getActive()->Bool{return active}
+    open func getCatalogId()->NSNumber{return catalogId}
+    open func getCode()->String{return code}
+    open func getDescription()->String{return description}
+    open func getIcon()->String{return icon}
+    open func getId()->NSNumber{return skuId}
+    open func getInventory()->AnyObject{return inventory}
+    open func getMinInventoryThreshold()->AnyObject{return minInventoryThreshold}
+    open func getName()->String{return name}
+    open func getPrice()->Float{return price}
+    open func getSku()->String{return sku}
+    open func getStartDate()->NSNumber{return startDate}
+    open func getStopDate()->NSNumber{return stopDate}
+    open func getVirtualCurrencyId()->NSNumber{return virtualCurrencyId}
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values

@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Friend:NSObject{
+open class Friend:NSObject{
     
     var displayName : String!
     var userId : NSNumber!
@@ -14,25 +14,25 @@ public class Friend:NSObject{
     var invites : [Friend]!
     override public init(){super.init()}
 
-    public func getFriends()->Array<Friend>
+    open func getFriends()->Array<Friend>
     {
         return friends;
     }
-    public func getInvites()->Array<Friend>
+    open func getInvites()->Array<Friend>
     {
         return invites;
     }
-    public func getDisplayName()->String
+    open func getDisplayName()->String
     {
         return displayName;
     }
     
-    public func getUserId()->NSNumber
+    open func getUserId()->NSNumber
     {
         return userId;
     }
 
-    public func getUserStatus()->String
+    open func getUserStatus()->String
     {
         return userStatus;
     }

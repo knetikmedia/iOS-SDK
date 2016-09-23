@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class RegisteredUser:NSObject{
+open class RegisteredUser:NSObject{
     
     var address : AnyObject!
     var address2 : AnyObject!
@@ -38,36 +38,36 @@ public class RegisteredUser:NSObject{
     var token : AnyObject!
     var username : String!
     
-    public func getAddress ()->AnyObject{return address}
-    public func getAddress2 ()->AnyObject{return address2}
-    public func getAffiliateId ()->AnyObject{return affiliateId}
-    public func getAvatarUrl ()->AnyObject{return avatarUrl}
-    public func getCity ()->AnyObject{return city}
-    public func getCountryId ()->NSNumber{return countryId}
-    public func getCurrency ()->NSNumber{return currency}
-    public func getDateOfBirth ()->AnyObject{return dateOfBirth}
-    public func getDescription ()->AnyObject{return description}
-    public func getDisplayName ()->AnyObject{return displayName}
-    public func getEmail ()->String{return email}
-    public func getFirstName ()->AnyObject{return firstName}
-    public func getFullname ()->String{return fullname}
-    public func getGender ()->String{return gender}
-    public func getId ()->NSNumber{return registerationId}
-    public func getLang ()->AnyObject{return lang}
-    public func getLastActivity ()->AnyObject{return lastActivity}
-    public func getLastLogin ()->AnyObject{return lastLogin}
-    public func getLastName ()->AnyObject{return lastName}
-    public func getLockoutAttempts ()->AnyObject{return lockoutAttempts}
-    public func getLockoutDate ()->AnyObject{return lockoutDate}
-    public func getMobileNumber ()->AnyObject{return mobileNumber}
-    public func getOldId ()->AnyObject{return oldId}
-    public func getPassword ()->String{return password}
-    public func getPostalCode ()->AnyObject{return postalCode}
-    public func getState ()->AnyObject{return state}
-    public func getStatus ()->String{return status}
-    public func getTimezoneId ()->AnyObject{return timezoneId}
-    public func getToken ()->AnyObject{return token}
-    public func getUsername ()->String{return username}
+    open func getAddress ()->AnyObject{return address}
+    open func getAddress2 ()->AnyObject{return address2}
+    open func getAffiliateId ()->AnyObject{return affiliateId}
+    open func getAvatarUrl ()->AnyObject{return avatarUrl}
+    open func getCity ()->AnyObject{return city}
+    open func getCountryId ()->NSNumber{return countryId}
+    open func getCurrency ()->NSNumber{return currency}
+    open func getDateOfBirth ()->AnyObject{return dateOfBirth}
+    open func getDescription ()->AnyObject{return description as AnyObject}
+    open func getDisplayName ()->AnyObject{return displayName}
+    open func getEmail ()->String{return email}
+    open func getFirstName ()->AnyObject{return firstName}
+    open func getFullname ()->String{return fullname}
+    open func getGender ()->String{return gender}
+    open func getId ()->NSNumber{return registerationId}
+    open func getLang ()->AnyObject{return lang}
+    open func getLastActivity ()->AnyObject{return lastActivity}
+    open func getLastLogin ()->AnyObject{return lastLogin}
+    open func getLastName ()->AnyObject{return lastName}
+    open func getLockoutAttempts ()->AnyObject{return lockoutAttempts}
+    open func getLockoutDate ()->AnyObject{return lockoutDate}
+    open func getMobileNumber ()->AnyObject{return mobileNumber}
+    open func getOldId ()->AnyObject{return oldId}
+    open func getPassword ()->String{return password}
+    open func getPostalCode ()->AnyObject{return postalCode}
+    open func getState ()->AnyObject{return state}
+    open func getStatus ()->String{return status}
+    open func getTimezoneId ()->AnyObject{return timezoneId}
+    open func getToken ()->AnyObject{return token}
+    open func getUsername ()->String{return username}
 
     override public init(){super.init()}
     /**

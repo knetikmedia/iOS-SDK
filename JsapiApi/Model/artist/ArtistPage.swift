@@ -5,17 +5,17 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class ArtistPage:NSObject{
+open class ArtistPage:NSObject{
 
-	public var content : [ArtistObject]!
-	public var first : Bool!
-	public var last : Bool!
-	public var number : NSNumber!
-	public var numberOfElements : NSNumber!
-	public var size : NSNumber!
-	public var sort : AnyObject!
-	public var totalElements : NSNumber!
-	public var totalPages : NSNumber!
+	open var content : [ArtistObject]!
+	open var first : Bool!
+	open var last : Bool!
+	open var number : NSNumber!
+	open var numberOfElements : NSNumber!
+	open var size : NSNumber!
+	open var sort : AnyObject!
+	open var totalElements : NSNumber!
+	open var totalPages : NSNumber!
 
     override public init(){super.init()}
 
@@ -45,7 +45,7 @@ public class ArtistPage:NSObject{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if content != nil{
 			var dictionaryElements = [NSDictionary]()
 			for contentElement in content {

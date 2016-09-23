@@ -5,21 +5,21 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class VirtualItem :NSObject{
+open class VirtualItem :NSObject{
 
-	public var assets : [Asset]!
-	public var behaviors : [Behavior]!
-	public var catalog : Catalog!
-	public var dateCreated : NSNumber!
-	public var dateUpdated : NSNumber!
-	public var virtualId : NSNumber!
-	public var longDescription : String!
-	public var name : String!
-	public var shortDescription : String!
-	public var sort : NSNumber!
-	public var summary : String!
-	public var typeHNSNumber : String!
-	public var uniqueKey : String!
+	open var assets : [Asset]!
+	open var behaviors : [Behavior]!
+	open var catalog : Catalog!
+	open var dateCreated : NSNumber!
+	open var dateUpdated : NSNumber!
+	open var virtualId : NSNumber!
+	open var longDescription : String!
+	open var name : String!
+	open var shortDescription : String!
+	open var sort : NSNumber!
+	open var summary : String!
+	open var typeHNSNumber : String!
+	open var uniqueKey : String!
 
     override public init(){super.init()}
 

@@ -5,9 +5,9 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class BatchRequest : NSObject{
+open class BatchRequest : NSObject{
 
-	public var batch : [Batch]!
+	open var batch : [Batch]!
 
 
     public override init(){
@@ -30,9 +30,9 @@ public class BatchRequest : NSObject{
 	/**
 	 * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
 	 */
-	public func toDictionary() -> NSDictionary
+	open func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if batch != nil{
 			var dictionaryElements = [NSDictionary]()
 			for batchElement in batch {

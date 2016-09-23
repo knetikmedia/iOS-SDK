@@ -5,20 +5,20 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class BatchAssetPage : NSObject {
+open class BatchAssetPage : NSObject {
 
-	public var content : [AssetContent]!
-	public var first : Bool!
-	public var last : Bool!
-	public var number : NSNumber!
-	public var numberOfElements : NSNumber!
-	public var size : NSNumber!
-	public var sort : AnyObject!
-	public var totalElements : NSNumber!
-	public var totalPages : NSNumber!
-	public var batchAssetResponseItem : BatchAssetResponseItem!
-	public var code : NSNumber!
-	public var uri : String!
+	open var content : [AssetContent]!
+	open var first : Bool!
+	open var last : Bool!
+	open var number : NSNumber!
+	open var numberOfElements : NSNumber!
+	open var size : NSNumber!
+	open var sort : AnyObject!
+	open var totalElements : NSNumber!
+	open var totalPages : NSNumber!
+	open var batchAssetResponseItem : BatchAssetResponseItem!
+	open var code : NSNumber!
+	open var uri : String!
 
     
 

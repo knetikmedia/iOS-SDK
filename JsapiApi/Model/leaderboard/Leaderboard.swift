@@ -5,17 +5,17 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Leaderboard:NSObject{
+open class Leaderboard:NSObject{
 
     override public init(){super.init()}
-	public var created : NSNumber!
-	public var entries : [Entrie]!
-	public var leaderboardId : NSNumber!
-	public var longDescription : AnyObject!
-	public var name : AnyObject!
-	public var shortDescription : AnyObject!
-	public var strategy : String!
-	public var updated : NSNumber!
+	open var created : NSNumber!
+	open var entries : [Entrie]!
+	open var leaderboardId : NSNumber!
+	open var longDescription : AnyObject!
+	open var name : AnyObject!
+	open var shortDescription : AnyObject!
+	open var strategy : String!
+	open var updated : NSNumber!
 
 
 	/**
@@ -31,9 +31,9 @@ public class Leaderboard:NSObject{
 			}
 		}
 		leaderboardId = dictionary["id"] as? NSNumber
-		longDescription = dictionary["longDescription"] as? String
-		name = dictionary["name"] as? String
-		shortDescription = dictionary["shortDescription"] as? String
+		longDescription = dictionary["longDescription"] as? String as AnyObject!
+		name = dictionary["name"] as? String as AnyObject!
+		shortDescription = dictionary["shortDescription"] as? String as AnyObject!
 		strategy = dictionary["strategy"] as? String
 		updated = dictionary["updated"] as? NSNumber
 	}

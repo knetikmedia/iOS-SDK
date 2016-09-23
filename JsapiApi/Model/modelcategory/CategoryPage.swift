@@ -5,17 +5,17 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class CategoryPage:NSObject{
+open class CategoryPage:NSObject{
 
-	public var content : [CategoryObject]!
-	public var first : Bool!
-	public var last : Bool!
-	public var number : NSNumber!
-	public var numberOfElements : NSNumber!
-	public var size : NSNumber!
-	public var sort : String!
-	public var totalElements : NSNumber!
-	public var totalPages : NSNumber!
+	open var content : [CategoryObject]!
+	open var first : Bool!
+	open var last : Bool!
+	open var number : NSNumber!
+	open var numberOfElements : NSNumber!
+	open var size : NSNumber!
+	open var sort : String!
+	open var totalElements : NSNumber!
+	open var totalPages : NSNumber!
 
     override public init(){super.init()}
 
@@ -32,12 +32,12 @@ public class CategoryPage:NSObject{
 		}
 		first = dictionary["first"] as? Bool
 		last = dictionary["last"] as? Bool
-		number = dictionary["number"] as? Int
-		numberOfElements = dictionary["numberOfElements"] as? Int
-		size = dictionary["size"] as? Int
+		number = dictionary["number"] as? Int as NSNumber!
+		numberOfElements = dictionary["numberOfElements"] as? Int as NSNumber!
+		size = dictionary["size"] as? Int as NSNumber!
 		sort = dictionary["sort"] as? String
-		totalElements = dictionary["totalElements"] as? Int
-		totalPages = dictionary["totalPages"] as? Int
+		totalElements = dictionary["totalElements"] as? Int as NSNumber!
+		totalPages = dictionary["totalPages"] as? Int as NSNumber!
 	}
 
 	/**
@@ -45,7 +45,7 @@ public class CategoryPage:NSObject{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if content != nil{
 			var dictionaryElements = [NSDictionary]()
 			for contentElement in content {

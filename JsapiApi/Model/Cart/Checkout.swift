@@ -5,23 +5,23 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Checkout:NSObject{
+open class Checkout:NSObject{
 
-	public var discounts : [AnyObject]!
-	public var invoices : [Invoice]!
-	public var items : [Item]!
+	open var discounts : [AnyObject]!
+	open var invoices : [Invoice]!
+	open var items : [Item]!
 
-    public func getDiscounts()->AnyObject
+    open func getDiscounts()->AnyObject
     {
-        return discounts;
+        return discounts as AnyObject;
     }
     
-    public func getInvoices()->Array<Invoice>
+    open func getInvoices()->Array<Invoice>
     {
         return invoices;
     }
     
-    public func getItems()->Array<Item>
+    open func getItems()->Array<Item>
     {
         return items;
     }

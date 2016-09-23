@@ -10,7 +10,7 @@
 */
 
 import Foundation
-public class DispositionService:NSObject
+open class DispositionService:NSObject
 {
     
 
@@ -18,7 +18,7 @@ public class DispositionService:NSObject
     *@param params Dictionary
     *@param callback
     */
-    public func getDispositions(params:Dictionary<String,AnyObject>,callback:(Array<Disposition>,String,Bool)->Void)
+    open func getDispositions(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<Disposition>,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.DISPOSITION
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
@@ -43,7 +43,7 @@ public class DispositionService:NSObject
      *@param params Dictionary
      *@param callback
      */
-    public func getMineDispositions(params:Dictionary<String,AnyObject>,callback:(Array<Disposition>,String,Bool)->Void)
+    open func getMineDispositions(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<Disposition>,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETMINEDISPOSITION
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
@@ -70,7 +70,7 @@ public class DispositionService:NSObject
      *@param params Dictionary
      *@param callback
      */
-    public func getDispositionsCount(params:Dictionary<String,AnyObject>,callback:(Dictionary<String,AnyObject>,String,Bool)->Void)
+    open func getDispositionsCount(_ params:Dictionary<String,AnyObject>,callback:@escaping (Dictionary<String,AnyObject>,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETDISPOSITIONCOUNT
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
@@ -96,9 +96,13 @@ public class DispositionService:NSObject
     *@param params Dictionary
     *@param callback
     */
-    public func addDisposition(params:Dictionary<String,AnyObject>,request:Dictionary<String,AnyObject>,callback:(Disposition,String,Bool)->Void)
+    open func addDisposition(_ params:Dictionary<String,AnyObject>,request:Dictionary<String,AnyObject>,callback:@escaping (Disposition,String,Bool)->Void)
     {
-        let methodUrl = NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDDISPOSITION, params["context"] as! String , params["contextId"] as! String )
+        
+        let url = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDDISPOSITION
+        
+        let methodUrl = NSString(format: url as NSString, params["context"] as! String , params["contextId"] as! String )
+        
         JsapiRest.sharedInstance.postrequest(methodUrl as String, postParams: Utilities.getPostValueRequestFromDictionary(request), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
@@ -122,9 +126,10 @@ public class DispositionService:NSObject
     *@param params Dictionary{"id": 0}
     *@param callback
     */
-    public func deleteDisposition(params:Dictionary<String,String>,callback:(AnyObject,String,Bool)->Void)
+    open func deleteDisposition(_ params:Dictionary<String,String>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
-        let methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.DELETEDISPOSITION,params["id"]!)
+        let url = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.DELETEDISPOSITION
+        let methodUrl=NSString(format: url as NSString ,params["id"]!)
         
         JsapiRest.sharedInstance.deleteRequest(methodUrl as String, deleteParams:Utilities.jsonRequestFromDictionary(params))
             {

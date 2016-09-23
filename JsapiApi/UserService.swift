@@ -7,18 +7,18 @@
 //
 
 import Foundation
-public class UserService:NSObject {
+open class UserService:NSObject {
  
 
  /**get User Info /services/latest/user/getinfo
  *@param params Dictionary Empty Dictionary {}
  *@param callback
  */
- public func getUserInfo(params:Dictionary<String,String>,callback:(User,String,Bool)->Void)
+ open func getUserInfo(_ params:Dictionary<String,String>,callback:@escaping (User,String,Bool)->Void)
  {
         
    let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETUSERINFO
-    JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+    JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params as Dictionary<String, AnyObject>))
     {
             (result:NSDictionary,issuccess:Bool) in
             let userResponse = UserResponse(fromDictionary: result)
@@ -39,12 +39,14 @@ public class UserService:NSObject {
      *@param params Dictionary Empty Dictionary {}
      *@param callback
      */
-    public func getUserInfoByUserId(userId:String,params:Dictionary<String,String>,callback:(User,String,Bool)->Void)
+    open func getUserInfoByUserId(_ userId:String,params:Dictionary<String,String>,callback:@escaping (User,String,Bool)->Void)
     {
         
-        let methodUrl:String = NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETUSERINFOBYID,userId) as String
+        let url = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETUSERINFOBYID
+        
+        let methodUrl:String = NSString(format: url as NSString,userId) as String
 
-        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params as Dictionary<String, AnyObject>))
         {
             (result:NSDictionary,issuccess:Bool) in
             let userResponse = UserResponse(fromDictionary: result)
@@ -67,7 +69,7 @@ public class UserService:NSObject {
     *@param params Dictionary Empty Dictionary {}
     *@param callback
     */
-public func getUserAchievements(params:Dictionary<String,String>,callback:(Array<Achievement>,String,Bool)->Void)
+open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escaping (Array<Achievement>,String,Bool)->Void)
     {
         
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETACHIEVEMENT
@@ -95,9 +97,13 @@ public func getUserAchievements(params:Dictionary<String,String>,callback:(Array
   *@param params Dictionary{"userId": 0,"configName": "","configValue": ""}
   *@param callback
  */
-    public func updateUserInfo(params:Dictionary<String,String>,callback:(AnyObject,String,Bool)->Void)
+    open func updateUserInfo(_ params:Dictionary<String,String>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
-        let methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.UPDATEUSERINFO) as String
+        
+        let url = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.UPDATEUSERINFO
+        
+        let methodUrl=NSString(format: url as NSString) as String
+        
         JsapiRest.sharedInstance.putRequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
@@ -121,9 +127,9 @@ public func getUserAchievements(params:Dictionary<String,String>,callback:(Array
     *@param params Dictionary {password: newPasswordString}
     *@param callback
     */
-    public func setPassword(params:Dictionary<String,String>,userID:String,callback:(AnyObject,String,Bool)->Void)
+    open func setPassword(_ params:Dictionary<String,String>,userID:String,callback:@escaping (AnyObject,String,Bool)->Void)
     {
-        let endpoint=NSString(format: JSAPIConstant.SETUSERPASSWORD,userID)
+        let endpoint=NSString(format: JSAPIConstant.SETUSERPASSWORD as NSString,userID)
 
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String);
         JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)

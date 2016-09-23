@@ -5,13 +5,13 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Wallet:NSObject{
+open class Wallet:NSObject{
 
-	public var balance : NSNumber!
-	public var code : String!
-	public var currencyName : String!
-	public var wid : NSNumber!
-    public var walletId : NSNumber!
+	open var balance : NSNumber!
+	open var code : String!
+	open var currencyName : String!
+	open var wid : NSNumber!
+    open var walletId : NSNumber!
 
     override public init(){super.init()}
 

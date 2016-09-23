@@ -5,20 +5,20 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class ArtistObject :NSObject{
+open class ArtistObject :NSObject{
 
-	public var born : String!
-	public var contributionCount : NSNumber!
-	public var contributions : NSDictionary!
-	public var created : NSNumber!
-	public var died : String!
-	public var artistId : NSNumber!
-	public var longDescription : String!
-	public var name : String!
-	public var priority : NSNumber!
-	public var shortDescription : String!
-	public var updated : NSNumber!
-    public var assets :  [AssetContent]!
+	open var born : String!
+	open var contributionCount : NSNumber!
+	open var contributions : NSDictionary!
+	open var created : NSNumber!
+	open var died : String!
+	open var artistId : NSNumber!
+	open var longDescription : String!
+	open var name : String!
+	open var priority : NSNumber!
+	open var shortDescription : String!
+	open var updated : NSNumber!
+    open var assets :  [AssetContent]!
     override public init(){super.init()}
 
 
@@ -51,7 +51,7 @@ public class ArtistObject :NSObject{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if born != nil{
 			dictionary["born"] = born
 		}

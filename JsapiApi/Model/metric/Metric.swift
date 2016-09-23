@@ -5,16 +5,16 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Metric :NSObject{
+open class Metric :NSObject{
 
     override public init() {
         super.init()
     }
     
-	public var activityOccurenceId : NSNumber!
-	public var name : String!
-	public var tags : [String]!
-	public var value : NSNumber!
+	open var activityOccurenceId : NSNumber!
+	open var name : String!
+	open var tags : [String]!
+	open var value : NSNumber!
 
 
 	/**

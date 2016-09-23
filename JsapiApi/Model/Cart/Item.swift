@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Item:NSObject{
+open class Item:NSObject{
 
 	var affiliateId : AnyObject!
 	var cartId : NSNumber!
@@ -29,27 +29,27 @@ public class Item:NSObject{
 	var unitPrice : Float!
 	var vendorId : NSNumber!
 
-    public func getAffiliateId ()->AnyObject{return affiliateId}
-    public func getCartId ()->NSNumber{return cartId}
-    public func getCartItemId ()->NSNumber{return cartItemId }
-    public func getCatalogId ()->NSNumber{return catalogId}
-    public func getErrorCode ()->NSNumber{return errorCode }
-    public func getErrorMessage ()->String{return errorMessage}
-    public func getInventory ()->AnyObject{return inventory }
-    public func getItemUrl ()->String{return itemUrl}
-    public func getName ()->String{return name}
-    public func getQty ()->NSNumber{return qty}
-    public func getSku ()->String{return sku}
-    public func getSkuDescription ()->String{return skuDescription}
-    public func getSkuId ()->NSNumber{return skuId}
-    public func getStockStatus ()->String{return stockStatus}
-    public func getStoreItemId ()->NSNumber{return storeItemId}
-    public func getSystemPrice ()->Float{return systemPrice}
-    public func getThumbnail ()->String{return thumbnail}
-    public func getTotalPrice ()->Float{return totalPrice}
-    public func getTypeHNSNumber ()->String{return typeHNSNumber}
-    public func getUnitPrice ()->Float{return unitPrice}
-    public func getVendorId ()->NSNumber{return vendorId}
+    open func getAffiliateId ()->AnyObject{return affiliateId}
+    open func getCartId ()->NSNumber{return cartId}
+    open func getCartItemId ()->NSNumber{return cartItemId }
+    open func getCatalogId ()->NSNumber{return catalogId}
+    open func getErrorCode ()->NSNumber{return errorCode }
+    open func getErrorMessage ()->String{return errorMessage}
+    open func getInventory ()->AnyObject{return inventory }
+    open func getItemUrl ()->String{return itemUrl}
+    open func getName ()->String{return name}
+    open func getQty ()->NSNumber{return qty}
+    open func getSku ()->String{return sku}
+    open func getSkuDescription ()->String{return skuDescription}
+    open func getSkuId ()->NSNumber{return skuId}
+    open func getStockStatus ()->String{return stockStatus}
+    open func getStoreItemId ()->NSNumber{return storeItemId}
+    open func getSystemPrice ()->Float{return systemPrice}
+    open func getThumbnail ()->String{return thumbnail}
+    open func getTotalPrice ()->Float{return totalPrice}
+    open func getTypeHNSNumber ()->String{return typeHNSNumber}
+    open func getUnitPrice ()->Float{return unitPrice}
+    open func getVendorId ()->NSNumber{return vendorId}
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values

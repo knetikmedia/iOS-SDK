@@ -7,10 +7,10 @@ import Foundation
 
 class BaseResponse:NSObject{
 
-	private var cached : Bool!
-	private var error : Error!
-	public var errormessage : String!
-	private var requestId : String!
+	fileprivate var cached : Bool!
+	fileprivate var error : Error!
+	open var errormessage : String!
+	fileprivate var requestId : String!
     
 
 	/**

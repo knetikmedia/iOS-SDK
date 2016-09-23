@@ -5,13 +5,13 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class CartDetails:NSObject{
+open class CartDetails:NSObject{
 
 	var cart : Cart!
 	var discounts : AnyObject!
 	var items : [Item]!
     
-    public func getCart()->Cart
+    open func getCart()->Cart
     {
         if(cart == nil ){
         return Cart()
@@ -21,7 +21,7 @@ public class CartDetails:NSObject{
         }
     }
     
-    public func getItems()->Array<Item>
+    open func getItems()->Array<Item>
     {
         return items
     }

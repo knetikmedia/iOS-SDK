@@ -5,42 +5,42 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class User:NSObject{
+open class User:NSObject{
     
  
-    public var age : NSNumber!
-    public var avatarUrl : String!
-    public var displayname : String!
-    public var country : String!
-    public var dateOfBirth : AnyObject!
-    public var email : String!
-    public var firstName : String!
-    public var fullname : String!
-    public var gender : String!
-    public var userId : NSNumber!
-    public var inventory : AnyObject!
-    public var lang : AnyObject!
-    public var lastName : String!
-    public var mobileNumber : AnyObject!
-    public var productItem : AnyObject!
-    public var token : AnyObject!
-    public var username : String!
-    public var wallet : [Wallet]!
-    public var address : String!
-    public var address2 : String!
-    public var city : String!
-    public var countryCode : String!
-    public var currencyCode : String!
-    public var languageCode : String!
-    public var postalCode : String!
-    public var state : String!
-    public var timezoneCode : String!
-    public var password : String!
-    public func getAge()->NSNumber{return age;}
-    public func getCountry()->String{return country;}
-    public func getDateOfBirth()->AnyObject{return dateOfBirth;}
-    public func getEmail()->String{return email}
-    public func getFirstName()->String{
+    open var age : NSNumber!
+    open var avatarUrl : String!
+    open var displayname : String!
+    open var country : String!
+    open var dateOfBirth : AnyObject!
+    open var email : String!
+    open var firstName : String!
+    open var fullname : String!
+    open var gender : String!
+    open var userId : NSNumber!
+    open var inventory : AnyObject!
+    open var lang : AnyObject!
+    open var lastName : String!
+    open var mobileNumber : AnyObject!
+    open var productItem : AnyObject!
+    open var token : AnyObject!
+    open var username : String!
+    open var wallet : [Wallet]!
+    open var address : String!
+    open var address2 : String!
+    open var city : String!
+    open var countryCode : String!
+    open var currencyCode : String!
+    open var languageCode : String!
+    open var postalCode : String!
+    open var state : String!
+    open var timezoneCode : String!
+    open var password : String!
+    open func getAge()->NSNumber{return age;}
+    open func getCountry()->String{return country;}
+    open func getDateOfBirth()->AnyObject{return dateOfBirth;}
+    open func getEmail()->String{return email}
+    open func getFirstName()->String{
         if((firstName) != nil)
         {
             return firstName
@@ -51,7 +51,7 @@ public class User:NSObject{
         }
     
     }
-    public func getFullname()->String{
+    open func getFullname()->String{
         if((fullname) != nil)
         {
             return fullname
@@ -61,11 +61,11 @@ public class User:NSObject{
             return ""
         }
     }
-    public func getGender()->String{return gender}
-    public func getId()->NSNumber{return userId}
-    public func getInventory()->AnyObject{return inventory}
-    public func getLang()->AnyObject{return lang}
-    public func getLastName()->String{
+    open func getGender()->String{return gender}
+    open func getId()->NSNumber{return userId}
+    open func getInventory()->AnyObject{return inventory}
+    open func getLang()->AnyObject{return lang}
+    open func getLastName()->String{
         if((lastName) != nil)
         {
             return lastName
@@ -75,12 +75,12 @@ public class User:NSObject{
             return ""
         }
 }
-    public func getMobileNumber()->AnyObject{return mobileNumber}
-    public func getProductItem()->AnyObject{return productItem}
-    public func getToken()->AnyObject{return token}
-    public func getUsername()->String{return username}
-    public func getWallet()->Array<Wallet>{return wallet}
-    public func getDisplayName()->String{
+    open func getMobileNumber()->AnyObject{return mobileNumber}
+    open func getProductItem()->AnyObject{return productItem}
+    open func getToken()->AnyObject{return token}
+    open func getUsername()->String{return username}
+    open func getWallet()->Array<Wallet>{return wallet}
+    open func getDisplayName()->String{
         if((displayname) != nil)
         {
             return displayname
@@ -128,9 +128,9 @@ public class User:NSObject{
         }
     }
     
-    public func toDictionary() -> NSDictionary
+    open func toDictionary() -> NSDictionary
     {
-        var dictionary = NSMutableDictionary()
+        let dictionary = NSMutableDictionary()
         if address != nil{
             dictionary["address"] = address
         }

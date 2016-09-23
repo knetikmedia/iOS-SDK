@@ -7,11 +7,11 @@
 //
 
 import Foundation
-public class AchievementService:NSObject
+open class AchievementService:NSObject
 {
     
 
-    public func getAchievements(params:Dictionary<String,AnyObject>,callback:(AchievementsPage,String,Bool)->Void)
+    open func getAchievements(_ params:Dictionary<String,AnyObject>,callback:@escaping (AchievementsPage,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETACHIEVEMENTLIST;
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
@@ -29,10 +29,10 @@ public class AchievementService:NSObject
         }
     }
     
-    public func getAchievementByName(name:String , params:Dictionary<String,AnyObject>,callback:(Achievements,String,Bool)->Void)
+    open func getAchievementByName(_ name:String , params:Dictionary<String,AnyObject>,callback:@escaping (Achievements,String,Bool)->Void)
     {
-
-        let methodUrl:String=NSString(format:JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETSINGLEACHIEVEMENT,name) as String
+        let url = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETSINGLEACHIEVEMENT
+        let methodUrl:String=NSString(format: url as NSString,name) as String
 
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
         {
@@ -50,9 +50,10 @@ public class AchievementService:NSObject
     }
 
     
-    public func getUserAchievements(userId:String,params:Dictionary<String,AnyObject>,callback:(AchievementsPage,String,Bool)->Void)
+    open func getUserAchievements(_ userId:String,params:Dictionary<String,AnyObject>,callback:@escaping (AchievementsPage,String,Bool)->Void)
     {
-        let methodUrl:String=NSString(format:JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETUSERACHIEVEMENTLIST,userId) as String
+        let url  = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETUSERACHIEVEMENTLIST
+        let methodUrl:String=NSString(format:url as NSString ,userId) as String
 
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
         {

@@ -7,14 +7,14 @@
 //
 
 import Foundation
-public class ArticleService:NSObject
+open class ArticleService:NSObject
 {
 
     /**List of Articlas
     *@param params Dictionary {} Empty
     *@param callback
     */
-    public func getArticles(params:Dictionary<String,AnyObject>,callback:(ArticlePage,String,Bool)->Void)
+    open func getArticles(_ params:Dictionary<String,AnyObject>,callback:@escaping (ArticlePage,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETARTICLES
         

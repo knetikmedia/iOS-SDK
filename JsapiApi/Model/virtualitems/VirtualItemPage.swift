@@ -5,16 +5,16 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class VirtualItemPage :NSObject{
+open class VirtualItemPage :NSObject{
 
-	public var content : [VirtualItem]!
-	public var first : Bool!
-	public var last : Bool!
-	public var number : NSNumber!
-	public var numberOfElements : NSNumber!
-	public var size : NSNumber!
-	public var totalElements : NSNumber!
-	public var totalPages : NSNumber!
+	open var content : [VirtualItem]!
+	open var first : Bool!
+	open var last : Bool!
+	open var number : NSNumber!
+	open var numberOfElements : NSNumber!
+	open var size : NSNumber!
+	open var totalElements : NSNumber!
+	open var totalPages : NSNumber!
 
     override public init(){
         

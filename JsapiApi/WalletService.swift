@@ -7,12 +7,13 @@
 //
 
 import Foundation
-public class WalletService:NSObject
+open class WalletService:NSObject
 {
     
-    public func GetUserWallet(userId:String,params:Dictionary<String,AnyObject>,callback:(Array<Wallet>,String,Bool)->Void)
+    open func GetUserWallet(_ userId:String,params:Dictionary<String,AnyObject>,callback:@escaping (Array<Wallet>,String,Bool)->Void)
     {
-        let methodUrl:String = NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETUSERWALLETS,userId) as String
+        let url = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETUSERWALLETS
+        let methodUrl:String = NSString(format:url as NSString ,userId) as String
 
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
         {

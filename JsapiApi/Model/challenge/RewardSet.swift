@@ -5,18 +5,18 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class RewardSet :NSObject{
+open class RewardSet :NSObject{
 
-	public var created : NSNumber!
-	public var currencyRewards : [CurrencyReward]!
-	public var rewardSetId : NSNumber!
-	public var itemRewards : [NSDictionary]!
-	public var longDescription : String!
-	public var maxPlacing : NSNumber!
-	public var name : String!
-	public var shortDescription : String!
-	public var uniqueKey : String!
-	public var updated : NSNumber!
+	open var created : NSNumber!
+	open var currencyRewards : [CurrencyReward]!
+	open var rewardSetId : NSNumber!
+	open var itemRewards : [NSDictionary]!
+	open var longDescription : String!
+	open var maxPlacing : NSNumber!
+	open var name : String!
+	open var shortDescription : String!
+	open var uniqueKey : String!
+	open var updated : NSNumber!
 
 
 	/**
@@ -52,7 +52,7 @@ public class RewardSet :NSObject{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if created != nil{
 			dictionary["created"] = created
 		}

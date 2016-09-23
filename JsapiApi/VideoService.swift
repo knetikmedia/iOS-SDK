@@ -10,14 +10,14 @@
 */
 
 import Foundation
-public class VideoService:NSObject
+open class VideoService:NSObject
 {
     
     /** Get Artist and Global Videos
     *@param params Dictionary
     *@param callback
     */
-    public func getVideos(params:Dictionary<String,AnyObject>,callback:(Array<Video>,PageRequest,String,Bool)->Void)
+    open func getVideos(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<Video>,PageRequest,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETVIDEOS
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
@@ -40,7 +40,7 @@ public class VideoService:NSObject
         }
     }
     
-    public func getVideosWithoutAuth(params:Dictionary<String,AnyObject>,callback:(Array<Video>,PageRequest,String,Bool)->Void)
+    open func getVideosWithoutAuth(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<Video>,PageRequest,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETVIDEOS
         JsapiRest.sharedInstance.getRequestWithoutAuthorization(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
@@ -68,9 +68,13 @@ public class VideoService:NSObject
     *@param params Dictionary
     *@param callback
     */
-    public func getUserVideos(userId:String,params:Dictionary<String,AnyObject>,callback:(Array<Video>,PageRequest,String,Bool)->Void)
+    open func getUserVideos(_ userId:String,params:Dictionary<String,AnyObject>,callback:@escaping (Array<Video>,PageRequest,String,Bool)->Void)
     {
-        let methodUrl:String=NSString(format:JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETUSERVIDEOS,userId) as String
+        
+        let url = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETUSERVIDEOS
+        
+        let methodUrl:String=NSString(format: url as NSString,userId) as String
+        
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
@@ -95,9 +99,13 @@ public class VideoService:NSObject
     *@param params Dictionary
     *@param callback
     */
-    public func getMyFavoritesVideos(userId:String,params:Dictionary<String,AnyObject>,callback:(Array<Video>,String,Bool)->Void)
+    open func getMyFavoritesVideos(_ userId:String,params:Dictionary<String,AnyObject>,callback:@escaping (Array<Video>,String,Bool)->Void)
     {
-        let methodUrl:String=NSString(format:JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETMYFAVORITESVIDEOS,userId) as String
+        
+        let url = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETMYFAVORITESVIDEOS
+        
+        let methodUrl:String=NSString(format: url as NSString ,userId) as String
+        
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
@@ -123,9 +131,13 @@ public class VideoService:NSObject
     *@param params Dictionary
     *@param callback
     */
-    public func getFriendsVideos(userId:String,params:Dictionary<String,AnyObject>,callback:(Array<Video>,String,Bool)->Void)
+    open func getFriendsVideos(_ userId:String,params:Dictionary<String,AnyObject>,callback:@escaping (Array<Video>,String,Bool)->Void)
     {
-        let methodUrl:String=NSString(format:JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETFRIENDSVIDEO,userId) as String
+        
+        let url = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETFRIENDSVIDEO
+        
+        let methodUrl:String=NSString(format: url as NSString,userId) as String
+        
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
@@ -149,7 +161,7 @@ public class VideoService:NSObject
     *@param params Dictionary
     *@param callback
     */
-    public func addVideo(params:Dictionary<String,AnyObject>,callback:(Video,String,Bool)->Void)
+    open func addVideo(_ params:Dictionary<String,AnyObject>,callback:@escaping (Video,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDVIDEO
         JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
@@ -171,9 +183,12 @@ public class VideoService:NSObject
      *@param params Dictionary
      *@param callback
      */
-    public func getVideoDetails(videoId:String ,params:Dictionary<String,AnyObject>,callback:(Video,String,Bool)->Void)
+    open func getVideoDetails(_ videoId:String ,params:Dictionary<String,AnyObject>,callback:@escaping (Video,String,Bool)->Void)
     {
-        let methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.DELETEVIDEO,videoId)
+        
+        let url =  JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.DELETEVIDEO
+        
+        let methodUrl=NSString(format: url as NSString ,videoId)
         
         JsapiRest.sharedInstance.getRequest(methodUrl as String, postParams: Utilities.getGETRequestFromDictionary(params))
             {
@@ -190,7 +205,7 @@ public class VideoService:NSObject
         }
     }
     
-    public func getKNEVideoDetails(videoId:String ,params:Dictionary<String,AnyObject>,callback:(Video,String,Bool)->Void)
+    open func getKNEVideoDetails(_ videoId:String ,params:Dictionary<String,AnyObject>,callback:@escaping (Video,String,Bool)->Void)
     {
         let methodUrl=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.POPULARVIDEOS
         
@@ -238,9 +253,12 @@ public class VideoService:NSObject
      *@param params Dictionary
      *@param callback
      */
-    public func addContributor(videoId:String , params:Dictionary<String,AnyObject> , callback:(String,Bool)->Void)
+    open func addContributor(_ videoId:String , params:Dictionary<String,AnyObject> , callback:@escaping (String,Bool)->Void)
     {
-           let methodUrl:String=NSString(format:JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDCONTRIBUTOR,videoId) as String
+        
+        let url = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDCONTRIBUTOR
+        
+           let methodUrl:String=NSString(format: url as NSString,videoId) as String
 
         JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
@@ -262,9 +280,13 @@ public class VideoService:NSObject
     *@param params Dictionary
     *@param callback
     */
-    public func updateVideoViewsCount(videoId:String,params:Dictionary<String,AnyObject>,callback:(AnyObject,String,Bool)->Void)
+    open func updateVideoViewsCount(_ videoId:String,params:Dictionary<String,AnyObject>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
-        let methodUrl:String=NSString(format:JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.VIEWVIDEO,videoId) as String
+        
+        let url = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.VIEWVIDEO
+        
+        let methodUrl:String=NSString(format:url as NSString,videoId) as String
+        
         JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
@@ -285,9 +307,13 @@ public class VideoService:NSObject
     *@param params Dictionary
     *@param callback
     */
-    public func updateVideoDetails(videoId:String,params:Dictionary<String,AnyObject>,callback:(String,String,Bool)->Void)
+    open func updateVideoDetails(_ videoId:String,params:Dictionary<String,AnyObject>,callback:@escaping (String,String,Bool)->Void)
     {
-        let methodUrl:String=NSString(format:JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.UPDATEVIDEODETAILS,videoId) as String
+        
+        let url = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.UPDATEVIDEODETAILS
+        
+        let methodUrl:String = NSString(format: url as NSString,videoId) as String
+        
         JsapiRest.sharedInstance.putRequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
@@ -308,9 +334,13 @@ public class VideoService:NSObject
     *@param params Dictionary{"id": 0}
     *@param callback
     */
-    public func deleteVideo(params:Dictionary<String,String>,callback:(AnyObject,String,Bool)->Void)
+    open func deleteVideo(_ params:Dictionary<String,String>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
-        let methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.DELETEVIDEO,params["id"]!)
+        
+        let url = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.DELETEVIDEO
+        
+        let methodUrl=NSString(format: url as NSString ,params["id"]!)
+        
         JsapiRest.sharedInstance.deleteRequest(methodUrl as String, deleteParams: "")
             {
                 (result:NSDictionary,issuccess:Bool) in
@@ -331,7 +361,7 @@ public class VideoService:NSObject
     *@param params Dictionary
     *@param callback
     */
-    public func addUserUploadedMediaItemAssests(params:Dictionary<String,AnyObject>,callback:(String,String,Bool)->Void)
+    open func addUserUploadedMediaItemAssests(_ params:Dictionary<String,AnyObject>,callback:@escaping (String,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDUSERUPLOADEDMEDIAITEMASSESTS
         JsapiRest.sharedInstance.postrequest(methodUrl, postParams : Utilities.jsonRequestFromDictionary(params), isJson: true)
@@ -353,10 +383,12 @@ public class VideoService:NSObject
      *@param params Dictionary
      *@param callback
      */
-    public func addVideoRealtionShip(videoId:String,params:Dictionary<String,AnyObject>,callback:(String,String,Bool)->Void)
+    open func addVideoRealtionShip(_ videoId:String,params:Dictionary<String,AnyObject>,callback:@escaping (String,String,Bool)->Void)
     {
         
-        let methodUrl:String=NSString(format:JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDRELATEDVIDEO,videoId) as String
+        let url = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDRELATEDVIDEO
+        
+        let methodUrl:String=NSString(format: url as NSString ,videoId) as String
         JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
@@ -377,9 +409,12 @@ public class VideoService:NSObject
      *@param params Dictionary
      *@param callback
      */
-    public func getRelationship(videoId:String,params:Dictionary<String,AnyObject>,callback:(Array<RelationshipObject>,String,Bool)->Void)
+    open func getRelationship(_ videoId:String,params:Dictionary<String,AnyObject>,callback:@escaping (Array<RelationshipObject>,String,Bool)->Void)
     {
-        let methodUrl:String=NSString(format:JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDRELATEDVIDEO,videoId) as String
+        
+        let url = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDRELATEDVIDEO
+        
+        let methodUrl:String=NSString(format: url as NSString ,videoId) as String
         
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
@@ -400,7 +435,7 @@ public class VideoService:NSObject
     }
 
 
-    public func getPopularVideos(params:Dictionary<String,AnyObject>,callback:(Array<Video>,PageRequest,String,Bool)->Void)
+    open func getPopularVideos(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<Video>,PageRequest,String,Bool)->Void)
     {
         
         let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.POPULARVIDEOS
@@ -430,9 +465,12 @@ public class VideoService:NSObject
      *@param params Dictionary
      *@param callback
      */
-    public func getAvatarDetails(videoId:String ,params:Dictionary<String,AnyObject>,callback:(BaseAvatarResponse,String,Bool)->Void)
+    open func getAvatarDetails(_ videoId:String ,params:Dictionary<String,AnyObject>,callback:@escaping (BaseAvatarResponse,String,Bool)->Void)
     {
-        let methodUrl=NSString(format: JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.VIDEOAVATAR,videoId)
+        
+        let url =  JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.VIDEOAVATAR
+        
+        let methodUrl=NSString(format: url as NSString ,videoId)
         
         JsapiRest.sharedInstance.getRequest(methodUrl as String, postParams: Utilities.getGETRequestFromDictionary(params))
             {

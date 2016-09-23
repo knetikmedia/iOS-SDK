@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Page:NSObject{
+open class Page:NSObject{
 
 	var page_id : NSNumber!
 	var assets : [Asset]!
@@ -102,37 +102,37 @@ public class Page:NSObject{
 		width = dictionary["width"] as AnyObject!
 	}
     
-    public func get_id() -> NSNumber{return page_id}
-    public func getAssets() -> Array<Asset>{return assets}
-    public func getBehaviors() -> Array<Behavior>{return behaviors}
-    public func getCatalogId() -> NSNumber{return catalogId}
-    public func getDateCreated() -> NSNumber{return dateCreated}
-    public func getDateUpdated() -> NSNumber{return dateUpdated}
-    public func getDeleted() -> NSNumber{return deleted}
-    public func getDeletedAt() -> AnyObject{return deletedAt}
-    public func getDimensionUnitOfMeasurement() -> AnyObject{return dimensionUnitOfMeasurement}
-    public func getDisplayable() -> Bool{ return displayable}
-    public func getHeight() -> AnyObject{return height}
-    public func getId() -> NSNumber{return pageId}
-    public func getLength() -> AnyObject{return length}
-    public func getLongDescription() -> String{return longDescription}
-    public func getName() -> String{return name}
-    public func getRelated() -> Array<Related>{return related}
-    public func getShippingTier() -> NSNumber{return shippingTier}
-    public func getShortDescription() -> String{return shortDescription}
-    public func getSkus() -> Array<Sku>{return skus}
-    public func getSort() -> NSNumber{return sort}
-    public func getStoreEnd() -> NSNumber{return storeEnd}
-    public func getStoreStart() -> NSNumber{return storeStart}
-    public func getSummary() -> String{return summary}
-    public func getTerms() -> Array<NSNumber>{return terms}
-    public func getTypeHNSNumber() -> String{return typeHNSNumber}
-    public func getUniqueKey() -> AnyObject{return uniqueKey}
-    public func getVendorId() -> NSNumber{return vendorId}
-    public func getVirtualCurrencyId() -> NSNumber{return virtualCurrencyId}
-    public func getWeight() -> AnyObject{return weight}
-    public func getWeightUnitOfMeasurement() -> AnyObject{return weightUnitOfMeasurement}
-    public func getWidth() -> AnyObject{return width}
+    open func get_id() -> NSNumber{return page_id}
+    open func getAssets() -> Array<Asset>{return assets}
+    open func getBehaviors() -> Array<Behavior>{return behaviors}
+    open func getCatalogId() -> NSNumber{return catalogId}
+    open func getDateCreated() -> NSNumber{return dateCreated}
+    open func getDateUpdated() -> NSNumber{return dateUpdated}
+    open func getDeleted() -> NSNumber{return deleted}
+    open func getDeletedAt() -> AnyObject{return deletedAt}
+    open func getDimensionUnitOfMeasurement() -> AnyObject{return dimensionUnitOfMeasurement}
+    open func getDisplayable() -> Bool{ return displayable}
+    open func getHeight() -> AnyObject{return height}
+    open func getId() -> NSNumber{return pageId}
+    open func getLength() -> AnyObject{return length}
+    open func getLongDescription() -> String{return longDescription}
+    open func getName() -> String{return name}
+    open func getRelated() -> Array<Related>{return related}
+    open func getShippingTier() -> NSNumber{return shippingTier}
+    open func getShortDescription() -> String{return shortDescription}
+    open func getSkus() -> Array<Sku>{return skus}
+    open func getSort() -> NSNumber{return sort}
+    open func getStoreEnd() -> NSNumber{return storeEnd}
+    open func getStoreStart() -> NSNumber{return storeStart}
+    open func getSummary() -> String{return summary}
+    open func getTerms() -> Array<NSNumber>{return terms}
+    open func getTypeHNSNumber() -> String{return typeHNSNumber}
+    open func getUniqueKey() -> AnyObject{return uniqueKey}
+    open func getVendorId() -> NSNumber{return vendorId}
+    open func getVirtualCurrencyId() -> NSNumber{return virtualCurrencyId}
+    open func getWeight() -> AnyObject{return weight}
+    open func getWeightUnitOfMeasurement() -> AnyObject{return weightUnitOfMeasurement}
+    open func getWidth() -> AnyObject{return width}
 
 
 }

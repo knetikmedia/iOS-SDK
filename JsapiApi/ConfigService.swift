@@ -11,12 +11,13 @@
 
 import Foundation
 
-public class ConfigService : NSObject
+open class ConfigService : NSObject
 {
     
-    public func getConfig(configName:String , params:Dictionary<String,AnyObject>,callback:(Config,String,Bool)->Void)
+    open func getConfig(_ configName:String , params:Dictionary<String,AnyObject>,callback:@escaping (Config,String,Bool)->Void)
     {
-        let methodUrl:String = NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.CONFIG, configName) as String
+        let url = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.CONFIG
+        let methodUrl:String = NSString(format: url as NSString, configName) as String
         
         
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))

@@ -8,11 +8,11 @@
 
 import Foundation
 
-public class BREService:NSObject
+open class BREService:NSObject
 {
     
    
-    public func createBRE(params:Dictionary<String,AnyObject>,callback:(AnyObject,String,Bool)->Void)
+    open func createBRE(_ params:Dictionary<String,AnyObject>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.BREEVENT
         

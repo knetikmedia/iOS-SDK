@@ -5,12 +5,12 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class CategoryObject:NSObject{
+open class CategoryObject:NSObject{
 
-	public var active : Bool!
-	public var assets : [NSDictionary]!
-	public var categoryId : String!
-	public var name : String!
+	open var active : Bool!
+	open var assets : [NSDictionary]!
+	open var categoryId : String!
+	open var name : String!
 
     override public init(){super.init()}
 
@@ -34,7 +34,7 @@ public class CategoryObject:NSObject{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if active != nil{
 			dictionary["active"] = active
 		}

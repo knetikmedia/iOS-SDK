@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Invoice:NSObject{
+open class Invoice:NSObject{
     
     var address1 : AnyObject!
     var address2 : AnyObject!
@@ -47,45 +47,45 @@ public class Invoice:NSObject{
     var userId : NSNumber!
     var vendorId : NSNumber!
     
-    public func getAddress1 ()-> AnyObject{ return address1}
-    public func getAddress2 ()-> AnyObject{ return address2}
-    public func getBillingAddress1 ()-> AnyObject{ return billingAddress1}
-    public func getBillingAddress2 ()-> AnyObject{ return billingAddress2}
-    public func getBillingCityName ()-> AnyObject{ return billingCityName}
-    public func getBillingCountryName ()-> AnyObject{ return billingCountryName}
-    public func getBillingPostalCode ()-> AnyObject{ return billingPostalCode}
-    public func getBillingStateName ()-> AnyObject{ return billingStateName}
-    public func getCartId ()-> NSNumber{ return cartId}
-    public func getCityName ()-> AnyObject{ return cityName}
-    public func getCountryName ()-> AnyObject{ return countryName}
-    public func getCreateDate ()-> String{ return createDate}
-    public func getCurrency ()-> String{ return currency}
-    public func getCurrentFulfillmentStatus ()-> NSNumber{ return currentFulfillmentStatus}
-    public func getCurrentFulfillmentStatusDescription ()-> String { return currentFulfillmentStatusDescription}
-    public func getCurrentFulfillmentStatusName ()-> String{ return currentFulfillmentStatusName}
-    public func getCurrentStatus ()-> NSNumber{ return currentStatus}
-    public func getCurrentStatusDescription ()-> String{ return currentStatusDescription}
-    public func getCurrentStatusName ()-> String{ return currentStatusName}
-    public func getDeleted ()-> NSNumber{ return deleted}
-    public func getDiscount ()-> NSNumber{ return discount}
-    public func getemail ()-> AnyObject{ return email}
-    public func getFedTax ()-> NSNumber{ return fedTax}
-    public func getFullName ()-> String{ return fullName}
-    public func getGrandTotal ()-> NSNumber{ return grandTotal}
-    public func getId ()-> NSNumber{ return invoiceId}
-    public func getNamePrefix ()-> AnyObject{ return namePrefix}
-    public func getOrderNotes ()-> AnyObject{ return orderNotes}
-    public func getParentInvoiceId ()-> AnyObject{ return parentInvoiceId}
-    public func getPhone ()-> AnyObject{ return phone}
-    public func getPhoneNumber ()-> AnyObject{ return phoneNumber}
-    public func getPostalCode ()-> AnyObject{ return postalCode}
-    public func getShipping ()-> NSNumber{ return shipping}
-    public func getStateName ()-> AnyObject{ return stateName}
-    public func getStateTax ()-> NSNumber{ return stateTax}
-    public func getSubtotal ()-> NSNumber{ return subtotal}
-    public func getUpdateDate ()-> String{ return updateDate}
-    public func getUserId ()-> NSNumber{ return userId}
-    public func getVendorId ()-> NSNumber{ return vendorId}
+    open func getAddress1 ()-> AnyObject{ return address1}
+    open func getAddress2 ()-> AnyObject{ return address2}
+    open func getBillingAddress1 ()-> AnyObject{ return billingAddress1}
+    open func getBillingAddress2 ()-> AnyObject{ return billingAddress2}
+    open func getBillingCityName ()-> AnyObject{ return billingCityName}
+    open func getBillingCountryName ()-> AnyObject{ return billingCountryName}
+    open func getBillingPostalCode ()-> AnyObject{ return billingPostalCode}
+    open func getBillingStateName ()-> AnyObject{ return billingStateName}
+    open func getCartId ()-> NSNumber{ return cartId}
+    open func getCityName ()-> AnyObject{ return cityName}
+    open func getCountryName ()-> AnyObject{ return countryName}
+    open func getCreateDate ()-> String{ return createDate}
+    open func getCurrency ()-> String{ return currency}
+    open func getCurrentFulfillmentStatus ()-> NSNumber{ return currentFulfillmentStatus}
+    open func getCurrentFulfillmentStatusDescription ()-> String { return currentFulfillmentStatusDescription}
+    open func getCurrentFulfillmentStatusName ()-> String{ return currentFulfillmentStatusName}
+    open func getCurrentStatus ()-> NSNumber{ return currentStatus}
+    open func getCurrentStatusDescription ()-> String{ return currentStatusDescription}
+    open func getCurrentStatusName ()-> String{ return currentStatusName}
+    open func getDeleted ()-> NSNumber{ return deleted}
+    open func getDiscount ()-> NSNumber{ return discount}
+    open func getemail ()-> AnyObject{ return email}
+    open func getFedTax ()-> NSNumber{ return fedTax}
+    open func getFullName ()-> String{ return fullName}
+    open func getGrandTotal ()-> NSNumber{ return grandTotal}
+    open func getId ()-> NSNumber{ return invoiceId}
+    open func getNamePrefix ()-> AnyObject{ return namePrefix}
+    open func getOrderNotes ()-> AnyObject{ return orderNotes}
+    open func getParentInvoiceId ()-> AnyObject{ return parentInvoiceId}
+    open func getPhone ()-> AnyObject{ return phone}
+    open func getPhoneNumber ()-> AnyObject{ return phoneNumber}
+    open func getPostalCode ()-> AnyObject{ return postalCode}
+    open func getShipping ()-> NSNumber{ return shipping}
+    open func getStateName ()-> AnyObject{ return stateName}
+    open func getStateTax ()-> NSNumber{ return stateTax}
+    open func getSubtotal ()-> NSNumber{ return subtotal}
+    open func getUpdateDate ()-> String{ return updateDate}
+    open func getUserId ()-> NSNumber{ return userId}
+    open func getVendorId ()-> NSNumber{ return vendorId}
 
     /**
     * Instantiate the instance using the passed dictionary values to set the properties values

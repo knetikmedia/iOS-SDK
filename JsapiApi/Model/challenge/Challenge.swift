@@ -5,25 +5,25 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class Challenge :NSObject{
+open class Challenge :NSObject{
 
-	public var activities : NSNumber!
-	public var campaignId : NSNumber!
-	public var copyOf : NSNumber!
-	public var created : NSNumber!
-	public var endDate : NSNumber!
-	public var challengeId : NSNumber!
-	public var leaderboardStrategy : String!
-	public var longDescription : NSNumber!
-	public var name : String!
-	public var nextEventDate : NSNumber!
-	public var rewardLagMinutes : NSNumber!
-	public var rewardSet : RewardSet!
-	public var schedule : NSDictionary!
-	public var shortDescription : String!
-	public var startDate : NSNumber!
-	public var updated : NSNumber!
-    public var assets : NSDictionary!
+	open var activities : NSNumber!
+	open var campaignId : NSNumber!
+	open var copyOf : NSNumber!
+	open var created : NSNumber!
+	open var endDate : NSNumber!
+	open var challengeId : NSNumber!
+	open var leaderboardStrategy : String!
+	open var longDescription : NSNumber!
+	open var name : String!
+	open var nextEventDate : NSNumber!
+	open var rewardLagMinutes : NSNumber!
+	open var rewardSet : RewardSet!
+	open var schedule : NSDictionary!
+	open var shortDescription : String!
+	open var startDate : NSNumber!
+	open var updated : NSNumber!
+    open var assets : NSDictionary!
 
     public override init(){}
 
@@ -39,11 +39,11 @@ public class Challenge :NSObject{
 		challengeId = dictionary["id"] as? NSNumber
 		leaderboardStrategy = dictionary["leaderboardStrategy"] as? String
         
-        var longValue = dictionary["longDescription"] as? String
+        let longValue = dictionary["longDescription"] as? String
         
         if let number = Int(longValue!){
         
-            longDescription = Int(longValue!)
+            longDescription = Int(longValue!) as NSNumber!
         }else{
         
             longDescription = 500
@@ -66,7 +66,7 @@ public class Challenge :NSObject{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if activities != nil{
 			dictionary["activities"] = activities
 		}

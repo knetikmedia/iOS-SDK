@@ -5,17 +5,17 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class Article : NSObject{
+open class Article : NSObject{
 
-	public var active : Bool!
-	public var assets : [Asset]!
-	public var body : String!
-	public var category : CategoryObject!
-	public var created : NSNumber!
-	public var id : String!
-	public var tags : [NSDictionary]!
-	public var title : String!
-	public var updated : NSNumber!
+	open var active : Bool!
+	open var assets : [Asset]!
+	open var body : String!
+	open var category : CategoryObject!
+	open var created : NSNumber!
+	open var id : String!
+	open var tags : [NSDictionary]!
+	open var title : String!
+	open var updated : NSNumber!
 
 
 	/**

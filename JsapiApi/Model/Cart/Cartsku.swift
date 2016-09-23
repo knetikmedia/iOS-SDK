@@ -16,7 +16,7 @@ class Cartsku:NSObject{
 	init(fromDictionary dictionary: NSDictionary){
 		sku = dictionary["skus"] as? String
         if sku != nil {
-        self.skus=self.sku.componentsSeparatedByString(",")
+        self.skus=self.sku.components(separatedBy: ",")
         }
 	}
 

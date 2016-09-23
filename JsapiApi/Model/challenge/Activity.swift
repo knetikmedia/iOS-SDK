@@ -5,11 +5,11 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class Activity :NSObject{
+open class Activity :NSObject{
 
-	public var activityId : NSNumber!
-	public var challengeId : NSNumber!
-	public var theActivityID : NSNumber!
+	open var activityId : NSNumber!
+	open var challengeId : NSNumber!
+	open var theActivityID : NSNumber!
 
 
 	/**
@@ -26,7 +26,7 @@ public class Activity :NSObject{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if activityId != nil{
 			dictionary["activityId"] = activityId
 		}

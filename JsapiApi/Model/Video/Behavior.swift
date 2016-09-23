@@ -5,18 +5,18 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Behavior:NSObject{
+open class Behavior:NSObject{
 
-	public var displayable : Bool!
-	public var endDate : AnyObject!
-	public var behaviorId : NSNumber!
-	public var startDate : AnyObject!
-	public var typeHNSNumber : String!
+	open var displayable : Bool!
+	open var endDate : AnyObject!
+	open var behaviorId : NSNumber!
+	open var startDate : AnyObject!
+	open var typeHNSNumber : String!
     var fulfillmentTypeName : String!
     var typeHint : String!
 
     
-    public func getDisplayable()->Bool{
+    open func getDisplayable()->Bool{
         return displayable;
     }
 

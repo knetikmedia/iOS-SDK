@@ -5,10 +5,10 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class BaseAvatarResponse:NSObject{
+open class BaseAvatarResponse:NSObject{
 
-	public var data : UserAvatarObject!
-	public var success : Bool!
+	open var data : UserAvatarObject!
+	open var success : Bool!
 
 
 	/**

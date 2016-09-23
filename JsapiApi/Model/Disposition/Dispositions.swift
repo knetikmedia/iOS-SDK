@@ -5,24 +5,24 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Dispositions:NSObject{
+open class Dispositions:NSObject{
 
-	public var content : [Disposition]!
-	public var first : Bool!
-	public var last : Bool!
-	public var number : NSNumber!
-	public var numberOfElements : NSNumber!
-	public var size : NSNumber!
-	public var sort : AnyObject!
-	public var totalElements : NSNumber!
-	public var totalPages : NSNumber!
+	open var content : [Disposition]!
+	open var first : Bool!
+	open var last : Bool!
+	open var number : NSNumber!
+	open var numberOfElements : NSNumber!
+	open var size : NSNumber!
+	open var sort : AnyObject!
+	open var totalElements : NSNumber!
+	open var totalPages : NSNumber!
 
-    public func getFirst()->Bool{
+    open func getFirst()->Bool{
     
         return first;
     }
     
-    public func getLast()->Bool{
+    open func getLast()->Bool{
         
         return last;
     }

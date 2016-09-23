@@ -7,14 +7,14 @@
 //
 
 import Foundation
-public class CategoriesService:NSObject
+open class CategoriesService:NSObject
 {
 
     /**List of Category
     *@param params Dictionary {} Empty
     *@param callback
     */
-    public func getCategoriesS(params:Dictionary<String,AnyObject>,callback:(CategoryPage,String,Bool)->Void)
+    open func getCategoriesS(_ params:Dictionary<String,AnyObject>,callback:@escaping (CategoryPage,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETCATEGORIES;
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))

@@ -10,14 +10,14 @@
 
 import Foundation
 
-public class NotificationService : NSObject
+open class NotificationService : NSObject
 {
     
     /** Get Notifications
     *@param params Dictionary
     *@param callback
     */
-    public func getNotifications(params:Dictionary<String,AnyObject>,callback:(NSDictionary,String,Bool)->Void)
+    open func getNotifications(_ params:Dictionary<String,AnyObject>,callback:@escaping (NSDictionary,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.NOTIFICATIONS
         
@@ -42,7 +42,7 @@ public class NotificationService : NSObject
         }
     }
 
-    public func getChallengeCode(params:Dictionary<String,AnyObject>,callback:(NSDictionary,String,Bool)->Void)
+    open func getChallengeCode(_ params:Dictionary<String,AnyObject>,callback:@escaping (NSDictionary,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.NOTIFICATIONSCHALLENGECODE
         
@@ -73,7 +73,7 @@ public class NotificationService : NSObject
     *@param params Dictionary
     *@param callback
     */
-    public func addNotification(params:Dictionary<String,AnyObject>,callback:(AnyObject,String,Bool)->Void)
+    open func addNotification(_ params:Dictionary<String,AnyObject>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.NOTIFICATIONS
         
@@ -99,9 +99,11 @@ public class NotificationService : NSObject
      *@param params Dictionary
      *@param callback
      */
-    public func markNotificationAsRead(notificationID:String, params:Dictionary<String,AnyObject> , callback:(AnyObject,String,Bool)->Void)
+    open func markNotificationAsRead(_ notificationID:String, params:Dictionary<String,AnyObject> , callback:@escaping (AnyObject,String,Bool)->Void)
     {
-        let methodUrl:String=NSString(format: JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.SEENNOTIFICATIONS,notificationID) as String
+        let url  = JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.SEENNOTIFICATIONS
+        
+        let methodUrl:String=NSString(format: url as NSString ,notificationID) as String
         
         JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
@@ -124,7 +126,7 @@ public class NotificationService : NSObject
      *@param params Dictionary
      *@param callback
      */
-    public func markAllNotificationAsRead(params:Dictionary<String,AnyObject> , callback:(AnyObject,String,Bool)->Void)
+    open func markAllNotificationAsRead(_ params:Dictionary<String,AnyObject> , callback:@escaping (AnyObject,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.SEENALLNOTIFICATIONS
         
@@ -151,7 +153,7 @@ public class NotificationService : NSObject
      *@param params Dictionary
      *@param callback
      */
-    public func addCustomCall(endpointurl:String ,params:Dictionary<String,AnyObject>,callback:(NSDictionary,String,Bool)->Void)
+    open func addCustomCall(_ endpointurl:String ,params:Dictionary<String,AnyObject>,callback:@escaping (NSDictionary,String,Bool)->Void)
     {
         
         JsapiRest.sharedInstance.postrequest(endpointurl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)

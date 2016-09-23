@@ -10,14 +10,14 @@
 */
 
 import Foundation
-public class ArtistService:NSObject
+open class ArtistService:NSObject
 {
     
     /** Get Artist and Global Videos
     *@param params Dictionary
     *@param callback
     */
-    public func getArtistList(params:Dictionary<String,AnyObject>,callback:(ArtistPage,String,Bool)->Void)
+    open func getArtistList(_ params:Dictionary<String,AnyObject>,callback:@escaping (ArtistPage,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETARTISTS
         
@@ -46,9 +46,10 @@ public class ArtistService:NSObject
      *@param params Dictionary
      *@param callback
      */
-    public func getArtistDetails(artistId:String ,params:Dictionary<String,AnyObject>,callback:(ArtistObject,String,Bool)->Void)
+    open func getArtistDetails(_ artistId:String ,params:Dictionary<String,AnyObject>,callback:@escaping (ArtistObject,String,Bool)->Void)
     {
-        let methodUrl:String = NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETARTISTDETAILS,artistId) as String
+        let url = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETARTISTDETAILS
+        let methodUrl:String = NSString(format: url as NSString ,artistId) as String
         
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
         {

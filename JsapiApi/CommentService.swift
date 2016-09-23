@@ -7,15 +7,18 @@
 //
 
 import Foundation
-public class CommentService:NSObject
+open class CommentService:NSObject
 {
     /**Adds a new comment to an item. Requires user authentication.
     *@param params Dictionary{"comment": "","item_id": 0}
     *@param callback
     */
-    public func addComment(videoId:String,params:Dictionary<String,String>,callback:(AnyObject,String,Bool)->Void)
+    open func addComment(_ videoId:String,params:Dictionary<String,String>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
-        let methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDCOMMENT,videoId)
+        
+        let url = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDCOMMENT
+        
+        let methodUrl=NSString(format: url as NSString ,videoId)
 
         JsapiRest.sharedInstance.postrequest(methodUrl as String, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
@@ -39,11 +42,14 @@ public class CommentService:NSObject
     *@param params Dictionary{"item_id": 0}
     *@param callback
     */
-    public func commentsList(videoId:String,params:Dictionary<String,String>,callback:(Array<Comment>,String,Bool)->Void)
+    open func commentsList(_ videoId:String,params:Dictionary<String,String>,callback:@escaping (Array<Comment>,String,Bool)->Void)
     {
-        let methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.COMMENTLIST,videoId)
+        
+        let url  = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.COMMENTLIST
+        
+        let methodUrl=NSString(format: url as NSString ,videoId)
 
-        JsapiRest.sharedInstance.getRequest(methodUrl as String, postParams: Utilities.getGETRequestFromDictionary(params))
+        JsapiRest.sharedInstance.getRequest(methodUrl as String, postParams: Utilities.getGETRequestFromDictionary(params as Dictionary<String, AnyObject>))
             {
                 (result:NSDictionary,issuccess:Bool) in
                 if(!issuccess)
@@ -65,9 +71,12 @@ public class CommentService:NSObject
     *@param params Dictionary{"id": 0}
     *@param callback
     */
-    public func deleteComment(videoId:String , params:Dictionary<String,String>,callback:(AnyObject,String,Bool)->Void)
+    open func deleteComment(_ videoId:String , params:Dictionary<String,String>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
-        let methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.DELETECOMMENT,videoId)
+         
+        let url = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.DELETECOMMENT
+        
+        let methodUrl=NSString(format: url as NSString ,videoId)
         
         JsapiRest.sharedInstance.deleteRequest(methodUrl as String, deleteParams: Utilities.jsonRequestFromDictionary(params))
             {

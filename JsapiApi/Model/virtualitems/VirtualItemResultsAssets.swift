@@ -5,9 +5,9 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class VirtualItemResultsAssets :NSObject{
+open class VirtualItemResultsAssets :NSObject{
 	
-    public var item : VirtualItem!
+    open var item : VirtualItem!
 
     
     override public init(){super.init()

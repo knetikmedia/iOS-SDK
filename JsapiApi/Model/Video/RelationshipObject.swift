@@ -5,12 +5,12 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class RelationshipObject:NSObject{
+open class RelationshipObject:NSObject{
 
-	public var from : Relation!
-	public var relationshipId : NSNumber!
-	public var relationshipDetails : String!
-	public var to : Relation!
+	open var from : Relation!
+	open var relationshipId : NSNumber!
+	open var relationshipDetails : String!
+	open var to : Relation!
 
     override public init(){super.init()}
 
@@ -32,9 +32,9 @@ public class RelationshipObject:NSObject{
 	/**
 	 * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
 	 */
-	public func toDictionary() -> NSDictionary
+	open func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
         
 		if from != nil{
 			dictionary["from"] = from.toDictionary()

@@ -5,10 +5,10 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Artist :NSObject{
+open class Artist :NSObject{
 
-    public var artistId : NSNumber!
-	public var name : String!
+    open var artistId : NSNumber!
+	open var name : String!
 
 
     override public init(){super.init()}
@@ -25,7 +25,7 @@ public class Artist :NSObject{
 	/**
 	 * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
 	 */
-	public func toDictionary() -> NSDictionary
+	open func toDictionary() -> NSDictionary
 	{
 		let dictionary = NSMutableDictionary()
 		if artistId != nil{

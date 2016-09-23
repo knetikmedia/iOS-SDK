@@ -5,54 +5,54 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Favorite:NSObject{
+open class Favorite:NSObject{
 
-	public var _id : NSNumber!
-	public var address : AnyObject!
-	public var address2 : AnyObject!
-	public var affiliateId : AnyObject!
-	public var assets : [AnyObject]!
-	public var avatarUrl : AnyObject!
-	public var behaviors : [AnyObject]!
-	public var city : AnyObject!
-	public var countryId : AnyObject!
-	public var currency : AnyObject!
-	public var dateCreated : NSNumber!
-	public var dateOfBirth : AnyObject!
-	public var dateUpdated : NSNumber!
-	public var deleted : NSNumber!
-	public var deletedAt : AnyObject!
-	public var favoriteDescription : AnyObject!
-	public var displayName : String!
-	public var email : String!
-	public var firstName : AnyObject!
-	public var fullname : String!
-	public var gender : AnyObject!
-	public var id : NSNumber!
-	public var lang : AnyObject!
-	public var lastActivity : NSNumber!
-	public var lastLogin : NSNumber!
-	public var lastName : AnyObject!
-	public var lockoutAttempts : AnyObject!
-	public var lockoutDate : AnyObject!
-	public var longDescription : String!
-	public var mobileNumber : AnyObject!
-	public var name : String!
-	public var oldId : AnyObject!
-	public var password : String!
-	public var postalCode : AnyObject!
-	public var related : [AnyObject]!
-	public var shortDescription : String!
-	public var skus : [AnyObject]!
-	public var sort : NSNumber!
-	public var state : AnyObject!
-	public var status : String!
-	public var terms : [AnyObject]!
-	public var timezoneId : AnyObject!
-	public var token : AnyObject!
-	public var typeHNSNumber : String!
-	public var uniqueKey : String!
-	public var username : String!
+	open var _id : NSNumber!
+	open var address : AnyObject!
+	open var address2 : AnyObject!
+	open var affiliateId : AnyObject!
+	open var assets : [AnyObject]!
+	open var avatarUrl : AnyObject!
+	open var behaviors : [AnyObject]!
+	open var city : AnyObject!
+	open var countryId : AnyObject!
+	open var currency : AnyObject!
+	open var dateCreated : NSNumber!
+	open var dateOfBirth : AnyObject!
+	open var dateUpdated : NSNumber!
+	open var deleted : NSNumber!
+	open var deletedAt : AnyObject!
+	open var favoriteDescription : AnyObject!
+	open var displayName : String!
+	open var email : String!
+	open var firstName : AnyObject!
+	open var fullname : String!
+	open var gender : AnyObject!
+	open var id : NSNumber!
+	open var lang : AnyObject!
+	open var lastActivity : NSNumber!
+	open var lastLogin : NSNumber!
+	open var lastName : AnyObject!
+	open var lockoutAttempts : AnyObject!
+	open var lockoutDate : AnyObject!
+	open var longDescription : String!
+	open var mobileNumber : AnyObject!
+	open var name : String!
+	open var oldId : AnyObject!
+	open var password : String!
+	open var postalCode : AnyObject!
+	open var related : [AnyObject]!
+	open var shortDescription : String!
+	open var skus : [AnyObject]!
+	open var sort : NSNumber!
+	open var state : AnyObject!
+	open var status : String!
+	open var terms : [AnyObject]!
+	open var timezoneId : AnyObject!
+	open var token : AnyObject!
+	open var typeHNSNumber : String!
+	open var uniqueKey : String!
+	open var username : String!
 
 
 	/**
@@ -67,7 +67,7 @@ public class Favorite:NSObject{
 		if let assetsArray = dictionary["assets"] as? [String]{
 			for dic in assetsArray{
 				let value = dic
-				assets.append(value)
+				assets.append(value as AnyObject)
 			}
 		}
 		avatarUrl = dictionary["avatar_url"] as AnyObject!
@@ -75,7 +75,7 @@ public class Favorite:NSObject{
 		if let behaviorsArray = dictionary["behaviors"] as? [String]{
 			for dic in behaviorsArray{
 				let value = dic
-				behaviors.append(value)
+				behaviors.append(value as AnyObject)
 			}
 		}
 		city = dictionary["city"] as AnyObject!
@@ -109,7 +109,7 @@ public class Favorite:NSObject{
 		if let relatedArray = dictionary["related"] as? [String]{
 			for dic in relatedArray{
 				let value = dic
-				related.append(value)
+				related.append(value as AnyObject)
 			}
 		}
 		shortDescription = dictionary["short_description"] as? String
@@ -117,7 +117,7 @@ public class Favorite:NSObject{
 		if let skusArray = dictionary["skus"] as? [String]{
 			for dic in skusArray{
 				let value = dic
-				skus.append(value)
+				skus.append(value as AnyObject)
 			}
 		}
 		sort = dictionary["sort"] as? NSNumber
@@ -127,7 +127,7 @@ public class Favorite:NSObject{
 		if let termsArray = dictionary["terms"] as? [String]{
 			for dic in termsArray{
 				let value = dic
-				terms.append(value)
+				terms.append(value as AnyObject)
 			}
 		}
 		timezoneId = dictionary["timezone_id"] as AnyObject!

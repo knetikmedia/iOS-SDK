@@ -5,11 +5,11 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class Batch : NSObject{
+open class Batch : NSObject{
 
-	public var body : String!
-	public var method : String!
-	public var uri : String!
+	open var body : String!
+	open var method : String!
+	open var uri : String!
 
 
     
@@ -33,7 +33,7 @@ public class Batch : NSObject{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
         
 		if body != nil{
 			dictionary["body"] = body

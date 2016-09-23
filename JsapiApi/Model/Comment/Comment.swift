@@ -5,32 +5,32 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Comment:NSObject{
+open class Comment:NSObject{
 
-	public var comment : String!
-	public var commentId : NSNumber!
-	public var dateCreated : String!
-	public var dateUpdated : String!
-	public var deleted : NSNumber!
-	public var displayName : String!
-    public var summary : String!
-	public var contextId : NSNumber!
-    public var context : String!
-	public var userId : NSNumber!
-    public var user :SimpleUser!
+	open var comment : String!
+	open var commentId : NSNumber!
+	open var dateCreated : String!
+	open var dateUpdated : String!
+	open var deleted : NSNumber!
+	open var displayName : String!
+    open var summary : String!
+	open var contextId : NSNumber!
+    open var context : String!
+	open var userId : NSNumber!
+    open var user :SimpleUser!
     
-    public func  getComment()-> String
+    open func  getComment()-> String
     {
         return comment;
     }
-    public func  getCommentId()-> NSNumber{return commentId}
-    public func  getDateCreated()->String{return dateCreated}
-    public func  getDateUpdated()->String{return dateUpdated}
-    public func  getDeleted()->NSNumber{return deleted}
-    public func  getDisplayName()->String{return displayName}
-    public func  getContextId()->NSNumber{return contextId}
-    public func  getUserId()->NSNumber{return userId}
-    public func  getContext()->String{return context}
+    open func  getCommentId()-> NSNumber{return commentId}
+    open func  getDateCreated()->String{return dateCreated}
+    open func  getDateUpdated()->String{return dateUpdated}
+    open func  getDeleted()->NSNumber{return deleted}
+    open func  getDisplayName()->String{return displayName}
+    open func  getContextId()->NSNumber{return contextId}
+    open func  getUserId()->NSNumber{return userId}
+    open func  getContext()->String{return context}
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values

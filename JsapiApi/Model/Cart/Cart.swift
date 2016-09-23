@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Cart:NSObject{
+open class Cart:NSObject{
 
 	var cartId : NSNumber!
 	var city : AnyObject!
@@ -37,34 +37,34 @@ public class Cart:NSObject{
 	var zip : AnyObject!
 
 
-    public func getCartId ()-> NSNumber{return cartId}
-    public func getCity ()-> AnyObject{return city}
-    public func getCountry ()-> AnyObject{return country}
-    public func getCountryId ()-> AnyObject{return countryId}
-    public func getCurrency ()-> String{return currency}
-    public func getDiscountTotal ()-> NSNumber{return discountTotal}
-    public func getEmail ()-> AnyObject{return email}
-    public func getErrorCode ()-> NSNumber{return errorCode}
-    public func getErrorMessage ()-> String{return errorMessage}
-    public func getFirstName ()-> AnyObject{return firstName}
-    public func getGrandTotal ()-> Float{return grandTotal}
-    public func getIso2 ()-> AnyObject{return iso2}
-    public func getLastName ()-> AnyObject{return lastName}
-    public func getOrderNotes ()-> AnyObject{return orderNotes}
-    public func getOwnerId ()-> NSNumber{return ownerId}
-    public func getPhoneNumber ()-> AnyObject{return phoneNumber}
-    public func getPostalState ()-> AnyObject{return postalState}
-    public func getPostalStateId ()-> AnyObject{return postalStateId}
-    public func getShippingAddressLine1 ()-> AnyObject{return shippingAddressLine1}
-    public func getShippingAddressLine2 ()-> AnyObject{return shippingAddressLine2}
-    public func getShippingCost ()-> NSNumber{return shippingCost}
-    public func getStateCode ()-> AnyObject{return stateCode}
-    public func getStatus ()-> String{return status}
-    public func getSubTotal ()-> Float{return subTotal}
-    public func getSubTotalAfterDiscounts ()-> Float{return subTotalAfterDiscounts}
-    public func getSystemSubTotal ()-> Float{return systemSubTotal}
-    public func getTax ()-> NSNumber{return tax}
-    public func getZip ()-> AnyObject{return zip}
+    open func getCartId ()-> NSNumber{return cartId}
+    open func getCity ()-> AnyObject{return city}
+    open func getCountry ()-> AnyObject{return country}
+    open func getCountryId ()-> AnyObject{return countryId}
+    open func getCurrency ()-> String{return currency}
+    open func getDiscountTotal ()-> NSNumber{return discountTotal}
+    open func getEmail ()-> AnyObject{return email}
+    open func getErrorCode ()-> NSNumber{return errorCode}
+    open func getErrorMessage ()-> String{return errorMessage}
+    open func getFirstName ()-> AnyObject{return firstName}
+    open func getGrandTotal ()-> Float{return grandTotal}
+    open func getIso2 ()-> AnyObject{return iso2}
+    open func getLastName ()-> AnyObject{return lastName}
+    open func getOrderNotes ()-> AnyObject{return orderNotes}
+    open func getOwnerId ()-> NSNumber{return ownerId}
+    open func getPhoneNumber ()-> AnyObject{return phoneNumber}
+    open func getPostalState ()-> AnyObject{return postalState}
+    open func getPostalStateId ()-> AnyObject{return postalStateId}
+    open func getShippingAddressLine1 ()-> AnyObject{return shippingAddressLine1}
+    open func getShippingAddressLine2 ()-> AnyObject{return shippingAddressLine2}
+    open func getShippingCost ()-> NSNumber{return shippingCost}
+    open func getStateCode ()-> AnyObject{return stateCode}
+    open func getStatus ()-> String{return status}
+    open func getSubTotal ()-> Float{return subTotal}
+    open func getSubTotalAfterDiscounts ()-> Float{return subTotalAfterDiscounts}
+    open func getSystemSubTotal ()-> Float{return systemSubTotal}
+    open func getTax ()-> NSNumber{return tax}
+    open func getZip ()-> AnyObject{return zip}
 
     override public init(){super.init()}
 	/**

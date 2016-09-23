@@ -173,6 +173,7 @@
 		F488C4F21C064C3300F2AF03 /* CategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488C4F11C064C3300F2AF03 /* CategoriesService.swift */; };
 		F488C4F71C064C4500F2AF03 /* CategoriesBaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488C4F41C064C4500F2AF03 /* CategoriesBaseResponse.swift */; };
 		F488C4F91C064C4500F2AF03 /* CategoryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488C4F61C064C4500F2AF03 /* CategoryPage.swift */; };
+		F48AF57F1D8AD54000213F31 /* AchievementsSingleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48AF57E1D8AD54000213F31 /* AchievementsSingleResponse.swift */; };
 		F48B9BC41AB0EBDC0069DBFA /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B9BC31AB0EBDC0069DBFA /* CartService.swift */; };
 		F48B9BC51AB0EBDC0069DBFA /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B9BC31AB0EBDC0069DBFA /* CartService.swift */; };
 		F48BBD231ABB135B00EAFE09 /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48BBD221ABB135B00EAFE09 /* Registration.swift */; };
@@ -343,6 +344,7 @@
 		F488C4F11C064C3300F2AF03 /* CategoriesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesService.swift; sourceTree = "<group>"; };
 		F488C4F41C064C4500F2AF03 /* CategoriesBaseResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesBaseResponse.swift; sourceTree = "<group>"; };
 		F488C4F61C064C4500F2AF03 /* CategoryPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryPage.swift; sourceTree = "<group>"; };
+		F48AF57E1D8AD54000213F31 /* AchievementsSingleResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementsSingleResponse.swift; sourceTree = "<group>"; };
 		F48B9BC31AB0EBDC0069DBFA /* CartService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
 		F48BBD221ABB135B00EAFE09 /* Registration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
 		F49EB52F1ACAE8240030437F /* StoreService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreService.swift; sourceTree = "<group>"; };
@@ -626,6 +628,7 @@
 		F46E82201CEE52C2005B2F49 /* Achievements */ = {
 			isa = PBXGroup;
 			children = (
+				F48AF57E1D8AD54000213F31 /* AchievementsSingleResponse.swift */,
 				F46E82211CEE52C2005B2F49 /* AchievementsResponse.swift */,
 				F46E82221CEE52C2005B2F49 /* Achievements.swift */,
 				F46E82251CEE52C2005B2F49 /* AchievementsPage.swift */,
@@ -869,6 +872,7 @@
 				TargetAttributes = {
 					F4A1AABA1AA6147500D17F43 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0800;
 					};
 					F4A1AAC51AA6147600D17F43 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -966,6 +970,7 @@
 				F4759B781BAB1D220047C6BA /* WalletService.swift in Sources */,
 				F40CCA961C5A84DD00A12FB2 /* RelationshipdBaseResponse.swift in Sources */,
 				F43EEDC91ADDB00B001EFC8B /* RegisteredUserResponse.swift in Sources */,
+				F48AF57F1D8AD54000213F31 /* AchievementsSingleResponse.swift in Sources */,
 				F40648721C7CDABE0056E415 /* Batch.swift in Sources */,
 				F4ABA0D51C7DFC0D00984274 /* Activity.swift in Sources */,
 				F41B6FCD1B4AEA4400B66B1A /* Video.swift in Sources */,
@@ -1255,7 +1260,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = JsapiApi/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1266,6 +1271,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1280,7 +1286,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = JsapiApi/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1290,6 +1296,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Knetik.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

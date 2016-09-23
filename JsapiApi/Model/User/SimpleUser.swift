@@ -5,16 +5,16 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class SimpleUser:NSObject{
+open class SimpleUser:NSObject{
 
-	public var userId : NSNumber!
-	public var displayName : String!
-	public  var avatarUrl : String!
-    public  var name : String!
+	open var userId : NSNumber!
+	open var displayName : String!
+	open  var avatarUrl : String!
+    open  var name : String!
 
-    public func getId()->NSNumber{return userId}
-    public func getAvatarUrl()->String{return avatarUrl }
-    public func getDisplayName()->String{return displayName }
+    open func getId()->NSNumber{return userId}
+    open func getAvatarUrl()->String{return avatarUrl }
+    open func getDisplayName()->String{return displayName }
   
         
     override public init(){super.init()}

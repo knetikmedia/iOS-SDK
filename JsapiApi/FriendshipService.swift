@@ -7,14 +7,14 @@
 //
 
 import Foundation
-public class FriendshipService :NSObject
+open class FriendshipService :NSObject
 {
 
     /** addFriend.
     *@param params Dictionary{"target_user_id": 0,"user_id": 0}
     *@param callback
     */
-    public func addFriend(params:Dictionary<String,AnyObject>,callback:(AnyObject,String,Bool)->Void)
+    open func addFriend(_ params:Dictionary<String,AnyObject>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDFRIEND
         JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
@@ -38,7 +38,7 @@ public class FriendshipService :NSObject
     *@param params Dictionary {"page": 0,"limit": 0,"user_id": 0}
     *@param callback
     */
-    public func getFriends(params:Dictionary<String,AnyObject>,callback:(Friend,String,Bool)->Void)
+    open func getFriends(_ params:Dictionary<String,AnyObject>,callback:@escaping (Friend,String,Bool)->Void)
     {
         let methodUrl:String = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETFRIENDS
 
@@ -52,7 +52,7 @@ public class FriendshipService :NSObject
                     callback(Friend(),friendsResponse.errormessage,issuccess)
                 }else
                 {
-                    callback(friendObject,"",issuccess)
+                    callback(friendObject!,"",issuccess)
                 }
         }
     }
@@ -62,7 +62,7 @@ public class FriendshipService :NSObject
     *@param params Dictionary {"target_user_id": 0,"user_id": 0}
     *@param callback
     */
-    public func removeFriend(params:Dictionary<String,AnyObject>,callback:(AnyObject,String,Bool)->Void)
+    open func removeFriend(_ params:Dictionary<String,AnyObject>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.REMOVEFRIEND
 
@@ -85,7 +85,7 @@ public class FriendshipService :NSObject
     *@param params Dictionary {"page": 0,"limit": 0,"user_id": 0,"search": ""}
     *@param callback
     */
-    public func searchFriends(params:Dictionary<String,AnyObject>,callback:(Friend,String,Bool)->Void)
+    open func searchFriends(_ params:Dictionary<String,AnyObject>,callback:@escaping (Friend,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETFRIENDS
         
@@ -99,13 +99,13 @@ public class FriendshipService :NSObject
                     callback(Friend(),friendsResponse.errormessage,issuccess)
                 }else
                 {
-                    callback(friendObject,"",issuccess)
+                    callback(friendObject!,"",issuccess)
                 }
         }
     }
 
     
-    public func facebookFriendsUpdate(params:Dictionary<String,AnyObject>,callback:(NSDictionary,String,Bool)->Void)
+    open func facebookFriendsUpdate(_ params:Dictionary<String,AnyObject>,callback:@escaping (NSDictionary,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.AUTOFRIENDSHIP
         

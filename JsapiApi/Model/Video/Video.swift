@@ -5,40 +5,40 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Video :NSObject{
+open class Video :NSObject{
 
     override public init() {
         super.init()
     }
     
-    public var author : Artist!
-    public var authored : NSNumber!
-    public var contributors : [Contributor]!
-    public var created : NSNumber!
-    public var active : NSNumber!
-    public var embed : String!
-    public var videoExtension : String!
-    public var height : NSNumber!
-    public var videoId : NSNumber!
-    public var length : NSNumber!
-    public var location : String!
-    public var longDescription : String!
-    public var mimeType : String!
-    public var name : String!
-    public var shortDescription : String!
-    public var size : NSNumber!
-    public var updated : NSNumber!
-    public var uploader : SimpleUser!
-    public var width : NSNumber!
-    public var thumbnail : String!
-    public var privacy : String!
-    public var views : NSNumber!
-    public var videoCategory :CategoryObject!
-    public var comments:[Comment]!
-    public var tags : [String]!
-    public var popularity : NSNumber!
-    public var likes : NSNumber!
-    public var parentId : NSNumber!
+    open var author : Artist!
+    open var authored : NSNumber!
+    open var contributors : [Contributor]!
+    open var created : NSNumber!
+    open var active : NSNumber!
+    open var embed : String!
+    open var videoExtension : String!
+    open var height : NSNumber!
+    open var videoId : NSNumber!
+    open var length : NSNumber!
+    open var location : String!
+    open var longDescription : String!
+    open var mimeType : String!
+    open var name : String!
+    open var shortDescription : String!
+    open var size : NSNumber!
+    open var updated : NSNumber!
+    open var uploader : SimpleUser!
+    open var width : NSNumber!
+    open var thumbnail : String!
+    open var privacy : String!
+    open var views : NSNumber!
+    open var videoCategory :CategoryObject!
+    open var comments:[Comment]!
+    open var tags : [String]!
+    open var popularity : NSNumber!
+    open var likes : NSNumber!
+    open var parentId : NSNumber!
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
@@ -112,7 +112,7 @@ public class Video :NSObject{
 	/**
 	 * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
 	 */
-	public func toDictionary() -> NSDictionary
+	open func toDictionary() -> NSDictionary
 	{
 		let dictionary = NSMutableDictionary()
 		if author != nil{

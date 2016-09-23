@@ -5,24 +5,24 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class NewVideo:NSObject{
+open class NewVideo:NSObject{
 
     override public init(){}
-	public var created : NSNumber!
-	public var deleted : Bool!
-	public var deletedAt : AnyObject!
-	public var videodescription : String!
-	public var displayable : Bool!
-	public var fileName : String!
-	public var newVideoId : NSNumber!
-	public var itemAssets : AnyObject!
-	public var longDescription : AnyObject!
-	public var name : AnyObject!
-	public var shortDescription : AnyObject!
-	public var title : String!
-	public var updated : NSNumber!
+	open var created : NSNumber!
+	open var deleted : Bool!
+	open var deletedAt : AnyObject!
+	open var videodescription : String!
+	open var displayable : Bool!
+	open var fileName : String!
+	open var newVideoId : NSNumber!
+	open var itemAssets : AnyObject!
+	open var longDescription : AnyObject!
+	open var name : AnyObject!
+	open var shortDescription : AnyObject!
+	open var title : String!
+	open var updated : NSNumber!
 
-    public func getDisplayable()->Bool{
+    open func getDisplayable()->Bool{
         return displayable;
     }
     

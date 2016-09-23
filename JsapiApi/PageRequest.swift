@@ -5,16 +5,16 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class PageRequest :NSObject{
+open class PageRequest :NSObject{
 
-	public var first : NSNumber!
-	public var last : NSNumber!
-	public var number : NSNumber!
-	public var numberOfElements : NSNumber!
-	public var size : NSNumber!
-	public var totalElements : NSNumber!
-	public var totalPages : NSNumber!
-    public var count : NSNumber!
+	open var first : NSNumber!
+	open var last : NSNumber!
+	open var number : NSNumber!
+	open var numberOfElements : NSNumber!
+	open var size : NSNumber!
+	open var totalElements : NSNumber!
+	open var totalPages : NSNumber!
+    open var count : NSNumber!
 
 
 	/**
@@ -37,7 +37,7 @@ public class PageRequest :NSObject{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if first != nil{
 			dictionary["first"] = first
 		}

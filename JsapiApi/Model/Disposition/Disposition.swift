@@ -5,19 +5,19 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Disposition:NSObject{
+open class Disposition:NSObject{
 
     override public init(){
     
     }
 
-	public var context : String!
-	public var contextId : NSNumber!
-	public var created : NSNumber!
-	public var dispositionId : NSNumber!
-	public var name : String!
-	public var updated : NSNumber!
-	public var user : SimpleUser!
+	open var context : String!
+	open var contextId : NSNumber!
+	open var created : NSNumber!
+	open var dispositionId : NSNumber!
+	open var name : String!
+	open var updated : NSNumber!
+	open var user : SimpleUser!
 
 
 	/**

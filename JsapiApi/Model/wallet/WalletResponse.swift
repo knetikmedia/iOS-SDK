@@ -7,7 +7,7 @@ import Foundation
 
 class WalletResponse :BaseResponse{
 
-	public var wallets : [Wallet]!
+	open var wallets : [Wallet]!
 
 
 	/**

@@ -5,14 +5,14 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class CurrencyReward :NSObject{
+open class CurrencyReward :NSObject{
 
-	public var currencyId : NSNumber!
-	public var currencyName : String!
-	public var maxRank : NSNumber!
-	public var minRank : NSNumber!
-	public var percent : Bool!
-	public var value : NSNumber!
+	open var currencyId : NSNumber!
+	open var currencyName : String!
+	open var maxRank : NSNumber!
+	open var minRank : NSNumber!
+	open var percent : Bool!
+	open var value : NSNumber!
 
 
 	/**
@@ -32,7 +32,7 @@ public class CurrencyReward :NSObject{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if currencyId != nil{
 			dictionary["currency_id"] = currencyId
 		}

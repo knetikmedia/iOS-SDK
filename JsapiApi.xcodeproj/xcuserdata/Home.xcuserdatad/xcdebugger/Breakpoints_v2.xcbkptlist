@@ -95,8 +95,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
             endingLineNumber = "56"
-            landmarkName = "getDispositionsCount(_:callback:)"
-            landmarkType = "5">
+            landmarkName = "getMineDispositions(_:callback:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
@@ -160,7 +160,7 @@
             startingLineNumber = "73"
             endingLineNumber = "73"
             landmarkName = "postrequest(_:postParams:isJson:callback:)"
-            landmarkType = "5">
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
@@ -207,8 +207,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
             endingLineNumber = "23"
-            landmarkName = "JsapiRest"
-            landmarkType = "3">
+            landmarkName = "&lt;=(_:_:)"
+            landmarkType = "9">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
@@ -255,8 +255,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "55"
             endingLineNumber = "55"
-            landmarkName = "postrequest(_:postParams:isJson:callback:)"
-            landmarkType = "5">
+            landmarkName = "JsapiRest"
+            landmarkType = "3">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
@@ -303,8 +303,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "293"
             endingLineNumber = "293"
-            landmarkName = "deleteRequest(_:deleteParams:callback:)"
-            landmarkType = "5">
+            landmarkName = "getRequest(_:postParams:callback:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
@@ -352,7 +352,7 @@
             startingLineNumber = "257"
             endingLineNumber = "257"
             landmarkName = "getRequest(_:postParams:callback:)"
-            landmarkType = "5">
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
@@ -399,8 +399,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "281"
             endingLineNumber = "281"
-            landmarkName = "deleteRequest(_:deleteParams:callback:)"
-            landmarkType = "5">
+            landmarkName = "getRequest(_:postParams:callback:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
@@ -447,8 +447,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "277"
             endingLineNumber = "277"
-            landmarkName = "JsapiRest"
-            landmarkType = "3">
+            landmarkName = "getRequest(_:postParams:callback:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
@@ -495,8 +495,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "50"
             endingLineNumber = "50"
-            landmarkName = "postrequest(_:postParams:isJson:callback:)"
-            landmarkType = "5">
+            landmarkName = "JsapiRest"
+            landmarkType = "3">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"

@@ -5,12 +5,12 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class Setting:NSObject{
+open class Setting:NSObject{
 
-	public var key : String!
-	public var keyName : String!
-	public var value : String!
-	public var valueName : String!
+	open var key : String!
+	open var keyName : String!
+	open var value : String!
+	open var valueName : String!
 
 
 	/**

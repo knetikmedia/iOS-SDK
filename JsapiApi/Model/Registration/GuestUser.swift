@@ -5,12 +5,12 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class GuestUser:NSObject{
+open class GuestUser:NSObject{
 
 	var password : String!
 	var username : String!
     override public init(){super.init()}
-    public func getPassword ()->String{
+    open func getPassword ()->String{
         
         
         if(password == nil ){
@@ -21,7 +21,7 @@ public class GuestUser:NSObject{
         return password
     
     }
-    public func getUsername ()->String{
+    open func getUsername ()->String{
         
         if(username == nil ){
         

@@ -5,17 +5,17 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Catalog:NSObject{
+open class Catalog:NSObject{
 
-	public var deleted : AnyObject!
-	public var displayable : AnyObject!
-	public var catalogId : AnyObject!
-	public var itemId : NSNumber!
-	public var storeEnd : AnyObject!
-	public var storeStart : AnyObject!
-	public var vendorId : AnyObject!
-	public var virtualCurrencyId : AnyObject!
-    public var skus : [Sku]!
+	open var deleted : AnyObject!
+	open var displayable : AnyObject!
+	open var catalogId : AnyObject!
+	open var itemId : NSNumber!
+	open var storeEnd : AnyObject!
+	open var storeStart : AnyObject!
+	open var vendorId : AnyObject!
+	open var virtualCurrencyId : AnyObject!
+    open var skus : [Sku]!
 
 
 	/**

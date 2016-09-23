@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public class LeaderboardService:NSObject
+open class LeaderboardService:NSObject
 {
     
     /** Get Leaderboards
@@ -15,7 +15,7 @@ public class LeaderboardService:NSObject
     *@param callback
     */
     
-    public func getLeaderboards(params:Dictionary<String,AnyObject>,callback:(Leaderboard,String,Bool)->Void)
+    open func getLeaderboards(_ params:Dictionary<String,AnyObject>,callback:@escaping (Leaderboard,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.LEADERBOARDS
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
@@ -41,7 +41,7 @@ public class LeaderboardService:NSObject
     *@param callback
     */
     
-    public func getStrategies(params:Dictionary<String,AnyObject>,callback:(Array<String>,String,Bool)->Void)
+    open func getStrategies(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<String>,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETSTRATEGIES
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
@@ -68,9 +68,11 @@ public class LeaderboardService:NSObject
     *@param callback
     */
     
-    public func getUserRank(params:Dictionary<String,AnyObject>,callback:(Entrie,String,Bool)->Void)
+    open func getUserRank(_ params:Dictionary<String,AnyObject>,callback:@escaping (Entrie,String,Bool)->Void)
     {
-        let methodUrl=NSString(format: JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETUSERRANK, (params["leaderboardId"] as?String)!,(params["userId"] as?String)!)
+        let url  = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETUSERRANK
+        
+        let methodUrl=NSString(format: url as NSString, (params["leaderboardId"] as?String)!,(params["userId"] as?String)!)
 
         JsapiRest.sharedInstance.getRequest(methodUrl as String, postParams: Utilities.getGETRequestFromDictionary(params))
             {

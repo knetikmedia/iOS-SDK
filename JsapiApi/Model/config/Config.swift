@@ -5,10 +5,10 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class Config : NSObject{
+open class Config : NSObject{
 
-	public var name : String!
-	public var value : String!
+	open var name : String!
+	open var value : String!
 
 
 	/**
@@ -24,7 +24,7 @@ public class Config : NSObject{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if name != nil{
 			dictionary["name"] = name
 		}

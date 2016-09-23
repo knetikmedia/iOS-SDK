@@ -5,11 +5,11 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Contributor :NSObject{
+open class Contributor :NSObject{
 
-	public var artist : Artist!
-	public var media : Artist!
-	public var role : String!
+	open var artist : Artist!
+	open var media : Artist!
+	open var role : String!
 
 
     override public init(){super.init()}
@@ -31,7 +31,7 @@ public class Contributor :NSObject{
 	/**
 	 * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
 	 */
-	public func toDictionary() -> NSDictionary
+	open func toDictionary() -> NSDictionary
 	{
 		let dictionary = NSMutableDictionary()
 		if artist != nil{

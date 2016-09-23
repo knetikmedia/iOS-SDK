@@ -12,10 +12,10 @@ class Utilities {
     /*
     generate Json Request from Dictionary
     */
-    class func jsonRequestFromDictionary(requestparamters:Dictionary<String,String>)->String
+    class func jsonRequestFromDictionary(_ requestparamters:Dictionary<String,String>)->String
     {
-        let body = try! NSJSONSerialization.dataWithJSONObject(requestparamters, options: [])
-        let datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
+        let body = try! JSONSerialization.data(withJSONObject: requestparamters, options: [])
+        let datastring: String = NSString(data:body, encoding:String.Encoding.utf8.rawValue)! as String
         return datastring
     }
     
@@ -23,7 +23,7 @@ class Utilities {
     /*
     generate formated Put String
     */
-    class func getformatedPutString(requestparamters:String)->String
+    class func getformatedPutString(_ requestparamters:String)->String
     {
       return "\""+requestparamters+"\""
     }
@@ -32,20 +32,20 @@ class Utilities {
     /*
     generate Json Request from Dictionary
     */
-    class func jsonRequestFromDictionary(requestparamters:Dictionary<String,Int>)->String
+    class func jsonRequestFromDictionary(_ requestparamters:Dictionary<String,Int>)->String
     {
-        let body = try! NSJSONSerialization.dataWithJSONObject(requestparamters, options: [])
-        let datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
+        let body = try! JSONSerialization.data(withJSONObject: requestparamters, options: [])
+        let datastring: String = NSString(data:body, encoding:String.Encoding.utf8.rawValue)! as String
         return datastring
     }
 
     /*
     generate Json Request from Dictionary
     */
-    class func jsonRequestFromDictionary(requestparamters:Dictionary<String,AnyObject>)->String
+    class func jsonRequestFromDictionary(_ requestparamters:Dictionary<String,AnyObject>)->String
     {
-        let body = try! NSJSONSerialization.dataWithJSONObject(requestparamters, options: [] )
-        let datastring: String = NSString(data:body, encoding:NSUTF8StringEncoding)! as String
+        let body = try! JSONSerialization.data(withJSONObject: requestparamters, options: [] )
+        let datastring: String = NSString(data:body, encoding:String.Encoding.utf8.rawValue)! as String
         return datastring
     }
 
@@ -53,7 +53,7 @@ class Utilities {
     /*
     generate Json Request from Dictionary
     */
-    class func getPostValueRequestFromDictionary(requestparamters:Dictionary<String,AnyObject>)->String
+    class func getPostValueRequestFromDictionary(_ requestparamters:Dictionary<String,AnyObject>)->String
     {
         var datastring="\"";
         for (myKey,myValue) in requestparamters {
@@ -69,20 +69,20 @@ class Utilities {
     /*
     generate Json Request from Dictionary
     */
-    class func getGETRequestFromDictionary(requestparamters:Dictionary<String,AnyObject>)->String
+    class func getGETRequestFromDictionary(_ requestparamters:Dictionary<String,AnyObject>)->String
     {
         var datastring="?";
         for (myKey,myValue) in requestparamters {
             
             if let str = myValue as? String {
                 
-                let myStringValue = myValue.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+                let myStringValue = myValue.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                 
                 datastring+=myKey + "=" + myStringValue + "&"
             }
             else {
                 
-                 let myStringValue = myValue.stringValue.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+                 let myStringValue = myValue.stringValue.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                 
                 datastring+=myKey+"="+myStringValue+"&"
                 
@@ -92,7 +92,7 @@ class Utilities {
     }
 
     class func currentTimeMillis() -> Int64{
-        let nowDouble = NSDate().timeIntervalSince1970
+        let nowDouble = Date().timeIntervalSince1970
         return Int64(nowDouble*1000)
     }
     

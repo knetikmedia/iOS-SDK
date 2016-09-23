@@ -7,7 +7,7 @@ import Foundation
 
 class BaseChallengeActivity:BaseResponse{
 
-    public var result : Activities!
+    open var result : Activities!
 
 
 	/**

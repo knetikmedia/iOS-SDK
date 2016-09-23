@@ -5,15 +5,15 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class Flag :NSObject {
+open class Flag :NSObject {
 
-	public var context : String!
-	public var contextId : String!
-	public var created : NSNumber!
-	public var flagId : NSNumber!
-	public var reason : String!
-	public var updated : NSNumber!
-	public var user : SimpleUser!
+	open var context : String!
+	open var contextId : String!
+	open var created : NSNumber!
+	open var flagId : NSNumber!
+	open var reason : String!
+	open var updated : NSNumber!
+	open var user : SimpleUser!
 
 
 	/**
@@ -23,10 +23,10 @@ public class Flag :NSObject {
         
 		context = dictionary["context"] as? String
 		contextId = dictionary["contextId"] as? String
-		created = dictionary["created"] as? Int
+		created = dictionary["created"] as? Int as NSNumber!
 		flagId = dictionary["id"] as? NSNumber
 		reason = dictionary["reason"] as? String
-		updated = dictionary["updated"] as? Int
+		updated = dictionary["updated"] as? Int as NSNumber!
 		if let userData = dictionary["user"] as? NSDictionary{
 			user = SimpleUser(fromDictionary: userData)
 		}
@@ -38,7 +38,7 @@ public class Flag :NSObject {
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if context != nil{
 			dictionary["context"] = context
 		}

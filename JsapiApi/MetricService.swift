@@ -8,14 +8,14 @@
 
 import Foundation
 
-public class MetricService : NSObject
+open class MetricService : NSObject
 {
 
     /**Add a new Metric . Requires user authentication.
     *@param params Dictionary
     *@param callback
     */
-    public func addMetric(params:Dictionary<String,AnyObject>,callback:(AnyObject,String,Bool)->Void)
+    open func addMetric(_ params:Dictionary<String,AnyObject>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDMETRIC;
         JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)

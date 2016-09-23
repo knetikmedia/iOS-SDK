@@ -5,16 +5,16 @@
 //	Copyright © 2016. All rights reserved.
 import Foundation
 
-public class AchievementsPage :NSObject{
+open class AchievementsPage :NSObject{
 
-	public var content : [Achievements]!
-	public var first : NSNumber!
-	public var last : NSNumber!
-	public var number : NSNumber!
-	public var numberOfElements : NSNumber!
-	public var size : NSNumber!
-	public var totalElements : NSNumber!
-	public var totalPages : NSNumber!
+	open var content : [Achievements]!
+	open var first : NSNumber!
+	open var last : NSNumber!
+	open var number : NSNumber!
+	open var numberOfElements : NSNumber!
+	open var size : NSNumber!
+	open var totalElements : NSNumber!
+	open var totalPages : NSNumber!
 
     override public init(){super.init()
     
