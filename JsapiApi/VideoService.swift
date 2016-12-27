@@ -94,6 +94,32 @@ open class VideoService:NSObject
         }
     }
     
+    open func getUserVideosInJson(_ userId:String,params:Dictionary<String,AnyObject>,callback:@escaping (NSDictionary,PageRequest,String,Bool)->Void)
+    {
+        
+        let url = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETUSERVIDEOS
+        
+        let methodUrl:String=NSString(format: url as NSString,userId) as String
+        
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            
+            if(!issuccess)
+            {
+                let baseResponse=VideoResponse(fromDictionary: result)
+                callback(result,baseResponse.page,baseResponse.errormessage,issuccess)
+                
+            }else
+            {
+                let baseResponse=VideoResponse(fromDictionary: result["result"] as! NSDictionary)
+                callback(result,baseResponse.page,"",issuccess)
+                
+            }
+            
+        }
+    }
+    
     
     /** Get Favorites Global Videos for a user
     *@param params Dictionary
