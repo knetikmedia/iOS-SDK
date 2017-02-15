@@ -35,6 +35,7 @@ open class User:NSObject{
     open var postalCode : String!
     open var state : String!
     open var timezoneCode : String!
+    open var properties : Propertie!
     open var password : String!
     open func getAge()->NSNumber{return age;}
     open func getCountry()->String{return country;}
@@ -126,6 +127,11 @@ open class User:NSObject{
                 wallet.append(value)
             }
         }
+        
+        if let propertiesData = dictionary["properties"] as? NSDictionary{
+            properties = Propertie(fromDictionary: propertiesData)
+        }
+
     }
     
     open func toDictionary() -> NSDictionary
@@ -190,6 +196,9 @@ open class User:NSObject{
         }
         if password != nil{
             dictionary["password"] = password
+        }
+        if properties != nil{
+            dictionary["properties"] = properties.toDictionary()
         }
         return dictionary
     }

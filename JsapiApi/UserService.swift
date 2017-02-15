@@ -21,6 +21,8 @@ open class UserService:NSObject {
     JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params as Dictionary<String, AnyObject>))
     {
             (result:NSDictionary,issuccess:Bool) in
+            print(result);
+        print(JsapiAPi.sharedInstance.getJsapiToken());
             let userResponse = UserResponse(fromDictionary: result)
             if(!issuccess)
             {
@@ -97,7 +99,7 @@ open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escap
   *@param params Dictionary{"userId": 0,"configName": "","configValue": ""}
   *@param callback
  */
-    open func updateUserInfo(_ params:Dictionary<String,String>,callback:@escaping (AnyObject,String,Bool)->Void)
+    open func updateUserInfo(_ params:Dictionary<String,AnyObject>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
         
         let url = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.UPDATEUSERINFO
