@@ -18,7 +18,7 @@ class BaseConfigResponse :BaseResponse{
 		
         super.init(fromDictionary: dictionary)
         
-        if let resultData = dictionary["result"] as? NSDictionary{
+        if let resultData = dictionary as? NSDictionary{
             
 			result = Config(fromDictionary: resultData)
             

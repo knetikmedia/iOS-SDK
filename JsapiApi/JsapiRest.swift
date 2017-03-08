@@ -135,6 +135,9 @@ class JsapiRest :NSObject,URLSessionDelegate
                 
             return
             }
+            
+            print(functionURL)
+            
             let jsonResult : NSDictionary = (jsonResult2 as?NSDictionary)!;
             
             
@@ -271,8 +274,20 @@ class JsapiRest :NSObject,URLSessionDelegate
                 return;
             }
 
+            var jsonResult:NSDictionary = NSDictionary();
             
-            let jsonResult:NSDictionary = (jsonResult2 as? NSDictionary)!
+            if jsonResult2 is Array<Any> {
+                
+                jsonResult = ["result":jsonResult2]
+                
+                callback(jsonResult as! NSDictionary,false)
+
+                
+            }else{
+                
+                jsonResult = (jsonResult2 as? NSDictionary)!
+                
+            }
             
             
             

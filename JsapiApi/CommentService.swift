@@ -59,7 +59,7 @@ open class CommentService:NSObject
 
                 }else
                 {
-                    let commentResponse=CommentResponse(fromDictionary: (result["result"] as? NSDictionary)!);
+                    let commentResponse=CommentResponse(fromDictionary: (result as? NSDictionary)!);
 
                     callback(commentResponse.comments,"",issuccess)
                 }

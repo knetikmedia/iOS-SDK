@@ -19,7 +19,7 @@ class BaseAssetBatchResponse :BaseResponse{
         
         result = [BatchAssetPage]()
         
-		if let resultArray = dictionary["result"] as? [NSDictionary]{
+		if let resultArray = dictionary as? [NSDictionary]{
             
 			for dic in resultArray{
                 

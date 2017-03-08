@@ -15,7 +15,7 @@ class LeaderboardResponse :BaseResponse{
 	 */
 	override init(fromDictionary dictionary: NSDictionary){
         super.init(fromDictionary: dictionary)
-		if let resultData = dictionary["result"] as? NSDictionary{
+		if let resultData = dictionary as? NSDictionary{
 			leaderboard = Leaderboard(fromDictionary: resultData)
 		}
 	}
@@ -25,10 +25,10 @@ class LeaderboardResponse :BaseResponse{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		let dictionary = NSMutableDictionary()
+		var dictionary = NSMutableDictionary()
 	
         if leaderboard != nil{
-			dictionary["result"] = leaderboard.toDictionary()
+			dictionary = leaderboard.toDictionary() as! NSMutableDictionary
 		}
 		return dictionary
 	}

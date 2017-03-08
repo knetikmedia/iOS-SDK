@@ -12,64 +12,64 @@ class JSAPIConstant:NSObject
 class var OAUTH_TOKEN:String {return "/oauth/token" }  // Login EndPoNSNumber class
 class var TOKENBREAR:String {return "" }
 //Cart EndPoNSNumbers 
-class var SCARTS:String {return "/services/latest/carts" }  // SCARTS because there is carts class
-class var CARTSSKU:String {return "/services/latest/carts/skus" }  // SCARTS because there is carts class
-class var CARTCHECKOUT:String {return "/services/latest/carts/%@/checkout" }  // %@ CARTGUID
-class var CARTCOUNTRIES:String {return "/services/latest/carts/%@/countries" }  // %@ CARTGUID countries
-class var CARTDISCOUNT:String {return "/services/latest/carts/%@/discounts" }  // %@ CARTGUID discount
-class var CARTITEMS:String {return "/services/latest/carts/%@/items" }  // %@ CARTGUID discount
-class var SHIPPINGADDRESS:String {return "/services/latest/carts/%@/shipping-address" }  // %@ CARTGUID discount
-class var SHIPPABLE:String {return "/services/latest/carts/%@/shippable" }  // %@ CARTGUID discount
+class var SCARTS:String {return "/carts" }  // SCARTS because there is carts class
+class var CARTSSKU:String {return "/carts/skus" }  // SCARTS because there is carts class
+class var CARTCHECKOUT:String {return "/carts/%@/checkout" }  // %@ CARTGUID
+class var CARTCOUNTRIES:String {return "/carts/%@/countries" }  // %@ CARTGUID countries
+class var CARTDISCOUNT:String {return "/carts/%@/discounts" }  // %@ CARTGUID discount
+class var CARTITEMS:String {return "/carts/%@/items" }  // %@ CARTGUID discount
+class var SHIPPINGADDRESS:String {return "/carts/%@/shipping-address" }  // %@ CARTGUID discount
+class var SHIPPABLE:String {return "/carts/%@/shippable" }  // %@ CARTGUID discount
  ///End Carts
 
 //registration
-class var REGISTER:String {return "/services/latest/users" }  // Register EndpoNSNumber
-class var FORGOTPASSWORD:String {return "/services/latest/registration/forgotpassword"};
-class var GUESTUPGRADE:String {return "/services/latest/registration/guestupgrade"};
-class var GUESTS:String {return "/services/latest/registration/guests"};
+class var REGISTER:String {return "/users" }  // Register EndpoNSNumber
+class var FORGOTPASSWORD:String {return "/registration/forgotpassword"};
+class var GUESTUPGRADE:String {return "/registration/guestupgrade"};
+class var GUESTS:String {return "/registration/guests"};
 //EndRegister
     
 //User
-class var GETUSERINFO:String {return "/services/latest/users/me" }
-class var GETACHIEVEMENT:String {return "/services/latest/user/getachievement" }
-class var UPDATEUSERINFO:String {return "/services/latest/users/me"};
-class var SETUSERPASSWORD:String {return "/services/latest/user/%@/password"};
-class var GETUSERINFOBYID:String {return "/services/latest/users/%@"};
+class var GETUSERINFO:String {return "/users/me" }
+class var GETACHIEVEMENT:String {return "/user/getachievement" }
+class var UPDATEUSERINFO:String {return "/users/me"};
+class var SETUSERPASSWORD:String {return "/user/%@/password"};
+class var GETUSERINFOBYID:String {return "/users/%@"};
 
 //EndUser
 
     
 //Comment
-class var ADDCOMMENT:String {return "/services/latest/media/videos/%@/comments" }
-class var DELETECOMMENT:String {return "/services/latest/media/videos/%@/comments"};
-class var COMMENTLIST:String {return "/services/latest/media/videos/%@/comments"};
+class var ADDCOMMENT:String {return "/media/videos/%@/comments" }
+class var DELETECOMMENT:String {return "/media/videos/%@/comments"};
+class var COMMENTLIST:String {return "/media/videos/%@/comments"};
     
 //End Comment
     
 //FriendShip
-    class var ADDFRIEND:String {return "/services/latest/friendship/addfriend"}
-    class var GETFRIENDS:String {return "/services/latest/friendship/getfriends"}
-    class var REMOVEFRIEND:String {return "/services/latest/friendship/removefriend"}
-    class var SEARCHFRIEND:String {return "/services/latest/friendship/searchfriends"}
+    class var ADDFRIEND:String {return "/friendship/addfriend"}
+    class var GETFRIENDS:String {return "/friendship/getfriends"}
+    class var REMOVEFRIEND:String {return "/friendship/removefriend"}
+    class var SEARCHFRIEND:String {return "/friendship/searchfriends"}
 
 //End FriendShip
     
 //Videos
 
-    class var GETVIDEOS:String {return "/services/latest/media/videos"}
-    class var GETUSERVIDEOS:String {return "/services/latest/users/%@/videos"} // %@  userID
-    class var GETMYFAVORITESVIDEOS:String {return "/services/latest/users/%@/videos/favorited"} //%@ userID
-    class var DELETEVIDEO:String {return "/services/latest/media/videos/%@"};
+    class var GETVIDEOS:String {return "/media/videos"}
+    class var GETUSERVIDEOS:String {return "/users/%@/videos"} // %@  userID
+    class var GETMYFAVORITESVIDEOS:String {return "/users/%@/videos/favorited"} //%@ userID
+    class var DELETEVIDEO:String {return "/media/videos/%@"};
     class var VIDEOAVATAR:String {return "/api/videos/%@/uploader"};
 
-    class var VIEWVIDEO:String {return "/services/latest/media/videos/%@/views"};
+    class var VIEWVIDEO:String {return "/media/videos/%@/views"};
 
-    class var GETFRIENDSVIDEO:String {return "/services/latest/users/%@/friends/videos"}
-    class var ADDVIDEO:String {return "/services/latest/media/videos"}
-    class var UPDATEVIDEODETAILS:String {return "/services/latest/media/videos/%@"} //videoID
-    class var ADDUSERUPLOADEDMEDIAITEMASSESTS:String {return "/services/latest/videos/assets"}
-    class var ADDCONTRIBUTOR:String {return "/services/latest/media/videos/%@/contributors"}
-    class var ADDRELATEDVIDEO:String {return "/services/latest/media/videos/%@/related"}
+    class var GETFRIENDSVIDEO:String {return "/users/%@/friends/videos"}
+    class var ADDVIDEO:String {return "/media/videos"}
+    class var UPDATEVIDEODETAILS:String {return "/media/videos/%@"} //videoID
+    class var ADDUSERUPLOADEDMEDIAITEMASSESTS:String {return "/videos/assets"}
+    class var ADDCONTRIBUTOR:String {return "/media/videos/%@/contributors"}
+    class var ADDRELATEDVIDEO:String {return "/media/videos/%@/related"}
 
     
 
@@ -78,16 +78,16 @@ class var COMMENTLIST:String {return "/services/latest/media/videos/%@/comments"
    
     //DISPOSITION
     
-    class var DISPOSITION:String {return "/services/latest/dispositions"}
-    class var GETMINEDISPOSITION:String {return "/services/latest/dispositions/mine"}
+    class var DISPOSITION:String {return "/dispositions"}
+    class var GETMINEDISPOSITION:String {return "/dispositions/mine"}
 
-    class var GETMYDISPOSTION:String {return "/services/latest/dispositions"}
+    class var GETMYDISPOSTION:String {return "/dispositions"}
 
-    class var ADDDISPOSITION:String {return "/services/latest/dispositions/%@/%@"}
+    class var ADDDISPOSITION:String {return "/dispositions/%@/%@"}
 
-    class var DELETEDISPOSITION:String {return "/services/latest/dispositions/%@"};
+    class var DELETEDISPOSITION:String {return "/dispositions/%@"};
    
-    class var GETDISPOSITIONCOUNT:String {return "/services/latest/dispositions/count"};
+    class var GETDISPOSITIONCOUNT:String {return "/dispositions/count"};
 
     
 //End DISPOSITION
@@ -95,52 +95,52 @@ class var COMMENTLIST:String {return "/services/latest/media/videos/%@/comments"
     
     //FLAG
     
-    class var FLAGS:String {return "/services/latest/media/videos/%@/moderation"}
-    class var COMMENTFLAGS:String {return "/services/latest/media/videos/%@/moderation"}
+    class var FLAGS:String {return "/media/videos/%@/moderation"}
+    class var COMMENTFLAGS:String {return "/media/videos/%@/moderation"}
 
-    class var GETFLAGS:String {return "/services/latest/flags"};
-    class var DELETEFLAG:String {return "/services/latest/flags/%@"};
+    class var GETFLAGS:String {return "/flags"};
+    class var DELETEFLAG:String {return "/flags/%@"};
 
     //End FLAG
 
     
     //METRIC
     
-    class var ADDMETRIC:String {return "/services/latest/metrics"}
+    class var ADDMETRIC:String {return "/metrics"}
     
     //End METRIC
     
     
     //Leaderboard
     
-    class var LEADERBOARDS:String {return "/services/latest/leaderboards"}
-    class var GETSTRATEGIES:String {return "/services/latest/leaderboards/strategies"}
-    class var GETUSERRANK:String {return "/services/latest/leaderboards/%@/users/%@/rank"}
+    class var LEADERBOARDS:String {return "/leaderboards"}
+    class var GETSTRATEGIES:String {return "/leaderboards/strategies"}
+    class var GETUSERRANK:String {return "/leaderboards/%@/users/%@/rank"}
     
     //End Leaderboard
-    class var WALLETCHANGE:String {return "/services/latest/admin/walletchange"}
-    class var GETUSERWALLETS:String {return "/services/latest/users/%@/wallets"}
+    class var WALLETCHANGE:String {return "/admin/walletchange"}
+    class var GETUSERWALLETS:String {return "/users/%@/wallets"}
 
     //Wallet
 
     
 //Store
-    class var GETPAGE:String {return "/services/latest/store/getpage"};
-    class var VIRTUALITEMS:String {return "/services/latest/virtualitems"};
+    class var GETPAGE:String {return "/store/getpage"};
+    class var VIRTUALITEMS:String {return "/virtualitems"};
 
 //End Store
     
 //FAVORITE
-    class var ADDFAVORITE:String {return "/services/latest/favorite/add"};
-    class var GETFAVORITES:String {return "/services/latest/favorite/list"};
-    class var DELETEFAVORITE:String {return "/services/latest/favorite/delete"};
+    class var ADDFAVORITE:String {return "/favorite/add"};
+    class var GETFAVORITES:String {return "/favorite/list"};
+    class var DELETEFAVORITE:String {return "/favorite/delete"};
     
 //End FAVORITE
     
 //categories
-    class var GETCATEGORIES:String {return "/services/latest/categories"};
+    class var GETCATEGORIES:String {return "/categories"};
 
-    class var BREEVENT:String {return "/services/latest/bre/events"};
+    class var BREEVENT:String {return "/bre/events"};
     
     class var NOTIFICATIONS:String {return "/api/notifications"};
     class var SEENNOTIFICATIONS:String {return "/api/notifications/%@/view"};
@@ -151,29 +151,29 @@ class var COMMENTLIST:String {return "/services/latest/media/videos/%@/comments"
     class var READNOTIFICATIONS:String {return "/api/notifications/%@"};
 
     //
-    class var GETARTISTS:String {return "/services/latest/media/artists"}
-    class var GETARTISTDETAILS:String {return "/services/latest/media/artists/%@"}
+    class var GETARTISTS:String {return "/media/artists"}
+    class var GETARTISTDETAILS:String {return "/media/artists/%@"}
 
     class var POPULARVIDEOS:String {return "/api/videos"};
 
     
     //CHALLENGES
-    class var GETCHALLENGES:String {return "/services/latest/challenges"};
-    class var GETCHALLENGESBATCH:String {return "/services/latest/batch"};
-    class var GETCHALLENGEACTIVITYDETAILS:String {return "/services/latest/challenges/%@/activities/%@"};
-    class var GETCHALLENGEACTIVITY:String {return "/services/latest/challenges/%@/activities"};
+    class var GETCHALLENGES:String {return "/challenges"};
+    class var GETCHALLENGESBATCH:String {return "/batch"};
+    class var GETCHALLENGEACTIVITYDETAILS:String {return "/challenges/%@/activities/%@"};
+    class var GETCHALLENGEACTIVITY:String {return "/challenges/%@/activities"};
 
     
     //Config
-    class var CONFIG:String {return "/services/latest/configs/%@"};
+    class var CONFIG:String {return "/configs/%@"};
 
     // friendship
     
     class var AUTOFRIENDSHIP:String {return "/api/friends/facebookCheck"}
-    class var GETARTICLES:String {return "/services/latest/media/articles"};
-    class var GETACHIEVEMENTLIST:String {return "/services/latest/achievements"};
-    class var GETUSERACHIEVEMENTLIST:String {return "/services/latest/users/%@/achievements"};
-    class var GETSINGLEACHIEVEMENT:String {return "/services/latest/achievements/%@"};
+    class var GETARTICLES:String {return "/media/articles"};
+    class var GETACHIEVEMENTLIST:String {return "/achievements"};
+    class var GETUSERACHIEVEMENTLIST:String {return "/users/%@/achievements"};
+    class var GETSINGLEACHIEVEMENT:String {return "/achievements/%@"};
 
     
     // ERROR CONNECTION

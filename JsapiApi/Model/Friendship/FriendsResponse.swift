@@ -15,7 +15,7 @@ class FriendsResponse:BaseResponse{
     override init(fromDictionary dictionary: NSDictionary)
     {
         super.init(fromDictionary: dictionary)
-      if let friendsData = dictionary["result"] as? NSDictionary{
+      if let friendsData = dictionary as? NSDictionary{
             friends = Friend(fromDictionary: friendsData)
         }
     }

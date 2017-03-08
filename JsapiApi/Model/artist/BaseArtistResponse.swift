@@ -18,7 +18,7 @@ class BaseArtistResponse:BaseResponse{
      
         super.init(fromDictionary: dictionary);
 
-        if let resultData = dictionary["result"] as? NSDictionary{
+        if let resultData = dictionary as? NSDictionary{
             
 			result = ArtistPage(fromDictionary: resultData)
             
@@ -36,7 +36,7 @@ class BaseArtistResponse:BaseResponse{
         
         super.init(fromDictionary: dictionary);
         
-        if let resultData = dictionary["result"] as? NSDictionary{
+        if let resultData = dictionary as? NSDictionary{
             
             artistDetails = ArtistObject(fromDictionary: resultData)
             

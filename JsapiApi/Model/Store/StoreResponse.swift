@@ -16,7 +16,7 @@ class StoreResponse:BaseResponse{
 	override init(fromDictionary dictionary: NSDictionary){
         super.init(fromDictionary: dictionary)
 		pages = [Page]()
-		if let pagesArray = dictionary["result"] as? [NSDictionary]{
+		if let pagesArray = dictionary as? [NSDictionary]{
 			for dic in pagesArray{
 				let value = Page(fromDictionary: dic)
 				pages.append(value)

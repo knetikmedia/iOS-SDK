@@ -16,7 +16,7 @@ class StrategiesResponse:BaseResponse{
 	override init(fromDictionary dictionary: NSDictionary){
         super.init(fromDictionary: dictionary)
 	
-        strategies = dictionary["result"] as? [String]
+        strategies = dictionary as? [String]
 	}
 
 }

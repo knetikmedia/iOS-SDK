@@ -17,7 +17,7 @@ class AchievementsSingleResponse :BaseResponse{
         
         super.init(fromDictionary: dictionary)
         
-        if let resultData = dictionary["result"] as? NSDictionary{
+        if let resultData = dictionary as? NSDictionary{
             
             content = Achievements(fromDictionary: resultData)
             

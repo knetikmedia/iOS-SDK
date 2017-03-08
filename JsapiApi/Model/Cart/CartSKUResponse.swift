@@ -14,7 +14,7 @@ class CartSKUResponse:BaseResponse{
 	 */
 	override init(fromDictionary dictionary: NSDictionary){
         super.init(fromDictionary: dictionary)
-		if let cartskuData = dictionary["result"] as? NSDictionary{
+		if let cartskuData = dictionary as? NSDictionary{
 			cartsku = Cartsku(fromDictionary: cartskuData)
 		}
 	}

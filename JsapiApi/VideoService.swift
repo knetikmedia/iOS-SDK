@@ -31,7 +31,7 @@ open class VideoService:NSObject
                     
                 }else
                 {
-                    let baseResponse=VideoResponse(fromDictionary: result["result"] as! NSDictionary)
+                    let baseResponse=VideoResponse(fromDictionary: result as! NSDictionary)
 
                     callback(baseResponse.videos,baseResponse.page,"",issuccess)
                     
@@ -54,7 +54,7 @@ open class VideoService:NSObject
                     
                 }else
                 {
-                    let baseResponse=VideoResponse(fromDictionary: result["result"] as! NSDictionary)
+                    let baseResponse=VideoResponse(fromDictionary: result as! NSDictionary)
                     
                     callback(baseResponse.videos,baseResponse.page,"",issuccess)
                     
@@ -86,7 +86,7 @@ open class VideoService:NSObject
                     
                 }else
                 {
-                      let baseResponse=VideoResponse(fromDictionary: result["result"] as! NSDictionary)
+                      let baseResponse=VideoResponse(fromDictionary: result as! NSDictionary)
                     callback(baseResponse.videos,baseResponse.page,"",issuccess)
                     
                 }
@@ -112,7 +112,7 @@ open class VideoService:NSObject
                 
             }else
             {
-                let baseResponse=VideoResponse(fromDictionary: result["result"] as! NSDictionary)
+                let baseResponse=VideoResponse(fromDictionary: result as! NSDictionary)
                 callback(result,baseResponse.page,"",issuccess)
                 
             }
@@ -174,7 +174,7 @@ open class VideoService:NSObject
                     callback(baseResponse.videos,baseResponse.errormessage,issuccess)
                 }else
                 {
-                    let baseResponse=VideoResponse(fromDictionary: result["result"] as! NSDictionary)
+                    let baseResponse=VideoResponse(fromDictionary: result as! NSDictionary)
 
                     callback(baseResponse.videos,"",issuccess)
                 }
@@ -452,7 +452,7 @@ open class VideoService:NSObject
                     callback(baseResponse.content,baseResponse.errormessage,issuccess)
                 }else
                 {
-                    let baseResponse=RelationshipdBaseResponse(fromDictionary: result["result"] as! NSDictionary)
+                    let baseResponse=RelationshipdBaseResponse(fromDictionary: result as! NSDictionary)
                     
                     callback(baseResponse.content,"",issuccess)
                 }

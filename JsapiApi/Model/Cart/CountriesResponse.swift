@@ -15,7 +15,7 @@ class CountriesResponse:BaseResponse{
 	 */
 	override init(fromDictionary dictionary: NSDictionary){
         super.init(fromDictionary: dictionary)
-		if let countriesData = dictionary["result"] as? NSDictionary{
+		if let countriesData = dictionary as? NSDictionary{
 			countries = Countries(fromDictionary: countriesData)
 		}
 	}

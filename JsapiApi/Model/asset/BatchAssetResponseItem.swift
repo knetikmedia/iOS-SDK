@@ -15,7 +15,7 @@ open class BatchAssetResponseItem : NSObject{
 	 */
 	init(fromDictionary dictionary: NSDictionary){
 	  
-		if let resultData = dictionary["result"] as? NSDictionary{
+		if let resultData = dictionary as? NSDictionary{
             
 			result = BatchAssetPage(fromDictionary: resultData)
 		}
