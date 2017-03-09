@@ -31,7 +31,7 @@ open class SimpleUser:NSObject{
          avatarUrl = dictionary["avatar_url"] as? String
         }
         
-		displayName = dictionary["displayname"] as? String
+		displayName = dictionary["display_name"] as? String
         
         name = dictionary["name"] as? String
         
@@ -53,7 +53,7 @@ open class SimpleUser:NSObject{
             dictionary["id"] = userId
         }
         if displayName != nil{
-            dictionary["displayName"] = displayName
+            dictionary["display_name"] = displayName
         }
         
         if name != nil{

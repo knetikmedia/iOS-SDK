@@ -21,12 +21,12 @@ open class WalletRequest :NSObject {
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
 	init(fromDictionary dictionary: NSDictionary){
-		currencyType = dictionary["currencyType"] as? String
+		currencyType = dictionary["currency_type"] as? String
 		delta = dictionary["delta"] as? NSNumber
-		invoiceId = dictionary["invoiceId"] as? NSNumber
+		invoiceId = dictionary["invoice_id"] as? NSNumber
 		reason = dictionary["reason"] as? String
 		type = dictionary["type"] as? String
-		userId = dictionary["userId"] as? NSNumber
+		userId = dictionary["user_id"] as? NSNumber
 		username = dictionary["username"] as? String
 	}
 
@@ -37,13 +37,13 @@ open class WalletRequest :NSObject {
 	{
 		let dictionary = NSMutableDictionary()
 		if currencyType != nil{
-			dictionary["currencyType"] = currencyType
+			dictionary["currency_type"] = currencyType
 		}
 		if delta != nil{
 			dictionary["delta"] = delta
 		}
 		if invoiceId != nil{
-			dictionary["invoiceId"] = invoiceId
+			dictionary["invoice_id"] = invoiceId
 		}
 		if reason != nil{
 			dictionary["reason"] = reason
@@ -52,7 +52,7 @@ open class WalletRequest :NSObject {
 			dictionary["type"] = type
 		}
 		if userId != nil{
-			dictionary["userId"] = userId
+			dictionary["user_id"] = userId
 		}
 		if username != nil{
 			dictionary["username"] = username

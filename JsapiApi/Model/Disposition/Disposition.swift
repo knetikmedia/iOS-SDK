@@ -12,7 +12,7 @@ open class Disposition:NSObject{
     }
 
 	open var context : String!
-	open var contextId : NSNumber!
+	open var contextId : String!
 	open var created : NSNumber!
 	open var dispositionId : NSNumber!
 	open var name : String!
@@ -25,7 +25,7 @@ open class Disposition:NSObject{
 	 */
 	init(fromDictionary dictionary: NSDictionary){
 		context = dictionary["context"] as? String
-		contextId = dictionary["contextId"] as? NSNumber
+		contextId = dictionary["context_id"] as? String
 		created = dictionary["created"] as? NSNumber
 		dispositionId = dictionary["id"] as? NSNumber
 		name = dictionary["name"] as? String
@@ -44,8 +44,11 @@ open class Disposition:NSObject{
 		if context != nil{
 			dictionary["context"] = context
 		}
+        if name != nil{
+            dictionary["name"] = name
+        }
 		if contextId != nil{
-			dictionary["contextId"] = contextId
+			dictionary["context_id"] = contextId
 		}
 		if created != nil{
 			dictionary["created"] = created

@@ -31,9 +31,9 @@ open class Leaderboard:NSObject{
 			}
 		}
 		leaderboardId = dictionary["id"] as? NSNumber
-		longDescription = dictionary["longDescription"] as? String as AnyObject!
+		longDescription = dictionary["long_description"] as? String as AnyObject!
 		name = dictionary["name"] as? String as AnyObject!
-		shortDescription = dictionary["shortDescription"] as? String as AnyObject!
+		shortDescription = dictionary["short_description"] as? String as AnyObject!
 		strategy = dictionary["strategy"] as? String
 		updated = dictionary["updated"] as? NSNumber
 	}
@@ -58,13 +58,13 @@ open class Leaderboard:NSObject{
 			dictionary["id"] = leaderboardId
 		}
 		if longDescription != nil{
-			dictionary["longDescription"] = longDescription
+			dictionary["long_description"] = longDescription
 		}
 		if name != nil{
 			dictionary["name"] = name
 		}
 		if shortDescription != nil{
-			dictionary["shortDescription"] = shortDescription
+			dictionary["short_description"] = shortDescription
 		}
 		if strategy != nil{
 			dictionary["strategy"] = strategy

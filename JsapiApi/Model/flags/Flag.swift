@@ -22,7 +22,7 @@ open class Flag :NSObject {
 	init(fromDictionary dictionary: NSDictionary){
         
 		context = dictionary["context"] as? String
-		contextId = dictionary["contextId"] as? String
+		contextId = dictionary["context_id"] as? String
 		created = dictionary["created"] as? Int as NSNumber!
 		flagId = dictionary["id"] as? NSNumber
 		reason = dictionary["reason"] as? String
@@ -43,7 +43,7 @@ open class Flag :NSObject {
 			dictionary["context"] = context
 		}
 		if contextId != nil{
-			dictionary["contextId"] = contextId
+			dictionary["context_id"] = contextId
 		}
 		if created != nil{
 			dictionary["created"] = created

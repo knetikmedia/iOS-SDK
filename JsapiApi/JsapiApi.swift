@@ -120,7 +120,12 @@ open class JsapiAPi:NSObject
                         callback(result,false)
                         return
                     }
-                    
+                    if(!((result.value(forKey: "access_token") != nil))){
+                        callback(result,false)
+                        return
+                        
+                    }
+
                     self.token=result.value(forKey: "access_token") as! String!
                     self.token_type=result.value(forKey: "token_type") as! String!
                     if(result.value(forKey: "refresh_token") != nil){
@@ -148,6 +153,12 @@ open class JsapiAPi:NSObject
                 (result:NSDictionary,issuccess:Bool) in
                 if(issuccess)
                 {
+                    if(!((result.value(forKey: "access_token") != nil))){
+                        callback(result,false)
+                        return
+                        
+                    }
+
                     self.token=result.value(forKey: "access_token") as! String!
                     self.token_type=result.value(forKey: "token_type") as! String!
                     if(result.value(forKey: "refresh_token") != nil){
@@ -172,10 +183,15 @@ open class JsapiAPi:NSObject
                 (result:NSDictionary,issuccess:Bool) in
                 if(issuccess)
                 {
-                    if(result.count == 0 ){
+                    if(result.count == 0){
                     
                         callback(result,false)
                         return
+                    }
+                    if(!((result.value(forKey: "access_token") != nil))){
+                        callback(result,false)
+                        return
+
                     }
                     
                     self.token=result.value(forKey: "access_token") as! String!

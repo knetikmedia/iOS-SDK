@@ -71,10 +71,15 @@ open class Video :NSObject{
         
 		length = dictionary["length"] as? NSNumber
 		location = dictionary["location"] as? String
-		longDescription = dictionary["longDescription"] as? String
+		longDescription = dictionary["long_description"] as? String
 		mimeType = dictionary["mime_type"] as? String
 		name = dictionary["name"] as? String
-		shortDescription = dictionary["shortDescription"] as? String
+		shortDescription = dictionary["short_description"] as? String
+        
+        if(shortDescription == nil){
+            shortDescription = dictionary["shortDescription"] as? String
+        }
+
         privacy = dictionary["privacy"] as? String
 
 		size = dictionary["size"] as? NSNumber
@@ -92,7 +97,11 @@ open class Video :NSObject{
 		}
 		width = dictionary["width"] as? NSNumber
         views = dictionary["views"] as? NSNumber
+        parentId = dictionary["parent_id"] as? NSNumber
+        
+        if(parentId == nil){
         parentId = dictionary["parentId"] as? NSNumber
+        }
 
         if let categoryData = dictionary["category"] as? NSDictionary{
             videoCategory = CategoryObject(fromDictionary: categoryData)
@@ -150,7 +159,7 @@ open class Video :NSObject{
 			dictionary["location"] = location
 		}
 		if longDescription != nil{
-			dictionary["longDescription"] = longDescription
+			dictionary["long_description"] = longDescription
 		}
 		if mimeType != nil{
 			dictionary["mime_type"] = mimeType
@@ -159,7 +168,7 @@ open class Video :NSObject{
 			dictionary["name"] = name
 		}
 		if shortDescription != nil{
-			dictionary["shortDescription"] = shortDescription
+			dictionary["short_description"] = shortDescription
 		}
 		if size != nil{
 			dictionary["size"] = size

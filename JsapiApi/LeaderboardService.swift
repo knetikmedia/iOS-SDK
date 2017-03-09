@@ -72,7 +72,7 @@ open class LeaderboardService:NSObject
     {
         let url  = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETUSERRANK
         
-        let methodUrl=NSString(format: url as NSString, (params["leaderboardId"] as?String)!,(params["userId"] as?String)!)
+        let methodUrl=NSString(format: url as NSString, (params["leaderboard_id"] as?String)!,(params["user_id"] as?String)!)
 
         JsapiRest.sharedInstance.getRequest(methodUrl as String, postParams: Utilities.getGETRequestFromDictionary(params))
             {

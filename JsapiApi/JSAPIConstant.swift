@@ -79,11 +79,11 @@ class var COMMENTLIST:String {return "/media/videos/%@/comments"};
     //DISPOSITION
     
     class var DISPOSITION:String {return "/dispositions"}
-    class var GETMINEDISPOSITION:String {return "/dispositions/mine"}
+    class var GETMINEDISPOSITION:String {return "/dispositions"}
 
     class var GETMYDISPOSTION:String {return "/dispositions"}
 
-    class var ADDDISPOSITION:String {return "/dispositions/%@/%@"}
+    class var ADDDISPOSITION:String {return "/dispositions"}
 
     class var DELETEDISPOSITION:String {return "/dispositions/%@"};
    

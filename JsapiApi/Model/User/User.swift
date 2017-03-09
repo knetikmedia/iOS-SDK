@@ -102,18 +102,18 @@ open class User:NSObject{
     */
     init(fromDictionary dictionary: NSDictionary){
         age = dictionary["age"] as? NSNumber
-        displayname = dictionary["displayname"] as? String
-        avatarUrl = dictionary["avatarUrl"] as? String
+        displayname = dictionary["display_name"] as? String
+        avatarUrl = dictionary["avatar_url"] as? String
         country = dictionary["country"] as? String
         dateOfBirth = dictionary["date_of_birth"] as AnyObject!
         email = dictionary["email"] as? String
-        firstName = dictionary["firstName"] as? String
+        firstName = dictionary["first_name"] as? String
         fullname = dictionary["fullname"] as? String
         gender = dictionary["gender"] as? String
         userId = dictionary["id"] as? NSNumber
         inventory = dictionary["inventory"] as AnyObject!
         lang = dictionary["lang"] as AnyObject!
-        lastName = dictionary["lastName"] as? String
+        lastName = dictionary["last_name"] as? String
         mobileNumber = dictionary["mobile_number"] as AnyObject!
         productItem = dictionary["product_item"] as AnyObject!
         token = dictionary["token"] as AnyObject!
@@ -144,28 +144,28 @@ open class User:NSObject{
             dictionary["address2"] = address2
         }
         if avatarUrl != nil{
-            dictionary["avatarUrl"] = avatarUrl
+            dictionary["avatar_url"] = avatarUrl
         }
         if city != nil{
             dictionary["city"] = city
         }
         if countryCode != nil{
-            dictionary["countryCode"] = countryCode
+            dictionary["country_code"] = countryCode
         }
         if currencyCode != nil{
-            dictionary["currencyCode"] = currencyCode
+            dictionary["currency_code"] = currencyCode
         }
         if dateOfBirth != nil{
-            dictionary["dateOfBirth"] = dateOfBirth
+            dictionary["date_of_birth"] = dateOfBirth
         }
         if displayname != nil{
-            dictionary["displayname"] = displayname
+            dictionary["display_name"] = displayname
         }
         if email != nil{
             dictionary["email"] = email
         }
         if firstName != nil{
-            dictionary["firstName"] = firstName
+            dictionary["first_name"] = firstName
         }
         if fullname != nil{
             dictionary["fullname"] = fullname
@@ -174,22 +174,22 @@ open class User:NSObject{
             dictionary["gender"] = gender
         }
         if languageCode != nil{
-            dictionary["languageCode"] = languageCode
+            dictionary["language_code"] = languageCode
         }
         if lastName != nil{
-            dictionary["lastName"] = lastName
+            dictionary["last_name"] = lastName
         }
         if mobileNumber != nil{
-            dictionary["mobileNumber"] = mobileNumber
+            dictionary["mobile_number"] = mobileNumber
         }
         if postalCode != nil{
-            dictionary["postalCode"] = postalCode
+            dictionary["postal_code"] = postalCode
         }
         if state != nil{
             dictionary["state"] = state
         }
         if timezoneCode != nil{
-            dictionary["timezoneCode"] = timezoneCode
+            dictionary["timezone_code"] = timezoneCode
         }
         if username != nil{
             dictionary["username"] = username

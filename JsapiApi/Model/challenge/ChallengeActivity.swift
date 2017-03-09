@@ -24,11 +24,11 @@ open class ChallengeActivity :NSObject{
 	 */
 	init(fromDictionary dictionary: NSDictionary){
         
-		activityId = dictionary["activityId"] as? NSNumber
-		challengeId = dictionary["challengeId"] as? NSNumber
+		activityId = dictionary["activity_id"] as? NSNumber
+		challengeId = dictionary["challenge_id"] as? NSNumber
 		entitlement = dictionary["entitlement"] as? NSDictionary
 		challengeActivityId = dictionary["id"] as? NSNumber
-		if let rewardSetData = dictionary["rewardSet"] as? NSDictionary{
+		if let rewardSetData = dictionary["reward_set"] as? NSDictionary{
 			rewardSet = RewardSet(fromDictionary: rewardSetData)
 		}
 		settings = [Setting]()
