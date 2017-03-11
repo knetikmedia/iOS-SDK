@@ -18,7 +18,7 @@ open class AssetContent : NSObject {
 	 */
 	init(fromDictionary dictionary: NSDictionary){
         
-		data = dictionary["data"] as? NSDictionary
+        data = dictionary;
         
         displayName = dictionary["display_name"] as? String
         

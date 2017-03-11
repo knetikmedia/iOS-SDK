@@ -251,7 +251,7 @@ class JsapiRest :NSObject,URLSessionDelegate
            // self.requests.removeValueForKey(request.URL!.absoluteString)
 
             let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-
+          //  print(responseString)
             let httpResponse = response as! HTTPURLResponse
 
             if(httpResponse.statusCode == 301 || httpResponse.statusCode == 307 ){

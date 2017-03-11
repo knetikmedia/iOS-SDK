@@ -128,7 +128,7 @@ open class User:NSObject{
             }
         }
         
-        if let propertiesData = dictionary["properties"] as? NSDictionary{
+        if let propertiesData = dictionary["additional_properties"] as? NSDictionary{
             properties = Propertie(fromDictionary: propertiesData)
         }
 
@@ -198,7 +198,7 @@ open class User:NSObject{
             dictionary["password"] = password
         }
         if properties != nil{
-            dictionary["properties"] = properties.toDictionary()
+            dictionary["additional_properties"] = properties.toDictionary()
         }
         return dictionary
     }

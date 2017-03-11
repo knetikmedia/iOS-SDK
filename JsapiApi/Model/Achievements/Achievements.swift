@@ -25,6 +25,7 @@ open class Achievements : NSObject{
     open var progress : NSNumber!
     open var userId : NSNumber!
     open var achievement : String!
+    open var group_name : String!
 
     override public init(){super.init()
         assets = [AssetContent]()
@@ -36,11 +37,31 @@ open class Achievements : NSObject{
 	 */
 	init(fromDictionary dictionary: NSDictionary){
 		assets = [AssetContent]()
-		if let assetsArray = dictionary["assets"] as? [NSDictionary]{
-			for dic in assetsArray{
-				let value = AssetContent(fromDictionary: dic)
-				assets.append(value)
-			}
+        let assetsArray = dictionary["additional_properties"] as? NSDictionary
+        
+        if (assetsArray != nil) {
+            
+            let earnedDictionary = assetsArray?["earned"] as? NSDictionary
+            let unearnedDictionary = assetsArray?["unearned"] as? NSDictionary
+
+            if(unearnedDictionary != nil){
+                let unearned = AssetContent(fromDictionary: unearnedDictionary!)
+                
+                assets.append(unearned)
+                
+            }
+
+            
+            if(earnedDictionary != nil){
+                
+                let earned = AssetContent(fromDictionary: earnedDictionary!)
+
+            	assets.append(earned)
+
+            }
+            
+            
+            
 		}
 		created = dictionary["created"] as? NSNumber
 		deleted = dictionary["deleted"] as? NSNumber
@@ -61,6 +82,16 @@ open class Achievements : NSObject{
         progress = dictionary["progress"] as? NSNumber
         updated = dictionary["updated"] as? NSNumber
         userId = dictionary["user_id"] as? NSNumber
+        group_name = dictionary["group_name"] as? String
+        
+        if let contentArray = dictionary["achievements"] as? [NSDictionary]{
+            for dic in contentArray{
+                achieved = dic["achieved"] as? NSNumber
+                achievement = dic["achievement_name"] as? String
+
+            }
+        }
+
 	}
 
 }

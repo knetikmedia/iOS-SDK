@@ -170,7 +170,7 @@ class var COMMENTLIST:String {return "/media/videos/%@/comments"};
     // friendship
     
     class var AUTOFRIENDSHIP:String {return "/api/friends/facebookCheck"}
-    class var GETARTICLES:String {return "/media/articles"};
+    class var GETARTICLES:String {return "/content/articles"};
     class var GETACHIEVEMENTLIST:String {return "/achievements"};
     class var GETUSERACHIEVEMENTLIST:String {return "/users/%@/achievements"};
     class var GETSINGLEACHIEVEMENT:String {return "/achievements/%@"};
