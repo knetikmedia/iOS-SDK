@@ -137,6 +137,9 @@ open class User:NSObject{
     open func toDictionary() -> NSDictionary
     {
         let dictionary = NSMutableDictionary()
+        if userId != nil{
+            dictionary["id"] = userId
+        }
         if address != nil{
             dictionary["address"] = address
         }
