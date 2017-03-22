@@ -57,7 +57,7 @@ open class Video :NSObject{
 				contributors.append(value)
 			}
 		}
-		created = dictionary["created"] as? NSNumber
+		created = dictionary["created_date"] as? NSNumber
 		embed = dictionary["embed"] as? String
 		videoExtension = dictionary["extension"] as? String
 		height = dictionary["height"] as? NSNumber
@@ -87,7 +87,7 @@ open class Video :NSObject{
         if(thumbnail == nil){
             thumbnail = ""
         }
-		updated = dictionary["updated"] as? NSNumber
+		updated = dictionary["updated_date"] as? NSNumber
         likes = dictionary["likes"] as? NSNumber
         popularity = dictionary["popularity"] as? NSNumber
 
@@ -138,7 +138,7 @@ open class Video :NSObject{
 			dictionary["contributors"] = dictionaryElements
 		}
 		if created != nil{
-			dictionary["created"] = created
+			dictionary["created_date"] = created
 		}
 		if embed != nil{
 			dictionary["embed"] = embed
@@ -174,7 +174,7 @@ open class Video :NSObject{
 			dictionary["size"] = size
 		}
 		if updated != nil{
-			dictionary["updated"] = updated
+			dictionary["updated_date"] = updated
 		}
 		if uploader != nil{
 			dictionary["uploader"] = uploader.toDictionary()
