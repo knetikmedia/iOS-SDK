@@ -35,7 +35,7 @@ open class Challenge :NSObject{
 		activities = dictionary["activities"] as? NSNumber
 		campaignId = dictionary["campaign_id"] as? NSNumber
 		copyOf = dictionary["copy_of"] as? NSNumber
-		created = dictionary["created"] as? NSNumber
+		created = dictionary["created_date"] as? NSNumber
 		endDate = dictionary["end_date"] as? NSNumber
 		challengeId = dictionary["id"] as? NSNumber
 		leaderboardStrategy = dictionary["leaderboard_strategy"] as? String
@@ -82,7 +82,7 @@ open class Challenge :NSObject{
 			dictionary["copy_of"] = copyOf
 		}
 		if created != nil{
-			dictionary["created"] = created
+			dictionary["created_date"] = created
 		}
 		if endDate != nil{
 			dictionary["end_date"] = endDate

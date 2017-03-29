@@ -9,6 +9,7 @@ open class ChallengeAdditionalPropertie:NSObject{
 
 	open var mainDash : ChallengeAsset!
 	open var sponsorImage : ChallengeAsset!
+    open var prmotionText : NSDictionary!
 
 
 	/**
@@ -21,6 +22,22 @@ open class ChallengeAdditionalPropertie:NSObject{
 		if let sponsorImageData = dictionary["Sponsor Image"] as? NSDictionary{
 			sponsorImage = ChallengeAsset(fromDictionary: sponsorImageData)
 		}
+        
+        if(sponsorImage == nil){
+        if let sponsorImageData = dictionary["Sponsor_Image"] as? NSDictionary{
+            sponsorImage = ChallengeAsset(fromDictionary: sponsorImageData)
+        }
+        }
+        
+        if(sponsorImage == nil){
+            if let sponsorImageData = dictionary["SponsorImage"] as? NSDictionary{
+                sponsorImage = ChallengeAsset(fromDictionary: sponsorImageData)
+            }
+        }
+        
+            if let prmotionTextData = dictionary["PromotionalText"] as? NSDictionary{
+                prmotionText = prmotionTextData
+            }
 	}
 
 	/**
