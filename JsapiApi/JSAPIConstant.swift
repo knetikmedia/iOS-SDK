@@ -35,6 +35,7 @@ class var GETACHIEVEMENT:String {return "/user/getachievement" }
 class var UPDATEUSERINFO:String {return "/users/me"};
 class var SETUSERPASSWORD:String {return "/user/%@/password"};
 class var GETUSERINFOBYID:String {return "/users/%@"};
+class var SETUSERGROUP:String {return "/users/groups/%@/members"};
 
 //EndUser
 

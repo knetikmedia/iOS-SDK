@@ -506,7 +506,7 @@ class JsapiRest :NSObject,URLSessionDelegate
 //                return;
 //            }
             
-            if(jsonResult["error"] != nil )
+            if(jsonResult["error"] != nil || ( jsonResult["code"] != nil && jsonResult["code"] as?Int != 0 ) )
             {
                 if(jsonResult ["error"] as?String == "invalid_token") {
                     

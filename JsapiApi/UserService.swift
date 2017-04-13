@@ -153,5 +153,34 @@ open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escap
         }
     }
     
+    
+    /**set user Group /users/groups/{unique_name}/members
+     *@param params Dictionary {password: newPasswordString}
+     *@param callback
+     */
+    open func addUserToGroup(_ params:Dictionary<String,String>,groupName:String,callback:@escaping (AnyObject,String,Bool)->Void)
+    {
+        let endpoint=NSString(format: JSAPIConstant.SETUSERGROUP as NSString,groupName)
+        
+        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String);
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            let baseResponse=BaseResponse(fromDictionary: result)
+            if(!issuccess)
+            {
+                print(result["error"])
+                print(result["error_description"])
+                callback(baseResponse,baseResponse.errormessage,issuccess)
+                
+            }else
+            {
+                print(result)
+                callback(baseResponse,"",issuccess)
+                
+            }
+        }
+    }
+
 
 }

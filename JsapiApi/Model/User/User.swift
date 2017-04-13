@@ -7,7 +7,6 @@ import Foundation
 
 open class User:NSObject{
     
- 
     open var age : NSNumber!
     open var avatarUrl : String!
     open var displayname : String!
@@ -119,7 +118,6 @@ open class User:NSObject{
         token = dictionary["token"] as AnyObject!
         username = dictionary["username"] as? String
         password = dictionary["password"] as? String
-
         wallet = [Wallet]()
         if let walletArray = dictionary["wallet"] as? [NSDictionary]{
             for dic in walletArray{
