@@ -346,7 +346,6 @@ class JsapiRest :NSObject,URLSessionDelegate
         let task = session.dataTask(with: request  as URLRequest, completionHandler: {
             data, response, error in
             
-            let httpResponse = response as! HTTPURLResponse
             
             if error != nil {
                 
@@ -357,6 +356,9 @@ class JsapiRest :NSObject,URLSessionDelegate
 
                 return
             }
+            
+            let httpResponse = response as! HTTPURLResponse
+
             
            // self.requests.removeValueForKey(request.URL!.absoluteString)
             
