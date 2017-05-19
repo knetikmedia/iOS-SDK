@@ -121,6 +121,34 @@ open class NotificationService : NSObject
                 
         }
     }
+    
+    
+    /** Add  Notification
+     *@param params Dictionary
+     *@param callback
+     */
+    open func markNotificationAsDeleted(_ notificationID:String, params:Dictionary<String,AnyObject> , callback:@escaping (AnyObject,String,Bool)->Void)
+    {
+        let url  = JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.DELETENOTIFICATIONS
+        
+        let methodUrl:String=NSString(format: url as NSString ,notificationID) as String
+        
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            
+            let baseResponse=BaseResponse(fromDictionary: result)
+            
+            if(!issuccess)
+            {
+                callback(baseResponse,baseResponse.errormessage,issuccess)
+            }else
+            {
+                callback(baseResponse,"",issuccess)
+            }
+            
+        }
+    }
 
     /** Add  Notification
      *@param params Dictionary

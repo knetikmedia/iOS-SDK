@@ -145,6 +145,8 @@ class var COMMENTLIST:String {return "/media/videos/%@/comments"};
     
     class var NOTIFICATIONS:String {return "/api/notifications"};
     class var SEENNOTIFICATIONS:String {return "/api/notifications/%@/view"};
+    class var DELETENOTIFICATIONS:String {return "/api/notifications/%@/delete"};
+
     class var SEENALLNOTIFICATIONS:String {return "/api/notifications/viewAll"};
 
     class var NOTIFICATIONSCHALLENGECODE:String {return "/api/notifications/identifier"};
