@@ -26,6 +26,7 @@ open class Achievements : NSObject{
     open var userId : NSNumber!
     open var achievement : String!
     open var group_name : String!
+    open var order : Order!
 
     override public init(){super.init()
         assets = [AssetContent]()
@@ -58,6 +59,10 @@ open class Achievements : NSObject{
 
             	assets.append(earned)
 
+            }
+            
+            if let orderData = assetsArray?["order"] as? NSDictionary{
+                order = Order(fromDictionary: orderData)
             }
             
             
