@@ -78,7 +78,18 @@ open class User:NSObject{
     open func getMobileNumber()->AnyObject{return mobileNumber}
     open func getProductItem()->AnyObject{return productItem}
     open func getToken()->AnyObject{return token}
-    open func getUsername()->String{return username}
+    open func getUsername()->String{
+    
+    if((username) != nil)
+        {
+        return username
+        
+        }
+    else {
+        return ""
+        }
+    }
+    
     open func getWallet()->Array<Wallet>{return wallet}
     open func getDisplayName()->String{
         if((displayname) != nil)
