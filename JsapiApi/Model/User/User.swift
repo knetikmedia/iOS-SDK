@@ -62,7 +62,21 @@ open class User:NSObject{
         }
     }
     open func getGender()->String{return gender}
-    open func getId()->NSNumber{return userId}
+    open func getId()->NSNumber{
+        
+        
+            if(userId != nil)
+            {
+                return userId
+                
+            }
+            else {
+                return NSNumber.init(value: 0)
+            }
+            
+        
+    
+    }
     open func getInventory()->AnyObject{return inventory}
     open func getLang()->AnyObject{return lang}
     open func getLastName()->String{

@@ -158,6 +158,7 @@ class var COMMENTLIST:String {return "/media/videos/%@/comments"};
     class var GETARTISTDETAILS:String {return "/media/artists/%@"}
 
     class var POPULARVIDEOS:String {return "/api/videos"};
+    class var DASHBOARDLEFTLINKSVIDEOS:String {return "/api/dashboard"};
 
     
     //CHALLENGES
@@ -177,6 +178,9 @@ class var COMMENTLIST:String {return "/media/videos/%@/comments"};
     class var GETACHIEVEMENTLIST:String {return "/achievements"};
     class var GETUSERACHIEVEMENTLIST:String {return "/users/%@/achievements"};
     class var GETSINGLEACHIEVEMENT:String {return "/achievements/%@"};
+    class var KNEFRIENDSHIP:String {return "/api/friends/addfriend"};
+    class var DELETEFRIENDSHIP:String {return "/api/friends/deletefriend"}
+
 
     
     // ERROR CONNECTION

@@ -486,6 +486,31 @@ open class VideoService:NSObject
         }
     }
     
+    open func getDashBoardLeftLinks(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<Video>,PageRequest,String,Bool)->Void)
+    {
+        
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.DASHBOARDLEFTLINKSVIDEOS
+        
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            if(!issuccess)
+            {
+                let baseResponse=VideoResponse(fromDictionary: result)
+                
+                callback(baseResponse.videos,baseResponse.page,baseResponse.errormessage,issuccess)
+                
+            }else
+            {
+                let baseResponse=VideoResponse(fromDictionary: result )
+                
+                callback(baseResponse.videos,baseResponse.page,"",issuccess)
+                
+            }
+            
+        }
+    }
+
     
     /** Add Video Avatar
      *@param params Dictionary

@@ -122,6 +122,42 @@ open class FriendshipService :NSObject
                 }
         }
     }
+    
+    open func addKNEFriendship(_ params:Dictionary<String,AnyObject>,callback:@escaping (NSDictionary,String,Bool)->Void)
+    {
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.KNEFRIENDSHIP
+        
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            let friendsResponse=BaseResponse(fromDictionary: result)
+            if(!issuccess)
+            {
+                callback(result,friendsResponse.errormessage,issuccess)
+            }else
+            {
+                callback(result,"",issuccess)
+            }
+        }
+    }
 
+    
+    open func deleteKNEFriendship(_ params:Dictionary<String,AnyObject>,callback:@escaping (NSDictionary,String,Bool)->Void)
+    {
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.DELETEFRIENDSHIP
+        
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            let friendsResponse=BaseResponse(fromDictionary: result)
+            if(!issuccess)
+            {
+                callback(result,friendsResponse.errormessage,issuccess)
+            }else
+            {
+                callback(result,"",issuccess)
+            }
+        }
+    }
     
 }
