@@ -27,6 +27,7 @@ open class Achievements : NSObject{
     open var achievement : String!
     open var group_name : String!
     open var order : Order!
+    open var title : AchievementTitle!
 
     override public init(){super.init()
         assets = [AssetContent]()
@@ -65,6 +66,9 @@ open class Achievements : NSObject{
                 order = Order(fromDictionary: orderData)
             }
             
+            if let titleData = assetsArray?["thetitle"] as? NSDictionary{
+                title = AchievementTitle(fromDictionary: titleData)
+            }
             
             
 		}

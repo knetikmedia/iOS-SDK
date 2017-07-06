@@ -213,7 +213,7 @@ class JsapiRest :NSObject,URLSessionDelegate
 
         var endpoint:String = functionURL + postParams
 
-        endpoint = endpoint.replacingOccurrences(of: " ", with: "%20")
+        endpoint = endpoint.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         
         let request = NSMutableURLRequest(url: URL(string: endpoint )!)
         request.httpMethod = "GET"
