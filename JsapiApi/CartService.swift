@@ -11,7 +11,7 @@ open class CartService:NSObject
 {
 
     /**"Creates a new cart from scratch
-    *@params cartsparams it's emptyDictionry
+    * cartsparams it's emptyDictionry
     */
     open func createCart(_ cartsparams:Dictionary<String,String>,callback:@escaping (String,String,Bool)->Void)
     {
@@ -33,7 +33,7 @@ open class CartService:NSObject
     }
 
     /**Generates and save a new SKU based on the given prefix
-    *@params skuparams {"quantity": 5,"prefix": "WHAT"}
+    skuparams {"quantity": 5,"prefix": "WHAT"}
     */
     open func createCartSku(_ skuparams:Dictionary<String,String>,callback:@escaping (Array<String>,String,Bool)->Void)
     {
@@ -56,7 +56,7 @@ open class CartService:NSObject
     
     /**Returns the cart with the given GUID
     *guidID String
-    *@params cart {"cartguid": "cart GUID"}
+    * cart {"cartguid": "cart GUID"}
     */
     open func getCart(_ cart:Dictionary<String,String>,guidID:String,callback:@escaping (CartDetails,String,Bool)->Void)
     {
@@ -80,7 +80,7 @@ open class CartService:NSObject
 
     /**Closes a cart and generates an invoice
     *itemID String example /services/latest/carts/itemID/checkout
-    *@params cart {"cartguid": "cart GUID"}
+    * cart {"cartguid": "cart GUID"}
     */
     open func cartCheckout(_ cart:Dictionary<String,String>,itemID:String,callback:@escaping (Checkout,String,Bool)->Void)
     {
@@ -104,7 +104,7 @@ open class CartService:NSObject
     
     /**Adds a coupon to the cart identified by GUID
     *itemID String example /services/latest/carts/itemID/discount
-    *@params cart {"cartguid": "cart GUID"}
+    * cart {"cartguid": "cart GUID"}
     */
     open func cartDiscount(_ cart:Dictionary<String,String>,itemID:String,callback:@escaping (NSDictionary,Bool)->Void)
     {
@@ -129,7 +129,7 @@ open class CartService:NSObject
     
     /**Get the list of available shipping countries per vendor
     *itemID String example /services/latest/carts/itemID/countries
-    *@params cart {"cartguid": "cart GUID"}
+    * cart {"cartguid": "cart GUID"}
     */
     open func cartCountries(_ cart:Dictionary<String,String>,itemID:String,callback:@escaping (Array<Country>,String,Bool)->Void)
     {
@@ -155,7 +155,7 @@ open class CartService:NSObject
     
     /**Changes the quantity of an item already in the cart
     *itemID String example latest/carts/itemID/items
-    *@params cart {{
+    * cart {{
     "catalog_id": 0,
     "catalog_sku_id": 0,
     "quantity": 0,
@@ -187,7 +187,7 @@ open class CartService:NSObject
     
     /**Add virtual currency item to cart
     *itemID String example /services/latest/carts/itemID/items
-    *@params cart {{
+    * cart {{
     "catalog_id": 0,
     "catalog_sku_id": 0,
     "quantity": 0,
@@ -219,7 +219,6 @@ open class CartService:NSObject
     
     /**Modifies or sets the order shipping address
     *itemID String example services/latest/carts/itemID/shipping-address
-    @params
     "name_prefix": "",
     "first_name": "",
     "last_name": "",
@@ -254,7 +253,6 @@ open class CartService:NSObject
     
     /**Returns whether a cart requires shipping
     *itemID String example services/latest/carts/5145/shippable
-    @params
     */
     open func checkShippable(_ params:Dictionary<String,String>,itemID:String,callback:@escaping (Shippable,String,Bool)->Void)
     {

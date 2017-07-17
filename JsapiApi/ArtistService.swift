@@ -14,8 +14,8 @@ open class ArtistService:NSObject
 {
     
     /** Get Artist and Global Videos
-    *@param params Dictionary
-    *@param callback
+    params Dictionary
+    callback
     */
     open func getArtistList(_ params:Dictionary<String,AnyObject>,callback:@escaping (ArtistPage,String,Bool)->Void)
     {
@@ -43,8 +43,8 @@ open class ArtistService:NSObject
     }
 
     /** Get Artist and Global Videos
-     *@param params Dictionary
-     *@param callback
+      params Dictionary
+      callback
      */
     open func getArtistDetails(_ artistId:String ,params:Dictionary<String,AnyObject>,callback:@escaping (ArtistObject,String,Bool)->Void)
     {

@@ -10,8 +10,8 @@ import Foundation
 open class CommentService:NSObject
 {
     /**Adds a new comment to an item. Requires user authentication.
-    *@param params Dictionary{"comment": "","item_id": 0}
-    *@param callback
+    params Dictionary{"comment": "","item_id": 0}
+    callback
     */
     open func addComment(_ videoId:String,params:Dictionary<String,String>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
@@ -39,8 +39,8 @@ open class CommentService:NSObject
     }
 
     /**Returns a list of all comments currently attached to a given item. Maximum of 2000 returned
-    *@param params Dictionary{"item_id": 0}
-    *@param callback
+    params Dictionary{"item_id": 0}
+    callback
     */
     open func commentsList(_ videoId:String,params:Dictionary<String,String>,callback:@escaping (Array<Comment>,String,Bool)->Void)
     {
@@ -68,8 +68,8 @@ open class CommentService:NSObject
 
     
     /**Deletes a comment from an item. Must have authorization as the user that originally posted the comment.
-    *@param params Dictionary{"id": 0}
-    *@param callback
+    params Dictionary{"id": 0}
+    callback
     */
     open func deleteComment(_ videoId:String , params:Dictionary<String,String>,callback:@escaping (AnyObject,String,Bool)->Void)
     {

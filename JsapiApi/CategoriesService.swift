@@ -11,8 +11,8 @@ open class CategoriesService:NSObject
 {
 
     /**List of Category
-    *@param params Dictionary {} Empty
-    *@param callback
+    params Dictionary {} Empty
+    callback
     */
     open func getCategoriesS(_ params:Dictionary<String,AnyObject>,callback:@escaping (CategoryPage,String,Bool)->Void)
     {

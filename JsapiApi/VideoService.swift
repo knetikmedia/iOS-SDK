@@ -14,8 +14,6 @@ open class VideoService:NSObject
 {
     
     /** Get Artist and Global Videos
-    *@param params Dictionary
-    *@param callback
     */
     open func getVideos(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<Video>,PageRequest,String,Bool)->Void)
     {
@@ -65,8 +63,6 @@ open class VideoService:NSObject
 
 
     /** Get Artist and Global Videos for a user
-    *@param params Dictionary
-    *@param callback
     */
     open func getUserVideos(_ userId:String,params:Dictionary<String,AnyObject>,callback:@escaping (Array<Video>,PageRequest,String,Bool)->Void)
     {
@@ -122,9 +118,7 @@ open class VideoService:NSObject
     
     
     /** Get Favorites Global Videos for a user
-    *@param params Dictionary
-    *@param callback
-    */
+      */
     open func getMyFavoritesVideos(_ userId:String,params:Dictionary<String,AnyObject>,callback:@escaping (Array<Video>,String,Bool)->Void)
     {
         
@@ -154,8 +148,6 @@ open class VideoService:NSObject
     }
 
     /** Get Friends Global Videos for a user
-    *@param params Dictionary
-    *@param callback
     */
     open func getFriendsVideos(_ userId:String,params:Dictionary<String,AnyObject>,callback:@escaping (Array<Video>,String,Bool)->Void)
     {
@@ -184,8 +176,6 @@ open class VideoService:NSObject
     
     
     /** Add User Video
-    *@param params Dictionary
-    *@param callback
     */
     open func addVideo(_ params:Dictionary<String,AnyObject>,callback:@escaping (Video,String,Bool)->Void)
     {
@@ -206,8 +196,6 @@ open class VideoService:NSObject
     }
     
     /** Add User Video
-     *@param params Dictionary
-     *@param callback
      */
     open func getVideoDetails(_ videoId:String ,params:Dictionary<String,AnyObject>,callback:@escaping (Video,String,Bool)->Void)
     {
@@ -276,8 +264,6 @@ open class VideoService:NSObject
     
     
     /** Add User Video
-     *@param params Dictionary
-     *@param callback
      */
     open func addContributor(_ videoId:String , params:Dictionary<String,AnyObject> , callback:@escaping (String,Bool)->Void)
     {
@@ -303,8 +289,6 @@ open class VideoService:NSObject
 
     
     /** update VideoViews Count
-    *@param params Dictionary
-    *@param callback
     */
     open func updateVideoViewsCount(_ videoId:String,params:Dictionary<String,AnyObject>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
@@ -330,8 +314,6 @@ open class VideoService:NSObject
     
 
     /** Add User Video
-    *@param params Dictionary
-    *@param callback
     */
     open func updateVideoDetails(_ videoId:String,params:Dictionary<String,AnyObject>,callback:@escaping (String,String,Bool)->Void)
     {
@@ -357,8 +339,6 @@ open class VideoService:NSObject
  
     
     /**Deletes a Video from an item. Must have authorization as the user that originally posted the comment.
-    *@param params Dictionary{"id": 0}
-    *@param callback
     */
     open func deleteVideo(_ params:Dictionary<String,String>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
@@ -384,9 +364,7 @@ open class VideoService:NSObject
 
     
     /** add User Uploaded MediaItem Assests
-    *@param params Dictionary
-    *@param callback
-    */
+     */
     open func addUserUploadedMediaItemAssests(_ params:Dictionary<String,AnyObject>,callback:@escaping (String,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDUSERUPLOADEDMEDIAITEMASSESTS
@@ -406,9 +384,7 @@ open class VideoService:NSObject
     }
     
     /** Add Video Realtionship
-     *@param params Dictionary
-     *@param callback
-     */
+      */
     open func addVideoRealtionShip(_ videoId:String,params:Dictionary<String,AnyObject>,callback:@escaping (String,String,Bool)->Void)
     {
         
@@ -432,8 +408,6 @@ open class VideoService:NSObject
 
     
     /** Get Video Realtionship
-     *@param params Dictionary
-     *@param callback
      */
     open func getRelationship(_ videoId:String,params:Dictionary<String,AnyObject>,callback:@escaping (Array<RelationshipObject>,String,Bool)->Void)
     {
@@ -541,8 +515,6 @@ open class VideoService:NSObject
 
     
     /** Add Video Avatar
-     *@param params Dictionary
-     *@param callback
      */
     open func getAvatarDetails(_ videoId:String ,params:Dictionary<String,AnyObject>,callback:@escaping (BaseAvatarResponse,String,Bool)->Void)
     {

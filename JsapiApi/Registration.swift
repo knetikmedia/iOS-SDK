@@ -91,7 +91,7 @@ open class Registration:NSObject
     }
     /**Creates a user using the information provided
     * /services/latest/registration
-    @param params{"username": "","email": "","newpassword": "","secrethash": "","plaintext": false}
+    {"username": "","email": "","newpassword": "","secrethash": "","plaintext": false}
     */
     open func doUserRegistration(_ registerationDetails:Dictionary<String,String>,callback:@escaping (RegisteredUser,String,Bool)->Void)
     {

@@ -12,8 +12,7 @@ open class StoreService:NSObject
     
 
     /** get Store Page
-    *@param params Dictionary {"terms": [""],"related": [""],"vocabulary": "","limit": 0,"page": 0,"useCatalog": false,"fullObject": false}
-    *@param callback
+    Dictionary {"terms": [""],"related": [""],"vocabulary": "","limit": 0,"page": 0,"useCatalog": false,"fullObject": false}
     */
     open func getPage(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<Page>,String,Bool)->Void)
     {

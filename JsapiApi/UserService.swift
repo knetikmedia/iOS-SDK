@@ -11,8 +11,7 @@ open class UserService:NSObject {
  
 
  /**get User Info /services/latest/user/getinfo
- *@param params Dictionary Empty Dictionary {}
- *@param callback
+ Dictionary Empty Dictionary {}
  */
  open func getUserInfo(_ params:Dictionary<String,String>,callback:@escaping (User,String,Bool)->Void)
  {
@@ -38,8 +37,7 @@ open class UserService:NSObject {
  }
     
     /**get User Info /services/latest/user/getinfo
-     *@param params Dictionary Empty Dictionary {}
-     *@param callback
+     Dictionary Empty Dictionary {}
      */
     open func getUserInfoByUserId(_ userId:String,params:Dictionary<String,String>,callback:@escaping (User,String,Bool)->Void)
     {
@@ -68,8 +66,7 @@ open class UserService:NSObject {
     
     
     /**get User Info /services/latest/user/getinfo
-    *@param params Dictionary Empty Dictionary {}
-    *@param callback
+    Dictionary Empty Dictionary {}
     */
 open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escaping (Array<Achievement>,String,Bool)->Void)
     {
@@ -96,9 +93,8 @@ open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escap
     
     
   /**update User Info /services/latest/user/update
-  *@param params Dictionary{"userId": 0,"configName": "","configValue": ""}
-  *@param callback
- */
+  Dictionary{"userId": 0,"configName": "","configValue": ""}
+     */
     open func updateUserInfo(_ params:Dictionary<String,AnyObject>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
         
@@ -125,8 +121,7 @@ open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escap
     }
    
     /**set Password /services/latest/user/%@/password
-    *@param params Dictionary {password: newPasswordString}
-    *@param callback
+    Dictionary {password: newPasswordString}
     */
     open func setPassword(_ params:Dictionary<String,String>,userID:String,callback:@escaping (AnyObject,String,Bool)->Void)
     {
@@ -152,8 +147,7 @@ open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escap
     
     
     /**set user Group /users/groups/{unique_name}/members
-     *@param params Dictionary {password: newPasswordString}
-     *@param callback
+    Dictionary {password: newPasswordString}
      */
     open func addUserToGroup(_ params:Dictionary<String,String>,groupName:String,callback:@escaping (AnyObject,String,Bool)->Void)
     {

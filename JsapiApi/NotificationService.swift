@@ -14,8 +14,6 @@ open class NotificationService : NSObject
 {
     
     /** Get Notifications
-    *@param params Dictionary
-    *@param callback
     */
     open func getNotifications(_ params:Dictionary<String,AnyObject>,callback:@escaping (NSDictionary,String,Bool)->Void)
     {
@@ -70,8 +68,6 @@ open class NotificationService : NSObject
     
     
     /** Add  Notification
-    *@param params Dictionary
-    *@param callback
     */
     open func addNotification(_ params:Dictionary<String,AnyObject>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
@@ -96,8 +92,6 @@ open class NotificationService : NSObject
     
     
     /** Add  Notification
-     *@param params Dictionary
-     *@param callback
      */
     open func markNotificationAsRead(_ notificationID:String, params:Dictionary<String,AnyObject> , callback:@escaping (AnyObject,String,Bool)->Void)
     {
@@ -124,8 +118,6 @@ open class NotificationService : NSObject
     
     
     /** Add  Notification
-     *@param params Dictionary
-     *@param callback
      */
     open func markNotificationAsDeleted(_ notificationID:String, params:Dictionary<String,AnyObject> , callback:@escaping (AnyObject,String,Bool)->Void)
     {
@@ -151,8 +143,6 @@ open class NotificationService : NSObject
     }
 
     /** Add  Notification
-     *@param params Dictionary
-     *@param callback
      */
     open func markAllNotificationAsRead(_ params:Dictionary<String,AnyObject> , callback:@escaping (AnyObject,String,Bool)->Void)
     {
@@ -178,8 +168,6 @@ open class NotificationService : NSObject
     
     
     /** Add  Notification
-     *@param params Dictionary
-     *@param callback
      */
     open func addCustomCall(_ endpointurl:String ,params:Dictionary<String,AnyObject>,callback:@escaping (NSDictionary,String,Bool)->Void)
     {

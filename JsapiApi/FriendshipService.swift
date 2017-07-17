@@ -11,8 +11,7 @@ open class FriendshipService :NSObject
 {
 
     /** addFriend.
-    *@param params Dictionary{"target_user_id": 0,"user_id": 0}
-    *@param callback
+    Dictionary{"target_user_id": 0,"user_id": 0}
     */
     open func addFriend(_ params:Dictionary<String,AnyObject>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
@@ -35,8 +34,7 @@ open class FriendshipService :NSObject
 
     
     /** get User Friends.
-    *@param params Dictionary {"page": 0,"limit": 0,"user_id": 0}
-    *@param callback
+    Dictionary {"page": 0,"limit": 0,"user_id": 0}
     */
     open func getFriends(_ params:Dictionary<String,AnyObject>,callback:@escaping (Friend,String,Bool)->Void)
     {
@@ -59,8 +57,7 @@ open class FriendshipService :NSObject
 
     
     /** remove User Friend
-    *@param params Dictionary {"target_user_id": 0,"user_id": 0}
-    *@param callback
+    Dictionary {"target_user_id": 0,"user_id": 0}
     */
     open func removeFriend(_ params:Dictionary<String,AnyObject>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
@@ -82,8 +79,7 @@ open class FriendshipService :NSObject
     }
 
     /** search for a friend
-    *@param params Dictionary {"page": 0,"limit": 0,"user_id": 0,"search": ""}
-    *@param callback
+     Dictionary {"page": 0,"limit": 0,"user_id": 0,"search": ""}
     */
     open func searchFriends(_ params:Dictionary<String,AnyObject>,callback:@escaping (Friend,String,Bool)->Void)
     {

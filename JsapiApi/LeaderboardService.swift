@@ -11,8 +11,6 @@ open class LeaderboardService:NSObject
 {
     
     /** Get Leaderboards
-    *@param params Dictionary
-    *@param callback
     */
     
     open func getLeaderboards(_ params:Dictionary<String,AnyObject>,callback:@escaping (Leaderboard,String,Bool)->Void)
@@ -37,8 +35,6 @@ open class LeaderboardService:NSObject
     }
  
     /** Get Strategies
-    *@param params Dictionary
-    *@param callback
     */
     
     open func getStrategies(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<String>,String,Bool)->Void)
@@ -64,8 +60,6 @@ open class LeaderboardService:NSObject
     
     
     /** Get User Rank
-    *@param params Dictionary {leaderboardId:1,userId:1}
-    *@param callback
     */
     
     open func getUserRank(_ params:Dictionary<String,AnyObject>,callback:@escaping (Entrie,String,Bool)->Void)
