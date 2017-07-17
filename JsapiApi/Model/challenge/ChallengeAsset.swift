@@ -30,7 +30,7 @@ open class ChallengeAsset:NSObject{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if crc != nil{
 			dictionary["crc"] = crc
 		}

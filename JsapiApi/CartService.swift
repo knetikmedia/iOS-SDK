@@ -116,8 +116,8 @@ open class CartService:NSObject
                 (result:NSDictionary,issuccess:Bool) in
                 if(!issuccess)
                 {
-                    print(result["error"])
-                    print(result["error_description"])
+                    print(result["error"] ?? "")
+                    print(result["error_description"] ?? "")
                 }else
                 {
                     print(result)
@@ -219,7 +219,7 @@ open class CartService:NSObject
     
     /**Modifies or sets the order shipping address
     *itemID String example services/latest/carts/itemID/shipping-address
-    *@params {
+    @params
     "name_prefix": "",
     "first_name": "",
     "last_name": "",
@@ -232,7 +232,7 @@ open class CartService:NSObject
     "country_id": 0,
     "phone_number": "",
     "order_notes": ""
-    }    */
+       */
     open func modifyShippingAddress(_ params:Dictionary<String,String>,itemID:String,callback:@escaping (AnyObject,String,Bool)->Void)
     {
         let endpoint=NSString(format: JSAPIConstant.SHIPPINGADDRESS as NSString,itemID)
@@ -254,8 +254,8 @@ open class CartService:NSObject
     
     /**Returns whether a cart requires shipping
     *itemID String example services/latest/carts/5145/shippable
-    *@params {
-       }    */
+    @params
+    */
     open func checkShippable(_ params:Dictionary<String,String>,itemID:String,callback:@escaping (Shippable,String,Bool)->Void)
     {
         let endpoint=NSString(format: JSAPIConstant.SHIPPABLE as NSString,itemID)

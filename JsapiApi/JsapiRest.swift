@@ -237,7 +237,7 @@ class JsapiRest :NSObject,URLSessionDelegate
             data, response, error in
             if error != nil {
                 
-                var res = NSMutableDictionary();
+                let res = NSMutableDictionary();
                 
                 res.setValue(JSAPIConstant.CONNECTION_ERROR, forKey: "message")
                 callback(res,false)

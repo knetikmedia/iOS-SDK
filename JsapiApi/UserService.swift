@@ -112,8 +112,7 @@ open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escap
                 let baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    print(result["error"])
-                    print(result["error_description"])
+                
                     callback(baseResponse,baseResponse.errormessage,issuccess)
 
                 }else
@@ -140,8 +139,6 @@ open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escap
                 let baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    print(result["error"])
-                    print(result["error_description"])
                     callback(baseResponse,baseResponse.errormessage,issuccess)
 
                 }else
@@ -169,8 +166,6 @@ open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escap
             let baseResponse=BaseResponse(fromDictionary: result)
             if(!issuccess)
             {
-                print(result["error"])
-                print(result["error_description"])
                 callback(baseResponse,baseResponse.errormessage,issuccess)
                 
             }else

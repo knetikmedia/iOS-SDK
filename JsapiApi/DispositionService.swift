@@ -103,7 +103,7 @@ open class DispositionService:NSObject
         
       //  let methodUrl = NSString(format: url as NSString, params["context"] as! String , params["context_id"] as! String )
         
-        var dis = Disposition();
+        let dis = Disposition();
         dis.context = params["context"] as! String!;
         dis.contextId = params["context_id"] as! String!;
         dis.name = request["name"] as! String!;

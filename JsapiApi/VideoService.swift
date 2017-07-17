@@ -31,7 +31,7 @@ open class VideoService:NSObject
                     
                 }else
                 {
-                    let baseResponse=VideoResponse(fromDictionary: result as! NSDictionary)
+                    let baseResponse=VideoResponse(fromDictionary: result )
 
                     callback(baseResponse.videos,baseResponse.page,"",issuccess)
                     
@@ -54,7 +54,7 @@ open class VideoService:NSObject
                     
                 }else
                 {
-                    let baseResponse=VideoResponse(fromDictionary: result as! NSDictionary)
+                    let baseResponse=VideoResponse(fromDictionary: result)
                     
                     callback(baseResponse.videos,baseResponse.page,"",issuccess)
                     
@@ -86,7 +86,7 @@ open class VideoService:NSObject
                     
                 }else
                 {
-                      let baseResponse=VideoResponse(fromDictionary: result as! NSDictionary)
+                      let baseResponse=VideoResponse(fromDictionary: result )
                     callback(baseResponse.videos,baseResponse.page,"",issuccess)
                     
                 }
@@ -112,7 +112,7 @@ open class VideoService:NSObject
                 
             }else
             {
-                let baseResponse=VideoResponse(fromDictionary: result as! NSDictionary)
+                let baseResponse=VideoResponse(fromDictionary: result )
                 callback(result,baseResponse.page,"",issuccess)
                 
             }
@@ -174,7 +174,7 @@ open class VideoService:NSObject
                     callback(baseResponse.videos,baseResponse.errormessage,issuccess)
                 }else
                 {
-                    let baseResponse=VideoResponse(fromDictionary: result as! NSDictionary)
+                    let baseResponse=VideoResponse(fromDictionary: result )
 
                     callback(baseResponse.videos,"",issuccess)
                 }
@@ -452,7 +452,7 @@ open class VideoService:NSObject
                     callback(baseResponse.content,baseResponse.errormessage,issuccess)
                 }else
                 {
-                    let baseResponse=RelationshipdBaseResponse(fromDictionary: result as! NSDictionary)
+                    let baseResponse=RelationshipdBaseResponse(fromDictionary: result )
                     
                     callback(baseResponse.content,"",issuccess)
                 }
@@ -483,6 +483,34 @@ open class VideoService:NSObject
                     
                 }
                 
+        }
+    }
+    
+    
+    open func getFollowesVideos(_ params:Dictionary<String,AnyObject>,userId:String,callback:@escaping (Array<Video>,PageRequest,String,Bool)->Void)
+    {
+        let url:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.FOLLOWINGVIDEOS
+        
+        let methodUrl:String=NSString(format: url as NSString ,userId) as String
+        
+        
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            if(!issuccess)
+            {
+                let baseResponse=VideoResponse(fromDictionary: result)
+                
+                callback(baseResponse.videos,baseResponse.page,baseResponse.errormessage,issuccess)
+                
+            }else
+            {
+                let baseResponse=VideoResponse(fromDictionary: result )
+                
+                callback(baseResponse.videos,baseResponse.page,"",issuccess)
+                
+            }
+            
         }
     }
     

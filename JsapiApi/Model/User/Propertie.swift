@@ -25,7 +25,7 @@ open class Propertie : NSObject {
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if devicetoken != nil{
 			dictionary["devicetoken"] = devicetoken.toDictionary()
 		}

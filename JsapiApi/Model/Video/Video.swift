@@ -58,6 +58,14 @@ open class Video :NSObject{
 			}
 		}
 		created = dictionary["created_date"] as? NSNumber
+        
+        if(created == nil){
+        
+            created = dictionary["createdDate"] as? NSNumber
+
+        }
+        
+        
 		embed = dictionary["embed"] as? String
 		videoExtension = dictionary["extension"] as? String
 		height = dictionary["height"] as? NSNumber

@@ -45,7 +45,7 @@ open class ChallengeAdditionalPropertie:NSObject{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if mainDash != nil{
 			dictionary["MainDash"] = mainDash.toDictionary()
 		}
