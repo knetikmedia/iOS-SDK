@@ -26,7 +26,6 @@ open class LeaderboardService:NSObject
                     
                 }else
                 {
-                    print(result)
                     callback(baseResponse.leaderboard,"",issuccess)
                     
                 }
@@ -50,7 +49,6 @@ open class LeaderboardService:NSObject
                     
                 }else
                 {
-                    print(result)
                     callback(baseResponse.strategies,"",issuccess)
                     
                 }
@@ -78,7 +76,6 @@ open class LeaderboardService:NSObject
                     
                 }else
                 {
-                    print(result)
                     callback(baseResponse.rank,"",issuccess)
                     
                 }

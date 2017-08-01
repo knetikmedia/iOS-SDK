@@ -20,8 +20,6 @@ open class UserService:NSObject {
     JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params as Dictionary<String, AnyObject>))
     {
             (result:NSDictionary,issuccess:Bool) in
-            print(result);
-        print(JsapiAPi.sharedInstance.getJsapiToken());
             let userResponse = UserResponse(fromDictionary: result)
             if(!issuccess)
             {
@@ -83,7 +81,6 @@ open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escap
                     
                 }else
                 {
-                    print(result)
                     callback(achievementResponse.achievements.achievement,"",issuccess)
                     
                 }
@@ -113,7 +110,6 @@ open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escap
 
                 }else
                 {
-                    print(result)
                     callback(baseResponse,"",issuccess)
 
                 }
@@ -138,7 +134,6 @@ open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escap
 
                 }else
                 {
-                    print(result)
                     callback(baseResponse,"",issuccess)
 
                 }
@@ -164,7 +159,6 @@ open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escap
                 
             }else
             {
-                print(result)
                 callback(baseResponse,"",issuccess)
                 
             }

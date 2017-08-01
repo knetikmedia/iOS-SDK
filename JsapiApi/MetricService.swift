@@ -26,7 +26,6 @@ open class MetricService : NSObject
                     
                 }else
                 {
-                    print(result)
                     callback(baseResponse,"",issuccess)
                     
                 }

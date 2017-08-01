@@ -114,14 +114,7 @@ open class CartService:NSObject
         JsapiRest.sharedInstance.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(cart),isJson:true)
             {
                 (result:NSDictionary,issuccess:Bool) in
-                if(!issuccess)
-                {
-                    print(result["error"] ?? "")
-                    print(result["error_description"] ?? "")
-                }else
-                {
-                    print(result)
-                }
+             
                 callback(result,issuccess)
         }
     }
@@ -258,7 +251,7 @@ open class CartService:NSObject
     {
         let endpoint=NSString(format: JSAPIConstant.SHIPPABLE as NSString,itemID)
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String)
-        print(methodurl)
+
         JsapiRest.sharedInstance.getRequest(methodurl,postParams: Utilities.getGETRequestFromDictionary(params as Dictionary<String, AnyObject>))
             {
                 (result:NSDictionary,issuccess:Bool) in

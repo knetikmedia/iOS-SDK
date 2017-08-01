@@ -136,7 +136,6 @@ class JsapiRest :NSObject,URLSessionDelegate
             return
             }
             
-            print(functionURL)
             
             let jsonResult : NSDictionary = (jsonResult2 as?NSDictionary)!;
             
@@ -146,12 +145,7 @@ class JsapiRest :NSObject,URLSessionDelegate
                 self.postrequest(httpResponse.url!.absoluteString , postParams: postParams, isJson: isJson, callback: callback)
             }
             
-//            if(jsonResult == nil)
-//            {
-//                callback(NSDictionary(),true)
-//                return;
-//            }
-            
+           
 
             if(jsonResult["error"] != nil && isJson)
             {
@@ -226,8 +220,6 @@ class JsapiRest :NSObject,URLSessionDelegate
             request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
             
         }
-        
-     //   print(functionURL)
 
          self.requests[functionURL] = request
         
@@ -245,13 +237,8 @@ class JsapiRest :NSObject,URLSessionDelegate
                 return
             }
            
-          //  print(request.URL!.absoluteString)
-          //  print(request.URL!.absoluteURL)
-
-           // self.requests.removeValueForKey(request.URL!.absoluteString)
-
+      
             let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-          //  print(responseString)
             let httpResponse = response as! HTTPURLResponse
 
             if(httpResponse.statusCode == 301 || httpResponse.statusCode == 307 ){
@@ -301,10 +288,18 @@ class JsapiRest :NSObject,URLSessionDelegate
                     
                 }else{
                     
-                let errorObject = jsonResult["error"]  as! Dictionary<String,Bool>
-                
-                let isSuccess=errorObject["success"]
-                    callback(jsonResult,isSuccess!)
+                    if ((jsonResult["error"] as? NSDictionary) != nil) {
+                        
+                        let errorObject = jsonResult["error"]  as! Dictionary<String,Bool>
+                        
+                        let isSuccess=errorObject["success"]
+                        callback(jsonResult,isSuccess!)
+                    }else{
+                        
+                        callback(jsonResult,false)
+                        
+                    }
+
                 }
             }else
              {
