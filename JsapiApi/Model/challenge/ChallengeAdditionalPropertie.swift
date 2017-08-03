@@ -10,6 +10,7 @@ open class ChallengeAdditionalPropertie:NSObject{
 	open var mainDash : ChallengeAsset!
 	open var sponsorImage : ChallengeAsset!
     open var prmotionText : NSDictionary!
+    open var order : Order!
 
 
 	/**
@@ -38,6 +39,10 @@ open class ChallengeAdditionalPropertie:NSObject{
             if let prmotionTextData = dictionary["PromotionalText"] as? NSDictionary{
                 prmotionText = prmotionTextData
             }
+        
+        if let orderData = dictionary["order"] as? NSDictionary{
+            order = Order(fromDictionary: orderData)
+        }
 	}
 
 	/**
