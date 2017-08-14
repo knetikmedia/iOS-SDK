@@ -215,9 +215,22 @@ open class Video :NSObject{
             
             dictionary["privacy"] = privacy
         }
-
+        
         
 		return dictionary
 	}
 
+    
+    override open var hash : Int {
+        return videoId as! Int;
+    }
+    
+    override open func isEqual(_ object: Any?) -> Bool {
+        
+       return (object as! Video).videoId.intValue == videoId.intValue;
+    
+    }
+
+
+    
 }
