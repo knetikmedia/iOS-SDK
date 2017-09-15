@@ -156,4 +156,32 @@ open class FriendshipService :NSObject
         }
     }
     
+    open func followingCount(_ params:Dictionary<String,AnyObject>,callback:@escaping (NSDictionary,String,Bool)->Void)
+    {
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.FOLLOWINGCOUNT
+        
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            
+                callback(result,"",issuccess)
+            
+        }
+    
+    }
+    
+    open func likesCount(_ params:Dictionary<String,AnyObject>,callback:@escaping (NSDictionary,String,Bool)->Void)
+    {
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.LIKESGCOUNT
+        
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            
+                callback(result,"",issuccess)
+            
+        }
+        
+    }
+    
 }

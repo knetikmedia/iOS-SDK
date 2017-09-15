@@ -74,7 +74,7 @@ class JsapiRest :NSObject,URLSessionDelegate
             request.setValue("application/json", forHTTPHeaderField: "Accept")
         
             
-        if(!JsapiAPi.sharedInstance.getJsapiToken().isEmpty &&
+        if(!JsapiAPi.sharedInstance.getJsapiOriginalToken().isEmpty &&
             JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR
             && !functionURL.contains("google")
             )

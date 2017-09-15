@@ -182,6 +182,8 @@ class var COMMENTLIST:String {return "/media/videos/%@/comments"};
     class var GETSINGLEACHIEVEMENT:String {return "/achievements/%@"};
     class var KNEFRIENDSHIP:String {return "/api/friends/addfriend"};
     class var DELETEFRIENDSHIP:String {return "/api/friends/deletefriend"}
+    class var FOLLOWINGCOUNT:String {return "/api/followers/count"}
+    class var LIKESGCOUNT:String {return "/api/likes/count"}
 
 
     
