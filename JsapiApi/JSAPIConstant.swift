@@ -158,6 +158,8 @@ class var COMMENTLIST:String {return "/media/videos/%@/comments"};
     class var GETARTISTDETAILS:String {return "/media/artists/%@"}
 
     class var POPULARVIDEOS:String {return "/api/videos"};
+    class var TRENDINGVIDEOS:String {return "/api/trending"};
+
     class var FOLLOWINGVIDEOS:String {return "/api/videos/followers/%@"};
 
     class var DASHBOARDLEFTLINKSVIDEOS:String {return "/api/dashboard"};

@@ -461,6 +461,32 @@ open class VideoService:NSObject
     }
     
     
+    open func getTrendingVideos(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<Video>,PageRequest,String,Bool)->Void)
+    {
+        
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.TRENDINGVIDEOS
+        
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            if(!issuccess)
+            {
+                let baseResponse=VideoResponse(fromDictionary: result)
+                
+                callback(baseResponse.videos,baseResponse.page,baseResponse.errormessage,issuccess)
+                
+            }else
+            {
+                let baseResponse=VideoResponse(fromDictionary: result )
+                
+                callback(baseResponse.videos,baseResponse.page,"",issuccess)
+                
+            }
+            
+        }
+    }
+    
+    
     open func getFollowesVideos(_ params:Dictionary<String,AnyObject>,userId:String,callback:@escaping (Array<Video>,PageRequest,String,Bool)->Void)
     {
         let url:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.FOLLOWINGVIDEOS
