@@ -186,7 +186,9 @@ class var COMMENTLIST:String {return "/media/videos/%@/comments"};
     class var DELETEFRIENDSHIP:String {return "/api/friends/deletefriend"}
     class var FOLLOWINGCOUNT:String {return "/api/followers/count"}
     class var LIKESGCOUNT:String {return "/api/likes/count"}
-
+    
+    // SIGNED URL
+    class var AWSSIGNEDURL:String {return "/amazon/s3/signedposturl"}
 
     
     // ERROR CONNECTION

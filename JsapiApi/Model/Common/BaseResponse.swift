@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-class BaseResponse:NSObject{
+public class BaseResponse:NSObject{
 
 	fileprivate var cached : Bool!
 	fileprivate var error : Error!

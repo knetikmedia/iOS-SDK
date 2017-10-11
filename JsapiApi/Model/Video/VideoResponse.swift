@@ -5,7 +5,7 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-class VideoResponse : BaseResponse{
+public class VideoResponse : BaseResponse{
 
 	var videos : [Video]!
     var page : PageRequest!

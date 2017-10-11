@@ -278,7 +278,7 @@ class JsapiRest :NSObject,URLSessionDelegate
             
             
             
-            if(jsonResult["error"] != nil )
+            if(jsonResult["error"] != nil || httpResponse.statusCode >= 400)
             {
                 if(jsonResult ["error"] as?String == "invalid_token") {
                     

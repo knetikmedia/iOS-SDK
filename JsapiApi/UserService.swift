@@ -164,6 +164,32 @@ open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escap
             }
         }
     }
+    
+    /**get User Info /services/latest/user/getinfo
+     Dictionary Empty Dictionary {}
+     */
+    open func getSignedUrl(_ params:Dictionary<String,String>,callback:@escaping (S3FileResponse,String,Bool)->Void)
+    {
+        
+        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.AWSSIGNEDURL
+        
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params as Dictionary<String, AnyObject>))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            let response = S3FileResponse(fromDictionary: result)
+            if(!issuccess)
+            {
+                
+                callback(response,"",issuccess)
+                
+            }else
+            {
+                callback(response,response.errormessage,issuccess)
+                
+            }
+        }
+    }
+
 
 
 }
