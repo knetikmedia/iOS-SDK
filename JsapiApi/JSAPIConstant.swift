@@ -186,6 +186,10 @@ class var COMMENTLIST:String {return "/media/videos/%@/comments"};
     class var DELETEFRIENDSHIP:String {return "/api/friends/deletefriend"}
     class var FOLLOWINGCOUNT:String {return "/api/followers/count"}
     class var LIKESGCOUNT:String {return "/api/likes/count"}
+    class var BLOCKUSER:String {return "/api/users/blockuser"};
+    class var DELETEUSERBLOCKING:String {return "/api/users/deleteblockeduser"};
+    class var ISUSERBLOCKED:String {return "/api/users/isblocked"};
+
     
     // SIGNED URL
     class var AWSSIGNEDURL:String {return "/amazon/s3/signedposturl"}

@@ -184,4 +184,57 @@ open class FriendshipService :NSObject
         
     }
     
+    /*--Block and delete blocking for users--*/
+    
+    open func blockUser(_ params:Dictionary<String,AnyObject>,callback:@escaping (NSDictionary,String,Bool)->Void)
+    {
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.BLOCKUSER
+        
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            let friendsResponse=BaseResponse(fromDictionary: result)
+            if(!issuccess)
+            {
+                callback(result,friendsResponse.errormessage,issuccess)
+            }else
+            {
+                callback(result,"",issuccess)
+            }
+        }
+    }
+    
+    
+    open func deletUserBlocking(_ params:Dictionary<String,AnyObject>,callback:@escaping (NSDictionary,String,Bool)->Void)
+    {
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.DELETEUSERBLOCKING
+        
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            let friendsResponse=BaseResponse(fromDictionary: result)
+            if(!issuccess)
+            {
+                callback(result,friendsResponse.errormessage,issuccess)
+            }else
+            {
+                callback(result,"",issuccess)
+            }
+        }
+    }
+    
+    open func isUserBlocked(_ params:Dictionary<String,AnyObject>,callback:@escaping (NSDictionary,String,Bool)->Void)
+    {
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.ISUSERBLOCKED
+        
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            
+            callback(result,"",issuccess)
+            
+        }
+        
+    }
+    
 }
