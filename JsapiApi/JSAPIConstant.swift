@@ -24,7 +24,7 @@ class var SHIPPABLE:String {return "/carts/%@/shippable" }  // %@ CARTGUID disco
 
 //registration
 class var REGISTER:String {return "/users" }  // Register EndpoNSNumber
-class var FORGOTPASSWORD:String {return "/registration/forgotpassword"};
+class var FORGOTPASSWORD:String {return "/users/%@/password-reset"};
 class var GUESTUPGRADE:String {return "/registration/guestupgrade"};
 class var GUESTS:String {return "/registration/guests"};
 //EndRegister
@@ -33,9 +33,11 @@ class var GUESTS:String {return "/registration/guests"};
 class var GETUSERINFO:String {return "/users/me" }
 class var GETACHIEVEMENT:String {return "/user/getachievement" }
 class var UPDATEUSERINFO:String {return "/users/me"};
-class var SETUSERPASSWORD:String {return "/user/%@/password"};
+class var SETUSERPASSWORD:String {return "/users/%@/password"};
 class var GETUSERINFOBYID:String {return "/users/%@"};
 class var SETUSERGROUP:String {return "/users/groups/%@/members"};
+    
+    
 
 //EndUser
 
