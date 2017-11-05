@@ -153,7 +153,7 @@ open class Registration:NSObject
     * /services/latest/registration
     {"username": "","email": "","newpassword": "","secrethash": "","plaintext": false}
     */
-    open func doUserRegistration(_ registerationDetails:Dictionary<String,String>,callback:@escaping (RegisteredUser,String,Bool)->Void)
+    open func doUserRegistration(_ registerationDetails:Dictionary<String,AnyObject>,callback:@escaping (RegisteredUser,String,Bool)->Void)
     {
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.REGISTER
 

@@ -182,7 +182,7 @@ class JsapiRest :NSObject,URLSessionDelegate
                 }
                 
             }else
-                if(jsonResult["error"] != nil)
+                if(jsonResult["error"] != nil || httpResponse.statusCode >= 400)
                 {
                     callback(jsonResult,false)
                     

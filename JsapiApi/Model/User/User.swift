@@ -11,7 +11,7 @@ open class User:NSObject{
     open var avatarUrl : String!
     open var displayname : String!
     open var country : String!
-    open var dateOfBirth : AnyObject!
+    open var dateOfBirth : NSNumber!
     open var email : String!
     open var firstName : String!
     open var fullname : String!
@@ -23,6 +23,7 @@ open class User:NSObject{
     open var mobileNumber : AnyObject!
     open var productItem : AnyObject!
     open var token : AnyObject!
+    open var guest : AnyObject!
     open var username : String!
     open var wallet : [Wallet]!
     open var address : String!
@@ -38,7 +39,7 @@ open class User:NSObject{
     open var password : String!
     open func getAge()->NSNumber{return age;}
     open func getCountry()->String{return country;}
-    open func getDateOfBirth()->AnyObject{return dateOfBirth;}
+    open func getDateOfBirth()->NSNumber{return dateOfBirth;}
     open func getEmail()->String{return email}
     open func getFirstName()->String{
         if((firstName) != nil)
@@ -92,6 +93,7 @@ open class User:NSObject{
     open func getMobileNumber()->AnyObject{return mobileNumber}
     open func getProductItem()->AnyObject{return productItem}
     open func getToken()->AnyObject{return token}
+    open func getGuest()->AnyObject{return guest}
     open func getUsername()->String{
     
     if((username) != nil)
@@ -129,10 +131,31 @@ open class User:NSObject{
         displayname = dictionary["display_name"] as? String
         avatarUrl = dictionary["avatar_url"] as? String
         country = dictionary["country"] as? String
-        dateOfBirth = dictionary["date_of_birth"] as AnyObject!
+        if dictionary["date_of_birth"] != nil {
+            
+            dateOfBirth = dictionary["date_of_birth"] as? NSNumber!
+            
+        }
         email = dictionary["email"] as? String
         firstName = dictionary["first_name"] as? String
+        
+        if(displayname == nil){
+            
+            displayname = ""
+        }
+        
+        if(firstName == nil){
+            
+            firstName = ""
+        }
+        
         fullname = dictionary["fullname"] as? String
+        
+        if(fullname == nil){
+            
+            firstName = ""
+        }
+        
         gender = dictionary["gender"] as? String
         userId = dictionary["id"] as? NSNumber
         inventory = dictionary["inventory"] as AnyObject!
@@ -141,6 +164,7 @@ open class User:NSObject{
         mobileNumber = dictionary["mobile_number"] as AnyObject!
         productItem = dictionary["product_item"] as AnyObject!
         token = dictionary["token"] as AnyObject!
+        guest = dictionary["guest"] as AnyObject!
         username = dictionary["username"] as? String
         password = dictionary["password"] as? String
         wallet = [Wallet]()

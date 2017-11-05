@@ -8,6 +8,7 @@ import Foundation
 open class Propertie : NSObject {
 
 	open var devicetoken : Devicetoken!
+    open var guest : Devicetoken!
 
     override public init(){super.init()}
 
@@ -18,6 +19,9 @@ open class Propertie : NSObject {
 		if let devicetokenData = dictionary["devicetoken"] as? NSDictionary{
 			devicetoken = Devicetoken(fromDictionary: devicetokenData)
 		}
+        if let devicetokenData = dictionary["guest"] as? NSDictionary{
+            guest = Devicetoken(fromDictionary: devicetokenData)
+        }
 	}
 
 	/**
@@ -29,6 +33,9 @@ open class Propertie : NSObject {
 		if devicetoken != nil{
 			dictionary["devicetoken"] = devicetoken.toDictionary()
 		}
+        if guest != nil{
+            dictionary["guest"] = guest.toDictionary()
+        }
 		return dictionary
 	}
 

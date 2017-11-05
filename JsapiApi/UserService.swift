@@ -124,7 +124,7 @@ open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escap
         let endpoint=NSString(format: JSAPIConstant.SETUSERPASSWORD as NSString,userID)
 
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String);
-        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        JsapiRest.sharedInstance.putRequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let baseResponse=BaseResponse(fromDictionary: result)
@@ -190,6 +190,41 @@ open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escap
         }
     }
 
+
+    
+    /**get KNE /api/isverified/email
+     Dictionary Empty Dictionary {}
+     */
+    open func isEmailVerified(params:Dictionary<String,String>,callback:@escaping (NSDictionary,String,Bool)->Void)
+    {
+        
+        let methodUrl = JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.ISEMAILVERIFIED
+        
+        
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params as Dictionary<String, AnyObject>))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            let userResponse = UserResponse(fromDictionary: result)
+                callback(result,"",issuccess)
+        }
+    }
+    
+    
+    /**set /api/requestverify/email
+     Dictionary {password: newPasswordString}
+     */
+    open func requetVerifiyEmail(_ params:Dictionary<String,String>,callback:@escaping (NSDictionary,String,Bool)->Void)
+    {
+        
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+(JSAPIConstant.REQUESTEMAILVERIFIED as String);
+        
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            let baseResponse=BaseResponse(fromDictionary: result)
+                callback(result,"",issuccess)
+        }
+    }
 
 
 }
