@@ -225,6 +225,40 @@ open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escap
                 callback(result,"",issuccess)
         }
     }
+    
+    
+    /**set /users/password-reset
+     Dictionary {password: newPasswordString}
+     */
+    open func passwordResetRequest(_ params:Dictionary<String,String>,callback:@escaping (NSDictionary,String,Bool)->Void)
+    {
+        
+        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(JSAPIConstant.RESETPASSWORDFOREMAIL as String);
+        
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            let baseResponse=BaseResponse(fromDictionary: result)
+            callback(result,"",issuccess)
+        }
+    }
+    
+    
+    /**set /api/user/resetpassword
+     Dictionary {password: newPasswordString}
+     */
+    open func updatePasswordRequest(_ params:Dictionary<String,String>,callback:@escaping (NSDictionary,String,Bool)->Void)
+    {
+        
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+(JSAPIConstant.SETPASSWORDFOREMAIL as String);
+        
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            let baseResponse=BaseResponse(fromDictionary: result)
+            callback(result,"",issuccess)
+        }
+    }
 
 
 }

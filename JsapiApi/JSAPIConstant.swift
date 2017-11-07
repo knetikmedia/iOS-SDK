@@ -38,6 +38,8 @@ class var GETUSERINFOBYID:String {return "/users/%@"};
 class var SETUSERGROUP:String {return "/users/groups/%@/members"};
 class var ISEMAILVERIFIED:String {return "/api/isverified/email"};
 class var REQUESTEMAILVERIFIED:String {return "/api/requestverify/email"};
+class var RESETPASSWORDFOREMAIL:String {return "/users/password-reset"};
+class var SETPASSWORDFOREMAIL:String {return "/api/user/resetpassword"};
 
     
 
