@@ -259,6 +259,21 @@ open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escap
             callback(result,"",issuccess)
         }
     }
+    
+    /**get User Info /services/latest/user/getinfo
+     Dictionary Empty Dictionary {}
+     */
+    open func checkEmail(_ params:Dictionary<String,String>,callback:@escaping (NSDictionary,String,Bool)->Void)
+    {
+        
+        let methodUrl:String=JSAPIConstant.EMAILCHECKNEVERBOUNCE
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params as Dictionary<String, AnyObject>))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            callback(result,"",issuccess)
+
+        }
+    }
 
 
 }

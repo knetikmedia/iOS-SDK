@@ -40,7 +40,7 @@ class var ISEMAILVERIFIED:String {return "/api/isverified/email"};
 class var REQUESTEMAILVERIFIED:String {return "/api/requestverify/email"};
 class var RESETPASSWORDFOREMAIL:String {return "/users/password-reset"};
 class var SETPASSWORDFOREMAIL:String {return "/api/user/resetpassword"};
-
+class var EMAILCHECKNEVERBOUNCE:String {return "https://api.neverbounce.com/v4/single/check"};
     
 
 //EndUser

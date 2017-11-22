@@ -22,6 +22,9 @@ public class BaseResponse:NSObject{
 			error = Error(fromDictionary: errorData)
 		}
 		errormessage = dictionary["message"] as? String
+        if let result = dictionary["result"] as? NSDictionary{
+            errormessage = result["message"] as? String
+        }
 		requestId = dictionary["requestId"] as? String
         if(errormessage == nil)
         {
