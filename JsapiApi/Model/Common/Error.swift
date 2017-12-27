@@ -5,10 +5,10 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-class Error:NSObject{
+open class Error:NSObject{
 
-	var code : NSNumber!
-	var success : Bool!
+	open var code : NSNumber!
+	open var success : Bool!
 
 
 	/**

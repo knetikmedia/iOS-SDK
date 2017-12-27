@@ -5,13 +5,14 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-public class BaseResponse:NSObject{
+open class BaseResponse:NSObject{
 
 	fileprivate var cached : Bool!
 	fileprivate var error : Error!
 	open var errormessage : String!
 	fileprivate var requestId : String!
     
+    override public init(){super.init()}
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values

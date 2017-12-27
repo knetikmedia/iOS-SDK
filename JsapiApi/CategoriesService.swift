@@ -24,6 +24,16 @@ open class CategoriesService:NSObject
                 callback(catofriesResponse.result,catofriesResponse.errormessage,issuccess)
         }
     }
-    
+    /*Get Category by id*/
+    open func getCategorieyById(_ params:Dictionary<String,AnyObject>,categortyId:NSString,callback:@escaping (CategoryObject,String,Bool)->Void)
+    {
+        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETCATEGORIES+"/"+(categortyId as String);
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            let catofriesResponse=CategoryObject(fromDictionary: result)
+            callback(catofriesResponse,catofriesResponse.errormessage,issuccess)
+        }
+    }
   
 }
