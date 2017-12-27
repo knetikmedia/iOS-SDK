@@ -195,6 +195,7 @@ class var COMMENTLIST:String {return "/media/videos/%@/comments"};
     class var BLOCKUSER:String {return "/api/users/blockuser"};
     class var DELETEUSERBLOCKING:String {return "/api/users/deleteblockeduser"};
     class var ISUSERBLOCKED:String {return "/api/users/isblocked"};
+    class var SYNCCOUNT:String {return "/api/videos/sync/count"}
 
     
     // SIGNED URL
