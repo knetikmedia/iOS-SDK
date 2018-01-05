@@ -39,6 +39,7 @@ open class Video :NSObject{
     open var popularity : NSNumber!
     open var likes : NSNumber!
     open var parentId : NSNumber!
+    open var additionalProperties : CategoryAdditionalPropertie!
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
@@ -124,6 +125,14 @@ open class Video :NSObject{
                 comments.append(value)
             }
         }
+        
+        if let additionalPropertiesData = dictionary["additional_properties"] as? NSDictionary{
+            additionalProperties = CategoryAdditionalPropertie(fromDictionary: additionalPropertiesData)
+        }else{
+            
+            additionalProperties = CategoryAdditionalPropertie()
+        }
+        
 	}
 
 	/**
