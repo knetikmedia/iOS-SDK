@@ -7,6 +7,8 @@ open class CategoryAdditionalPropertie:NSObject{
 	open var donateMessage : DonateMessage!
 	open var thumbnail : CategoryThumbnail!
     open var donattionUrl : DonateMessage!
+    open var voteKey : GeneralAdditionalObject!
+    open var surpiseKey : GeneralAdditionalObject!
 
     override public init(){super.init()}
 
@@ -22,6 +24,12 @@ open class CategoryAdditionalPropertie:NSObject{
 		}
         if let donattion_url = dictionary["donation_url"] as? NSDictionary{
             donattionUrl = DonateMessage(fromDictionary: donattion_url)
+        }
+        if let vote_key = dictionary["vote_key"] as? NSDictionary{
+            voteKey = GeneralAdditionalObject(fromDictionary: vote_key)
+        }
+        if let surprise_key = dictionary["surprise_key"] as? NSDictionary{
+            surpiseKey = GeneralAdditionalObject(fromDictionary: surprise_key)
         }
 	}
 }
