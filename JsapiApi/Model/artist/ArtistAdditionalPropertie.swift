@@ -8,6 +8,10 @@ import Foundation
 open class ArtistAdditionalPropertie:NSObject{
 
 	var thumbnail : ArtistAsset!
+    open var battleKey : GeneralAdditionalObject!
+    open var voteKey : GeneralAdditionalObject!
+    open var surpiseKey : GeneralAdditionalObject!
+    open var videoId : GeneralAdditionalObject!
 
 
 	/**
@@ -17,6 +21,20 @@ open class ArtistAdditionalPropertie:NSObject{
 		if let mainDashData = dictionary["thumbnail"] as? NSDictionary{
 			thumbnail = ArtistAsset(fromDictionary: mainDashData)
 		}
+        if let vote_key = dictionary["vote_key"] as? NSDictionary{
+            voteKey = GeneralAdditionalObject(fromDictionary: vote_key)
+        }
+        if let surprise_key = dictionary["surprise_key"] as? NSDictionary{
+            surpiseKey = GeneralAdditionalObject(fromDictionary: surprise_key)
+        }
+        if let battle_key = dictionary["battle_key"] as? NSDictionary{
+            battleKey = GeneralAdditionalObject(fromDictionary: battle_key)
+        }
+        if let video_id = dictionary["video_id"] as? NSDictionary{
+            videoId = GeneralAdditionalObject(fromDictionary: video_id)
+        }
+
+
 			}
 
 	
