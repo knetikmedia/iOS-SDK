@@ -2,7 +2,7 @@
 //	AdditionalPropertie.swift
 import Foundation
 
-open class CategoryAdditionalPropertie:NSObject{
+open class GeneralAdditionalPropertie:NSObject{
 
 	open var donateMessage : DonateMessage!
 	open var thumbnail : CategoryThumbnail!
@@ -11,6 +11,9 @@ open class CategoryAdditionalPropertie:NSObject{
     open var surpiseKey : GeneralAdditionalObject!
     open var battleKey : GeneralAdditionalObject!
     open var videoId : GeneralAdditionalObject!
+    open var videoLoop : GeneralNumber!
+
+
 
     override public init(){super.init()}
 
@@ -38,6 +41,9 @@ open class CategoryAdditionalPropertie:NSObject{
         }
         if let video_id = dictionary["video_id"] as? NSDictionary{
             videoId = GeneralAdditionalObject(fromDictionary: video_id)
+        }
+        if let video_loop = dictionary["video_loop"] as? NSDictionary{
+            videoLoop = GeneralNumber(fromDictionary: video_loop)
         }
 	}
 }

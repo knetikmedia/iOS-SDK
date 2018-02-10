@@ -18,7 +18,7 @@ open class ArtistObject :NSObject{
 	open var priority : NSNumber!
 	open var shortDescription : String!
 	open var updated : NSNumber!
-    open var assets :  ArtistAdditionalPropertie!
+    open var assets :  GeneralAdditionalPropertie!
     open var additional_properties : NSDictionary!
     override public init(){super.init()}
 
@@ -39,7 +39,7 @@ open class ArtistObject :NSObject{
 		shortDescription = dictionary["short_description"] as? String
 		updated = dictionary["updated"] as? NSNumber
        	if let additionalPropertiesData = dictionary["additional_properties"] as? NSDictionary{
-            assets = ArtistAdditionalPropertie(fromDictionary: additionalPropertiesData)
+            assets = GeneralAdditionalPropertie(fromDictionary: additionalPropertiesData)
         }
     
     }

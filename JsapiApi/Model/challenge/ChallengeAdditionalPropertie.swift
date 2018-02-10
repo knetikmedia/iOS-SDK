@@ -10,7 +10,7 @@ open class ChallengeAdditionalPropertie:NSObject{
 	open var mainDash : ChallengeAsset!
 	open var sponsorImage : ChallengeAsset!
     open var prmotionText : NSDictionary!
-    open var order : Order!
+    open var order : GeneralNumber!
 
 
 	/**
@@ -41,7 +41,7 @@ open class ChallengeAdditionalPropertie:NSObject{
             }
         
         if let orderData = dictionary["order"] as? NSDictionary{
-            order = Order(fromDictionary: orderData)
+            order = GeneralNumber(fromDictionary: orderData)
         }
 	}
 

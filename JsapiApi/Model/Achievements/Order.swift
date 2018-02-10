@@ -5,7 +5,7 @@
 //	Copyright © 2017. All rights reserved.
 import Foundation
 
-open class Order : NSObject{
+open class GeneralNumber : NSObject{
     
     open var type : String!
     open var  value : NSNumber!

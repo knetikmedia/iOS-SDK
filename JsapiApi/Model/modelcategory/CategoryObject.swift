@@ -10,7 +10,7 @@ open class CategoryObject:BaseResponse{
 	open var active : Bool!
 	open var categoryId : String!
 	open var name : String!
-    open var categoryitionalProperties : CategoryAdditionalPropertie!
+    open var categoryitionalProperties : GeneralAdditionalPropertie!
 
     override public init(){super.init()}
 
@@ -23,10 +23,10 @@ open class CategoryObject:BaseResponse{
 		categoryId = dictionary["id"] as? String
 		name = dictionary["name"] as? String
         if let additionalPropertiesData = dictionary["additional_properties"] as? NSDictionary{
-            categoryitionalProperties = CategoryAdditionalPropertie(fromDictionary: additionalPropertiesData)
+            categoryitionalProperties = GeneralAdditionalPropertie(fromDictionary: additionalPropertiesData)
         }else{
             
-            categoryitionalProperties = CategoryAdditionalPropertie()
+            categoryitionalProperties = GeneralAdditionalPropertie()
         }
 	}
 
