@@ -12,6 +12,7 @@ open class GeneralAdditionalPropertie:NSObject{
     open var battleKey : GeneralAdditionalObject!
     open var videoId : GeneralAdditionalObject!
     open var videoLoop : GeneralNumber!
+    open var videoPairs : GeneralNumber!
 
 
 
@@ -44,6 +45,9 @@ open class GeneralAdditionalPropertie:NSObject{
         }
         if let video_loop = dictionary["video_loop"] as? NSDictionary{
             videoLoop = GeneralNumber(fromDictionary: video_loop)
+        }
+        if let video_pairs = dictionary["video_pairs"] as? NSDictionary{
+            videoPairs = GeneralNumber(fromDictionary: video_pairs)
         }
 	}
 }
