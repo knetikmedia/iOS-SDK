@@ -15,6 +15,8 @@
 		F436419A1C52B7950062F95E /* PageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43641981C52B7950062F95E /* PageRequest.swift */; };
 		F436419F1C52B8CB0062F95E /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F436419E1C52B8CB0062F95E /* NotificationService.swift */; };
 		F43641A01C52B8CB0062F95E /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F436419E1C52B8CB0062F95E /* NotificationService.swift */; };
+		F43F45682033ACCB00620FCC /* LevelProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43F45672033ACCB00620FCC /* LevelProgress.swift */; };
+		F43F456A2033AD5D00620FCC /* LevelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43F45692033AD5C00620FCC /* LevelService.swift */; };
 		F44231881BA370FD0004810F /* MetricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44231871BA370FD0004810F /* MetricService.swift */; };
 		F44231891BA371240004810F /* MetricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44231871BA370FD0004810F /* MetricService.swift */; };
 		F442318B1BA371CF0004810F /* LeaderboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F442318A1BA371CF0004810F /* LeaderboardService.swift */; };
@@ -197,6 +199,8 @@
 		F43641951C52B67D0062F95E /* BREService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BREService.swift; sourceTree = "<group>"; };
 		F43641981C52B7950062F95E /* PageRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageRequest.swift; sourceTree = "<group>"; };
 		F436419E1C52B8CB0062F95E /* NotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		F43F45672033ACCB00620FCC /* LevelProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelProgress.swift; sourceTree = "<group>"; };
+		F43F45692033AD5C00620FCC /* LevelService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelService.swift; sourceTree = "<group>"; };
 		F44231871BA370FD0004810F /* MetricService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetricService.swift; sourceTree = "<group>"; };
 		F442318A1BA371CF0004810F /* LeaderboardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardService.swift; sourceTree = "<group>"; };
 		F4453AA32024D6C200B58F36 /* Achievements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Achievements.swift; sourceTree = "<group>"; };
@@ -371,9 +375,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F43F45662033ACA300620FCC /* level */ = {
+			isa = PBXGroup;
+			children = (
+				F43F45672033ACCB00620FCC /* LevelProgress.swift */,
+			);
+			path = level;
+			sourceTree = "<group>";
+		};
 		F4453AA12024D6C200B58F36 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F43F45662033ACA300620FCC /* level */,
 				F4453AA22024D6C200B58F36 /* Achievements */,
 				F4453AA92024D6C200B58F36 /* article */,
 				F4453AAD2024D6C200B58F36 /* artist */,
@@ -722,6 +735,7 @@
 				F46E822B1CEE566A005B2F49 /* AchievementService.swift */,
 				F47B97C91C9CB68600A2B30F /* ArticleService.swift */,
 				F488C4F11C064C3300F2AF03 /* CategoriesService.swift */,
+				F43F45692033AD5C00620FCC /* LevelService.swift */,
 				F48006631AA656F600B27561 /* JSAPIConstant.swift */,
 				F43641981C52B7950062F95E /* PageRequest.swift */,
 				F47BB5A41ABC8457009AD1F6 /* UserService.swift */,
@@ -895,6 +909,7 @@
 				F4453B6C2024D6C200B58F36 /* FavoriteResponse.swift in Sources */,
 				F48BBD231ABB135B00EAFE09 /* Registration.swift in Sources */,
 				F4453B872024D6C200B58F36 /* Result.swift in Sources */,
+				F43F45682033ACCB00620FCC /* LevelProgress.swift in Sources */,
 				F4453B7F2024D6C200B58F36 /* GuestUserResponse.swift in Sources */,
 				F4453B562024D6C200B58F36 /* BaseChallengeActivity.swift in Sources */,
 				F4453B652024D6C200B58F36 /* BaseConfigResponse.swift in Sources */,
@@ -922,6 +937,7 @@
 				F4453B542024D6C200B58F36 /* Activities.swift in Sources */,
 				F4453B962024D6C200B58F36 /* Behavior.swift in Sources */,
 				F4453B402024D6C200B58F36 /* BaseAssetBatchResponse.swift in Sources */,
+				F43F456A2033AD5D00620FCC /* LevelService.swift in Sources */,
 				F4453B622024D6C200B58F36 /* CommentResponse.swift in Sources */,
 				F4453B842024D6C200B58F36 /* Sku.swift in Sources */,
 				F4453B692024D6C200B58F36 /* Dispositions.swift in Sources */,
