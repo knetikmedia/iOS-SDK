@@ -170,9 +170,9 @@ open class FriendshipService :NSObject
     
     }
     
-    open func likesCount(_ params:Dictionary<String,AnyObject>,callback:@escaping (NSDictionary,String,Bool)->Void)
+    open func getPointsCount(_ params:Dictionary<String,AnyObject>,callback:@escaping (NSDictionary,String,Bool)->Void)
     {
-        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.LIKESGCOUNT
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.POINTSCOUNT
         
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
         {

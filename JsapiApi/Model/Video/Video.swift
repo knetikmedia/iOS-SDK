@@ -38,6 +38,8 @@ open class Video :NSObject{
     open var tags : [String]!
     open var popularity : NSNumber!
     open var likes : NSNumber!
+    open var judges : NSNumber!
+
     open var parentId : NSNumber!
     open var additionalProperties : GeneralAdditionalPropertie!
 
@@ -98,6 +100,7 @@ open class Video :NSObject{
         }
 		updated = dictionary["updated_date"] as? NSNumber
         likes = dictionary["likes"] as? NSNumber
+        judges = dictionary["judges"] as? NSNumber
         popularity = dictionary["popularity"] as? NSNumber
 
         
