@@ -165,6 +165,7 @@ class var COMMENTLIST:String {return "/media/videos/%@/comments"};
 
     class var POPULARVIDEOS:String {return "/api/videos"};
     class var TRENDINGVIDEOS:String {return "/api/trending"};
+    class var JUDGEDVIDEOS:String {return "/api/videos/judges"};
 
     class var FOLLOWINGVIDEOS:String {return "/api/videos/followers/%@"};
 

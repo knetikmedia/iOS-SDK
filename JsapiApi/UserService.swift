@@ -274,6 +274,29 @@ open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escap
 
         }
     }
+    /**get User Info /services/latest/users
+     Dictionary Empty Dictionary {}
+     */
+    open func getUsersPublicInfo(_ params:Dictionary<String,String>,callback:@escaping (Array<SimpleUser>,String,Bool)->Void)
+    {
+
+        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.REGISTER
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params as Dictionary<String, AnyObject>))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            let userResponse = BaseUserListResponse(fromDictionary: result)
+            if(!issuccess)
+            {
+
+                callback(userResponse.content,userResponse.errormessage,issuccess)
+
+            }else
+            {
+                callback(userResponse.content,"",issuccess)
+
+            }
+        }
+    }
 
 
 }
