@@ -39,7 +39,7 @@ open class GeneralAdditionalPropertie:NSObject{
         if let vote_key = dictionary["vote_key"] as? NSDictionary{
             voteKey = GeneralAdditionalObject(fromDictionary: vote_key)
         }
-        if let surprise_key = dictionary["surprise_key"] as? NSDictionary{
+        if let surprise_key = dictionary["enable_surprise"] as? NSDictionary{
             surpiseKey = GeneralAdditionalObject(fromDictionary: surprise_key)
         }
         if let battle_key = dictionary["battle_key"] as? NSDictionary{
