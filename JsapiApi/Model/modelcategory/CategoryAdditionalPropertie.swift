@@ -13,6 +13,11 @@ open class GeneralAdditionalPropertie:NSObject{
     open var videoId : GeneralAdditionalObject!
     open var videoLoop : GeneralNumber!
     open var videoPairs : GeneralNumber!
+    open var videoId1 : GeneralNumber!
+    open var videoId2 : GeneralNumber!
+    open var videoId3 : GeneralNumber!
+    open var videoId4 : GeneralNumber!
+    open var surpriseVideos : GeneralAdditionalObject!
 
 
 
@@ -49,5 +54,21 @@ open class GeneralAdditionalPropertie:NSObject{
         if let video_pairs = dictionary["video_pairs"] as? NSDictionary{
             videoPairs = GeneralNumber(fromDictionary: video_pairs)
         }
+        if let video_pairs = dictionary["enable_surprise"] as? NSDictionary{
+            surpriseVideos = GeneralAdditionalObject(fromDictionary: video_pairs)
+        }
+        if let video_id1 = dictionary["video_id1"] as? NSDictionary{
+            videoId1 = GeneralNumber(fromDictionary: video_id1)
+        }
+        if let video_id2 = dictionary["video_id2"] as? NSDictionary{
+            videoId2 = GeneralNumber(fromDictionary: video_id2)
+        }
+        if let video_id3 = dictionary["video_id3"] as? NSDictionary{
+            videoId3 = GeneralNumber(fromDictionary: video_id3)
+        }
+        if let video_id4 = dictionary["video_id4"] as? NSDictionary{
+            videoId4 = GeneralNumber(fromDictionary: video_id4)
+        }
+
 	}
 }
