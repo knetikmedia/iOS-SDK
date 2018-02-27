@@ -18,6 +18,7 @@ open class GeneralAdditionalPropertie:NSObject{
     open var videoId3 : GeneralNumber!
     open var videoId4 : GeneralNumber!
     open var surpriseVideos : GeneralAdditionalObject!
+    open var totalVideos : GeneralNumber!
 
 
 
@@ -68,6 +69,9 @@ open class GeneralAdditionalPropertie:NSObject{
         }
         if let video_id4 = dictionary["video_id4"] as? NSDictionary{
             videoId4 = GeneralNumber(fromDictionary: video_id4)
+        }
+        if let total_videos = dictionary["total_videos"] as? NSDictionary{
+            totalVideos = GeneralNumber(fromDictionary: total_videos)
         }
 
 	}
