@@ -25,7 +25,7 @@ open class JsapiAPi:NSObject
     fileprivate var token=""
     fileprivate var token_type=""
     fileprivate var refresh_token=""
-    fileprivate var theDelegate:AnyObject!
+    fileprivate var theDelegate:NSObject!
 
 
     private override init(){
@@ -57,7 +57,7 @@ open class JsapiAPi:NSObject
     secrect_key optional paramter
     */
     
-    open class func jsapiInit(_ jsapiurl:String,client_id:String,secrect_key:String,notificationUrl:String,theDelegate:AnyObject)
+    open class func jsapiInit(_ jsapiurl:String,client_id:String,secrect_key:String,notificationUrl:String,theDelegate:NSObject)
     {
         if(jsapiurl.isEmpty){
             return;
@@ -292,11 +292,11 @@ open class JsapiAPi:NSObject
     }
     
     
-    func sessionExpired() {
+    @objc func sessionExpired() {
     
 //          let appDelegate = UIApplication.shared.delegate
         
-            theDelegate.perform(#selector(JsapiAPi.sessionExpired))
+            theDelegate.perform(#selector(sessionExpired))
     
     }
     
