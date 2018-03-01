@@ -16,7 +16,7 @@ class CheckoutResponse:BaseResponse{
 	override init(fromDictionary dictionary: NSDictionary)
     {
         super.init(fromDictionary: dictionary)
-		if let checkoutData = dictionary["result"] as? NSDictionary{
+		if let checkoutData = dictionary as? NSDictionary{
 			checkout = Checkout(fromDictionary: checkoutData)
 		}
 	

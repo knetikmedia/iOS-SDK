@@ -24,6 +24,7 @@ open class Challenge :NSObject{
 	open var startDate : NSNumber!
 	open var updated : NSNumber!
     open var assets : NSDictionary!
+    var additionalProperties : ChallengeAdditionalPropertie!
 
     public override init(){}
 
@@ -32,14 +33,14 @@ open class Challenge :NSObject{
 	 */
 	init(fromDictionary dictionary: NSDictionary){
 		activities = dictionary["activities"] as? NSNumber
-		campaignId = dictionary["campaignId"] as? NSNumber
-		copyOf = dictionary["copyOf"] as? NSNumber
-		created = dictionary["created"] as? NSNumber
-		endDate = dictionary["endDate"] as? NSNumber
+		campaignId = dictionary["campaign_id"] as? NSNumber
+		copyOf = dictionary["copy_of"] as? NSNumber
+		created = dictionary["created_date"] as? NSNumber
+		endDate = dictionary["end_date"] as? NSNumber
 		challengeId = dictionary["id"] as? NSNumber
-		leaderboardStrategy = dictionary["leaderboardStrategy"] as? String
+		leaderboardStrategy = dictionary["leaderboard_strategy"] as? String
         
-        let longValue = dictionary["longDescription"] as? String
+        let longValue = dictionary["long_description"] as? String
         
         if let number = Int(longValue!){
         
@@ -50,15 +51,19 @@ open class Challenge :NSObject{
         }
         
 		name = dictionary["name"] as? String
-		nextEventDate = dictionary["nextEventDate"] as? NSNumber
-		rewardLagMinutes = dictionary["rewardLagMinutes"] as? NSNumber
-		if let rewardSetData = dictionary["rewardSet"] as? NSDictionary{
+		nextEventDate = dictionary["next_event_date"] as? NSNumber
+		rewardLagMinutes = dictionary["reward_lag_minutes"] as? NSNumber
+		if let rewardSetData = dictionary["reward_set"] as? NSDictionary{
 			rewardSet = RewardSet(fromDictionary: rewardSetData)
 		}
 		schedule = dictionary["schedule"] as? NSDictionary
-		shortDescription = dictionary["shortDescription"] as? String
-		startDate = dictionary["startDate"] as? NSNumber
+		shortDescription = dictionary["short_description"] as? String
+		startDate = dictionary["start_date"] as? NSNumber
 		updated = dictionary["updated"] as? NSNumber
+        
+       	if let additionalPropertiesData = dictionary["additional_properties"] as? NSDictionary{
+            additionalProperties = ChallengeAdditionalPropertie(fromDictionary: additionalPropertiesData)
+        }
 	}
 
 	/**
@@ -71,46 +76,46 @@ open class Challenge :NSObject{
 			dictionary["activities"] = activities
 		}
 		if campaignId != nil{
-			dictionary["campaignId"] = campaignId
+			dictionary["campaign_id"] = campaignId
 		}
 		if copyOf != nil{
-			dictionary["copyOf"] = copyOf
+			dictionary["copy_of"] = copyOf
 		}
 		if created != nil{
-			dictionary["created"] = created
+			dictionary["created_date"] = created
 		}
 		if endDate != nil{
-			dictionary["endDate"] = endDate
+			dictionary["end_date"] = endDate
 		}
 		if challengeId != nil{
 			dictionary["id"] = challengeId
 		}
 		if leaderboardStrategy != nil{
-			dictionary["leaderboardStrategy"] = leaderboardStrategy
+			dictionary["leaderboard_strategy"] = leaderboardStrategy
 		}
 		if longDescription != nil{
-			dictionary["longDescription"] = longDescription
+			dictionary["long_description"] = longDescription
 		}
 		if name != nil{
 			dictionary["name"] = name
 		}
 		if nextEventDate != nil{
-			dictionary["nextEventDate"] = nextEventDate
+			dictionary["next_event_date"] = nextEventDate
 		}
 		if rewardLagMinutes != nil{
-			dictionary["rewardLagMinutes"] = rewardLagMinutes
+			dictionary["rewardLag_minutes"] = rewardLagMinutes
 		}
 		if rewardSet != nil{
-			dictionary["rewardSet"] = rewardSet.toDictionary()
+			dictionary["reward_set"] = rewardSet.toDictionary()
 		}
 		if schedule != nil{
 			dictionary["schedule"] = schedule
 		}
 		if shortDescription != nil{
-			dictionary["shortDescription"] = shortDescription
+			dictionary["short_description"] = shortDescription
 		}
 		if startDate != nil{
-			dictionary["startDate"] = startDate
+			dictionary["start_date"] = startDate
 		}
 		if updated != nil{
 			dictionary["updated"] = updated

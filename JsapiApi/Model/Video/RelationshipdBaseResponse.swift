@@ -36,10 +36,10 @@ class RelationshipdBaseResponse :BaseResponse{
 		first = dictionary["first"] as? Bool
 		last = dictionary["last"] as? Bool
 		number = dictionary["number"] as? Int
-		numberOfElements = dictionary["numberOfElements"] as? Int
+		numberOfElements = dictionary["number_of_elements"] as? Int
 		size = dictionary["size"] as? Int
-		totalElements = dictionary["totalElements"] as? Int
-		totalPages = dictionary["totalPages"] as? Int
+		totalElements = dictionary["total_elements"] as? Int
+		totalPages = dictionary["total_pages"] as? Int
 	}
 
 	/**
@@ -65,16 +65,16 @@ class RelationshipdBaseResponse :BaseResponse{
 			dictionary["number"] = number
 		}
 		if numberOfElements != nil{
-			dictionary["numberOfElements"] = numberOfElements
+			dictionary["number_of_elements"] = numberOfElements
 		}
 		if size != nil{
 			dictionary["size"] = size
 		}
 		if totalElements != nil{
-			dictionary["totalElements"] = totalElements
+			dictionary["total_elements"] = totalElements
 		}
 		if totalPages != nil{
-			dictionary["totalPages"] = totalPages
+			dictionary["total_pages"] = totalPages
 		}
 		return dictionary
 	}

@@ -12,8 +12,6 @@ open class MetricService : NSObject
 {
 
     /**Add a new Metric . Requires user authentication.
-    *@param params Dictionary
-    *@param callback
     */
     open func addMetric(_ params:Dictionary<String,AnyObject>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
@@ -28,7 +26,6 @@ open class MetricService : NSObject
                     
                 }else
                 {
-                    print(result)
                     callback(baseResponse,"",issuccess)
                     
                 }

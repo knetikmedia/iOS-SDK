@@ -16,8 +16,8 @@ open class Activity :NSObject{
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
 	init(fromDictionary dictionary: NSDictionary){
-		activityId = dictionary["activityId"] as? NSNumber
-		challengeId = dictionary["challengeId"] as? NSNumber
+		activityId = dictionary["activity_id"] as? NSNumber
+		challengeId = dictionary["challenge_id"] as? NSNumber
 		theActivityID = dictionary["id"] as? NSNumber
 	}
 
@@ -28,10 +28,10 @@ open class Activity :NSObject{
 	{
 		let dictionary = NSMutableDictionary()
 		if activityId != nil{
-			dictionary["activityId"] = activityId
+			dictionary["activity_id"] = activityId
 		}
 		if challengeId != nil{
-			dictionary["challengeId"] = challengeId
+			dictionary["challenge_id"] = challengeId
 		}
 		if theActivityID != nil{
 			dictionary["id"] = theActivityID

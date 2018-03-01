@@ -24,7 +24,7 @@ open class Shippable:NSObject{
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
 	init(fromDictionary dictionary: NSDictionary){
-		cartId = dictionary["cartId"] as? NSNumber
+		cartId = dictionary["cart_id"] as? NSNumber
 		shippable = dictionary["shippable"] as? Bool
 	}
 

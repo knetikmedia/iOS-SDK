@@ -34,10 +34,10 @@ open class ArtistPage:NSObject{
 		first = dictionary["first"] as? Bool
 		last = dictionary["last"] as? Bool
 		number = dictionary["number"] as? NSNumber
-		numberOfElements = dictionary["numberOfElements"] as? NSNumber
+		numberOfElements = dictionary["number_of_elements"] as? NSNumber
 		size = dictionary["size"] as? NSNumber
-		totalElements = dictionary["totalElements"] as? NSNumber
-		totalPages = dictionary["totalPages"] as? NSNumber
+		totalElements = dictionary["total_elements"] as? NSNumber
+		totalPages = dictionary["total_pages"] as? NSNumber
 	}
 
 	/**
@@ -63,7 +63,7 @@ open class ArtistPage:NSObject{
 			dictionary["number"] = number
 		}
 		if numberOfElements != nil{
-			dictionary["numberOfElements"] = numberOfElements
+			dictionary["number_of_elements"] = numberOfElements
 		}
 		if size != nil{
 			dictionary["size"] = size
@@ -72,10 +72,10 @@ open class ArtistPage:NSObject{
 			dictionary["sort"] = sort
 		}
 		if totalElements != nil{
-			dictionary["totalElements"] = totalElements
+			dictionary["total_elements"] = totalElements
 		}
 		if totalPages != nil{
-			dictionary["totalPages"] = totalPages
+			dictionary["total_pages"] = totalPages
 		}
 		return dictionary
 	}

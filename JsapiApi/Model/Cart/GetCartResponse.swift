@@ -21,7 +21,7 @@ class GetCartResponse:BaseResponse{
 	override init(fromDictionary dictionary: NSDictionary){
         super.init(fromDictionary: dictionary)
 		cached = dictionary["cached"] as? Bool
-		if let cartdetailsData = dictionary["result"] as? NSDictionary{
+		if let cartdetailsData = dictionary as? NSDictionary{
 			cartdetails = CartDetails(fromDictionary: cartdetailsData)
 		}
 	

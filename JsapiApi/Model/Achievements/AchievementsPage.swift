@@ -35,10 +35,10 @@ open class AchievementsPage :NSObject{
 		first = dictionary["first"] as? NSNumber
 		last = dictionary["last"] as? NSNumber
 		number = dictionary["number"] as? NSNumber
-		numberOfElements = dictionary["numberOfElements"] as? NSNumber
+		numberOfElements = dictionary["number_of_elements"] as? NSNumber
 		size = dictionary["size"] as? NSNumber
-		totalElements = dictionary["totalElements"] as? NSNumber
-		totalPages = dictionary["totalPages"] as? NSNumber
+		totalElements = dictionary["total_Elements"] as? NSNumber
+		totalPages = dictionary["total_pages"] as? NSNumber
 	}
 
 }

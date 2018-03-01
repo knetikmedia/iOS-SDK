@@ -18,7 +18,8 @@ open class ArtistObject :NSObject{
 	open var priority : NSNumber!
 	open var shortDescription : String!
 	open var updated : NSNumber!
-    open var assets :  [AssetContent]!
+    open var assets :  GeneralAdditionalPropertie!
+    open var additional_properties : NSDictionary!
     override public init(){super.init()}
 
 
@@ -27,24 +28,21 @@ open class ArtistObject :NSObject{
 	 */
 	init(fromDictionary dictionary: NSDictionary){
 		born = dictionary["born"] as? String
-		contributionCount = dictionary["contributionCount"] as? NSNumber
+		contributionCount = dictionary["contribution_count"] as? NSNumber
         contributions = dictionary["contributions"] as? NSDictionary
 		created = dictionary["created"] as? NSNumber
 		died = dictionary["died"] as? String
 		artistId = dictionary["id"] as? NSNumber
-		longDescription = dictionary["longDescription"] as? String
+		longDescription = dictionary["long_description"] as? String
 		name = dictionary["name"] as? String
 		priority = dictionary["priority"] as? NSNumber
-		shortDescription = dictionary["shortDescription"] as? String
+		shortDescription = dictionary["short_description"] as? String
 		updated = dictionary["updated"] as? NSNumber
-        assets = [AssetContent]()
-        if let assetsArray = dictionary["assets"] as? [NSDictionary]{
-            for dic in assetsArray{
-                let value = AssetContent(fromDictionary: dic)
-                assets.append(value)
-            }
+       	if let additionalPropertiesData = dictionary["additional_properties"] as? NSDictionary{
+            assets = GeneralAdditionalPropertie(fromDictionary: additionalPropertiesData)
         }
-	}
+    
+    }
 
 	/**
 	 * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
@@ -56,7 +54,7 @@ open class ArtistObject :NSObject{
 			dictionary["born"] = born
 		}
 		if contributionCount != nil{
-			dictionary["contributionCount"] = contributionCount
+			dictionary["contribution_count"] = contributionCount
 		}
 		if contributions != nil{
 			dictionary["contributions"] = contributions
@@ -71,7 +69,7 @@ open class ArtistObject :NSObject{
 			dictionary["id"] = artistId
 		}
 		if longDescription != nil{
-			dictionary["longDescription"] = longDescription
+			dictionary["long_description"] = longDescription
 		}
 		if name != nil{
 			dictionary["name"] = name
@@ -80,7 +78,7 @@ open class ArtistObject :NSObject{
 			dictionary["priority"] = priority
 		}
 		if shortDescription != nil{
-			dictionary["shortDescription"] = shortDescription
+			dictionary["short_description"] = shortDescription
 		}
 		if updated != nil{
 			dictionary["updated"] = updated

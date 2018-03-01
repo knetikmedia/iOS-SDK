@@ -25,7 +25,7 @@ open class JsapiAPi:NSObject
     fileprivate var token=""
     fileprivate var token_type=""
     fileprivate var refresh_token=""
-    fileprivate var theDelegate:AnyObject!
+    fileprivate var theDelegate:NSObject!
 
 
     private override init(){
@@ -57,7 +57,7 @@ open class JsapiAPi:NSObject
     secrect_key optional paramter
     */
     
-    open class func jsapiInit(_ jsapiurl:String,client_id:String,secrect_key:String,notificationUrl:String,theDelegate:AnyObject)
+    open class func jsapiInit(_ jsapiurl:String,client_id:String,secrect_key:String,notificationUrl:String,theDelegate:NSObject)
     {
         if(jsapiurl.isEmpty){
             return;
@@ -120,7 +120,12 @@ open class JsapiAPi:NSObject
                         callback(result,false)
                         return
                     }
-                    
+                    if(!((result.value(forKey: "access_token") != nil))){
+                        callback(result,false)
+                        return
+                        
+                    }
+
                     self.token=result.value(forKey: "access_token") as! String!
                     self.token_type=result.value(forKey: "token_type") as! String!
                     if(result.value(forKey: "refresh_token") != nil){
@@ -148,6 +153,12 @@ open class JsapiAPi:NSObject
                 (result:NSDictionary,issuccess:Bool) in
                 if(issuccess)
                 {
+                    if(!((result.value(forKey: "access_token") != nil))){
+                        callback(result,false)
+                        return
+                        
+                    }
+
                     self.token=result.value(forKey: "access_token") as! String!
                     self.token_type=result.value(forKey: "token_type") as! String!
                     if(result.value(forKey: "refresh_token") != nil){
@@ -172,10 +183,15 @@ open class JsapiAPi:NSObject
                 (result:NSDictionary,issuccess:Bool) in
                 if(issuccess)
                 {
-                    if(result.count == 0 ){
+                    if(result.count == 0){
                     
                         callback(result,false)
                         return
+                    }
+                    if(!((result.value(forKey: "access_token") != nil))){
+                        callback(result,false)
+                        return
+
                     }
                     
                     self.token=result.value(forKey: "access_token") as! String!
@@ -276,11 +292,11 @@ open class JsapiAPi:NSObject
     }
     
     
-    func sessionExpired() {
+    @objc func sessionExpired() {
     
 //          let appDelegate = UIApplication.shared.delegate
         
-            theDelegate.perform(#selector(JsapiAPi.sessionExpired))
+            theDelegate.perform(#selector(sessionExpired))
     
     }
     

@@ -28,8 +28,8 @@ open class Behavior:NSObject{
 		endDate = dictionary["end_date"] as AnyObject!
 		behaviorId = dictionary["id"] as? NSNumber
 		startDate = dictionary["start_date"] as AnyObject!
-		typeHNSNumber = dictionary["type_hNSNumber"] as? String
-        fulfillmentTypeName = dictionary["fulfillmentTypeName"] as? String
+		typeHNSNumber = dictionary["type_h_number"] as? String
+        fulfillmentTypeName = dictionary["fulfillment_typeName"] as? String
         typeHint = dictionary["typeHint"] as? String
 
 	}

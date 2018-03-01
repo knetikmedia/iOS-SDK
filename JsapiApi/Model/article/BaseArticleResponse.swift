@@ -22,7 +22,7 @@ import Foundation
         
 		super.init(fromDictionary: dictionary)
         
-		if let resultData = dictionary["result"] as? NSDictionary{
+		if let resultData = dictionary as? NSDictionary{
             
 			result = ArticlePage(fromDictionary: resultData)
 		}

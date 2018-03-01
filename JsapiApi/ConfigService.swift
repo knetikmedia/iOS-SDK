@@ -28,7 +28,7 @@ open class ConfigService : NSObject
                 {
                     let baseResponse=BaseConfigResponse(fromDictionary: result)
 
-                //    callback(baseResponse.result,baseResponse.errormessage,issuccess)
+                    callback(baseResponse.result,"",false)
                     
                 }else
                 {

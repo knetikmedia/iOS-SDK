@@ -38,7 +38,10 @@ open class Video :NSObject{
     open var tags : [String]!
     open var popularity : NSNumber!
     open var likes : NSNumber!
+    open var judges : NSNumber!
+
     open var parentId : NSNumber!
+    open var additionalProperties : GeneralAdditionalPropertie!
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
@@ -57,7 +60,15 @@ open class Video :NSObject{
 				contributors.append(value)
 			}
 		}
-		created = dictionary["created"] as? NSNumber
+		created = dictionary["created_date"] as? NSNumber
+        
+        if(created == nil){
+        
+            created = dictionary["createdDate"] as? NSNumber
+
+        }
+        
+        
 		embed = dictionary["embed"] as? String
 		videoExtension = dictionary["extension"] as? String
 		height = dictionary["height"] as? NSNumber
@@ -71,10 +82,15 @@ open class Video :NSObject{
         
 		length = dictionary["length"] as? NSNumber
 		location = dictionary["location"] as? String
-		longDescription = dictionary["longDescription"] as? String
+		longDescription = dictionary["long_description"] as? String
 		mimeType = dictionary["mime_type"] as? String
 		name = dictionary["name"] as? String
-		shortDescription = dictionary["shortDescription"] as? String
+		shortDescription = dictionary["short_description"] as? String
+        
+        if(shortDescription == nil){
+            shortDescription = dictionary["shortDescription"] as? String
+        }
+
         privacy = dictionary["privacy"] as? String
 
 		size = dictionary["size"] as? NSNumber
@@ -82,8 +98,9 @@ open class Video :NSObject{
         if(thumbnail == nil){
             thumbnail = ""
         }
-		updated = dictionary["updated"] as? NSNumber
+		updated = dictionary["updated_date"] as? NSNumber
         likes = dictionary["likes"] as? NSNumber
+        judges = dictionary["judges"] as? NSNumber
         popularity = dictionary["popularity"] as? NSNumber
 
         
@@ -92,7 +109,11 @@ open class Video :NSObject{
 		}
 		width = dictionary["width"] as? NSNumber
         views = dictionary["views"] as? NSNumber
+        parentId = dictionary["parent_id"] as? NSNumber
+        
+        if(parentId == nil){
         parentId = dictionary["parentId"] as? NSNumber
+        }
 
         if let categoryData = dictionary["category"] as? NSDictionary{
             videoCategory = CategoryObject(fromDictionary: categoryData)
@@ -107,6 +128,14 @@ open class Video :NSObject{
                 comments.append(value)
             }
         }
+        
+        if let additionalPropertiesData = dictionary["additional_properties"] as? NSDictionary{
+            additionalProperties = GeneralAdditionalPropertie(fromDictionary: additionalPropertiesData)
+        }else{
+            
+            additionalProperties = GeneralAdditionalPropertie()
+        }
+        
 	}
 
 	/**
@@ -129,7 +158,7 @@ open class Video :NSObject{
 			dictionary["contributors"] = dictionaryElements
 		}
 		if created != nil{
-			dictionary["created"] = created
+			dictionary["created_date"] = created
 		}
 		if embed != nil{
 			dictionary["embed"] = embed
@@ -150,7 +179,7 @@ open class Video :NSObject{
 			dictionary["location"] = location
 		}
 		if longDescription != nil{
-			dictionary["longDescription"] = longDescription
+			dictionary["long_description"] = longDescription
 		}
 		if mimeType != nil{
 			dictionary["mime_type"] = mimeType
@@ -159,13 +188,13 @@ open class Video :NSObject{
 			dictionary["name"] = name
 		}
 		if shortDescription != nil{
-			dictionary["shortDescription"] = shortDescription
+			dictionary["short_description"] = shortDescription
 		}
 		if size != nil{
 			dictionary["size"] = size
 		}
 		if updated != nil{
-			dictionary["updated"] = updated
+			dictionary["updated_date"] = updated
 		}
 		if uploader != nil{
 			dictionary["uploader"] = uploader.toDictionary()
@@ -198,9 +227,22 @@ open class Video :NSObject{
             
             dictionary["privacy"] = privacy
         }
-
+        
         
 		return dictionary
 	}
 
+    
+    override open var hash : Int {
+        return videoId as! Int;
+    }
+    
+    override open func isEqual(_ object: Any?) -> Bool {
+        
+       return (object as! Video).videoId.intValue == videoId.intValue;
+    
+    }
+
+
+    
 }

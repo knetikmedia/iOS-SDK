@@ -14,7 +14,7 @@ class RegisteredUserResponse:BaseResponse{
 	 */
 	override init(fromDictionary dictionary: NSDictionary){
         super.init(fromDictionary: dictionary)
-		if let registeredUserData = dictionary["result"] as? NSDictionary{
+		if let registeredUserData = dictionary as? NSDictionary{
 			registeredUser = RegisteredUser(fromDictionary: registeredUserData)
 		}
 	}

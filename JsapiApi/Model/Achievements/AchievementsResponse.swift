@@ -17,7 +17,7 @@ class AchievementsResponse : BaseResponse{
 	override init(fromDictionary dictionary: NSDictionary){
         
 		super.init(fromDictionary: dictionary)
-        if let resultData = dictionary["result"] as? NSDictionary{
+        if let resultData = dictionary as? NSDictionary{
 			result = AchievementsPage(fromDictionary: resultData)
         }else{
         

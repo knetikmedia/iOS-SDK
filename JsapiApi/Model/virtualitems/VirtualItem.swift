@@ -44,15 +44,15 @@ open class VirtualItem :NSObject{
 		if let catalogData = dictionary["catalog"] as? NSDictionary{
 			catalog = Catalog(fromDictionary: catalogData)
 		}
-		dateCreated = dictionary["dateCreated"] as? NSNumber
-		dateUpdated = dictionary["dateUpdated"] as? NSNumber
+		dateCreated = dictionary["date_created"] as? NSNumber
+		dateUpdated = dictionary["date_updated"] as? NSNumber
 		virtualId = dictionary["id"] as? NSNumber
-		longDescription = dictionary["longDescription"] as? String
+		longDescription = dictionary["long_description"] as? String
 		name = dictionary["name"] as? String
-		shortDescription = dictionary["shortDescription"] as? String
+		shortDescription = dictionary["short_description"] as? String
 		sort = dictionary["sort"] as? NSNumber
 		summary = dictionary["summary"] as? String
-		typeHNSNumber = dictionary["typeHNSNumber"] as? String
+		typeHNSNumber = dictionary["type_hns_number"] as? String
 		uniqueKey = dictionary["uniqueKey"] as? String
 	}
 

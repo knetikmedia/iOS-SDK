@@ -14,8 +14,6 @@ open class VideoService:NSObject
 {
     
     /** Get Artist and Global Videos
-    *@param params Dictionary
-    *@param callback
     */
     open func getVideos(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<Video>,PageRequest,String,Bool)->Void)
     {
@@ -31,7 +29,7 @@ open class VideoService:NSObject
                     
                 }else
                 {
-                    let baseResponse=VideoResponse(fromDictionary: result["result"] as! NSDictionary)
+                    let baseResponse=VideoResponse(fromDictionary: result )
 
                     callback(baseResponse.videos,baseResponse.page,"",issuccess)
                     
@@ -54,7 +52,7 @@ open class VideoService:NSObject
                     
                 }else
                 {
-                    let baseResponse=VideoResponse(fromDictionary: result["result"] as! NSDictionary)
+                    let baseResponse=VideoResponse(fromDictionary: result)
                     
                     callback(baseResponse.videos,baseResponse.page,"",issuccess)
                     
@@ -65,8 +63,6 @@ open class VideoService:NSObject
 
 
     /** Get Artist and Global Videos for a user
-    *@param params Dictionary
-    *@param callback
     */
     open func getUserVideos(_ userId:String,params:Dictionary<String,AnyObject>,callback:@escaping (Array<Video>,PageRequest,String,Bool)->Void)
     {
@@ -86,7 +82,7 @@ open class VideoService:NSObject
                     
                 }else
                 {
-                      let baseResponse=VideoResponse(fromDictionary: result["result"] as! NSDictionary)
+                      let baseResponse=VideoResponse(fromDictionary: result )
                     callback(baseResponse.videos,baseResponse.page,"",issuccess)
                     
                 }
@@ -112,7 +108,7 @@ open class VideoService:NSObject
                 
             }else
             {
-                let baseResponse=VideoResponse(fromDictionary: result["result"] as! NSDictionary)
+                let baseResponse=VideoResponse(fromDictionary: result )
                 callback(result,baseResponse.page,"",issuccess)
                 
             }
@@ -122,9 +118,7 @@ open class VideoService:NSObject
     
     
     /** Get Favorites Global Videos for a user
-    *@param params Dictionary
-    *@param callback
-    */
+      */
     open func getMyFavoritesVideos(_ userId:String,params:Dictionary<String,AnyObject>,callback:@escaping (Array<Video>,String,Bool)->Void)
     {
         
@@ -154,8 +148,6 @@ open class VideoService:NSObject
     }
 
     /** Get Friends Global Videos for a user
-    *@param params Dictionary
-    *@param callback
     */
     open func getFriendsVideos(_ userId:String,params:Dictionary<String,AnyObject>,callback:@escaping (Array<Video>,String,Bool)->Void)
     {
@@ -174,7 +166,7 @@ open class VideoService:NSObject
                     callback(baseResponse.videos,baseResponse.errormessage,issuccess)
                 }else
                 {
-                    let baseResponse=VideoResponse(fromDictionary: result["result"] as! NSDictionary)
+                    let baseResponse=VideoResponse(fromDictionary: result )
 
                     callback(baseResponse.videos,"",issuccess)
                 }
@@ -184,8 +176,6 @@ open class VideoService:NSObject
     
     
     /** Add User Video
-    *@param params Dictionary
-    *@param callback
     */
     open func addVideo(_ params:Dictionary<String,AnyObject>,callback:@escaping (Video,String,Bool)->Void)
     {
@@ -206,8 +196,6 @@ open class VideoService:NSObject
     }
     
     /** Add User Video
-     *@param params Dictionary
-     *@param callback
      */
     open func getVideoDetails(_ videoId:String ,params:Dictionary<String,AnyObject>,callback:@escaping (Video,String,Bool)->Void)
     {
@@ -276,8 +264,6 @@ open class VideoService:NSObject
     
     
     /** Add User Video
-     *@param params Dictionary
-     *@param callback
      */
     open func addContributor(_ videoId:String , params:Dictionary<String,AnyObject> , callback:@escaping (String,Bool)->Void)
     {
@@ -303,8 +289,6 @@ open class VideoService:NSObject
 
     
     /** update VideoViews Count
-    *@param params Dictionary
-    *@param callback
     */
     open func updateVideoViewsCount(_ videoId:String,params:Dictionary<String,AnyObject>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
@@ -330,8 +314,6 @@ open class VideoService:NSObject
     
 
     /** Add User Video
-    *@param params Dictionary
-    *@param callback
     */
     open func updateVideoDetails(_ videoId:String,params:Dictionary<String,AnyObject>,callback:@escaping (String,String,Bool)->Void)
     {
@@ -357,8 +339,6 @@ open class VideoService:NSObject
  
     
     /**Deletes a Video from an item. Must have authorization as the user that originally posted the comment.
-    *@param params Dictionary{"id": 0}
-    *@param callback
     */
     open func deleteVideo(_ params:Dictionary<String,String>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
@@ -384,9 +364,7 @@ open class VideoService:NSObject
 
     
     /** add User Uploaded MediaItem Assests
-    *@param params Dictionary
-    *@param callback
-    */
+     */
     open func addUserUploadedMediaItemAssests(_ params:Dictionary<String,AnyObject>,callback:@escaping (String,String,Bool)->Void)
     {
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDUSERUPLOADEDMEDIAITEMASSESTS
@@ -406,9 +384,7 @@ open class VideoService:NSObject
     }
     
     /** Add Video Realtionship
-     *@param params Dictionary
-     *@param callback
-     */
+      */
     open func addVideoRealtionShip(_ videoId:String,params:Dictionary<String,AnyObject>,callback:@escaping (String,String,Bool)->Void)
     {
         
@@ -432,8 +408,6 @@ open class VideoService:NSObject
 
     
     /** Get Video Realtionship
-     *@param params Dictionary
-     *@param callback
      */
     open func getRelationship(_ videoId:String,params:Dictionary<String,AnyObject>,callback:@escaping (Array<RelationshipObject>,String,Bool)->Void)
     {
@@ -452,7 +426,7 @@ open class VideoService:NSObject
                     callback(baseResponse.content,baseResponse.errormessage,issuccess)
                 }else
                 {
-                    let baseResponse=RelationshipdBaseResponse(fromDictionary: result["result"] as! NSDictionary)
+                    let baseResponse=RelationshipdBaseResponse(fromDictionary: result )
                     
                     callback(baseResponse.content,"",issuccess)
                 }
@@ -487,9 +461,86 @@ open class VideoService:NSObject
     }
     
     
+    open func getTrendingVideos(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<Video>,PageRequest,String,Bool)->Void)
+    {
+        
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.TRENDINGVIDEOS
+        
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            if(!issuccess)
+            {
+                let baseResponse=VideoResponse(fromDictionary: result)
+                
+                callback(baseResponse.videos,baseResponse.page,baseResponse.errormessage,issuccess)
+                
+            }else
+            {
+                let baseResponse=VideoResponse(fromDictionary: result )
+                
+                callback(baseResponse.videos,baseResponse.page,"",issuccess)
+                
+            }
+            
+        }
+    }
+    
+    
+    open func getFollowesVideos(_ params:Dictionary<String,AnyObject>,userId:String,callback:@escaping (Array<Video>,PageRequest,String,Bool)->Void)
+    {
+        let url:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.FOLLOWINGVIDEOS
+        
+        let methodUrl:String=NSString(format: url as NSString ,userId) as String
+        
+        
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            if(!issuccess)
+            {
+                let baseResponse=VideoResponse(fromDictionary: result)
+                
+                callback(baseResponse.videos,baseResponse.page,baseResponse.errormessage,issuccess)
+                
+            }else
+            {
+                let baseResponse=VideoResponse(fromDictionary: result )
+                
+                callback(baseResponse.videos,baseResponse.page,"",issuccess)
+                
+            }
+            
+        }
+    }
+    
+    open func getDashBoardLeftLinks(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<Video>,PageRequest,String,Bool)->Void)
+    {
+        
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.DASHBOARDLEFTLINKSVIDEOS
+        
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            if(!issuccess)
+            {
+                let baseResponse=VideoResponse(fromDictionary: result)
+                
+                callback(baseResponse.videos,baseResponse.page,baseResponse.errormessage,issuccess)
+                
+            }else
+            {
+                let baseResponse=VideoResponse(fromDictionary: result )
+                
+                callback(baseResponse.videos,baseResponse.page,"",issuccess)
+                
+            }
+            
+        }
+    }
+
+    
     /** Add Video Avatar
-     *@param params Dictionary
-     *@param callback
      */
     open func getAvatarDetails(_ videoId:String ,params:Dictionary<String,AnyObject>,callback:@escaping (BaseAvatarResponse,String,Bool)->Void)
     {
@@ -510,6 +561,45 @@ open class VideoService:NSObject
                     callback(baseResponse,"",issuccess)
                 }
                 
+        }
+    }
+    
+    
+    open func syncCount(_ params:Dictionary<String,AnyObject>,callback:@escaping (NSDictionary,String,Bool)->Void)
+    {
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.SYNCCOUNT
+        
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            
+            callback(result,"",issuccess)
+            
+        }
+        
+    }
+    open func getJudgedVideos(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<JudgedBy>,String,Bool)->Void)
+    {
+
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.JUDGEDVIDEOS
+
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            if(!issuccess)
+            {
+                let baseResponse=JudgeUsersBaseResponse(fromDictionary: result)
+
+                callback(baseResponse.data.judgedBy,baseResponse.errormessage,issuccess)
+
+            }else
+            {
+                let baseResponse=JudgeUsersBaseResponse(fromDictionary: result )
+
+                callback(baseResponse.data.judgedBy,"",issuccess)
+
+            }
+
         }
     }
 

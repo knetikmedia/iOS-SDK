@@ -25,7 +25,7 @@ open class Devicetoken : NSObject{
 	 */
 	func toDictionary() -> NSDictionary
 	{
-		var dictionary = NSMutableDictionary()
+		let dictionary = NSMutableDictionary()
 		if type != nil{
 			dictionary["type"] = type
 		}

@@ -11,8 +11,6 @@ open class LeaderboardService:NSObject
 {
     
     /** Get Leaderboards
-    *@param params Dictionary
-    *@param callback
     */
     
     open func getLeaderboards(_ params:Dictionary<String,AnyObject>,callback:@escaping (Leaderboard,String,Bool)->Void)
@@ -28,7 +26,6 @@ open class LeaderboardService:NSObject
                     
                 }else
                 {
-                    print(result)
                     callback(baseResponse.leaderboard,"",issuccess)
                     
                 }
@@ -37,8 +34,6 @@ open class LeaderboardService:NSObject
     }
  
     /** Get Strategies
-    *@param params Dictionary
-    *@param callback
     */
     
     open func getStrategies(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<String>,String,Bool)->Void)
@@ -54,7 +49,6 @@ open class LeaderboardService:NSObject
                     
                 }else
                 {
-                    print(result)
                     callback(baseResponse.strategies,"",issuccess)
                     
                 }
@@ -64,15 +58,13 @@ open class LeaderboardService:NSObject
     
     
     /** Get User Rank
-    *@param params Dictionary {leaderboardId:1,userId:1}
-    *@param callback
     */
     
     open func getUserRank(_ params:Dictionary<String,AnyObject>,callback:@escaping (Entrie,String,Bool)->Void)
     {
         let url  = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETUSERRANK
         
-        let methodUrl=NSString(format: url as NSString, (params["leaderboardId"] as?String)!,(params["userId"] as?String)!)
+        let methodUrl=NSString(format: url as NSString, (params["leaderboard_id"] as?String)!,(params["user_id"] as?String)!)
 
         JsapiRest.sharedInstance.getRequest(methodUrl as String, postParams: Utilities.getGETRequestFromDictionary(params))
             {
@@ -84,7 +76,6 @@ open class LeaderboardService:NSObject
                     
                 }else
                 {
-                    print(result)
                     callback(baseResponse.rank,"",issuccess)
                     
                 }

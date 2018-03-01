@@ -7,12 +7,11 @@ import Foundation
 
 open class User:NSObject{
     
- 
     open var age : NSNumber!
     open var avatarUrl : String!
     open var displayname : String!
     open var country : String!
-    open var dateOfBirth : AnyObject!
+    open var dateOfBirth : NSNumber!
     open var email : String!
     open var firstName : String!
     open var fullname : String!
@@ -24,6 +23,7 @@ open class User:NSObject{
     open var mobileNumber : AnyObject!
     open var productItem : AnyObject!
     open var token : AnyObject!
+    open var guest : AnyObject!
     open var username : String!
     open var wallet : [Wallet]!
     open var address : String!
@@ -39,7 +39,7 @@ open class User:NSObject{
     open var password : String!
     open func getAge()->NSNumber{return age;}
     open func getCountry()->String{return country;}
-    open func getDateOfBirth()->AnyObject{return dateOfBirth;}
+    open func getDateOfBirth()->NSNumber{return dateOfBirth;}
     open func getEmail()->String{return email}
     open func getFirstName()->String{
         if((firstName) != nil)
@@ -63,7 +63,21 @@ open class User:NSObject{
         }
     }
     open func getGender()->String{return gender}
-    open func getId()->NSNumber{return userId}
+    open func getId()->NSNumber{
+        
+        
+            if(userId != nil)
+            {
+                return userId
+                
+            }
+            else {
+                return NSNumber.init(value: 0)
+            }
+            
+        
+    
+    }
     open func getInventory()->AnyObject{return inventory}
     open func getLang()->AnyObject{return lang}
     open func getLastName()->String{
@@ -79,7 +93,19 @@ open class User:NSObject{
     open func getMobileNumber()->AnyObject{return mobileNumber}
     open func getProductItem()->AnyObject{return productItem}
     open func getToken()->AnyObject{return token}
-    open func getUsername()->String{return username}
+    open func getGuest()->AnyObject{return guest}
+    open func getUsername()->String{
+    
+    if((username) != nil)
+        {
+        return username
+        
+        }
+    else {
+        return ""
+        }
+    }
+    
     open func getWallet()->Array<Wallet>{return wallet}
     open func getDisplayName()->String{
         if((displayname) != nil)
@@ -102,24 +128,45 @@ open class User:NSObject{
     */
     init(fromDictionary dictionary: NSDictionary){
         age = dictionary["age"] as? NSNumber
-        displayname = dictionary["displayname"] as? String
-        avatarUrl = dictionary["avatarUrl"] as? String
+        displayname = dictionary["display_name"] as? String
+        avatarUrl = dictionary["avatar_url"] as? String
         country = dictionary["country"] as? String
-        dateOfBirth = dictionary["date_of_birth"] as AnyObject!
+        if dictionary["date_of_birth"] != nil {
+            
+            dateOfBirth = dictionary["date_of_birth"] as? NSNumber!
+            
+        }
         email = dictionary["email"] as? String
-        firstName = dictionary["firstName"] as? String
+        firstName = dictionary["first_name"] as? String
+        
+        if(displayname == nil){
+            
+            displayname = ""
+        }
+        
+        if(firstName == nil){
+            
+            firstName = ""
+        }
+        
         fullname = dictionary["fullname"] as? String
+        
+        if(fullname == nil){
+            
+            firstName = ""
+        }
+        
         gender = dictionary["gender"] as? String
         userId = dictionary["id"] as? NSNumber
         inventory = dictionary["inventory"] as AnyObject!
         lang = dictionary["lang"] as AnyObject!
-        lastName = dictionary["lastName"] as? String
+        lastName = dictionary["last_name"] as? String
         mobileNumber = dictionary["mobile_number"] as AnyObject!
         productItem = dictionary["product_item"] as AnyObject!
         token = dictionary["token"] as AnyObject!
+        guest = dictionary["guest"] as AnyObject!
         username = dictionary["username"] as? String
         password = dictionary["password"] as? String
-
         wallet = [Wallet]()
         if let walletArray = dictionary["wallet"] as? [NSDictionary]{
             for dic in walletArray{
@@ -128,7 +175,7 @@ open class User:NSObject{
             }
         }
         
-        if let propertiesData = dictionary["properties"] as? NSDictionary{
+        if let propertiesData = dictionary["additional_properties"] as? NSDictionary{
             properties = Propertie(fromDictionary: propertiesData)
         }
 
@@ -137,6 +184,9 @@ open class User:NSObject{
     open func toDictionary() -> NSDictionary
     {
         let dictionary = NSMutableDictionary()
+        if userId != nil{
+            dictionary["id"] = userId
+        }
         if address != nil{
             dictionary["address"] = address
         }
@@ -144,28 +194,28 @@ open class User:NSObject{
             dictionary["address2"] = address2
         }
         if avatarUrl != nil{
-            dictionary["avatarUrl"] = avatarUrl
+            dictionary["avatar_url"] = avatarUrl
         }
         if city != nil{
             dictionary["city"] = city
         }
         if countryCode != nil{
-            dictionary["countryCode"] = countryCode
+            dictionary["country_code"] = countryCode
         }
         if currencyCode != nil{
-            dictionary["currencyCode"] = currencyCode
+            dictionary["currency_code"] = currencyCode
         }
         if dateOfBirth != nil{
-            dictionary["dateOfBirth"] = dateOfBirth
+            dictionary["date_of_birth"] = dateOfBirth
         }
         if displayname != nil{
-            dictionary["displayname"] = displayname
+            dictionary["display_name"] = displayname
         }
         if email != nil{
             dictionary["email"] = email
         }
         if firstName != nil{
-            dictionary["firstName"] = firstName
+            dictionary["first_name"] = firstName
         }
         if fullname != nil{
             dictionary["fullname"] = fullname
@@ -174,22 +224,22 @@ open class User:NSObject{
             dictionary["gender"] = gender
         }
         if languageCode != nil{
-            dictionary["languageCode"] = languageCode
+            dictionary["language_code"] = languageCode
         }
         if lastName != nil{
-            dictionary["lastName"] = lastName
+            dictionary["last_name"] = lastName
         }
         if mobileNumber != nil{
-            dictionary["mobileNumber"] = mobileNumber
+            dictionary["mobile_number"] = mobileNumber
         }
         if postalCode != nil{
-            dictionary["postalCode"] = postalCode
+            dictionary["postal_code"] = postalCode
         }
         if state != nil{
             dictionary["state"] = state
         }
         if timezoneCode != nil{
-            dictionary["timezoneCode"] = timezoneCode
+            dictionary["timezone_code"] = timezoneCode
         }
         if username != nil{
             dictionary["username"] = username
@@ -198,7 +248,7 @@ open class User:NSObject{
             dictionary["password"] = password
         }
         if properties != nil{
-            dictionary["properties"] = properties.toDictionary()
+            dictionary["additional_properties"] = properties.toDictionary()
         }
         return dictionary
     }

@@ -62,7 +62,7 @@ class JsapiRest :NSObject,URLSessionDelegate
     */
     func postrequest(_ functionURL:String,postParams:String,isJson:Bool,callback:@escaping (NSDictionary,Bool)->Void)
     {
- 
+        
         let request = NSMutableURLRequest(url: URL(string: functionURL)!)
         
         request.httpMethod = "POST"
@@ -74,7 +74,7 @@ class JsapiRest :NSObject,URLSessionDelegate
             request.setValue("application/json", forHTTPHeaderField: "Accept")
         
             
-        if(!JsapiAPi.sharedInstance.getJsapiToken().isEmpty &&
+        if(!JsapiAPi.sharedInstance.getJsapiOriginalToken().isEmpty &&
             JsapiAPi.sharedInstance.getJsapiToken() != JSAPIConstant.TOKENBREAR
             && !functionURL.contains("google")
             )
@@ -135,6 +135,8 @@ class JsapiRest :NSObject,URLSessionDelegate
                 
             return
             }
+            
+            
             let jsonResult : NSDictionary = (jsonResult2 as?NSDictionary)!;
             
             
@@ -143,12 +145,7 @@ class JsapiRest :NSObject,URLSessionDelegate
                 self.postrequest(httpResponse.url!.absoluteString , postParams: postParams, isJson: isJson, callback: callback)
             }
             
-//            if(jsonResult == nil)
-//            {
-//                callback(NSDictionary(),true)
-//                return;
-//            }
-            
+           
 
             if(jsonResult["error"] != nil && isJson)
             {
@@ -185,7 +182,7 @@ class JsapiRest :NSObject,URLSessionDelegate
                 }
                 
             }else
-                if(jsonResult["error"] != nil)
+                if(jsonResult["error"] != nil || httpResponse.statusCode >= 400)
                 {
                     callback(jsonResult,false)
                     
@@ -210,7 +207,7 @@ class JsapiRest :NSObject,URLSessionDelegate
 
         var endpoint:String = functionURL + postParams
 
-        endpoint = endpoint.replacingOccurrences(of: " ", with: "%20")
+        endpoint = endpoint.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         
         let request = NSMutableURLRequest(url: URL(string: endpoint )!)
         request.httpMethod = "GET"
@@ -223,8 +220,6 @@ class JsapiRest :NSObject,URLSessionDelegate
             request.setValue(JsapiAPi.sharedInstance.getJsapiToken(),forHTTPHeaderField:"Authorization")
             
         }
-        
-     //   print(functionURL)
 
          self.requests[functionURL] = request
         
@@ -234,7 +229,7 @@ class JsapiRest :NSObject,URLSessionDelegate
             data, response, error in
             if error != nil {
                 
-                var res = NSMutableDictionary();
+                let res = NSMutableDictionary();
                 
                 res.setValue(JSAPIConstant.CONNECTION_ERROR, forKey: "message")
                 callback(res,false)
@@ -242,13 +237,8 @@ class JsapiRest :NSObject,URLSessionDelegate
                 return
             }
            
-          //  print(request.URL!.absoluteString)
-          //  print(request.URL!.absoluteURL)
-
-           // self.requests.removeValueForKey(request.URL!.absoluteString)
-
+      
             let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-
             let httpResponse = response as! HTTPURLResponse
 
             if(httpResponse.statusCode == 301 || httpResponse.statusCode == 307 ){
@@ -271,12 +261,24 @@ class JsapiRest :NSObject,URLSessionDelegate
                 return;
             }
 
+            var jsonResult:NSDictionary = NSDictionary();
             
-            let jsonResult:NSDictionary = (jsonResult2 as? NSDictionary)!
+            if jsonResult2 is Array<Any> {
+                
+                jsonResult = ["result":jsonResult2]
+                
+                callback(jsonResult as! NSDictionary,false)
+
+                
+            }else{
+                
+                jsonResult = (jsonResult2 as? NSDictionary)!
+                
+            }
             
             
             
-            if(jsonResult["error"] != nil )
+            if(jsonResult["error"] != nil || httpResponse.statusCode >= 400)
             {
                 if(jsonResult ["error"] as?String == "invalid_token") {
                     
@@ -286,10 +288,18 @@ class JsapiRest :NSObject,URLSessionDelegate
                     
                 }else{
                     
-                let errorObject = jsonResult["error"]  as! Dictionary<String,Bool>
-                
-                let isSuccess=errorObject["success"]
-                    callback(jsonResult,isSuccess!)
+                    if ((jsonResult["error"] as? NSDictionary) != nil) {
+                        
+                        let errorObject = jsonResult["error"]  as! Dictionary<String,Bool>
+                        
+                        let isSuccess=errorObject["success"]
+                        callback(jsonResult,isSuccess!)
+                    }else{
+                        
+                        callback(jsonResult,false)
+                        
+                    }
+
                 }
             }else
              {
@@ -331,7 +341,6 @@ class JsapiRest :NSObject,URLSessionDelegate
         let task = session.dataTask(with: request  as URLRequest, completionHandler: {
             data, response, error in
             
-            let httpResponse = response as! HTTPURLResponse
             
             if error != nil {
                 
@@ -342,6 +351,9 @@ class JsapiRest :NSObject,URLSessionDelegate
 
                 return
             }
+            
+            let httpResponse = response as! HTTPURLResponse
+
             
            // self.requests.removeValueForKey(request.URL!.absoluteString)
             
@@ -491,7 +503,7 @@ class JsapiRest :NSObject,URLSessionDelegate
 //                return;
 //            }
             
-            if(jsonResult["error"] != nil )
+            if(jsonResult["error"] != nil || ( jsonResult["code"] != nil && jsonResult["code"] as?Int != 0 ) )
             {
                 if(jsonResult ["error"] as?String == "invalid_token") {
                     

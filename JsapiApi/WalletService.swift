@@ -18,13 +18,14 @@ open class WalletService:NSObject
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
         {
             (result:NSDictionary,issuccess:Bool) in
-            let baseResponse=WalletResponse(fromDictionary: result)
             if(!issuccess)
             {
-                callback(baseResponse.wallets,baseResponse.errormessage,issuccess)
+                callback( [Wallet](),"",issuccess)
                 
             }else
             {
+                let baseResponse=WalletResponse(fromDictionary: result)
+
                 callback(baseResponse.wallets,"",issuccess)
                 
             }

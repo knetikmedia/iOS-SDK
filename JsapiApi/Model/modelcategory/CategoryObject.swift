@@ -5,28 +5,29 @@
 //	Copyright © 2015. All rights reserved.
 import Foundation
 
-open class CategoryObject:NSObject{
+open class CategoryObject:BaseResponse{
 
 	open var active : Bool!
-	open var assets : [NSDictionary]!
 	open var categoryId : String!
 	open var name : String!
+    open var categoryitionalProperties : GeneralAdditionalPropertie!
 
     override public init(){super.init()}
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
-	init(fromDictionary dictionary: NSDictionary){
+    override init(fromDictionary dictionary: NSDictionary){
+        super.init(fromDictionary: dictionary)
 		active = dictionary["active"] as? Bool
-		assets = [NSDictionary]()
-		if let assetsArray = dictionary["assets"] as? [NSDictionary]{
-			for dic in assetsArray{
-				assets.append(dic)
-			}
-		}
 		categoryId = dictionary["id"] as? String
 		name = dictionary["name"] as? String
+        if let additionalPropertiesData = dictionary["additional_properties"] as? NSDictionary{
+            categoryitionalProperties = GeneralAdditionalPropertie(fromDictionary: additionalPropertiesData)
+        }else{
+            
+            categoryitionalProperties = GeneralAdditionalPropertie()
+        }
 	}
 
 	/**
@@ -37,13 +38,6 @@ open class CategoryObject:NSObject{
 		let dictionary = NSMutableDictionary()
 		if active != nil{
 			dictionary["active"] = active
-		}
-		if assets != nil{
-			var dictionaryElements = [NSDictionary]()
-			for assetsElement in assets {
-				dictionaryElements.append(assetsElement)
-			}
-			dictionary["assets"] = dictionaryElements
 		}
 		if categoryId != nil{
 			dictionary["id"] = categoryId

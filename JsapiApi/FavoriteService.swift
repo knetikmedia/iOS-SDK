@@ -11,8 +11,8 @@ open class FavoriteService:NSObject
 {
 
     /** add Favorite Item
-    *@param params Dictionary{"id": 0} // ItemID
-    *@param callback
+    params Dictionary{"id": 0} // ItemID
+    callback
     */
     open func addFavoriteItem(_ params:Dictionary<String,AnyObject>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
@@ -34,8 +34,8 @@ open class FavoriteService:NSObject
     
     
     /**List of Favorites
-    *@param params Dictionary {} Empty
-    *@param callback
+    params Dictionary {} Empty
+    callback
     */
     open func getFavorites(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<Favorite>,String,Bool)->Void)
     {
@@ -50,8 +50,8 @@ open class FavoriteService:NSObject
     
     
     /**Delete Favorite Item
-    *@param params Dictionary {"id": 0} fav item ID
-    *@param callback
+    params Dictionary {"id": 0} fav item ID
+    callback
     */
     open func deleteFavorite(_ params:Dictionary<String,AnyObject>,callback:@escaping (AnyObject,String,Bool)->Void)
     {

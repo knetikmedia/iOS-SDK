@@ -11,8 +11,7 @@ open class UserService:NSObject {
  
 
  /**get User Info /services/latest/user/getinfo
- *@param params Dictionary Empty Dictionary {}
- *@param callback
+ Dictionary Empty Dictionary {}
  */
  open func getUserInfo(_ params:Dictionary<String,String>,callback:@escaping (User,String,Bool)->Void)
  {
@@ -21,8 +20,6 @@ open class UserService:NSObject {
     JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params as Dictionary<String, AnyObject>))
     {
             (result:NSDictionary,issuccess:Bool) in
-            print(result);
-        print(JsapiAPi.sharedInstance.getJsapiToken());
             let userResponse = UserResponse(fromDictionary: result)
             if(!issuccess)
             {
@@ -38,8 +35,7 @@ open class UserService:NSObject {
  }
     
     /**get User Info /services/latest/user/getinfo
-     *@param params Dictionary Empty Dictionary {}
-     *@param callback
+     Dictionary Empty Dictionary {}
      */
     open func getUserInfoByUserId(_ userId:String,params:Dictionary<String,String>,callback:@escaping (User,String,Bool)->Void)
     {
@@ -68,8 +64,7 @@ open class UserService:NSObject {
     
     
     /**get User Info /services/latest/user/getinfo
-    *@param params Dictionary Empty Dictionary {}
-    *@param callback
+    Dictionary Empty Dictionary {}
     */
 open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escaping (Array<Achievement>,String,Bool)->Void)
     {
@@ -86,7 +81,6 @@ open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escap
                     
                 }else
                 {
-                    print(result)
                     callback(achievementResponse.achievements.achievement,"",issuccess)
                     
                 }
@@ -96,9 +90,8 @@ open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escap
     
     
   /**update User Info /services/latest/user/update
-  *@param params Dictionary{"userId": 0,"configName": "","configValue": ""}
-  *@param callback
- */
+  Dictionary{"userId": 0,"configName": "","configValue": ""}
+     */
     open func updateUserInfo(_ params:Dictionary<String,AnyObject>,callback:@escaping (AnyObject,String,Bool)->Void)
     {
         
@@ -112,13 +105,11 @@ open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escap
                 let baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    print(result["error"])
-                    print(result["error_description"])
+                
                     callback(baseResponse,baseResponse.errormessage,issuccess)
 
                 }else
                 {
-                    print(result)
                     callback(baseResponse,"",issuccess)
 
                 }
@@ -126,32 +117,186 @@ open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escap
     }
    
     /**set Password /services/latest/user/%@/password
-    *@param params Dictionary {password: newPasswordString}
-    *@param callback
+    Dictionary {password: newPasswordString}
     */
     open func setPassword(_ params:Dictionary<String,String>,userID:String,callback:@escaping (AnyObject,String,Bool)->Void)
     {
         let endpoint=NSString(format: JSAPIConstant.SETUSERPASSWORD as NSString,userID)
 
         let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String);
-        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        JsapiRest.sharedInstance.putRequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let baseResponse=BaseResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    print(result["error"])
-                    print(result["error_description"])
                     callback(baseResponse,baseResponse.errormessage,issuccess)
 
                 }else
                 {
-                    print(result)
                     callback(baseResponse,"",issuccess)
 
                 }
         }
     }
     
+    
+    /**set user Group /users/groups/{unique_name}/members
+    Dictionary {password: newPasswordString}
+     */
+    open func addUserToGroup(_ params:Dictionary<String,String>,groupName:String,callback:@escaping (AnyObject,String,Bool)->Void)
+    {
+        let endpoint=NSString(format: JSAPIConstant.SETUSERGROUP as NSString,groupName)
+        
+        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String);
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            let baseResponse=BaseResponse(fromDictionary: result)
+            if(!issuccess)
+            {
+                callback(baseResponse,baseResponse.errormessage,issuccess)
+                
+            }else
+            {
+                callback(baseResponse,"",issuccess)
+                
+            }
+        }
+    }
+    
+    /**get User Info /services/latest/user/getinfo
+     Dictionary Empty Dictionary {}
+     */
+    open func getSignedUrl(_ params:Dictionary<String,String>,callback:@escaping (S3FileResponse,String,Bool)->Void)
+    {
+        
+        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.AWSSIGNEDURL
+        
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params as Dictionary<String, AnyObject>))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            let response = S3FileResponse(fromDictionary: result)
+            if(!issuccess)
+            {
+                
+                callback(response,"",issuccess)
+                
+            }else
+            {
+                callback(response,response.errormessage,issuccess)
+                
+            }
+        }
+    }
+
+
+    
+    /**get KNE /api/isverified/email
+     Dictionary Empty Dictionary {}
+     */
+    open func isEmailVerified(params:Dictionary<String,String>,callback:@escaping (NSDictionary,String,Bool)->Void)
+    {
+        
+        let methodUrl = JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.ISEMAILVERIFIED
+        
+        
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params as Dictionary<String, AnyObject>))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            let userResponse = UserResponse(fromDictionary: result)
+                callback(result,"",issuccess)
+        }
+    }
+    
+    
+    /**set /api/requestverify/email
+     Dictionary {password: newPasswordString}
+     */
+    open func requetVerifiyEmail(_ params:Dictionary<String,String>,callback:@escaping (NSDictionary,String,Bool)->Void)
+    {
+        
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+(JSAPIConstant.REQUESTEMAILVERIFIED as String);
+        
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            let baseResponse=BaseResponse(fromDictionary: result)
+                callback(result,"",issuccess)
+        }
+    }
+    
+    
+    /**set /users/password-reset
+     Dictionary {password: newPasswordString}
+     */
+    open func passwordResetRequest(_ params:Dictionary<String,String>,callback:@escaping (NSDictionary,String,Bool)->Void)
+    {
+        
+        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(JSAPIConstant.RESETPASSWORDFOREMAIL as String);
+        
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            let baseResponse=BaseResponse(fromDictionary: result)
+            callback(result,"",issuccess)
+        }
+    }
+    
+    
+    /**set /api/user/resetpassword
+     Dictionary {password: newPasswordString}
+     */
+    open func updatePasswordRequest(_ params:Dictionary<String,String>,callback:@escaping (NSDictionary,String,Bool)->Void)
+    {
+        
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+(JSAPIConstant.SETPASSWORDFOREMAIL as String);
+        
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            let baseResponse=BaseResponse(fromDictionary: result)
+            callback(result,"",issuccess)
+        }
+    }
+    
+    /**get User Info /services/latest/user/getinfo
+     Dictionary Empty Dictionary {}
+     */
+    open func checkEmail(_ params:Dictionary<String,String>,callback:@escaping (NSDictionary,String,Bool)->Void)
+    {
+        
+        let methodUrl:String=JSAPIConstant.EMAILCHECKNEVERBOUNCE
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params as Dictionary<String, AnyObject>))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            callback(result,"",issuccess)
+
+        }
+    }
+    /**get User Info /services/latest/users
+     Dictionary Empty Dictionary {}
+     */
+    open func getUsersPublicInfo(_ params:Dictionary<String,String>,callback:@escaping (Array<SimpleUser>,String,Bool)->Void)
+    {
+
+        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.REGISTER
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params as Dictionary<String, AnyObject>))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            let userResponse = BaseUserListResponse(fromDictionary: result)
+            if(!issuccess)
+            {
+
+                callback(userResponse.content,userResponse.errormessage,issuccess)
+
+            }else
+            {
+                callback(userResponse.content,"",issuccess)
+
+            }
+        }
+    }
+
 
 }

@@ -33,11 +33,11 @@ open class CategoryPage:NSObject{
 		first = dictionary["first"] as? Bool
 		last = dictionary["last"] as? Bool
 		number = dictionary["number"] as? Int as NSNumber!
-		numberOfElements = dictionary["numberOfElements"] as? Int as NSNumber!
+		numberOfElements = dictionary["number_of_elements"] as? Int as NSNumber!
 		size = dictionary["size"] as? Int as NSNumber!
 		sort = dictionary["sort"] as? String
-		totalElements = dictionary["totalElements"] as? Int as NSNumber!
-		totalPages = dictionary["totalPages"] as? Int as NSNumber!
+		totalElements = dictionary["total_elements"] as? Int as NSNumber!
+		totalPages = dictionary["total_pages"] as? Int as NSNumber!
 	}
 
 	/**
@@ -63,7 +63,7 @@ open class CategoryPage:NSObject{
 			dictionary["number"] = number
 		}
 		if numberOfElements != nil{
-			dictionary["numberOfElements"] = numberOfElements
+			dictionary["number_of_elements"] = numberOfElements
 		}
 		if size != nil{
 			dictionary["size"] = size
@@ -72,10 +72,10 @@ open class CategoryPage:NSObject{
 			dictionary["sort"] = sort
 		}
 		if totalElements != nil{
-			dictionary["totalElements"] = totalElements
+			dictionary["total_elements"] = totalElements
 		}
 		if totalPages != nil{
-			dictionary["totalPages"] = totalPages
+			dictionary["total_pages"] = totalPages
 		}
 		return dictionary
 	}

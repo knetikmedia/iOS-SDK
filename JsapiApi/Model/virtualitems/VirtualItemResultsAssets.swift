@@ -22,7 +22,7 @@ open class VirtualItemResultsAssets :NSObject{
 
         if let bodyData = dictionary["body"] as? NSDictionary{
             
-            if let resultData = bodyData["result"] as? NSDictionary{
+            if let resultData = bodyData as? NSDictionary{
                 
 			item = VirtualItem(fromDictionary: resultData)
         }

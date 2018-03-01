@@ -16,9 +16,9 @@ open class UserAvatarObject : NSObject{
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
 	init(fromDictionary dictionary: NSDictionary){
-		uploaderAvatarUrl = dictionary["uploaderAvatarUrl"] as? String
-		uploaderId = dictionary["uploaderId"] as? Int
-		uploaderUsername = dictionary["uploaderUsername"] as? String
+		uploaderAvatarUrl = dictionary["uploader_avatar_url"] as? String
+		uploaderId = dictionary["uploader_id"] as? Int
+		uploaderUsername = dictionary["uploader_username"] as? String
 	}
 
 	

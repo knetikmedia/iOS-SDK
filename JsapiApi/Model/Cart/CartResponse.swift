@@ -14,7 +14,7 @@ class CartResponse :BaseResponse{
 	 */
 	override init(fromDictionary dictionary: NSDictionary){
         super.init(fromDictionary: dictionary)
-		cartnumber = dictionary["result"] as? String
+		cartnumber = dictionary as? String
 	}
 
 }

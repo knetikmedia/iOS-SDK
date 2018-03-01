@@ -22,7 +22,7 @@ open class RelationshipObject:NSObject{
 			from = Relation(fromDictionary: fromData)
 		}
 		relationshipId = dictionary["id"] as? NSNumber
-		relationshipDetails = dictionary["relationshipDetails"] as? String
+		relationshipDetails = dictionary["relationship_details"] as? String
         
 		if let toData = dictionary["to"] as? NSDictionary{
 			to = Relation(fromDictionary: toData)
@@ -43,7 +43,7 @@ open class RelationshipObject:NSObject{
 			dictionary["id"] = relationshipId
 		}
 		if relationshipDetails != nil{
-			dictionary["relationshipDetails"] = relationshipDetails
+			dictionary["relationship_details"] = relationshipDetails
 		}
 		if to != nil{
 			dictionary["to"] = to.toDictionary()

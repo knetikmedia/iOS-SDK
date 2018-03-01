@@ -11,8 +11,8 @@ open class ArticleService:NSObject
 {
 
     /**List of Articlas
-    *@param params Dictionary {} Empty
-    *@param callback
+    Dictionary {} Empty
+    callback
     */
     open func getArticles(_ params:Dictionary<String,AnyObject>,callback:@escaping (ArticlePage,String,Bool)->Void)
     {

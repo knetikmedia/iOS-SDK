@@ -17,7 +17,7 @@ class FlagBaseResponse :BaseResponse{
 		
         super.init(fromDictionary: dictionary)
         
-        if let resultData = dictionary["result"] as? NSDictionary{
+        if let resultData = dictionary as? NSDictionary{
 			content = FlagContent(fromDictionary: resultData)
 		}else
         {

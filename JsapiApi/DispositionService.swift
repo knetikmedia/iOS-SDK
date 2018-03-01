@@ -15,8 +15,8 @@ open class DispositionService:NSObject
     
 
     /** Get Dispositions
-    *@param params Dictionary
-    *@param callback
+    params Dictionary
+    callback
     */
     open func getDispositions(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<Disposition>,String,Bool)->Void)
     {
@@ -40,8 +40,8 @@ open class DispositionService:NSObject
     }
     
     /** Get Dispositions
-     *@param params Dictionary
-     *@param callback
+    params Dictionary
+    callback
      */
     open func getMineDispositions(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<Disposition>,String,Bool)->Void)
     {
@@ -67,8 +67,8 @@ open class DispositionService:NSObject
     
     
     /** Get Dispositions Count
-     *@param params Dictionary
-     *@param callback
+    params Dictionary
+    callback
      */
     open func getDispositionsCount(_ params:Dictionary<String,AnyObject>,callback:@escaping (Dictionary<String,AnyObject>,String,Bool)->Void)
     {
@@ -93,17 +93,22 @@ open class DispositionService:NSObject
 
     
     /**Add a new Dispostion . Requires user authentication.
-    *@param params Dictionary
-    *@param callback
+    params Dictionary
+    callback
     */
     open func addDisposition(_ params:Dictionary<String,AnyObject>,request:Dictionary<String,AnyObject>,callback:@escaping (Disposition,String,Bool)->Void)
     {
         
-        let url = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDDISPOSITION
+        let methodUrl = JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ADDDISPOSITION
         
-        let methodUrl = NSString(format: url as NSString, params["context"] as! String , params["contextId"] as! String )
+      //  let methodUrl = NSString(format: url as NSString, params["context"] as! String , params["context_id"] as! String )
         
-        JsapiRest.sharedInstance.postrequest(methodUrl as String, postParams: Utilities.getPostValueRequestFromDictionary(request), isJson: true)
+        let dis = Disposition();
+        dis.context = params["context"] as! String!;
+        dis.contextId = params["context_id"] as! String!;
+        dis.name = request["name"] as! String!;
+        
+        JsapiRest.sharedInstance.postrequest(methodUrl as String, postParams: Utilities.jsonRequestFromDictionary(dis.toDictionary() as! Dictionary<String, AnyObject>), isJson: true)
             {
                 (result:NSDictionary,issuccess:Bool) in
                 let baseResponse=NewDispositionResponse(fromDictionary: result)
@@ -123,8 +128,8 @@ open class DispositionService:NSObject
     
 
     /**Deletes a Dispostion from an item. Must have authorization as the user that originally posted the Dispostion.
-    *@param params Dictionary{"id": 0}
-    *@param callback
+    params Dictionary{"id": 0}
+    callback
     */
     open func deleteDisposition(_ params:Dictionary<String,String>,callback:@escaping (AnyObject,String,Bool)->Void)
     {

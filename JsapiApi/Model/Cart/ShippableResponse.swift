@@ -16,7 +16,7 @@ class ShippableResponse:BaseResponse{
 	override init(fromDictionary dictionary: NSDictionary)
     {
         super.init(fromDictionary: dictionary)
-			if let shippableData = dictionary["result"] as? NSDictionary{
+			if let shippableData = dictionary as? NSDictionary{
 			shippable = Shippable(fromDictionary: shippableData)
 	}
     }

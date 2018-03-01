@@ -11,14 +11,15 @@ open class Registration:NSObject
 {
 
     /*Generates/verifies a temporary secret to allow users to login without their password
-    * /services/latest/registration/forgotPassword
+    * /users/{id}/password-reset
     @param params{"username": "","email": "","newpassword": "","secrethash": "","plaintext": false}
     @param callback Interface
     */
-    open func forgotPassword(_ params:Dictionary<String,String>,callback:@escaping (AnyObject,String,Bool)->Void)
+    open func forgotPassword(_ params:Dictionary<String,String>,userID:String,callback:@escaping (AnyObject,String,Bool)->Void)
     {
-        let endpoint=JSAPIConstant.FORGOTPASSWORD
-        let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+endpoint
+        let endpoint = NSString(format: JSAPIConstant.FORGOTPASSWORD as NSString,userID)
+
+        let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl() + (endpoint as String)
 
         JsapiRest.sharedInstance.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
             {
@@ -36,6 +37,65 @@ open class Registration:NSObject
         }
 
     
+    }
+    
+    
+    /*
+     * /users/{id}/password-reset
+     @param params{"username": "","email": "","newpassword": "","secrethash": "","plaintext": false}
+     @param callback Interface
+     */
+    open func updatePassword(_ params:Dictionary<String,String>,userID:String,callback:@escaping (AnyObject,String,Bool)->Void)
+    {
+        let endpoint = NSString(format: JSAPIConstant.FORGOTPASSWORD as NSString,userID)
+        
+        let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl() + (endpoint as String)
+        
+        JsapiRest.sharedInstance.putRequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            let baseResponse=BaseResponse(fromDictionary: result)
+            if(!issuccess)
+            {
+                callback(baseResponse,baseResponse.errormessage,issuccess)
+                
+            }else
+            {
+                callback(baseResponse,"",issuccess)
+                
+            }
+        }
+        
+        
+    }
+    
+    /*SetPassword
+     * /users/{id}/password-reset
+     @param params{"username": "","email": "","newpassword": "","secrethash": "","plaintext": false}
+     @param callback Interface
+     */
+    open func setPassword(_ params:Dictionary<String,String>,userID:String,callback:@escaping (AnyObject,String,Bool)->Void)
+    {
+        let endpoint = NSString(format: JSAPIConstant.SETUSERPASSWORD as NSString,userID)
+        
+        let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl() + (endpoint as String)
+        
+        JsapiRest.sharedInstance.putRequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            let baseResponse=BaseResponse(fromDictionary: result)
+            if(!issuccess)
+            {
+                callback(baseResponse,baseResponse.errormessage,issuccess)
+                
+            }else
+            {
+                callback(baseResponse,"",issuccess)
+                
+            }
+        }
+        
+        
     }
     
     /*Creates a guest user and returns a random password.
@@ -91,9 +151,9 @@ open class Registration:NSObject
     }
     /**Creates a user using the information provided
     * /services/latest/registration
-    @param params{"username": "","email": "","newpassword": "","secrethash": "","plaintext": false}
+    {"username": "","email": "","newpassword": "","secrethash": "","plaintext": false}
     */
-    open func doUserRegistration(_ registerationDetails:Dictionary<String,String>,callback:@escaping (RegisteredUser,String,Bool)->Void)
+    open func doUserRegistration(_ registerationDetails:Dictionary<String,AnyObject>,callback:@escaping (RegisteredUser,String,Bool)->Void)
     {
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.REGISTER
 

@@ -32,15 +32,15 @@ open class NewVideo:NSObject{
 	init(fromDictionary dictionary: NSDictionary){
 		created = dictionary["created"] as? NSNumber
 		deleted = dictionary["deleted"] as? Bool
-		deletedAt = dictionary["deletedAt"] as AnyObject!
+		deletedAt = dictionary["deleted_at"] as AnyObject!
 		videodescription = dictionary["description"] as? String
 		displayable = dictionary["displayable"] as? Bool
-		fileName = dictionary["fileName"] as? String
+		fileName = dictionary["file_name"] as? String
 		newVideoId = dictionary["id"] as? NSNumber
 		itemAssets = dictionary["item_assets"] as AnyObject!
-		longDescription = dictionary["longDescription"] as AnyObject!
+		longDescription = dictionary["long_description"] as AnyObject!
 		name = dictionary["name"] as AnyObject!
-		shortDescription = dictionary["shortDescription"] as AnyObject!
+		shortDescription = dictionary["short_description"] as AnyObject!
 		title = dictionary["title"] as? String
 		updated = dictionary["updated"] as? NSNumber
 	}
