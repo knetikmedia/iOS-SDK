@@ -70,7 +70,7 @@ open class GeneralAdditionalPropertie:NSObject{
         if let video_id4 = dictionary["video_id4"] as? NSDictionary{
             videoId4 = GeneralNumber(fromDictionary: video_id4)
         }
-        if let total_videos = dictionary["total_videos"] as? NSDictionary{
+        if let total_videos = dictionary["artist_videos"] as? NSDictionary{
             totalVideos = GeneralNumber(fromDictionary: total_videos)
         }
 
