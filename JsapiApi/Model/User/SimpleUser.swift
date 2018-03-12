@@ -11,11 +11,11 @@ open class SimpleUser:NSObject{
 	open var displayName : String!
 	open  var avatarUrl : String!
     open  var name : String!
-
+    open var username: String!
     open func getId()->NSNumber{return userId}
     open func getAvatarUrl()->String{return avatarUrl }
     open func getDisplayName()->String{return displayName }
-  
+
         
     override public init(){super.init()}
 
@@ -29,6 +29,11 @@ open class SimpleUser:NSObject{
         if(avatarUrl == nil )
         {
          avatarUrl = dictionary["avatar_url"] as? String
+        }
+
+        if(username == nil )
+        {
+            username = dictionary["username"] as? String
         }
         
 		displayName = dictionary["display_name"] as? String
