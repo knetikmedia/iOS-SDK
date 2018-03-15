@@ -35,5 +35,31 @@ open class CategoriesService:NSObject
             callback(catofriesResponse,catofriesResponse.errormessage,issuccess)
         }
     }
+
+
+    open func getJudgedCategories(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<JudgedBy>,String,Bool)->Void)
+    {
+
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.JUDGEDCATEGORIES
+
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            if(!issuccess)
+            {
+                let baseResponse=JudgeUsersBaseResponse(fromDictionary: result)
+
+                callback(baseResponse.data.judgedBy,baseResponse.errormessage,issuccess)
+
+            }else
+            {
+                let baseResponse=JudgeUsersBaseResponse(fromDictionary: result )
+
+                callback(baseResponse.data.judgedBy,"",issuccess)
+
+            }
+
+        }
+    }
   
 }
