@@ -7,7 +7,7 @@ open class JudgeData: NSObject {
 	open var judgedBy : [JudgedBy]!
 
     public override init() {
-        
+            judgedBy = [JudgedBy]()
     }
 
 	/**
