@@ -32,20 +32,26 @@ open class StoreService:NSObject
         }
     }
 
-    open func getVirtualItem(_ params:Dictionary<String,AnyObject>,callback:@escaping (VirtualItemPage,String,Bool)->Void)
+    open func getItemDetails(_ params:Dictionary<String,AnyObject>,itemId:String,callback:@escaping (Item,String,Bool)->Void)
     {
-        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.VIRTUALITEMS;
+
+        let url:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ITEMDETAILS
+
+        let methodUrl:String=NSString(format: url as NSString ,itemId) as String
+
         JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
             {
                 (result:NSDictionary,issuccess:Bool) in
-                let pageResponse=BaseVirtualItem(fromDictionary: result)
+
                 if(!issuccess)
                 {
-                    callback(pageResponse.result,pageResponse.errormessage,issuccess)
+                    callback(Item(),"",issuccess)
                     
                 }else
                 {
-                    callback(pageResponse.result,"",issuccess)
+                    let item=Item(fromDictionary: result)
+
+                    callback(item,"",issuccess)
                 }
         }
     }
@@ -73,6 +79,24 @@ open class StoreService:NSObject
                     
                 }
                 
+        }
+    }
+
+
+    open func quickBuy(_ params:Dictionary<String,String>,callback:@escaping (NSDictionary,String,Bool)->Void)
+    {
+        let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.QUICK_BUY
+
+        JsapiRest.sharedInstance.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            if(!issuccess)
+            {
+                callback(result,"",issuccess)
+            }else
+            {
+                callback(result,"",issuccess)
+            }
         }
     }
 

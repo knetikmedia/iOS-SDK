@@ -19,6 +19,8 @@ open class GeneralAdditionalPropertie:NSObject{
     open var videoId4 : GeneralNumber!
     open var surpriseVideos : GeneralAdditionalObject!
     open var totalVideos : GeneralNumber!
+    open var goldLocked : GeneralNumber!
+    open var itemId : GeneralNumber!
 
 
 
@@ -73,6 +75,13 @@ open class GeneralAdditionalPropertie:NSObject{
         if let total_videos = dictionary["artist_videos"] as? NSDictionary{
             totalVideos = GeneralNumber(fromDictionary: total_videos)
         }
+        if let gold_locked = dictionary["gold_locked"] as? NSDictionary{
+            goldLocked = GeneralNumber(fromDictionary: gold_locked)
+        }
+        if let item_id = dictionary["item_id"] as? NSDictionary{
+            itemId = GeneralNumber(fromDictionary: item_id)
+        }
+
 
 	}
 }

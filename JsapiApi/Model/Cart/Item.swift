@@ -1,81 +1,78 @@
 //
-//	Item.swift
-//
-//	Create by Youssef on 14/4/2015
-//	Copyright © 2015. All rights reserved.
+//    Item.swift
 import Foundation
 
-open class Item:NSObject{
+open class Item :NSObject {
 
-	var affiliateId : AnyObject!
-	var cartId : NSNumber!
-	var cartItemId : NSNumber!
-	var catalogId : NSNumber!
-	var errorCode : NSNumber!
-	var errorMessage : String!
-	var inventory : AnyObject!
-	var itemUrl : String!
-	var name : String!
-	var qty : NSNumber!
-	var sku : String!
-	var skuDescription : String!
-	var skuId : NSNumber!
-	var stockStatus : String!
-	var storeItemId : NSNumber!
-	var systemPrice : Float!
-	var thumbnail : String!
-	var totalPrice : Float!
-	var typeHNSNumber : String!
-	var unitPrice : Float!
-	var vendorId : NSNumber!
+    open var   additionalProperties : GeneralAdditionalPropertie!
+    open var  behaviors : [Behavior]!
+    open var  category : AnyObject!
+    open var  createdDate : Int!
+    open var  displayable : Bool!
+    open var  geoCountryList : [AnyObject]!
+    open var  geoPolicyType : AnyObject!
+    open var  id : Int!
+    open var  longDescription : String!
+    open var  name : String!
+    open var  shippingTier : Int!
+    open var  shortDescription : String!
+    open var  skus : [Sku]!
+    open var  sort : Int!
+    open var  storeEnd : AnyObject!
+    open var  storeStart : AnyObject!
+    open var  tags : [String]!
+    open var  template : AnyObject!
+    open var  typeHint : String!
+    open var  uniqueKey : String!
+    open var  updatedDate : Int!
+    open var  vendorId : Int!
 
-    open func getAffiliateId ()->AnyObject{return affiliateId}
-    open func getCartId ()->NSNumber{return cartId}
-    open func getCartItemId ()->NSNumber{return cartItemId }
-    open func getCatalogId ()->NSNumber{return catalogId}
-    open func getErrorCode ()->NSNumber{return errorCode }
-    open func getErrorMessage ()->String{return errorMessage}
-    open func getInventory ()->AnyObject{return inventory }
-    open func getItemUrl ()->String{return itemUrl}
-    open func getName ()->String{return name}
-    open func getQty ()->NSNumber{return qty}
-    open func getSku ()->String{return sku}
-    open func getSkuDescription ()->String{return skuDescription}
-    open func getSkuId ()->NSNumber{return skuId}
-    open func getStockStatus ()->String{return stockStatus}
-    open func getStoreItemId ()->NSNumber{return storeItemId}
-    open func getSystemPrice ()->Float{return systemPrice}
-    open func getThumbnail ()->String{return thumbnail}
-    open func getTotalPrice ()->Float{return totalPrice}
-    open func getTypeHNSNumber ()->String{return typeHNSNumber}
-    open func getUnitPrice ()->Float{return unitPrice}
-    open func getVendorId ()->NSNumber{return vendorId}
 
-	/**
-	 * Instantiate the instance using the passed dictionary values to set the properties values
-	 */
-	init(fromDictionary dictionary: NSDictionary){
-		affiliateId = dictionary["affiliate_id"] as AnyObject!
-		cartId = dictionary["cart_id"] as? NSNumber
-		cartItemId = dictionary["cart_item_id"] as? NSNumber
-		catalogId = dictionary["catalog_id"] as? NSNumber
-		errorCode = dictionary["error_code"] as? NSNumber
-		errorMessage = dictionary["error_message"] as? String
-		inventory = dictionary["inventory"] as AnyObject!
-		itemUrl = dictionary["item_url"] as? String
-		name = dictionary["name"] as? String
-		qty = dictionary["qty"] as? NSNumber
-		sku = dictionary["sku"] as? String
-		skuDescription = dictionary["sku_description"] as? String
-		skuId = dictionary["sku_id"] as? NSNumber
-		stockStatus = dictionary["stock_status"] as? String
-		storeItemId = dictionary["store_item_id"] as? NSNumber
-		systemPrice = dictionary["system_price"] as? Float
-		thumbnail = dictionary["thumbnail"] as? String
-		totalPrice = dictionary["total_price"] as? Float
-		typeHNSNumber = dictionary["type_hNSNumber"] as? String
-		unitPrice = dictionary["unit_price"] as? Float
-		vendorId = dictionary["vendor_id"] as? NSNumber
-	}
+    public override init() {
+        super.init()
+    }
+
+    /**
+     * Instantiate the instance using the passed dictionary values to set the properties values
+     */
+    init(fromDictionary dictionary: NSDictionary){
+        if let additionalPropertiesData = dictionary["additional_properties"] as? NSDictionary{
+            additionalProperties = GeneralAdditionalPropertie(fromDictionary: additionalPropertiesData)
+        }
+        behaviors = [Behavior]()
+        if let behaviorsArray = dictionary["behaviors"] as? [NSDictionary]{
+            for dic in behaviorsArray{
+                let value = Behavior(fromDictionary: dic)
+                behaviors.append(value)
+            }
+        }
+        category = dictionary["category"] as? AnyObject
+        createdDate = dictionary["created_date"] as? Int
+        displayable = dictionary["displayable"] as? Bool
+        geoCountryList = [AnyObject]()
+        geoPolicyType = dictionary["geo_policy_type"] as? AnyObject
+        id = dictionary["id"] as? Int
+        longDescription = dictionary["long_description"] as? String
+        name = dictionary["name"] as? String
+        shippingTier = dictionary["shipping_tier"] as? Int
+        shortDescription = dictionary["short_description"] as? String
+        skus = [Sku]()
+        if let skusArray = dictionary["skus"] as? [NSDictionary]{
+            for dic in skusArray{
+                let value = Sku(fromDictionary: dic)
+                skus.append(value)
+            }
+        }
+        sort = dictionary["sort"] as? Int
+        storeEnd = dictionary["store_end"] as? AnyObject
+        storeStart = dictionary["store_start"] as? AnyObject
+        tags = dictionary["tags"] as? [String]
+        template = dictionary["template"] as? AnyObject
+        typeHint = dictionary["type_hint"] as? String
+        uniqueKey = dictionary["unique_key"] as? String
+        updatedDate = dictionary["updated_date"] as? Int
+        vendorId = dictionary["vendor_id"] as? Int
+    }
+
 
 }

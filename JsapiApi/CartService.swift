@@ -58,21 +58,23 @@ open class CartService:NSObject
     *guidID String
     * cart {"cartguid": "cart GUID"}
     */
-    open func getCart(_ cart:Dictionary<String,String>,guidID:String,callback:@escaping (CartDetails,String,Bool)->Void)
+    open func getCart(_ cart:Dictionary<String,String>,guidID:String,callback:@escaping (Cart,String,Bool)->Void)
     {
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.SCARTS+"/"+guidID
 
         JsapiRest.sharedInstance.getRequest(methodurl,postParams: Utilities.getGETRequestFromDictionary(cart as Dictionary<String, AnyObject>))
             {
                 (result:NSDictionary,issuccess:Bool) in
-               let getCartResponse = GetCartResponse(fromDictionary: result)
                 if(!issuccess)
                 {
-                    callback(CartDetails(),getCartResponse.errormessage,issuccess)
+                    
+                    callback(Cart(),"",issuccess)
 
                 }else
                 {
-                    callback(getCartResponse.cartdetails,"",issuccess)
+                    let cart = Cart(fromDictionary: result)
+
+                    callback(cart,"",issuccess)
                 }
         }
     }
@@ -188,9 +190,9 @@ open class CartService:NSObject
     "affiliate_key": ""
     }}
     */
-    open func addCartItems(_ params:Dictionary<String,String>,itemID:String,callback:@escaping (AnyObject,String,Bool)->Void)
+    open func addCartItems(_ params:Dictionary<String,String>,cartId:String,callback:@escaping (AnyObject,String,Bool)->Void)
     {
-        let endpoint=NSString(format: JSAPIConstant.CARTITEMS as NSString,itemID)
+        let endpoint=NSString(format: JSAPIConstant.CARTITEMS as NSString,cartId)
         let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String)
 
         JsapiRest.sharedInstance.postrequest(methodurl,postParams: Utilities.jsonRequestFromDictionary(params),isJson:true)
