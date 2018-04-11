@@ -100,6 +100,30 @@ open class StoreService:NSObject
         }
     }
 
+    /*
+        this function doing item check
+        it's check if the user already bought this item or not
+     */
+    open func itemAccessCheck(_ params:Dictionary<String,AnyObject>,itemId:String,callback:@escaping (NSDictionary,String,Bool)->Void)
+    {
 
+        let url:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.ITEMCHECK
+
+        let methodUrl:String=NSString(format: url as NSString ,itemId) as String
+
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+
+            if(!issuccess)
+            {
+                callback(result,"",issuccess)
+
+            }else
+            {
+                callback(result,"",issuccess)
+            }
+        }
+    }
 
 }

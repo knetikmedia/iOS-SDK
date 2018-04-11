@@ -136,7 +136,7 @@ class var COMMENTLIST:String {return "/media/videos/%@/comments"};
     class var VIRTUALITEMS:String {return "/virtualitems"};
     class var ITEMDETAILS:String {return "/store/items/%@"};
     class var QUICK_BUY:String {return "/store/quick-buy"};
-
+    class var ITEMCHECK:String {return "/users/me/entitlements/%@/check"}
 
 //End Store
     
