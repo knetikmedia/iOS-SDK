@@ -248,7 +248,7 @@ class JsapiRest :NSObject,URLSessionDelegate
 
             if(data == nil || data?.count <= 0 ){
             
-                callback(NSDictionary(),false)
+                callback(NSDictionary(),(httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 ))
                 return;
 
             }
