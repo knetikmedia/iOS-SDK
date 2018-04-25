@@ -267,6 +267,22 @@ open class CartService:NSObject
                 }
         }
     }
+
+
+    /**get wallet Transaction
+     */
+    open func getCartTransaction(_ cart:Dictionary<String,String>,userId:String,currencyCode:String,callback:@escaping (NSDictionary,String,Bool)->Void)
+    {
+        let endpoint=NSString(format: JSAPIConstant.CARTTRANSATION as NSString,userId,currencyCode)
+
+        let methodurl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String)
+
+        JsapiRest.sharedInstance.getRequest(methodurl,postParams: Utilities.getGETRequestFromDictionary(cart as Dictionary<String, AnyObject>))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            callback(result,"",issuccess)
+        }
+    }
     
     
 }

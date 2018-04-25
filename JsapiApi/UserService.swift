@@ -298,5 +298,21 @@ open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escap
         }
     }
 
+    /*
+        Load User Inventories 
+     */
+    open func getUserInventories(_ params:Dictionary<String,AnyObject>,callback:@escaping (UserItemInventoryResonse,String,Bool)->Void)
+    {
+        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.USERINVENTORY
+
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+
+            let baseResponse = UserItemInventoryResonse(fromDictionary: result)
+            callback(baseResponse,baseResponse.errormessage,issuccess)
+
+        }
+    }
 
 }

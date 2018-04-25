@@ -21,6 +21,8 @@ open class GeneralAdditionalPropertie:NSObject{
     open var totalVideos : GeneralNumber!
     open var goldLocked : GeneralNumber!
     open var itemId : GeneralNumber!
+    open var superItemId : GeneralNumber!
+    open var purchaseHeader : GeneralMessage!
 
 
 
@@ -81,7 +83,12 @@ open class GeneralAdditionalPropertie:NSObject{
         if let item_id = dictionary["item_id"] as? NSDictionary{
             itemId = GeneralNumber(fromDictionary: item_id)
         }
-
+        if let super_item_id = dictionary["super_item_id"] as? NSDictionary{
+            superItemId = GeneralNumber(fromDictionary: super_item_id)
+        }
+        if let purchase_header = dictionary["purchase_header"] as? NSDictionary{
+            purchaseHeader = GeneralMessage(fromDictionary: purchase_header)
+        }
 
 	}
 }

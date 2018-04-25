@@ -20,6 +20,7 @@ class var CARTDISCOUNT:String {return "/carts/%@/discounts" }  // %@ CARTGUID di
 class var CARTITEMS:String {return "/carts/%@/items" }  // %@ CARTGUID discount
 class var SHIPPINGADDRESS:String {return "/carts/%@/shipping-address" }  // %@ CARTGUID discount
 class var SHIPPABLE:String {return "/carts/%@/shippable" }  // %@ CARTGUID discount
+class var CARTTRANSATION:String {return "/users/%@/wallets/%@/transactions"}
  ///End Carts
 
 //registration
@@ -137,7 +138,7 @@ class var COMMENTLIST:String {return "/media/videos/%@/comments"};
     class var ITEMDETAILS:String {return "/store/items/%@"};
     class var QUICK_BUY:String {return "/store/quick-buy"};
     class var ITEMCHECK:String {return "/users/me/entitlements/%@/check"}
-
+    class var USERINVENTORY:String {return "/users/me/inventory"}
 //End Store
     
 //FAVORITE
@@ -202,7 +203,7 @@ class var COMMENTLIST:String {return "/media/videos/%@/comments"};
     class var ISUSERBLOCKED:String {return "/api/users/isblocked"};
     class var SYNCCOUNT:String {return "/api/videos/sync/count"}
     class var LEVELPROGRESS:String {return "/users/%@/leveling/%@"}
-
+    
     
     // SIGNED URL
     class var AWSSIGNEDURL:String {return "/amazon/s3/signedposturl"}

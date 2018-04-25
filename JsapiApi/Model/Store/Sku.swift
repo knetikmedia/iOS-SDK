@@ -11,8 +11,8 @@ open class Sku : NSObject{
     open var  minInventoryThreshold : AnyObject!
     open var  notAvailable : Bool!
     open var  notDisplayable : Bool!
-    open var  originalPrice : Int!
-    open var  price : Int!
+    open var  originalPrice : NSNumber!
+    open var  price : NSNumber!
     open var  published : Bool!
     open var  saleId : AnyObject!
     open var  saleName : AnyObject!
@@ -34,8 +34,8 @@ open class Sku : NSObject{
         minInventoryThreshold = dictionary["min_inventory_threshold"] as? AnyObject
         notAvailable = dictionary["not_available"] as? Bool
         notDisplayable = dictionary["not_displayable"] as? Bool
-        originalPrice = dictionary["original_price"] as? Int
-        price = dictionary["price"] as? Int
+        originalPrice = dictionary["original_price"] as? NSNumber
+        price = dictionary["price"] as? NSNumber
         published = dictionary["published"] as? Bool
         saleId = dictionary["sale_id"] as? AnyObject
         saleName = dictionary["sale_name"] as? AnyObject

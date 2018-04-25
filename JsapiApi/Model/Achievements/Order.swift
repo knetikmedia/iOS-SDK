@@ -22,3 +22,21 @@ open class GeneralNumber : NSObject{
    
     
 }
+
+open class GeneralMessage : NSObject{
+
+    open var type : String!
+    open var  value : String!
+
+
+    /**
+     * Instantiate the instance using the passed dictionary values to set the properties values
+     */
+    init(fromDictionary dictionary: NSDictionary){
+        type = dictionary["type"] as? String
+        value = dictionary["value"] as? String
+    }
+
+
+
+}
