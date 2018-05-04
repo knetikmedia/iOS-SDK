@@ -41,6 +41,8 @@ open class User:NSObject{
     open func getCountry()->String{return country;}
     open func getDateOfBirth()->NSNumber{return dateOfBirth;}
     open func getEmail()->String{return email}
+    open var userAdditionalProperties : NSDictionary!
+
     open func getFirstName()->String{
         if((firstName) != nil)
         {

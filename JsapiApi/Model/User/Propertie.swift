@@ -9,6 +9,9 @@ open class Propertie : NSObject {
 
 	open var devicetoken : Devicetoken!
     open var guest : Devicetoken!
+    open var breStartDate:GeneralNumber!
+    open var breEndDate:GeneralNumber!
+    open var breProgress:GeneralNumber!
 
     override public init(){super.init()}
 
@@ -21,6 +24,15 @@ open class Propertie : NSObject {
 		}
         if let devicetokenData = dictionary["guest"] as? NSDictionary{
             guest = Devicetoken(fromDictionary: devicetokenData)
+        }
+        if let devicetokenData = dictionary["bre_start_date"] as? NSDictionary{
+            breStartDate = GeneralNumber(fromDictionary: devicetokenData)
+        }
+        if let devicetokenData = dictionary["bre_end_date"] as? NSDictionary{
+            breEndDate = GeneralNumber(fromDictionary: devicetokenData)
+        }
+        if let devicetokenData = dictionary["bre_progress"] as? NSDictionary{
+            breProgress = GeneralNumber(fromDictionary: devicetokenData)
         }
 	}
 
@@ -35,6 +47,15 @@ open class Propertie : NSObject {
 		}
         if guest != nil{
             dictionary["guest"] = guest.toDictionary()
+        }
+        if breStartDate != nil{
+            dictionary["bre_start_date"] = breStartDate.toDictionary()
+        }
+        if breEndDate != nil{
+            dictionary["bre_end_date"] = breEndDate.toDictionary()
+        }
+        if breProgress != nil{
+            dictionary["bre_progress"] = breProgress.toDictionary()
         }
 		return dictionary
 	}

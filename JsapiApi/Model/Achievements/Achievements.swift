@@ -28,6 +28,9 @@ open class Achievements : NSObject{
     open var group_name : String!
     open var order : GeneralNumber!
     open var title : AchievementTitle!
+    open var vcAmount : GeneralNumber!
+    open var isSingle : GeneralNumber!
+    open var isHidden : NSNumber!
 
     override public init(){super.init()
         assets = [AssetContent]()
@@ -61,7 +64,11 @@ open class Achievements : NSObject{
             	assets.append(earned)
 
             }
-            
+
+            if let vc_amount = assetsArray?["vc_amount"] as? NSDictionary{
+                vcAmount = GeneralNumber(fromDictionary: vc_amount)
+            }
+
             if let orderData = assetsArray?["order"] as? NSDictionary{
                 order = GeneralNumber(fromDictionary: orderData)
             }
@@ -69,7 +76,11 @@ open class Achievements : NSObject{
             if let titleData = assetsArray?["thetitle"] as? NSDictionary{
                 title = AchievementTitle(fromDictionary: titleData)
             }
-            
+
+            if let is_single = assetsArray?["is_single"] as? NSDictionary{
+                isSingle = GeneralNumber(fromDictionary: is_single)
+            }
+
             
 		}
 		created = dictionary["created"] as? NSNumber
@@ -92,7 +103,8 @@ open class Achievements : NSObject{
         updated = dictionary["updated"] as? NSNumber
         userId = dictionary["user_id"] as? NSNumber
         group_name = dictionary["group_name"] as? String
-        
+        isHidden = dictionary["hidden"] as? NSNumber
+
         if let contentArray = dictionary["achievements"] as? [NSDictionary]{
             for dic in contentArray{
                 achieved = dic["achieved"] as? NSNumber
