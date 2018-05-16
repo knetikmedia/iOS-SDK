@@ -135,8 +135,15 @@ class JsapiRest :NSObject,URLSessionDelegate
                 
             return
             }
-            
-            
+
+            if jsonResult2 is NSArray{
+
+                 var responseResult =  Dictionary<String,NSArray>()
+                responseResult["result"] = jsonResult2 as! NSArray
+                callback(responseResult as NSDictionary,true)
+                return;
+            }
+
             let jsonResult : NSDictionary = (jsonResult2 as?NSDictionary)!;
             
             

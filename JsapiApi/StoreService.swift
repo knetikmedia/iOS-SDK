@@ -82,6 +82,19 @@ open class StoreService:NSObject
         }
     }
 
+    open func batchService(_ params:Dictionary<String,AnyObject>,callback:@escaping (NSDictionary,String,Bool)->Void)
+    {
+        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+JSAPIConstant.GETCHALLENGESBATCH
+
+        JsapiRest.sharedInstance.postrequest(methodUrl, postParams: Utilities.jsonRequestFromDictionary(params), isJson: true)
+        {
+            (result:NSDictionary,issuccess:Bool) in
+
+            callback(result,"",issuccess)
+
+        }
+    }
+
 
     open func quickBuy(_ params:Dictionary<String,String>,callback:@escaping (NSDictionary,String,Bool)->Void)
     {

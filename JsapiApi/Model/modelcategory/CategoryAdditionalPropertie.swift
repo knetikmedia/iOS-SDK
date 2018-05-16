@@ -23,6 +23,8 @@ open class GeneralAdditionalPropertie:NSObject{
     open var itemId : GeneralNumber!
     open var superItemId : GeneralNumber!
     open var purchaseHeader : GeneralMessage!
+    open var categoryItems : GeneralMessage!
+
 
 
 
@@ -88,6 +90,10 @@ open class GeneralAdditionalPropertie:NSObject{
         }
         if let purchase_header = dictionary["purchase_header"] as? NSDictionary{
             purchaseHeader = GeneralMessage(fromDictionary: purchase_header)
+        }
+
+        if let category_items = dictionary["category_items"] as? NSDictionary{
+            categoryItems = GeneralMessage(fromDictionary: category_items)
         }
 
 	}
