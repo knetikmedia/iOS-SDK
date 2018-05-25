@@ -24,6 +24,7 @@ open class GeneralAdditionalPropertie:NSObject{
     open var superItemId : GeneralNumber!
     open var purchaseHeader : GeneralMessage!
     open var categoryItems : GeneralMessage!
+    open var minimumVideos : GeneralNumber!
 
 
 
@@ -94,6 +95,10 @@ open class GeneralAdditionalPropertie:NSObject{
 
         if let category_items = dictionary["category_items"] as? NSDictionary{
             categoryItems = GeneralMessage(fromDictionary: category_items)
+        }
+
+        if let minimum_videos = dictionary["minimum_videos"] as? NSDictionary{
+            minimumVideos = GeneralNumber(fromDictionary: minimum_videos)
         }
 
 	}
