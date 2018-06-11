@@ -578,6 +578,7 @@ open class VideoService:NSObject
         }
         
     }
+
     open func getJudgedVideos(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<JudgedBy>,String,Bool)->Void)
     {
 
@@ -597,6 +598,58 @@ open class VideoService:NSObject
                 let baseResponse=JudgeUsersBaseResponse(fromDictionary: result )
 
                 callback(baseResponse.data.judgedBy,"",issuccess)
+
+            }
+
+        }
+    }
+
+    
+
+    open func getWonStateForParentVideo(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<BattleWonLeaderBoard>,String,Bool)->Void)
+    {
+
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.WONSTATEVIDEOS
+
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            if(!issuccess)
+            {
+                let baseResponse=BattleWonResponse()
+
+                callback(baseResponse.battleWonLeaderBoard,baseResponse.errormessage,issuccess)
+
+            }else
+            {
+                let baseResponse=BattleWonResponse(fromDictionary: result)
+
+                callback(baseResponse.battleWonLeaderBoard,"",issuccess)
+
+            }
+
+        }
+    }
+
+    open func getWonStateForCategory(_ params:Dictionary<String,AnyObject>,callback:@escaping (Array<BattleWonLeaderBoard>,String,Bool)->Void)
+    {
+
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.WONSTATECATEGORY
+
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            if(!issuccess)
+            {
+                let baseResponse=BattleWonResponse()
+
+                callback(baseResponse.battleWonLeaderBoard,baseResponse.errormessage,issuccess)
+
+            }else
+            {
+                let baseResponse=BattleWonResponse(fromDictionary: result)
+
+                callback(baseResponse.battleWonLeaderBoard,"",issuccess)
 
             }
 

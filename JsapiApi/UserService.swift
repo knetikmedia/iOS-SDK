@@ -139,7 +139,31 @@ open func getUserAchievements(_ params:Dictionary<String,String>,callback:@escap
                 }
         }
     }
-    
+
+
+    /**set Get UserName from Group
+    //
+     */
+    open func getUserNameFromGroup(_ params:Dictionary<String,String>,groupName:String,userId:String,callback:@escaping (User,String,Bool)->Void)
+    {
+        let endpoint=NSString(format: JSAPIConstant.GETUSERGROUP as NSString,groupName,userId)
+
+        let methodUrl:String=JsapiAPi.sharedInstance.getJsapiUrl()+(endpoint as String);
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params as Dictionary<String, AnyObject>))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            let baseResponse=UserResponse(fromDictionary: result)
+            if(!issuccess)
+            {
+                callback(User(),"",issuccess)
+
+            }else
+            {
+                callback(baseResponse.user,"",issuccess)
+
+            }
+        }
+    }
     
     /**set user Group /users/groups/{unique_name}/members
     Dictionary {password: newPasswordString}

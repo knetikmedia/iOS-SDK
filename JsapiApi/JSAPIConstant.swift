@@ -37,6 +37,7 @@ class var UPDATEUSERINFO:String {return "/users/me"};
 class var SETUSERPASSWORD:String {return "/users/%@/password"};
 class var GETUSERINFOBYID:String {return "/users/%@"};
 class var SETUSERGROUP:String {return "/users/groups/%@/members"};
+class var GETUSERGROUP:String {return "/users/groups/%@/members/%@"};
 class var ISEMAILVERIFIED:String {return "/api/isverified/email"};
 class var REQUESTEMAILVERIFIED:String {return "/api/requestverify/email"};
 class var RESETPASSWORDFOREMAIL:String {return "/users/password-reset"};
@@ -171,11 +172,14 @@ class var COMMENTLIST:String {return "/media/videos/%@/comments"};
     class var TRENDINGVIDEOS:String {return "/api/trending"};
     class var JUDGEDVIDEOS:String {return "/api/videos/judges"};
     class var JUDGEDCATEGORIES:String {return "/api/categories/judges"};
+    class var WONSTATEVIDEOS:String {return "/api/videos/parent/judges"};
+    class var WONSTATECATEGORY:String {return "/api/videos/category/judges"};
 
     class var FOLLOWINGVIDEOS:String {return "/api/videos/followers/%@"};
 
     class var DASHBOARDLEFTLINKSVIDEOS:String {return "/api/dashboard"};
-
+    
+    class var WONSTATELEADERBOARD:String { return "/api/videos/leaderboard/wonstate"};
     
     //CHALLENGES
     class var GETCHALLENGES:String {return "/challenges"};

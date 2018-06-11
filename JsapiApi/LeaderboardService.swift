@@ -9,6 +9,27 @@
 import Foundation
 open class LeaderboardService:NSObject
 {
+
+
+    open func getWonStateLeaderboards(_ params:Dictionary<String,AnyObject>,callback:@escaping (UserStateResponse,String,Bool)->Void)
+    {
+        let methodUrl:String=JsapiAPi.sharedInstance.getNotificationUrl()+JSAPIConstant.WONSTATELEADERBOARD
+        JsapiRest.sharedInstance.getRequest(methodUrl, postParams: Utilities.getGETRequestFromDictionary(params))
+        {
+            (result:NSDictionary,issuccess:Bool) in
+            let baseResponse=UserStateResponse(fromDictionary: result)
+            if(!issuccess)
+            {
+                callback(UserStateResponse(),baseResponse.errormessage,issuccess)
+
+            }else
+            {
+                callback(baseResponse,"",issuccess)
+
+            }
+
+        }
+    }
     
     /** Get Leaderboards
     */
@@ -32,6 +53,8 @@ open class LeaderboardService:NSObject
                 
         }
     }
+    
+    
  
     /** Get Strategies
     */
