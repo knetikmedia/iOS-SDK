@@ -25,6 +25,7 @@ open class GeneralAdditionalPropertie:NSObject{
     open var purchaseHeader : GeneralMessage!
     open var categoryItems : GeneralMessage!
     open var minimumVideos : GeneralNumber!
+    open var makeYourOwn : GeneralMessage!
 
 
 
@@ -99,6 +100,10 @@ open class GeneralAdditionalPropertie:NSObject{
 
         if let minimum_videos = dictionary["minimum_videos"] as? NSDictionary{
             minimumVideos = GeneralNumber(fromDictionary: minimum_videos)
+        }
+
+        if let make_your_own = dictionary["makeYourOwn"] as? NSDictionary{
+            makeYourOwn = GeneralMessage(fromDictionary: make_your_own)
         }
 
 	}
