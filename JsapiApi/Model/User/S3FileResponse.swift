@@ -4,14 +4,14 @@ import Foundation
 
 public class S3FileResponse : BaseResponse {
     
-    var action : String!
-    var cdnUrl : String!
-    var createdDate : NSNumber!
-    var filename : String!
-    var fileId : NSNumber!
-    var objectKey : String!
-    var url : String!
-    var userId :  NSNumber!
+    open var action : String!
+    open var cdnUrl : String!
+    open var createdDate : NSNumber!
+    open var filename : String!
+    open var fileId : NSNumber!
+    open var objectKey : String!
+    open var url : String!
+    open var userId :  NSNumber!
     
     
     /**

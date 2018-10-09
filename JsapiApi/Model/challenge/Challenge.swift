@@ -24,7 +24,7 @@ open class Challenge :NSObject{
 	open var startDate : NSNumber!
 	open var updated : NSNumber!
     open var assets : NSDictionary!
-    var additionalProperties : ChallengeAdditionalPropertie!
+    open var additionalProperties : ChallengeAdditionalPropertie!
 
     public override init(){}
 

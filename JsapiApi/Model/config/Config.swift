@@ -14,7 +14,7 @@ open class Config : NSObject{
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
-	init(fromDictionary dictionary: NSDictionary){
+	public init(fromDictionary dictionary: NSDictionary){
 		name = dictionary["name"] as? String
 		value = dictionary["value"] as? String
 	}

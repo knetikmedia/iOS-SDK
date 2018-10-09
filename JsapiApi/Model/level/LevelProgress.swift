@@ -11,14 +11,14 @@ import Foundation
 
 open class LevelProgress : BaseResponse{
 
-    var lastTierName : String!
-    var lastTierProgress : NSNumber!
-    var levelName : String!
-    var nextTierName : NSDictionary!
-    var nextTierProgress : NSDictionary!
-    var progress : NSNumber!
-    var tierNames : [String]!
-    var userId : NSNumber!
+    open var lastTierName : String!
+    open var lastTierProgress : NSNumber!
+    open var levelName : String!
+    open var nextTierName : NSDictionary!
+    open var nextTierProgress : NSDictionary!
+    open var progress : NSNumber!
+    open var tierNames : [String]!
+    open var userId : NSNumber!
 
 
     /**

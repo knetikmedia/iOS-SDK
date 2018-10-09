@@ -4,15 +4,15 @@ import Foundation
 
 open class UserItemInventoryResonse:BaseResponse{
 
-	var items : [Item]!
-	var first : Bool!
-	var last : Bool!
-	var number : NSNumber!
-	var numberOfElements : NSNumber!
-	var size : NSNumber!
-	var sort : AnyObject!
-	var totalElements : NSNumber!
-	var totalPages : NSNumber!
+	open var items : [Item]!
+	open var first : Bool!
+	open var last : Bool!
+	open var number : NSNumber!
+	open var numberOfElements : NSNumber!
+	open var size : NSNumber!
+	open var sort : AnyObject!
+	open var totalElements : NSNumber!
+	open var totalPages : NSNumber!
 
 
 	/**
